@@ -22,8 +22,13 @@ module.exports = function(grunt) {
                     livereload: true,
                 },
             },
+            sass: {
+                files: ['public/css/common.scss, public/css/views/articles.scss'],
+                tasks: ['sass:dist']
+            },
             css: {
                 files: ['public/css/**'],
+                tasks: ['sass'],
                 options: {
                     livereload: true
                 }
@@ -50,7 +55,7 @@ module.exports = function(grunt) {
             }
         },
         concurrent: {
-            tasks: ['nodemon', 'watch'], 
+            tasks: ['nodemon', 'watch'],
             options: {
                 logConcurrentOutput: true
             }
@@ -60,6 +65,17 @@ module.exports = function(grunt) {
                 reporter: 'spec'
             },
             src: ['test/**/*.js']
+        },
+        sass: {
+            dist: {
+                options: {
+                    style: 'expanded'
+                },
+                files: {
+                    'public/css/common.css': 'public/css/common.scss',
+                    'public/css/views/articles.css': 'public/css/views/articles.scss'
+                },
+            }
         },
         bower: {
             install: {
@@ -71,7 +87,7 @@ module.exports = function(grunt) {
                     cleanBowerDir: true
                 }
             }
-        }
+        },
     });
 
     //Load NPM tasks 
@@ -80,13 +96,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-bower-task');
 
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
 
     //Default task(s).
-    grunt.registerTask('default', ['jshint', 'concurrent']);
+    grunt.registerTask('default', ['jshint', 'concurrent', 'sass']);
 
     //Test task.
     grunt.registerTask('test', ['mochaTest']);
