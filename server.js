@@ -19,8 +19,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     mongoose = require('mongoose');
 
 //Bootstrap db connection
-var db_host = process.env.C4H_DB_HOST || "mongodb://localhost/mean-dev";
-var db = mongoose.connect(db_host);
+var db = mongoose.connect(config.db);
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
