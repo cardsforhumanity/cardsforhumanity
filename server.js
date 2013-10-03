@@ -4,7 +4,8 @@
 var express = require('express'),
     fs = require('fs'),
     passport = require('passport'),
-    logger = require('mean-logger');
+    logger = require('mean-logger'),
+    io = require('socket.io');
 
 /**
  * Main application entry file.
@@ -51,7 +52,10 @@ require('./config/routes')(app, passport, auth);
 
 //Start the app by listening on <port>
 var port = config.port;
-app.listen(port);
+var server = app.listen(port);
+var ioObj = io.listen(server, { log: false });
+//game logic handled here
+require('./config/socket/socket')(ioObj);
 console.log('Express app started on port ' + port);
 
 //Initializing logger
