@@ -62,6 +62,20 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the userId param
     app.param('userId', users.user);
 
+    // Answer Routes
+    var answers = require('../app/controllers/answers');
+    app.get('/answers', answers.all);
+    app.get('/answers/:answerId', answers.show);
+    // Finish with setting up the answerId param
+    app.param('answerId', answers.answer);
+
+    // Question Routes
+    var questions = require('../app/controllers/questions');
+    app.get('/questions', questions.all);
+    app.get('/questions/:questionId', questions.show);
+    // Finish with setting up the questionId param
+    app.param('questionId', questions.question);
+
     //Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);
