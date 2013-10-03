@@ -7,18 +7,28 @@ angular.module('mean.system')
     };
 
     return _this._data;
-}]).factory('ApiService', ['$http', '$q', function($http, $q) {
+}]).factory('QuestionService', ['$http', '$q', function($http, $q) {
   return {
-    getCards: function() {
+    getQuestions: function() {
       return $q.all([
-        $http.get('/answers'),
         $http.get('/questions')
       ])
       .then(function(results) {
-        var data = [];
-        angular.forEach(results, function(result){
-          data = data.concat(result.data);
-        });
+        var data = {};
+        data = results[0].data;
+        return data;
+      });
+    }
+  };
+}]).factory('AnswerService', ['$http', '$q', function($http, $q) {
+  return {
+    getAnswers: function() {
+      return $q.all([
+        $http.get('/answers')
+      ])
+      .then(function(results) {
+        var data = {};
+        data = results[0].data;
         return data;
       });
     }

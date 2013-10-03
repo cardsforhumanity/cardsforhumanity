@@ -3,25 +3,16 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
     socket.on('test', function() {
       console.log('test!');
     });
-}]).controller('CardController', ['$scope', 'ApiService', function($scope, ApiService) {
-  ApiService.getCards()
+}]).controller('CardController', ['$scope', 'QuestionService', 'AnswerService', function($scope, QuestionService, AnswerService) {
+  QuestionService.getQuestions()
     .then(function(data) {
-       angular.forEach(data, function(data, key){
-        if (data.numAnswers) {
-          answers(data);
-        } else if (!data.numAnswers) {
-          questions(data);
-        }
-      });
+      $scope.questions = data;
     });
 
-    var answers = function(answerCards) {
-      
-    };
-
-    var questions = function(questionCards) {
-
-    };
+  AnswerService.getAnswers()
+    .then(function(data) {
+      $scope.answers = data;
+    });
 }]);
 
 /**
@@ -33,4 +24,6 @@ data.expansion -> if it's from the base card set or an expansion pack
 ---- NSFH, CAHe3, Image1, GOT, PAXP13
 data.numAnswers --> identifies if it's a question card and how many
 answers it accepts
+
+$scope.answers[0].text --> accesses the text for the first answer card in the deck
 **/
