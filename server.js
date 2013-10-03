@@ -52,8 +52,8 @@ require('./config/routes')(app, passport, auth);
 
 //Start the app by listening on <port>
 var port = config.port;
-app.listen(port);
-var ioObj = io.listen(port, { log: false });
+var server = app.listen(port);
+var ioObj = io.listen(server, { log: false });
 //game logic handled here
 require('./config/socket/socket')(ioObj);
 console.log('Express app started on port ' + port);
