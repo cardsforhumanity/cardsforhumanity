@@ -31,8 +31,8 @@ var AnswerSchema = new Schema({
 AnswerSchema.statics = {
     load: function(id, cb) {
         this.findOne({
-            _id: id
-        }).populate('user', 'name username').exec(cb);
+            id: id
+        }).exec(cb);
     }
 };
 
