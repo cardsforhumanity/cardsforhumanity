@@ -14,17 +14,36 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       }
 
       var rnd;
+      var flag = 0;
       for (var test in data) {
-        if (minVal === 0 && maxVal && test < 10) {
-          rnd = Math.floor(Math.random() * (maxVal - minVal)) + minVal;
-          console.log(data[rnd]);
+        rnd = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
+        if (data[rnd].expansion === 'Base' && flag < 1) {
+          flag++;
+          $scope.question = data[rnd];
+          console.log($scope.question);
         }
       }
     });
 
+  $scope.answers = [];
   AnswerService.getAnswers()
     .then(function(data) {
-      $scope.answers = data;
+      var maxVal;
+      var minVal = 0;
+      for (var key in data) {
+        maxVal = key;
+      }
+
+      var rnd;
+      var flag = 0;
+      for (var test in data) {
+        rnd = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
+        if (data[rnd].expansion === 'Base' && flag < 10) {
+          flag++;
+          $scope.answers.push(data[rnd]);
+          console.log($scope.answers);
+        }
+      }
     });
 }]);
 
