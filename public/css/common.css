@@ -23,3 +23,96 @@ footer {
 footer p {
   padding: 5px 0 12px 10px;
 }
+
+.card {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 14em;
+  height: 20em;
+  padding: 1em;
+  margin: 1em;
+  background-color: #f9f9f9;
+  border-radius: 0.5em;
+  border: 0.0625em solid black;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.25);
+  color: black;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.card.black {
+  background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+  border-color: white;
+  color: white;
+}
+
+.card:before {
+  content: 'CFH';
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+.card u {
+  position: relative;
+  content: '';
+  display: inline-block;
+  width: 50%;
+  text-decoration: none;
+  height: 1em;
+  border-bottom: 0.125em solid black;
+  margin-bottom: -0.125em;
+}
+
+.card u.small {
+  width: 25%;
+}
+
+.card u.big {
+  width: 75%;
+}
+
+/* Add period to the end of the line */
+.card u.end:after {
+  position: absolute;
+  right: -0.357em;
+  display: inline-block;
+  content: '.';
+}
+
+.hand {
+  position: relative;
+  width: 24em;
+  height: 34em;
+}
+
+.hand .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hand .card:nth-child(1) {
+  -webkit-transform: rotate(-7deg);
+}
+
+.hand .card:nth-child(2) {
+  -webkit-transform: rotate(-3deg);
+  left: 2%;
+  top: 2%;
+}
+
+.hand .card:nth-child(3) {
+  -webkit-transform: rotate(0deg);
+  left: 4%;
+  top: 4%;
+}
+
+.hand .card:active {
+  z-index: 1;
+}
