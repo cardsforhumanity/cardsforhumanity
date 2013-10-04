@@ -4,9 +4,22 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       console.log('test!');
     });
 }]).controller('CardController', ['$scope', 'QuestionService', 'AnswerService', function($scope, QuestionService, AnswerService) {
+  $scope.question = {};
   QuestionService.getQuestions()
     .then(function(data) {
-      $scope.questions = data;
+      var maxVal;
+      var minVal = 0;
+      for (var key in data) {
+        maxVal = key;
+      }
+
+      var rnd;
+      for (var test in data) {
+        if (minVal === 0 && maxVal && test < 10) {
+          rnd = Math.floor(Math.random() * (maxVal - minVal)) + minVal;
+          console.log(data[rnd]);
+        }
+      }
     });
 
   AnswerService.getAnswers()
