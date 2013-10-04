@@ -37,7 +37,8 @@
     "grunt": "latest",
     "grunt-cli": "latest",
     "grunt-bower-task": "latest",
-    "socket.io": "~0.9.16"
+    "socket.io": "~0.9.16",
+    "bcrypt": "latest"
   },
   "devDependencies": {
     "supertest": "latest",
