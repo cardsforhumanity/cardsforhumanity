@@ -1,4 +1,3 @@
-// window.app = angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system']);
 angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system'])
   .config(['$routeProvider',
       function($routeProvider) {
