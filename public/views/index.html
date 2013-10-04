@@ -1,3 +1,5 @@
 <section data-ng-controller="IndexController">
   <h1>This is the home view</h1>
+  <h1 ng-click='joinGame()' ng-hide='inGame'>JOIN GAME!</h1>
+  <h1 ng-click='leaveGame()' ng-show='inGame'>LEAVE GAME!</h1>
 </section>
