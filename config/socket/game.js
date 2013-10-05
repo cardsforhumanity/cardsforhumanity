@@ -5,10 +5,19 @@ var answers = require(__dirname + '/../../app/controllers/answers.js');
 function Game(gameID) {
   this.gameID = gameID;
   this.players = [];
+  this.czar = 0;
   this.playerLimit = 3;
+  this.pointLimit = 5;
   this.state = "awaiting players";
   this.questions = null;
   this.answers = null;
+  this.curQuestion = null;
+  this.timeLimits = {
+    stateChoosing: 30000,
+    stateJudging: 10000,
+    stateResults: 5000
+  };
+  this.judgingTimeout;
 };
 
 Game.prototype.startGame = function() {
@@ -26,7 +35,33 @@ Game.prototype.startGame = function() {
       self.answers = results[1];
       self.shuffleCards(self.questions);
       self.shuffleCards(self.answers);
+
+      //put this into startRound
+      self.curQuestion = self.questions.pop();
+      self.dealAnswers();
+      // rotate czar here
+      self.stateChoosing();
     });
+};
+
+Game.prototype.stateChoosing = function() {
+  //do stuff
+  setTimeout(this.stateJudging, this.timeLimits.stateChoosing);
+};
+
+Game.prototype.stateJudging = function() {
+  //do stuff
+  this.judgingTimeout = setTimeout(this.stateResults, this.timeLimits.stateJudging);
+};
+
+Game.prototype.stateResults = function() {
+  //do stuff
+  for (var i = 0; i < this.players.length; i++) {
+    if (this.players[i].points >= this.pointLimit) {
+      //return this.endGame(this.players[i]);
+    }
+  }
+  setTimeout(this.stateChoosing, this.timeLimits.stateResults);
 };
 
 Game.prototype.getQuestions = function(cb) {

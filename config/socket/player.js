@@ -1,8 +1,10 @@
 function Player(socket) {
   this.socket = socket;
   this.hand = [];
-  this.score = 0;
+  this.points = 0;
   this.username = null;
+  this.avatarURL = null;
+  this.userID = null;
 }
 
 module.exports = Player;
