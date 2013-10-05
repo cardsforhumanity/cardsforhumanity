@@ -1,4 +1,57 @@
 $main-font: "helvetica neue", helvetica, sans-serif;
+@mixin button {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0) );
+    background: -moz-linear-gradient( center top, #fcfcfc 5%, #f0f0f0 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+    background-color: #fcfcfc;
+    -webkit-border-top-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-bottom-right-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-bottom-left-radius: 20px;
+    text-indent: 0;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    color: #777777;
+    font-family: arial;
+    font-size: 50px;
+    font-weight: bold;
+    font-style: normal;
+    height: 200px;
+    line-height: 200px;
+    width: 300px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0px #ffffff;
+    margin-top: 15px;
+    cursor: pointer;
+} 
+
+@mixin button-hover {
+background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed) );
+background: -moz-linear-gradient( center top, #f0f0f0 5%, #ededed 100% );
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+background-color: #f0f0f0;
+color: #4e4e4e;
+}
+
+html, body, #main-container, .cont, #inner-container, #first-section{
+    height: 100%
+}
+
+#mission-statement-container{
+    height: 100%;
+}
 
 .main-container{
     width: 80%;
@@ -35,6 +88,41 @@ $main-font: "helvetica neue", helvetica, sans-serif;
 #longer-description {
     margin-top: 2%;
     font-size: 1.9em;
+    width: 81%;
+}
+
+#join-game-container{
+    width: 27%; 
+    margin: 0px auto;
+}
+
+#play-as-guest {
+    text-align: right;
+}
+
+#signup-button {
+    @include button;
+}
+
+#signup-button:hover {
+    @include button-hover;
+}
+
+#description-container{
+    $description-width: 100%;
+    margin-top: 50px;
+
+    #first-card{
+        width: ($description-width / 3) - 4; 
+    }
+
+    #second-card{
+        width: ($description-width / 3) - 4; 
+    }
+
+    #third-card{
+        width: ($description-width / 3) - 4; 
+    }
 }
 
 footer {

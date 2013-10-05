@@ -1,4 +1,4 @@
-<section data-ng-controller="IndexController">
+<section data-ng-controller="IndexController" id="first-section">
   <div id = "inner-container">
     <div id ="mission-statement-container">
       <div id = "slogan">
@@ -28,10 +28,10 @@
         Sign Up
       </div>
       <div id = "play-as-guest">
-        Play as Guest
+        or <i>Play as Guest</i>
       </div>
     </div>
-  <h1 ng-click='joinGame()' ng-hide='inGame'>JOIN GAME!</h1>
-  <h1 ng-click='leaveGame()' ng-show='inGame'>LEAVE GAME!</h1>
   </div>
+    <h1 ng-click='joinGame()' ng-hide='inGame'>JOIN GAME!</h1>
+    <h1 ng-click='leaveGame()' ng-show='inGame'>LEAVE GAME!</h1>
 </section>
