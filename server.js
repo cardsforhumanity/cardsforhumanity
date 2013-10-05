@@ -44,12 +44,6 @@ require('./config/passport')(passport);
 
 var app = express();
 
-
-app.use(function(req, res, next){
-    console.log('req.url', req.url);
-    next();
-})
-
 //express settings
 require('./config/express')(app, passport);
 
