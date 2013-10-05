@@ -11,9 +11,30 @@ $main-font: "helvetica neue", helvetica, sans-serif;
     margin-left:0
 }
 
+.cont {
+    width: 97%;
+    margin: 0px auto;
+}
+
 .content {
     margin-top:50px;
     width:70%
+}
+
+#slogan {
+    width: 100%;
+    font-size: 4em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#logo{
+    float: right;
+}
+
+#longer-description {
+    margin-top: 2%;
+    font-size: 1.9em;
 }
 
 footer {
@@ -59,7 +80,6 @@ footer {
     &.black {
         background: black radial-gradient(ellipse at bottom right, rgb(50, 50, 50) 0%,#000000 100%);
         border-color: white;
-
         color: white;
     }
 
