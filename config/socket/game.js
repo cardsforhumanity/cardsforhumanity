@@ -2,7 +2,8 @@ var async = require('async');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
 
-function Game(gameID) {
+function Game(gameID, io) {
+  this.io = io;
   this.gameID = gameID;
   this.players = [];
   this.czar = -1;
@@ -13,14 +14,31 @@ function Game(gameID) {
   this.answers = null;
   this.curQuestion = null;
   this.timeLimits = {
-    stateChoosing: 30000,
+    stateChoosing: 5000,
     stateJudging: 10000,
     stateResults: 5000
   };
   this.judgingTimeout;
 };
 
-Game.prototype.startGame = function() {
+Game.prototype.payload = function() {
+  var players = [];
+  this.players.forEach(function(player,index) {
+    players.push({
+      hand: player.hand,
+      points: player.points,
+      username: player.username,
+      avatarURL: player.avatarURL,
+      userID: player.userID
+    });
+  });
+  return {
+    players: players,
+    czar: this.czar
+  };
+};
+
+Game.prototype.prepareGame = function() {
   this.state = "game in progress";
   var self = this;
   async.parallel([
@@ -33,40 +51,60 @@ Game.prototype.startGame = function() {
       }
       self.questions = results[0];
       self.answers = results[1];
-      self.shuffleCards(self.questions);
-      self.shuffleCards(self.answers);
 
-      //put this into startRound
-      self.curQuestion = self.questions.pop();
-      self.dealAnswers();
-      // rotate czar here
-      self.stateChoosing();
+      self.startGame();
     });
 };
 
-Game.prototype.stateChoosing = function() {
+Game.prototype.startGame = function() {
+  console.log(this.state);
+  this.shuffleCards(this.questions);
+  this.shuffleCards(this.answers);
+  this.stateChoosing(this);
+};
+
+Game.prototype.stateChoosing = function(self) {
+  self.state = "waiting for players to pick";
+  console.log(self.state);
+  self.curQuestion = self.questions.pop();
+  self.dealAnswers();
   // Rotate card czar
-  if (this.czar >= this.players.length - 1) {
-    this.czar = 0;
+  if (self.czar >= self.players.length - 1) {
+    self.czar = 0;
   } else {
-    this.czar++;
+    self.czar++;
   }
-  setTimeout(this.stateJudging, this.timeLimits.stateChoosing);
+  self.io.sockets.in(self.gameID).emit('startGame', self.payload());
+
+
+  setTimeout(function() {
+    self.stateJudging(self);
+  }, self.timeLimits.stateChoosing);
 };
 
-Game.prototype.stateJudging = function() {
-  //do stuff
-  this.judgingTimeout = setTimeout(this.stateResults, this.timeLimits.stateJudging);
+Game.prototype.stateJudging = function(self) {
+  self.state = "waiting for czar to decide";
+  console.log(self.state);
+  // TODO: do stuff
+  self.judgingTimeout = setTimeout(function() {
+    self.stateResults(self);
+  }, self.timeLimits.stateJudging);
 };
 
-Game.prototype.stateResults = function() {
-  //do stuff
-  for (var i = 0; i < this.players.length; i++) {
-    if (this.players[i].points >= this.pointLimit) {
-      //return this.endGame(this.players[i]);
+Game.prototype.stateResults = function(self) {
+  self.state = "winner has been chosen";
+  console.log(self.state);
+  // TODO: do stuff
+  // TODO: increment winner's score here
+  for (var i = 0; i < self.players.length; i++) {
+    if (self.players[i].points >= self.pointLimit) {
+      // TODO: endGame()
+      //return self.endGame(self.players[i]);
     }
   }
-  setTimeout(this.stateChoosing, this.timeLimits.stateResults);
+  setTimeout(function() {
+    self.stateChoosing(self);
+  }, self.timeLimits.stateResults);
 };
 
 Game.prototype.getQuestions = function(cb) {

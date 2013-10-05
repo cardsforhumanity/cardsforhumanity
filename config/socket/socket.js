@@ -17,7 +17,7 @@ module.exports = function(io) {
       if (gamesNeedingPlayers.length <= 0) {
         gameID += 1;
         var gameIDStr = gameID.toString()
-        game = new Game(gameIDStr);
+        game = new Game(gameIDStr, io);
         game.players.push(player);
         allGames[gameID] = game;
         gamesNeedingPlayers.push(game);
@@ -31,7 +31,7 @@ module.exports = function(io) {
         socket.gameID = game.gameID;
         if (game.players.length >= game.playerLimit) {
           gamesNeedingPlayers.shift();
-          game.startGame();
+          game.prepareGame();
         }
       }
     });
