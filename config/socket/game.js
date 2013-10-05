@@ -5,7 +5,7 @@ var answers = require(__dirname + '/../../app/controllers/answers.js');
 function Game(gameID) {
   this.gameID = gameID;
   this.players = [];
-  this.czar = 0;
+  this.czar = -1;
   this.playerLimit = 3;
   this.pointLimit = 5;
   this.state = "awaiting players";
@@ -45,7 +45,12 @@ Game.prototype.startGame = function() {
 };
 
 Game.prototype.stateChoosing = function() {
-  //do stuff
+  // Rotate card czar
+  if (this.czar >= this.players.length - 1) {
+    this.czar = 0;
+  } else {
+    this.czar++;
+  }
   setTimeout(this.stateJudging, this.timeLimits.stateChoosing);
 };
 
