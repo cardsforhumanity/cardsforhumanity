@@ -29,22 +29,28 @@ Game.prototype.payload = function() {
       points: player.points,
       username: player.username,
       avatarURL: player.avatarURL,
-      userID: player.userID
+      userID: player.userID,
+      socketID: player.socket.id
     });
   });
   return {
     players: players,
     czar: this.czar,
-    playerLimit: this.playerLimit,
-    pointLimit: this.pointLimit,
     state: this.state,
-    curQuestion: this.curQuestion,
-    timeLimits: this.timeLimits
+    curQuestion: this.curQuestion
   };
 };
 
 Game.prototype.prepareGame = function() {
   this.state = "game in progress";
+
+  this.io.sockets.in(this.gameID).emit('prepareGame',
+    {
+      playerLimit: this.playerLimit,
+      pointLimit: this.pointLimit,
+      timeLimits: this.timeLimits
+    });
+
   var self = this;
   async.parallel([
     this.getQuestions,

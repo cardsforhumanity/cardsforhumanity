@@ -1,7 +1,9 @@
 angular.module('mean.system').factory('game', ['socket', function(socket){
 
   var game = {
+    id: null,
     players: [],
+    hand: [],
     czar: null,
     playerLimit: null,
     pointLimit: null,
@@ -10,17 +12,33 @@ angular.module('mean.system').factory('game', ['socket', function(socket){
     timeLimits: {}
   };
 
+  socket.on('id', function(data) {
+    game.id = data.id;
+  });
+
+  socket.on('prepareGame', function(data) {
+    game.playerLimit = data.playerLimit;
+    game.pointLimit = data.pointLimit;
+    game.timeLimits = data.timeLimits;
+  });
+
   socket.on('gameUpdate', function(data) {
     console.log(data);
-    if (data.state === 'game in progress') {
-      game.playerLimit = data.playerLimit;
-      game.pointLimit = data.pointLimit;
-      game.timeLimits = data.timeLimits;
-    }
-    game.players = data.players;
-    game.czar = data.czar;
+
     game.state = data.state;
-    game.curQuestion = data.curQuestion;
+    game.players = data.players;
+
+    if (data.state === 'waiting for players to pick') {
+      game.czar = data.czar;
+      game.curQuestion = data.curQuestion;
+    }
+
+    for (var i = 0; i < data.players.length; i++) {
+      if (game.id === data.players[i].socketID) {
+        game.hand = data.players[i].hand;
+        console.log('game.hand set to ', game.hand);
+      }
+    }
   });
 
   return game;
