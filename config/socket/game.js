@@ -14,9 +14,9 @@ function Game(gameID, io) {
   this.answers = null;
   this.curQuestion = null;
   this.timeLimits = {
-    stateChoosing: 5000,
-    stateJudging: 10000,
-    stateResults: 5000
+    stateChoosing: 2000,
+    stateJudging: 2000,
+    stateResults: 2000
   };
   this.judgingTimeout;
 };
@@ -34,7 +34,12 @@ Game.prototype.payload = function() {
   });
   return {
     players: players,
-    czar: this.czar
+    czar: this.czar,
+    playerLimit: this.playerLimit,
+    pointLimit: this.pointLimit,
+    state: this.state,
+    curQuestion: this.curQuestion,
+    timeLimits: this.timeLimits
   };
 };
 
@@ -74,7 +79,7 @@ Game.prototype.stateChoosing = function(self) {
   } else {
     self.czar++;
   }
-  self.io.sockets.in(self.gameID).emit('startGame', self.payload());
+  self.io.sockets.in(self.gameID).emit('gameUpdate', self.payload());
 
 
   setTimeout(function() {
@@ -86,6 +91,7 @@ Game.prototype.stateJudging = function(self) {
   self.state = "waiting for czar to decide";
   console.log(self.state);
   // TODO: do stuff
+  self.io.sockets.in(self.gameID).emit('gameUpdate', self.payload());
   self.judgingTimeout = setTimeout(function() {
     self.stateResults(self);
   }, self.timeLimits.stateJudging);
@@ -102,6 +108,7 @@ Game.prototype.stateResults = function(self) {
       //return self.endGame(self.players[i]);
     }
   }
+  self.io.sockets.in(self.gameID).emit('gameUpdate', self.payload());
   setTimeout(function() {
     self.stateChoosing(self);
   }, self.timeLimits.stateResults);
