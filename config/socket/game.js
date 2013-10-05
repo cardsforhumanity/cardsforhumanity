@@ -56,5 +56,14 @@ Game.prototype.shuffleCards = function(cards) {
   return cards;
 };
 
+Game.prototype.dealAnswers = function(maxAnswers) {
+  maxAnswers = maxAnswers || 10;
+  for (var i = 0; i < this.players.length; i++) {
+    while (this.players[i].hand.length < maxAnswers) {
+      this.players[i].hand.push(this.answers.pop());
+    }
+  }
+};
+
 module.exports = Game;
 
