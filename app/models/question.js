@@ -21,6 +21,9 @@ var QuestionSchema = new Schema({
     numAnswers: {
         type: Number
     },
+    official: {
+        type: Boolean
+    },
     expansion: {
         type: String,
         default: '',
@@ -35,7 +38,7 @@ QuestionSchema.statics = {
     load: function(id, cb) {
         this.findOne({
             id: id
-        }).exec(cb);
+        }).select('-_id').exec(cb);
     }
 };
 
