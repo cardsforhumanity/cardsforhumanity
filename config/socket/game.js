@@ -1,3 +1,4 @@
+var async = require('async');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
 
@@ -12,21 +13,31 @@ function Game(gameID) {
 
 Game.prototype.startGame = function() {
   this.state = "game in progress";
-  this.getQuestions();
-  this.getAnswers();
+  var self = this;
+  async.parallel([
+    this.getQuestions,
+    this.getAnswers
+    ],
+    function(err, results){
+      if (err) {
+        console.log(err);
+      }
+      self.questions = results[0];
+      self.answers = results[1];
+      self.shuffleCards(self.questions);
+      self.shuffleCards(self.answers);
+    });
 };
 
-Game.prototype.getQuestions = function() {
-  var self = this;
+Game.prototype.getQuestions = function(cb) {
   questions.allQuestionsForGame(function(data){
-    self.questions = data;
+    cb(null,data);
   });
 };
 
-Game.prototype.getAnswers = function() {
-  var self = this;
+Game.prototype.getAnswers = function(cb) {
   answers.allAnswersForGame(function(data){
-    self.answers = data;
+    cb(null,data);
   });
 };
 
@@ -46,3 +57,4 @@ Game.prototype.shuffleCards = function(cards) {
 };
 
 module.exports = Game;
+
