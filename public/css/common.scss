@@ -44,13 +44,108 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endC
 background-color: #f0f0f0;
 color: #4e4e4e;
 }
-// , #first-section
-html, body, #main-container, .cont, #inner-container {
+
+
+@mixin button-smaller {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0) );
+    background: -moz-linear-gradient( center top, #fcfcfc 5%, #f0f0f0 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+    background-color: #fcfcfc;
+    -webkit-border-top-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-bottom-right-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-bottom-left-radius: 20px;
+    text-indent: 0;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    color: #777777;
+    font-family: arial;
+    font-size: 39px;
+    font-weight: bold;
+    font-style: normal;
+    height: 100px;
+    line-height: 100px;
+    width: 200px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0px #ffffff;
+    cursor: pointer;
+    margin: 5px auto;
+    display: block;
+} 
+
+@mixin button-hover-smaller {
+background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed) );
+background: -moz-linear-gradient( center top, #f0f0f0 5%, #ededed 100% );
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+background-color: #f0f0f0;
+color: #4e4e4e;
+}
+
+html{
     height: 100%;
 }
 
-#mission-statement-container{
+body{
     height: 100%;
+}
+
+.main-container{
+    height: 100%;
+}
+
+.cont{
+    height: 100%;
+}
+
+#first-section {
+    height: 100%;
+}
+
+#inner-container {
+    height: 100%;
+}
+
+#signup-guest-container{
+    width: 200px;
+    margin: 45px auto;
+}
+
+#inner-description-container{
+  height: 65%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#inner-join-container{
+  height: 65%;
+  width: 100%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#mission-statement-container {
+    height: 100%;
+}
+
+#description-container{
+    height: 100%;
+    position: relative;
 }
 
 .main-container{
@@ -95,6 +190,28 @@ html, body, #main-container, .cont, #inner-container {
     // width: 27%; 
     margin: 0px auto;
     height: 100%;
+    width: 30%; 
+    margin: 0px auto;
+    height: 100%;
+    position: relative;
+}
+
+#down_arrow {
+    position: relative;
+    bottom: 0;
+    height: 70px;
+    width: 64px;
+    margin: 0px auto;
+}
+
+#down_arrow_second {
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    width: 64px;
+    margin: 0px auto;
+    display: block;
+    left: 50%;
 }
 
 #play-as-guest {
@@ -107,6 +224,14 @@ html, body, #main-container, .cont, #inner-container {
 
 #signup-button:hover {
     @include button-hover;
+}
+
+#signup-button-smaller {
+    @include button-smaller;
+}
+
+#signup-button-smaller:hover {
+    @include button-hover-smaller;
 }
 
 #description-container{
