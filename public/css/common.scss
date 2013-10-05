@@ -1,3 +1,11 @@
+$main-font: "helvetica neue", helvetica, sans-serif;
+
+.main-container{
+    width: 80%;
+    margin: 0px auto;
+    font-family: $main-font;
+}
+
 .navbar .nav>li>a.brand {
     padding-left:20px;
     margin-left:0
@@ -5,7 +13,7 @@
 
 .content {
     margin-top:50px;
-    width:100%
+    width:70%
 }
 
 footer {
@@ -17,9 +25,112 @@ footer {
     background:#ddd;
     -webkit-box-shadow:0 8px 6px 6px black;
     -moz-box-shadow:0 8px 6px 6px black;
-    box-shadow:0 8px 6px 6px black
+    box-shadow:0 8px 6px 6px black;
+    p {
+        padding:5px 0 12px 10px;
+    }
 }
 
-footer p {
-    padding:5px 0 12px 10px
+
+.card {
+    position: relative;
+
+    display: inline-block;
+    box-sizing: border-box;
+    width: 14em;
+    height: 20em;
+    padding: 1em;
+    margin: 1em;
+
+    background-color: rgb(249, 249, 249);
+
+    border-radius: 0.5em;
+    border: 0.0625em solid black;
+
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.25);
+
+    color: black;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+
+    vertical-align: top;
+
+    &.black {
+        background: black radial-gradient(ellipse at bottom right, rgb(50, 50, 50) 0%,#000000 100%);
+        border-color: white;
+
+        color: white;
+    }
+
+    &:before {
+        content: 'CFH';
+        position: absolute;
+        bottom: 0.5em;
+        left: 0.5em;
+
+        font-size: 0.75em;
+        font-weight: normal;
+    }
+
+    u {
+        position: relative;
+        content: '';
+        display: inline-block;
+        width: 50%;
+
+        text-decoration: none;
+
+        height: 1em;
+        border-bottom: 0.125em solid black;
+        margin-bottom: -0.125em;
+
+        .small {
+            width: 25%;
+        }
+
+        .big {
+            width: 75%;
+        }
+
+        .end:after {
+            position: absolute;
+            right: -0.357em;
+            display: inline-block;
+            content: '.';
+        }
+    }
+}
+
+
+.hand {
+    position: relative;
+    width: 24em;
+    height: 34em;
+    
+    .card {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &:nth-child(1) {
+            -webkit-transform: rotate(-7deg);
+        }
+
+        &:nth-child(2) {
+            -webkit-transform: rotate(-3deg);
+            left: 2%;
+            top: 2%;
+        }
+
+        &:nth-child(3) {
+            -webkit-transform: rotate(0deg);
+            left: 4%;
+            top: 4%;
+        }
+
+        &:active {
+            z-index: 1;
+        }
+    }
 }

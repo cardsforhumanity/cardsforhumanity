@@ -1,5 +1,37 @@
 <section data-ng-controller="IndexController">
-  <h1>This is the home view</h1>
+  <div id = "inner-container">
+    <div id ="mission-statement-container">
+      <div id = "slogan">
+        A Game for Horrible People Desperately Trying to do Good
+      </div> 
+      <div id = "logo" class = "card black small">Cards for Humanity</div> 
+      <div id = "longer-description">
+        Alias curae nam voluptas congue porro tristique explicabo quo? Eveniet, exercitation quidem morbi dolorem, placeat ea primis! Tempus platea nibh modi orci ornare ab tempora. Illum repellat! Omnis sequi debitis rhoncus hac eos aute? Praesent aute rem penatibus etiam sociosqu dicta, aliquam perspiciatis quaerat consectetur! Ultrices praesentium. Cubilia, praesentium?
+      </div>
+    </div>
+    <div id ="description-container">
+      <div id = "first-card" class = "card">
+        Alias curae nam voluptas congue porro tristique explicabo quo?
+        <span id="number-one"></span>
+      </div>
+      <div id = "second-card" class = "card">
+        Alias curae nam voluptas congue porro tristique explicabo quo?
+        <span id="number-two"></span>
+      </div>
+      <div id = "third-card" class = "card">
+        Alias curae nam voluptas congue porro tristique explicabo quo?
+        <span id="number-three"></span>
+      </div>
+    </div>
+    <div id ="join-game-container">
+      <div id = "signup-button">
+        Sign Up
+      </div>
+      <div id = "play-as-guest">
+        Play as Guest
+      </div>
+    </div>
   <h1 ng-click='joinGame()' ng-hide='inGame'>JOIN GAME!</h1>
   <h1 ng-click='leaveGame()' ng-show='inGame'>LEAVE GAME!</h1>
+  </div>
 </section>
