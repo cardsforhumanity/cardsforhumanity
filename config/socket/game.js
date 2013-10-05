@@ -17,15 +17,32 @@ Game.prototype.startGame = function() {
 };
 
 Game.prototype.getQuestions = function() {
+  var self = this;
   questions.allQuestionsForGame(function(data){
-    this.questions = data;
+    self.questions = data;
   });
 };
 
 Game.prototype.getAnswers = function() {
+  var self = this;
   answers.allAnswersForGame(function(data){
-    this.answers = data;
+    self.answers = data;
   });
+};
+
+Game.prototype.shuffleCards = function(cards) {
+  var shuffleIndex = cards.length;
+  var temp;
+  var randNum;
+
+  while(shuffleIndex) {
+    randNum = Math.floor(Math.random() * shuffleIndex--);
+    temp = cards[randNum];
+    cards[randNum] = cards[shuffleIndex];
+    cards[shuffleIndex] = temp;
+  }
+
+  return cards;
 };
 
 module.exports = Game;
