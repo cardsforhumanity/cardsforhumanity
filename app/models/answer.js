@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
     config = require('../../config/config'),
     Schema = mongoose.Schema;
 
-
 /**
  * Answer Schema
  */
@@ -17,6 +16,9 @@ var AnswerSchema = new Schema({
         type: String,
         default: '',
         trim: true
+    },
+    official: {
+        type: Boolean
     },
     expansion: {
         type: String,
@@ -32,7 +34,7 @@ AnswerSchema.statics = {
     load: function(id, cb) {
         this.findOne({
             id: id
-        }).exec(cb);
+        }).select('-_id').exec(cb);
     }
 };
 

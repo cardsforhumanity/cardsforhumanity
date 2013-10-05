@@ -30,7 +30,7 @@ exports.show = function(req, res) {
  * List of Answers
  */
 exports.all = function(req, res) {
-    Answer.find().exec(function(err, answers) {
+    Answer.find().select('-_id').exec(function(err, answers) {
         if (err) {
             res.render('error', {
                 status: 500

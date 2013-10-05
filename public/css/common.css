@@ -1,11 +1,235 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.main-container {
+  height: 100%;
+}
+
+.cont {
+  height: 100%;
+}
+
+#first-section {
+  height: 100%;
+}
+
+#inner-container {
+  height: 100%;
+}
+
+#signup-guest-container {
+  width: 200px;
+  margin: 45px auto;
+}
+
+#inner-description-container {
+  height: 65%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#inner-join-container {
+  height: 65%;
+  width: 100%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#mission-statement-container {
+  height: 100%;
+}
+
+#description-container {
+  height: 100%;
+  position: relative;
+}
+
+.main-container {
+  width: 80%;
+  margin: 0px auto;
+  font-family: "helvetica neue", helvetica, sans-serif;
+}
+
 .navbar .nav > li > a.brand {
   padding-left: 20px;
   margin-left: 0;
 }
 
+.cont {
+  width: 97%;
+  margin: 0px auto;
+}
+
 .content {
   margin-top: 50px;
+  width: 70%;
+}
+
+#slogan {
   width: 100%;
+  font-size: 4em;
+  text-align: center;
+  font-weight: bold;
+}
+
+#logo {
+  float: right;
+}
+
+#longer-description {
+  margin-top: 2%;
+  font-size: 1.9em;
+  width: 81%;
+}
+
+#join-game-container {
+  width: 30%;
+  margin: 0px auto;
+  height: 100%;
+  position: relative;
+}
+
+#down_arrow {
+  position: relative;
+  bottom: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0px auto;
+}
+
+#down_arrow_second {
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0px auto;
+  display: block;
+  left: 50%;
+}
+
+#play-as-guest {
+  text-align: right;
+}
+
+#signup-button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: normal;
+  height: 200px;
+  line-height: 200px;
+  width: 300px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+#signup-button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+
+#signup-button-smaller {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 39px;
+  font-weight: bold;
+  font-style: normal;
+  height: 100px;
+  line-height: 100px;
+  width: 200px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  cursor: pointer;
+  margin: 5px auto;
+  display: block;
+}
+
+#signup-button-smaller:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+
+#description-container {
+  margin-top: 50px;
+}
+#description-container #first-card {
+  width: 29.33333%;
+}
+#description-container #second-card {
+  width: 29.33333%;
+}
+#description-container #third-card {
+  width: 29.33333%;
 }
 
 footer {
@@ -19,7 +243,87 @@ footer {
   -moz-box-shadow: 0 8px 6px 6px black;
   box-shadow: 0 8px 6px 6px black;
 }
-
 footer p {
   padding: 5px 0 12px 10px;
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 14em;
+  height: 20em;
+  padding: 1em;
+  margin: 1em;
+  background-color: #f9f9f9;
+  border-radius: 0.5em;
+  border: 0.0625em solid black;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.25);
+  color: black;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.card.black {
+  background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+  border-color: white;
+  color: white;
+}
+.card:before {
+  content: 'CFH';
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+  font-size: 0.75em;
+  font-weight: normal;
+}
+.card u {
+  position: relative;
+  content: '';
+  display: inline-block;
+  width: 50%;
+  text-decoration: none;
+  height: 1em;
+  border-bottom: 0.125em solid black;
+  margin-bottom: -0.125em;
+}
+.card u .small {
+  width: 25%;
+}
+.card u .big {
+  width: 75%;
+}
+.card u .end:after {
+  position: absolute;
+  right: -0.357em;
+  display: inline-block;
+  content: '.';
+}
+
+.hand {
+  position: relative;
+  width: 24em;
+  height: 34em;
+}
+.hand .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hand .card:nth-child(1) {
+  -webkit-transform: rotate(-7deg);
+}
+.hand .card:nth-child(2) {
+  -webkit-transform: rotate(-3deg);
+  left: 2%;
+  top: 2%;
+}
+.hand .card:nth-child(3) {
+  -webkit-transform: rotate(0deg);
+  left: 4%;
+  top: 4%;
+}
+.hand .card:active {
+  z-index: 1;
 }
