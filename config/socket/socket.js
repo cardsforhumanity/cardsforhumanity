@@ -1,4 +1,5 @@
 var Game = require('./game');
+var Player = require('./player');
 
 module.exports = function(io) {
 
@@ -11,11 +12,13 @@ module.exports = function(io) {
     console.log(socket.id +  ' Connected');
 
     socket.on('joinGame', function() {
+      var player = new Player(socket);
+
       if (gamesNeedingPlayers.length <= 0) {
         gameID += 1;
         var gameIDStr = gameID.toString()
         game = new Game(gameIDStr);
-        game.players.push(socket);
+        game.players.push(player);
         allGames[gameID] = game;
         gamesNeedingPlayers.push(game);
         socket.join(game.gameID);
@@ -23,7 +26,7 @@ module.exports = function(io) {
         console.log('Create new Game');
       } else {
         game = gamesNeedingPlayers[0];
-        game.players.push(socket);
+        game.players.push(player);
         socket.join(game.gameID);
         socket.gameID = game.gameID;
         if (game.players.length >= game.playerLimit) {
@@ -37,19 +40,19 @@ module.exports = function(io) {
       socket.leave(socket.gameID);
       game = allGames[socket.gameID];
 
-      if (allGames[socket.gameID]) {
+      if (allGames[socket.gameID]) { // Make sure game exists
         if (game.state === 'awaiting players'){
           for (var i = 0; i < game.players.length; i++) {
-            if (game.players[i].id === socket.id) {
+            if (game.players[i].socket.id === socket.id) {
               game.players.splice(i,1);
             }
           }
         } else {
-            socket.broadcast.in(game.gameID).emit('dissolveGame');
-            for (var i = 0; i < game.players.length; i++) {
-              game.players[i].leave(socket.gameID);
-            }
-            delete allGames[socket.gameID];
+          socket.broadcast.in(game.gameID).emit('dissolveGame');
+          for (var i = 0; i < game.players.length; i++) {
+            game.players[i].socket.leave(socket.gameID);
+          }
+          delete allGames[socket.gameID];
         }
       }
     });
