@@ -40,3 +40,16 @@ exports.all = function(req, res) {
         }
     });
 };
+
+/**
+ * List of Answers (for Game class)
+ */
+exports.allAnswersForGame = function(cb) {
+    Answer.find().exec(function(err, answers) {
+        if (err) {
+            console.log(err);
+        } else {
+            cb(answers);
+        }
+    });
+};
