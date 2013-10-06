@@ -127,7 +127,7 @@
 
                                 // Update shading overlay
                                 if ( opts.shading )
-                                    $shading.css( 'opacity', 1.0 - p ).show();
+                                    $shading.css( 'opacity', 1.2 - p ).show();
 
                             } else {
 
@@ -181,4 +181,4 @@
 
 $( '#inner-container' ).foldscroll({
   perspective: 1000,
-});
+})();
