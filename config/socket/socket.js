@@ -12,6 +12,10 @@ module.exports = function(io) {
     console.log(socket.id +  ' Connected');
     socket.emit('id', {id: socket.id});
 
+    socket.on('pickCard', function(data) {
+      console.log(socket.id,"'s CARD IS!!! - ",data);
+    });
+
     socket.on('joinGame', function() {
       var player = new Player(socket);
 

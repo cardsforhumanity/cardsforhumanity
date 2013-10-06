@@ -14,9 +14,9 @@ function Game(gameID, io) {
   this.answers = null;
   this.curQuestion = null;
   this.timeLimits = {
-    stateChoosing: 2000,
-    stateJudging: 2000,
-    stateResults: 2000
+    stateChoosing: 5000,
+    stateJudging: 5000,
+    stateResults: 5000
   };
   this.judgingTimeout;
 };
