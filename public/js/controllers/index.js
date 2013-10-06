@@ -1,4 +1,5 @@
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global', 'socket', 'game', function ($scope, Global, socket, game) {
+angular.module('mean.system')
+.controller('IndexController', ['$scope', 'Global', 'socket', 'game', function ($scope, Global, socket, game) {
     $scope.global = Global;
     $scope.inGame = false;
 

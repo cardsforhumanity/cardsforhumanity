@@ -1,5 +1,4 @@
 (function($) {
-
     $.fn.foldscroll = function( options ) {
 
         // Constants
@@ -187,5 +186,5 @@
 
 $( '#inner-container' ).foldscroll({
   perspective: 1300,
-  margin: '720px'
+  margin: '720'
 })();

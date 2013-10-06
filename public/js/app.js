@@ -30,3 +30,4 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
   }]);
 
 angular.module('mean.system', []);
+angular.module('mean.directives', []);
