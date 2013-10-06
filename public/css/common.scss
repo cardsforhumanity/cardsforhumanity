@@ -151,6 +151,7 @@ background-color: #f0f0f0;
 color: #4e4e4e;
 }
 
+
 @mixin button-smaller {
     -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -294,6 +295,7 @@ body{
 
 #mission-statement-container {
     height: 100%;
+    padding: 1%;
 }
 
 #description-container{
@@ -333,6 +335,7 @@ body{
     font-size: 3.7em;
     text-align: center;
     font-weight: bold;
+    padding:2%;
 
     @include desktop-and-below{
         font-size: 2.8em;
@@ -344,6 +347,7 @@ body{
 
 #logo{
     float: right;
+    margin-left: 20px;
 
     img{
         @include tablet-landscape-and-below{
@@ -355,26 +359,40 @@ body{
 
 #longer-description {
     margin-top: 2%;
-    font-size: 1.9em;
+    font-size: 1.6em;
     width: 81%;
+    margin-left: 10%;
+    text-align: center;
 
     @include tablet-landscape-and-below{
         font-size: 1.4em;
     }
 }
 
+#main-question {
+    font-weight: 600;
+}
+
+#description-paragraphs {
+    font-weight: 400;
+}
+
 #join-game-container{
     margin: 0px auto;
     height: 100%;
     position: relative;
-    width: 312px;
+    width: 100%;
 }
 
 #down_arrow {
     bottom: 0;
     height: 70px;
     width: 64px;
-    margin: 0px auto;
+    margin: 0 auto;
+
+    a {
+        pointer: cursor;
+    }
 }
 
 #down_arrow_second {
@@ -423,8 +441,9 @@ body{
 }
 
 #description-container{
-    $description-width: 100%;
-    margin-top: 50px;
+    $description-width: 93%;
+    // margin-top: 50px;
+    height: 100%;
 
     #first-card{
         width: ($description-width / 3) - 3; 
@@ -544,6 +563,7 @@ footer {
 }
 
 
+
 .hand {
     position: relative;
     width: 24em;
@@ -573,5 +593,41 @@ footer {
         &:active {
             z-index: 1;
         }
+    }
+}
+
+#inner-container {
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+    font-weight: bold;
+
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    top: 20px;
+
+    &.longer-description {
+        border-bottom: 1px dashed #ddd;
+        text-align: justify;
+        line-height: 1.8;
+        background: #fff;
+        max-width: 620px;
+        font-size: 14px;
+        padding: 80px 40px;
+        margin: 0 auto;
+        width: 600px;
+        color: #333;
+    }
+
+    &.longer-description em {
+        font-style: normal;
+        font-size: 12px;
+        color: #666;
+    }
+
+    &.longer-description em:before {
+        content: '~';
+        margin: 0 10px;
     }
 }

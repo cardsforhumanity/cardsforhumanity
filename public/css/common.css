@@ -52,6 +52,7 @@ body {
 
 #mission-statement-container {
   height: 100%;
+  padding: 1%;
 }
 
 #description-container {
@@ -95,6 +96,7 @@ body {
   font-size: 3.7em;
   text-align: center;
   font-weight: bold;
+  padding: 2%;
 }
 @media only screen and (max-width: 1025px) {
   #slogan {
@@ -109,6 +111,7 @@ body {
 
 #logo {
   float: right;
+  margin-left: 20px;
 }
 @media only screen and (max-width: 1024px) {
   #logo img {
@@ -119,8 +122,10 @@ body {
 
 #longer-description {
   margin-top: 2%;
-  font-size: 1.9em;
+  font-size: 1.6em;
   width: 81%;
+  margin-left: 10%;
+  text-align: center;
 }
 @media only screen and (max-width: 1024px) {
   #longer-description {
@@ -128,18 +133,29 @@ body {
   }
 }
 
+#main-question {
+  font-weight: 600;
+}
+
+#description-paragraphs {
+  font-weight: 400;
+}
+
 #join-game-container {
   margin: 0px auto;
   height: 100%;
   position: relative;
-  width: 312px;
+  width: 100%;
 }
 
 #down_arrow {
   bottom: 0;
   height: 70px;
   width: 64px;
-  margin: 0px auto;
+  margin: 0 auto;
+}
+#down_arrow a {
+  pointer: cursor;
 }
 
 #down_arrow_second {
@@ -267,26 +283,26 @@ body {
 }
 
 #description-container {
-  margin-top: 50px;
+  height: 100%;
 }
 #description-container #first-card {
-  width: 30.33333%;
+  width: 28%;
 }
 #description-container #second-card {
-  width: 30.33333%;
+  width: 28%;
 }
 #description-container #third-card {
-  width: 30.33333%;
+  width: 28%;
 }
 @media only screen and (max-width: 1024px) {
   #description-container #first-card {
-    width: 28.33333%;
+    width: 26%;
   }
   #description-container #second-card {
-    width: 28.33333%;
+    width: 26%;
   }
   #description-container #third-card {
-    width: 28.33333%;
+    width: 26%;
   }
 }
 
@@ -390,4 +406,36 @@ footer p {
 }
 .hand .card:active {
   z-index: 1;
+}
+
+#inner-container {
+  width: 100%;
+  font-size: 1em;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  top: 20px;
+}
+#inner-container.longer-description {
+  border-bottom: 1px dashed #ddd;
+  text-align: justify;
+  line-height: 1.8;
+  background: #fff;
+  max-width: 620px;
+  font-size: 14px;
+  padding: 80px 40px;
+  margin: 0 auto;
+  width: 600px;
+  color: #333;
+}
+#inner-container.longer-description em {
+  font-style: normal;
+  font-size: 12px;
+  color: #666;
+}
+#inner-container.longer-description em:before {
+  content: '~';
+  margin: 0 10px;
 }

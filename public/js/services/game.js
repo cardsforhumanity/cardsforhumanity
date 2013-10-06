@@ -1,4 +1,5 @@
-angular.module('mean.system').factory('game', ['socket', function(socket){
+angular.module('mean.system')
+  .factory('game', ['socket', function(socket){
 
   var game = {
     id: null,
