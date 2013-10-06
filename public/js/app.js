@@ -1,9 +1,12 @@
-angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system'])
+angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.directives'])
   .config(['$routeProvider',
       function($routeProvider) {
           $routeProvider.
           when('/', {
               templateUrl: 'views/index.html'
+          }).
+          when('/app', {
+              templateUrl: '/views/app.html',
           }).
           when('/bottom', {
             templateUrl: '/views/bottom.html'
@@ -30,3 +33,4 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
   }]);
 
 angular.module('mean.system', []);
+angular.module('mean.directives', []);
