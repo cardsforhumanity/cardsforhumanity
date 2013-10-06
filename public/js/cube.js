@@ -69,8 +69,14 @@
                 var vb = vt + vh;
 
                 // Compute margin
-                var currentHeight = $(window).height();
-                var m = parseFloat( currentHeight );
+                var m;
+                console.log(opts);
+                if ($(window).height() < opts.margin) {
+                    var currentHeight = $(window).height();
+                    m = parseFloat( currentHeight );
+                } else {
+                    m = parseFloat(opts.margin);
+                }
                 m = m <= 1.0 ? Math.min( m, 0.5 ) : m / vh;
 
                 // Update children
@@ -180,5 +186,6 @@
 })( jQuery );
 
 $( '#inner-container' ).foldscroll({
-  perspective: 1000,
+  perspective: 1300,
+  margin: '720px'
 })();

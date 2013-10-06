@@ -111,6 +111,7 @@ body {
 
 #logo {
   float: right;
+  margin-left: 20px;
 }
 @media only screen and (max-width: 1024px) {
   #logo img {
@@ -121,13 +122,23 @@ body {
 
 #longer-description {
   margin-top: 2%;
-  font-size: 1.9em;
+  font-size: 1.6em;
   width: 81%;
+  margin-left: 10%;
+  text-align: center;
 }
 @media only screen and (max-width: 1024px) {
   #longer-description {
     font-size: 1.4em;
   }
+}
+
+#main-question {
+  font-weight: 600;
+}
+
+#description-paragraphs {
+  font-weight: 400;
 }
 
 #join-game-container {

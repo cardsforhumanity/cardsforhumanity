@@ -347,6 +347,7 @@ body{
 
 #logo{
     float: right;
+    margin-left: 20px;
 
     img{
         @include tablet-landscape-and-below{
@@ -358,12 +359,22 @@ body{
 
 #longer-description {
     margin-top: 2%;
-    font-size: 1.9em;
+    font-size: 1.6em;
     width: 81%;
+    margin-left: 10%;
+    text-align: center;
 
     @include tablet-landscape-and-below{
         font-size: 1.4em;
     }
+}
+
+#main-question {
+    font-weight: 600;
+}
+
+#description-paragraphs {
+    font-weight: 400;
 }
 
 #join-game-container{
