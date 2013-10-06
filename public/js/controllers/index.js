@@ -25,7 +25,7 @@ angular.module('mean.system')
     // Use this in the HTML: <h2>{{game.curQuestion}}</h2>
     // <div ng-repeat="card in game.hand" ng-click="pickCard(card)">{{card.id}}</div>
 
-}]).controller('CardController', ['$scope', 'QuestionService', 'AnswerService', function($scope, QuestionService, AnswerService) {
+}]).controller('appController', ['$scope', 'QuestionService', 'AnswerService', function($scope, QuestionService, AnswerService) {
   QuestionService.getQuestions()
     .then(function(data) {
       $scope.question = data;

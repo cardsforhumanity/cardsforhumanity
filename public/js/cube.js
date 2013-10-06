@@ -187,4 +187,4 @@
 $( '#inner-container' ).foldscroll({
   perspective: 1300,
   margin: '720'
-})();
+});
