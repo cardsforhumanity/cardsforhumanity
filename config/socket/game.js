@@ -1,4 +1,5 @@
 var async = require('async');
+var _ = require('underscore');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
 
@@ -6,6 +7,7 @@ function Game(gameID, io) {
   this.io = io;
   this.gameID = gameID;
   this.players = [];
+  this.table = [];
   this.czar = -1;
   this.playerLimit = 3;
   this.pointLimit = 5;
@@ -37,6 +39,7 @@ Game.prototype.payload = function() {
     players: players,
     czar: this.czar,
     state: this.state,
+    table: this.table,
     curQuestion: this.curQuestion
   };
 };
@@ -77,6 +80,7 @@ Game.prototype.startGame = function() {
 Game.prototype.stateChoosing = function(self) {
   self.state = "waiting for players to pick";
   console.log(self.state);
+  self.table = [];
   self.curQuestion = self.questions.pop();
   self.dealAnswers();
   // Rotate card czar
@@ -154,6 +158,29 @@ Game.prototype.dealAnswers = function(maxAnswers) {
       this.players[i].hand.push(this.answers.pop());
     }
   }
+};
+
+Game.prototype.pickCard = function(thisCard, thisPlayer) {
+  // Find the player's position in the players array
+  var playerIndex = -1;
+  _.each(this.players, function(player, index) {
+    if (player.socket.id === thisPlayer) {
+      playerIndex = index;
+    }
+  });
+  console.log('player is at index',playerIndex);
+  var cardIndex = -1;
+  _.each(this.players[playerIndex].hand, function(card, index) {
+    if (card.id === thisCard) {
+      cardIndex = index;
+    }
+  });
+  console.log('card is at index',cardIndex);
+
+  this.table.push({
+    card: this.players[playerIndex].hand.splice(cardIndex,1), 
+    player: this.players[playerIndex].socket.id});
+  console.log(this.table);
 };
 
 module.exports = Game;
