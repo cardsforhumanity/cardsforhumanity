@@ -30,7 +30,7 @@ exports.show = function(req, res) {
  * List of Answers
  */
 exports.all = function(req, res) {
-    Answer.find().select('-_id').exec(function(err, answers) {
+    Answer.find({official:true}).select('-_id').exec(function(err, answers) {
         if (err) {
             res.render('error', {
                 status: 500
@@ -45,7 +45,7 @@ exports.all = function(req, res) {
  * List of Answers (for Game class)
  */
 exports.allAnswersForGame = function(cb) {
-    Answer.find().exec(function(err, answers) {
+    Answer.find({official:true}).exec(function(err, answers) {
         if (err) {
             console.log(err);
         } else {
