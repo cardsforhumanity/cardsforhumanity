@@ -99,6 +99,11 @@ html, body, .main-container, .cont, #first-section, #inner-container {
   height: 100%;
 }
 
+html {
+  margin: 20px;
+  position: relative;
+}
+
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
 }
@@ -400,52 +405,83 @@ body {
 /*
 ** START App CSS
 */
-#app-container {
+#main-container {
   height: 100%;
 }
-#app-container #social-bar-container {
+#main-container #app-container {
+  height: 100%;
+  max-width: 1400px;
+  margin: 0px auto;
+}
+#main-container #app-container #social-bar-container {
   width: 20%;
   height: 100%;
   position: fixed;
   right: 0;
-  top: 0;
+  top: 20px;
   background: white;
 }
-#app-container #social-bar-container #player-container {
-  height: 13.333%;
+#main-container #app-container #social-bar-container #player-container {
+  height: 16.666676%;
+  position: relative;
+  padding: 4%;
+  min-height: 85px;
 }
-#app-container #social-bar-container #player-container #avatar_ img {
-  max-width: 80px;
+#main-container #app-container #social-bar-container #player-container #above-czar-container {
+  height: 65%;
+  width: 100%;
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
+  height: 100%;
+  width: 40%;
+  float: left;
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
+  width: 100%;
+  height: 100%;
   float: left;
   border-radius: 15px;
   border: 2px solid black;
   margin: 0 10px;
 }
-#app-container #gameplay-container {
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
+  float: left;
+  position: relative;
+  bottom: 8px;
+  left: 17px;
+}
+#main-container #app-container #gameplay-container {
   height: 100%;
   width: 80%;
 }
-#app-container #gameplay-container #upper-gameplay-container {
+#main-container #app-container #gameplay-container #upper-gameplay-container {
   height: 33%;
 }
-#app-container #gameplay-container #upper-gameplay-container #question-container {
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container {
+  float: left;
+  width: 17%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #menu-container {
+  background: gray;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container {
+  float: left;
+  height: 100%;
+  width: 20%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container {
+  text-align: center;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
+  font-size: 108px;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container {
   height: 100%;
   float: left;
   width: 80%;
   background: white;
 }
-#app-container #gameplay-container #upper-gameplay-container #timer-container {
-  float: left;
-  height: 100%;
-  width: 20%;
-}
-#app-container #gameplay-container #upper-gameplay-container #timer-container #inner-timer-container {
-  text-align: center;
-}
-#app-container #gameplay-container #upper-gameplay-container #timer-container #inner-timer-container #time {
-  font-size: 108px;
-}
-#app-container #gameplay-container #cards {
+#main-container #app-container #gameplay-container #cards {
   width: 100%;
   height: 100%;
   background: white;

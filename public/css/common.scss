@@ -370,6 +370,10 @@ html, body, .main-container, .cont, #first-section, #inner-container{
     height: 100%;
 }
 
+html{
+    margin: 20px;
+    position: relative;
+}
 body{
     font-family: $main-font;
 }
@@ -620,68 +624,100 @@ body{
 /*
 ** START App CSS
 */
-
-#app-container{
+#main-container{
     height: 100%;
-
-    #social-bar-container{
-        width: 20%; 
+    #app-container {
         height: 100%;
-        position: fixed; 
-        right: 0; 
-        top: 0;
-        background: white;
+        max-width: 1400px;
+        margin: 0px auto;
 
-        #player-container{
-            height: 13.333%;
+        #social-bar-container{
+            width: 20%; 
+            height: 100%;
+            position: fixed; 
+            right: 0; 
+            top: 20px;
+            background: white;
 
-            #avatar_ img {
-                max-width: 80px;
-                float: left;
-                border-radius: 15px;
-                border: 2px solid black;
-                margin: 0 10px;
-            }
-        }
-    }
+            #player-container{
+                height: 16.666676%;
+                position: relative;
+                padding: 4%;
+                min-height: 85px;
 
-    #gameplay-container{
-        height: 100%;
-        width: 80%;
+                #above-czar-container{
+                    height: 65%;
+                    width: 100%;
 
-        #upper-gameplay-container {
-            height: 33%;
-
-            #question-container {
-                height: 100%;
-                float: left;
-                width: 80%;
-                background: white;
-            }
-
-            #timer-container {
-                float: left;
-                height: 100%;
-                width: 20%;
-
-                #inner-timer-container{
-                    text-align: center;
-
-                    #time{
-                        font-size: 108px;
+                    #avatar_ {
+                        height: 100%;
+                        width: 40%;
+                        float: left;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            float: left;
+                            border-radius: 15px;
+                            border: 2px solid black;
+                            margin: 0 10px;
+                        }
+                    }
+                    #player-container-inner{
+                        float: left;
+                        position: relative;
+                        bottom: 8px;
+                        left: 17px;
                     }
                 }
             }
         }
 
-        #cards {
-            width: 100%;
+        #gameplay-container{
             height: 100%;
-            background: white;
+            width: 80%;
+
+            #upper-gameplay-container {
+                height: 33%;
+
+                #menu-timeremaining-container{
+                    float: left;
+                    width: 17%;
+
+                    #menu-container{
+                        background: gray;
+                    }
+
+                    #timer-container {
+                        float: left;
+                        height: 100%;
+                        width: 20%;
+
+                        #inner-timer-container{
+                            text-align: center;
+
+                            #time{
+                                font-size: 108px;
+                            }
+                        }
+                    }
+                 }
+
+                #question-container {
+                    height: 100%;
+                    float: left;
+                    width: 80%;
+                    background: white;
+                }
+            }
+
+            #cards {
+                width: 100%;
+                height: 100%;
+                background: white;
+            }
         }
     }
 }
-
 
 /*
 ** End App CSS
