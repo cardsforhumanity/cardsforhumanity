@@ -15,4 +15,12 @@ angular.module('mean.directives', [])
 
       }
     };
+  }).directive('question', function() {
+    return {
+      restrict: 'EA',
+      templateUrl: '/views/question.html',
+      link: function(scope, elem, attr) {
+
+      }
+    };
   });

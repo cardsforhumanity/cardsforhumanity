@@ -364,7 +364,7 @@ footer p {
   height: 100%;
   float: left;
   width: 80%;
-  background: red;
+  background: white;
 }
 
 #timer-container {
@@ -408,6 +408,13 @@ footer p {
   background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
   border-color: white;
   color: white;
+}
+.card.longBlack {
+  background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+  border-color: white;
+  color: white;
+  height: 10.7em;
+  width: 35.5em;
 }
 .card.smallest {
   font-size: 0.750em;
