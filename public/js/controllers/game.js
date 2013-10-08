@@ -9,6 +9,10 @@ angular.module('mean.system')
       $scope.pickedCard = true;
     };
 
+    $scope.isCzar = function() {
+      return game.czar === game.playerIndex;
+    };
+
     $scope.$watch('game.state', function() {
       if (game.state === 'waiting for players to pick') {
         $scope.pickedCard = false;
@@ -19,4 +23,4 @@ angular.module('mean.system')
     // Use this in the HTML: <h2></h2>
     // <div ng-repeat="card in game.hand" ng-click="pickCard(card)">{{card.id}}</div>
 
-}])
+}]);

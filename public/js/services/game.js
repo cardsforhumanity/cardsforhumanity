@@ -4,7 +4,7 @@ angular.module('mean.system')
   var game = {
     id: null,
     players: [],
-    hand: [],
+    playerIndex: 0,
     table: [],
     czar: null,
     playerLimit: null,
@@ -38,8 +38,7 @@ angular.module('mean.system')
 
     for (var i = 0; i < data.players.length; i++) {
       if (game.id === data.players[i].socketID) {
-        game.hand = data.players[i].hand;
-        console.log('game.hand set to ', game.hand);
+        game.playerIndex = i;
       }
     }
   });
