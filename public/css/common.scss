@@ -246,314 +246,6 @@ color: #4e4e4e;
     color: #4e4e4e;
 }
 
-html{
-    height: 100%;
-}
-
-body{
-    height: 100%;
-    font-family: $main-font;
-}
-
-.main-container{
-    height: 100%;
-
-}
-
-.cont{
-    height: 100%;
-}
-
-#first-section {
-    height: 100%;
-}
-
-#inner-container {
-    height: 100%;
-}
-
-#signup-guest-container{
-    width: 200px;
-    margin: 45px auto;
-}
-
-#inner-description-container{
-  height: 65%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-}
-
-#inner-timer-container{
-    text-align: center;
-}
-
-#time{
-    font-size: 108px;
-}
-
-#inner-join-container{
-  height: 65%;
-  width: 100%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-}
-
-#mission-statement-container {
-    height: 100%;
-    padding: 1%;
-}
-
-#description-container{
-    height: 100%;
-    position: relative;
-}
-
-.main-container{
-    width: 80%;
-    margin: 0px auto;
-    font-family: $main-font;
-    @include tablet-landscape-and-below{
-        width: 90%;
-    }
-    @include mobile-landscape-and-below{
-        width: 100%;
-    }
-}
-
-.navbar .nav>li>a.brand {
-    padding-left:20px;
-    margin-left:0
-}
-
-.cont {
-    width: 100%;
-    margin: 0px auto;
-}
-
-.content {
-    margin-top:50px;
-    width:70%
-}
-
-#slogan {
-    width: 100%;
-    font-size: 3.7em;
-    text-align: center;
-    font-weight: bold;
-    padding:2%;
-
-    @include desktop-and-below{
-        font-size: 2.8em;
-    }
-    @include tablet-portrait-and-below{
-        font-size: 2.3em;
-    }
-}
-
-#logo{
-    float: right;
-    margin-left: 20px;
-
-    img{
-        @include tablet-landscape-and-below{
-            width: 70%;
-            height: 70%
-        }
-    }
-}
-
-#longer-description {
-    margin-top: 2%;
-    font-size: 1.6em;
-    width: 81%;
-    margin-left: 10%;
-    text-align: center;
-
-    @include tablet-landscape-and-below{
-        font-size: 1.4em;
-    }
-}
-
-#main-question {
-    font-weight: 600;
-}
-
-#description-paragraphs {
-    font-weight: 400;
-}
-
-#join-game-container{
-    margin: 0px auto;
-    height: 100%;
-    position: relative;
-    width: 100%;
-}
-
-#down_arrow {
-    bottom: 0;
-    height: 70px;
-    width: 64px;
-    margin: 0 auto;
-
-    a {
-        pointer: cursor;
-    }
-}
-
-#down_arrow_second {
-    bottom: 0;
-    height: 70px;
-    width: 64px;
-    margin: 0px auto;
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-}
-
-#up_arrow_second{
-    top: 0;
-    height: 70px;
-    width: 64px;
-    margin: 0px auto;
-    display: block;
-}
-
-#play-as-guest {
-    text-align: right;
-}
-
-#signup-button {
-    @include button;
-}
-
-#signup-button:hover {
-    @include button-hover;
-}
-
-#signup-button-smaller {
-    @include button-smaller;
-    @include mobile-landscape-and-below{
-        height: 50px;
-        width: 100px;
-        line-height: 50px;
-        font-size: 19px;
-    }
-}
-
-#player-container{
-    height: 13.333%
-}
-
-#avatar img {
-    max-width: 80px;
-    float: left;
-    border-radius: 15px;
-    border: 2px solid black;
-    margin: 0 10px;
-}
-
-#signup-button-smaller:hover {
-    @include button-hover-smaller;
-}
-
-#description-container{
-    $description-width: 93%;
-    // margin-top: 50px;
-    height: 100%;
-
-    #first-card{
-        width: ($description-width / 3) - 3; 
-    }
-
-    #second-card{
-        width: ($description-width / 3) - 3; 
-    }
-
-    #third-card{
-        width: ($description-width / 3) - 3; 
-    }
-
-    @include tablet-landscape-and-below{
-        #first-card{
-            width: ($description-width / 3) - 5; 
-        }
-
-        #second-card{
-            width: ($description-width / 3) - 5; 
-        }
-
-        #third-card{
-            width: ($description-width / 3) - 5; 
-        }
-    }
-}
-
-footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background:#ddd;
-    -webkit-box-shadow:0 8px 6px 6px black;
-    -moz-box-shadow:0 8px 6px 6px black;
-    box-shadow:0 8px 6px 6px black;
-    p {
-        padding:5px 0 12px 10px;
-    }
-}
-
-#social-bar-container{
-    width: 20%; 
-    height: 100%;
-    position: fixed; 
-    right: 0; 
-    top: 0;
-    background: white;
-}
-
-#main-container{
-    height: 100%;
-}
-
-#app-container{
-    height: 100%;
-}
-
-#gameplay-container{
-    height: 100%;
-    width: 80%;
-}
-
-#upper-gameplay-container {
-    height: 33%;
-}
-
-#question-container {
-    height: 100%;
-    float: left;
-    width: 80%;
-    background: white;
-}
-
-#timer-container {
-    float: left;
-    height: 100%;
-    width: 20%;
-}
-
-#cards {
-    width: 100%;
-    height: 100%;
-    background: white;
-}
-
-
 .card {
     position: relative;
 
@@ -674,6 +366,46 @@ footer {
     }
 }
 
+html, body, .main-container, .cont, #first-section, #inner-container{
+    height: 100%;
+}
+
+body{
+    font-family: $main-font;
+}
+
+.navbar .nav>li>a.brand {
+    padding-left:20px;
+    margin-left:0
+}
+
+.content {
+    margin-top:50px;
+    width:70%
+}
+
+/*
+** START Home Page CSS
+*/
+
+.cont {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.main-container{
+    width: 80%;
+    height: 100%;
+    margin: 0px auto;
+    font-family: $main-font;
+    @include tablet-landscape-and-below{
+        width: 90%;
+    }
+    @include mobile-landscape-and-below{
+        width: 100%;
+    }
+}
+
 #inner-container {
     width: 100%;
     font-size: 1em;
@@ -709,3 +441,264 @@ footer {
         margin: 0 10px;
     }
 }
+
+#mission-statement-container {
+    height: 100%;
+    padding: 1%;
+
+    #slogan {
+        width: 100%;
+        font-size: 3.7em;
+        text-align: center;
+        font-weight: bold;
+        padding:2%;
+        @include desktop-and-below{
+            font-size: 2.8em;
+        }
+        @include tablet-portrait-and-below{
+            font-size: 2.3em;
+        }
+    }
+
+    // #logo{
+    //     float: right;
+    //     margin-left: 20px;
+
+    //     img{
+    //         @include tablet-landscape-and-below{
+    //             width: 70%;
+    //             height: 70%
+    //         }
+    //     }
+    // }
+
+    #longer-description {
+        margin-top: 2%;
+        font-size: 1.6em;
+        width: 81%;
+        margin-left: 10%;
+        text-align: center;
+
+        @include tablet-landscape-and-below{
+            font-size: 1.4em;
+        }
+
+        #description-paragraphs {
+            font-weight: 400;
+
+            #main-question {
+                font-weight: 600;
+            }
+        }
+    }
+
+    #signup-guest-container{
+        width: 200px;
+        margin: 45px auto;
+
+        #signup-button-smaller {
+            @include button-smaller;
+            @include mobile-landscape-and-below{
+                height: 50px;
+                width: 100px;
+                line-height: 50px;
+                font-size: 19px;
+            }
+
+            &:hover {
+                @include button-hover-smaller;
+            }
+        }
+
+        #play-as-guest {
+            text-align: right;
+        }
+    }
+
+    #down_arrow {
+        bottom: 0;
+        height: 70px;
+        width: 64px;
+        margin: 0 auto;
+
+        a {
+            pointer: cursor;
+        }
+    }
+}
+
+#description-container{
+    height: 100%;
+    position: relative;
+    $description-width: 93%;
+    height: 100%;
+
+    #first-card{
+        width: ($description-width / 3) - 3; 
+    }
+
+    #second-card{
+        width: ($description-width / 3) - 3; 
+    }
+
+    #third-card{
+        width: ($description-width / 3) - 3; 
+    }
+
+    @include tablet-landscape-and-below{
+        #first-card{
+            width: ($description-width / 3) - 5; 
+        }
+
+        #second-card{
+            width: ($description-width / 3) - 5; 
+        }
+
+        #third-card{
+            width: ($description-width / 3) - 5; 
+        }
+    }
+
+    #inner-description-container{
+      height: 65%;
+      overflow: auto;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+    }
+
+    #down_arrow_second {
+        bottom: 0;
+        height: 70px;
+        width: 64px;
+        margin: 0px auto;
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+}
+
+#join-game-container{
+    margin: 0px auto;
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    #up_arrow_second{
+        top: 0;
+        height: 70px;
+        width: 64px;
+        margin: 0px auto;
+        display: block;
+    }
+
+    #inner-join-container{
+      height: 65%;
+      width: 100%;
+      overflow: auto;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+
+        #signup-button {
+            @include button;
+        }
+
+        #signup-button:hover {
+            @include button-hover;
+        }
+    }
+}
+
+/*
+** End Home Page CSS
+*/
+
+
+
+/*
+** START App CSS
+*/
+
+#app-container{
+    height: 100%;
+
+    #social-bar-container{
+        width: 20%; 
+        height: 100%;
+        position: fixed; 
+        right: 0; 
+        top: 0;
+        background: white;
+
+        #player-container{
+            height: 13.333%;
+
+            #avatar_ img {
+                max-width: 80px;
+                float: left;
+                border-radius: 15px;
+                border: 2px solid black;
+                margin: 0 10px;
+            }
+        }
+    }
+
+    #gameplay-container{
+        height: 100%;
+        width: 80%;
+
+        #upper-gameplay-container {
+            height: 33%;
+
+            #question-container {
+                height: 100%;
+                float: left;
+                width: 80%;
+                background: white;
+            }
+
+            #timer-container {
+                float: left;
+                height: 100%;
+                width: 20%;
+
+                #inner-timer-container{
+                    text-align: center;
+
+                    #time{
+                        font-size: 108px;
+                    }
+                }
+            }
+        }
+
+        #cards {
+            width: 100%;
+            height: 100%;
+            background: white;
+        }
+    }
+}
+
+
+/*
+** End App CSS
+*/
+
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background:#ddd;
+    -webkit-box-shadow:0 8px 6px 6px black;
+    -moz-box-shadow:0 8px 6px 6px black;
+    box-shadow:0 8px 6px 6px black;
+    p {
+        padding:5px 0 12px 10px;
+    }
+}
+
