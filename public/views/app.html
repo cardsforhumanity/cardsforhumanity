@@ -5,17 +5,14 @@
   <div id = "gameplay-container">
     <div id = "upper-gameplay-container">
       <div id = "question-container">
-        The Question: {{game.curQuestion.text}}
+        <question></question>
       </div>
       <div id = "timer-container">
-        The Timer
+        <timer></timer>
       </div>
     </div>
-    <div id="cards">
-      <h1 ng-show="winnerPicked()">Winner has been chosen!</h1>
-      <div id='answers' ng-hide="pickedCard || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)">A: {{card.text}}</div>
-      <div id='table' ng-show="pickedCard || isCzar()" ng-repeat="answer in game.table" ng-click="pickWinning(answer)">Picked answer: {{ answer.card.text }}</div>
-
-    </div>
+    <answers></answers>
   </div>
 </div>
+
+

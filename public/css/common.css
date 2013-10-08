@@ -4,6 +4,7 @@ html {
 
 body {
   height: 100%;
+  font-family: "helvetica neue", helvetica, sans-serif;
 }
 
 .main-container {
@@ -36,6 +37,14 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+#inner-timer-container {
+  text-align: center;
+}
+
+#time {
+  font-size: 108px;
 }
 
 #inner-join-container {
@@ -275,7 +284,15 @@ body {
 }
 
 #player-container {
-  height: 33.333%;
+  height: 13.333%;
+}
+
+#avatar img {
+  max-width: 80px;
+  float: left;
+  border-radius: 15px;
+  border: 2px solid black;
+  margin: 0 10px;
 }
 
 #signup-button-smaller:hover {
@@ -331,7 +348,7 @@ footer p {
   position: fixed;
   right: 0;
   top: 0;
-  background: green;
+  background: white;
 }
 
 #main-container {
@@ -355,20 +372,19 @@ footer p {
   height: 100%;
   float: left;
   width: 80%;
-  background: red;
+  background: white;
 }
 
 #timer-container {
   float: left;
   height: 100%;
   width: 20%;
-  background: blue;
 }
 
 #cards {
   width: 100%;
-  height: 67%;
-  background: orange;
+  height: 100%;
+  background: white;
 }
 
 .card {
@@ -399,6 +415,16 @@ footer p {
   background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
   border-color: white;
   color: white;
+}
+.card.longBlack {
+  background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+  border-color: white;
+  color: white;
+  height: 10.7em;
+  width: 35.5em;
+}
+.card.smallest {
+  font-size: 0.750em;
 }
 .card:before {
   content: 'CFH';
