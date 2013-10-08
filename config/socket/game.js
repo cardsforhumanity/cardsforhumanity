@@ -77,6 +77,10 @@ Game.prototype.startGame = function() {
   this.stateChoosing(this);
 };
 
+Game.prototype.sendUpdate = function() {
+  this.io.sockets.in(this.gameID).emit('gameUpdate', this.payload());
+};
+
 Game.prototype.stateChoosing = function(self) {
   self.state = "waiting for players to pick";
   console.log(self.state);
@@ -89,8 +93,7 @@ Game.prototype.stateChoosing = function(self) {
   } else {
     self.czar++;
   }
-  self.io.sockets.in(self.gameID).emit('gameUpdate', self.payload());
-
+  self.sendUpdate();
 
   setTimeout(function() {
     self.stateJudging(self);
@@ -101,7 +104,7 @@ Game.prototype.stateJudging = function(self) {
   self.state = "waiting for czar to decide";
   console.log(self.state);
   // TODO: do stuff
-  self.io.sockets.in(self.gameID).emit('gameUpdate', self.payload());
+  self.sendUpdate();
   self.judgingTimeout = setTimeout(function() {
     self.stateResults(self);
   }, self.timeLimits.stateJudging);
@@ -118,7 +121,7 @@ Game.prototype.stateResults = function(self) {
       //return self.endGame(self.players[i]);
     }
   }
-  self.io.sockets.in(self.gameID).emit('gameUpdate', self.payload());
+  self.sendUpdate();
   setTimeout(function() {
     self.stateChoosing(self);
   }, self.timeLimits.stateResults);
@@ -178,9 +181,10 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
   console.log('card is at index',cardIndex);
 
   this.table.push({
-    card: this.players[playerIndex].hand.splice(cardIndex,1), 
+    card: this.players[playerIndex].hand.splice(cardIndex,1)[0],
     player: this.players[playerIndex].socket.id});
   console.log(this.table);
+  this.sendUpdate();
 };
 
 module.exports = Game;
