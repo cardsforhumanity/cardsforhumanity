@@ -166,14 +166,19 @@ Game.prototype.dealAnswers = function(maxAnswers) {
   }
 };
 
-Game.prototype.pickCard = function(thisCard, thisPlayer) {
-  // Find the player's position in the players array
+Game.prototype._findPlayerIndexBySocket = function(thisPlayer) {
   var playerIndex = -1;
   _.each(this.players, function(player, index) {
     if (player.socket.id === thisPlayer) {
       playerIndex = index;
     }
   });
+  return playerIndex;
+};
+
+Game.prototype.pickCard = function(thisCard, thisPlayer) {
+  // Find the player's position in the players array
+  var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
   console.log('player is at index',playerIndex);
   // TODO: Handle cases where playerIndex is still -1 here.
   // TODO: Verify that the player hasn't previously picked a card
@@ -194,12 +199,7 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer) {
-  var playerIndex = -1;
-  _.each(this.players, function(player, index) {
-    if (player.socket.id === thisPlayer) {
-      playerIndex = index;
-    }
-  });
+  var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
   if (playerIndex === this.czar) {
     var cardIndex = -1;
     _.each(this.table, function(winningSet, index) {
@@ -212,6 +212,8 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer) {
     if (cardIndex !== -1) {
       this.winningCard = cardIndex;
     }
+    var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
+    this.players[winnerIndex].points++;
   } else {
     // TODO: Do something?
   }
