@@ -42,5 +42,21 @@ angular.module('mean.system')
     }
   });
 
+  socket.on('dissolveGame', function(){
+    console.log('Game Dissolved');
+  });
+
+  game.joinGame = function(){
+    socket.emit('joinGame');
+  };
+
+  game.leaveGame = function(){
+    socket.emit('leaveGame');
+  };
+
+  game.pickCard = function(card){
+    socket.emit('pickCard',{card: card.id});
+  };
+
   return game;
 }]);
