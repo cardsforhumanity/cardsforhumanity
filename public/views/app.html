@@ -13,7 +13,7 @@
     </div>
     <div id="cards">
       <div id='answers' ng-hide="pickedCard || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)">A: {{card.text}}</div>
-      <div id='table' ng-show="pickedCard || isCzar()" ng-repeat="answer in game.table">Picked answer: {{ answer.card.text }}</div>
+      <div id='table' ng-show="pickedCard || isCzar()" ng-repeat="answer in game.table" ng-click="pickWinning(card)">Picked answer: {{ answer.card.text }}</div>
     </div>
   </div>
 </div>

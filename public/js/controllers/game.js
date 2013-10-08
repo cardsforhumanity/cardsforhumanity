@@ -1,12 +1,20 @@
 angular.module('mean.system')
 .controller('GameController', ['$scope', 'game', function ($scope, game) {
     $scope.pickedCard = false;
+    $scope.winningCardPicked = false;
 
     $scope.game = game;
 
     $scope.pickCard = function(card) {
       game.pickCard(card);
       $scope.pickedCard = true;
+    };
+
+    $scope.pickWinning = function(card) {
+      if (isCzar()) {
+        game.pickWinning(card);
+        $scope.winningCardPicked = true;
+      }
     };
 
     $scope.isCzar = function() {
@@ -16,6 +24,7 @@ angular.module('mean.system')
     $scope.$watch('game.state', function() {
       if (game.state === 'waiting for players to pick') {
         $scope.pickedCard = false;
+        $scope.winningCardPicked = false;
       }
     });
 
