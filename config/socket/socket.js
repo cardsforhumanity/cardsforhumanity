@@ -43,7 +43,7 @@ module.exports = function(io) {
         game.players.push(player);
         socket.join(game.gameID);
         socket.gameID = game.gameID;
-        if (game.players.length >= game.playerLimit) {
+        if (game.players.length >= game.playerMinLimit) {
           gamesNeedingPlayers.shift();
           game.prepareGame();
         }
