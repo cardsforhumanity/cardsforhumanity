@@ -12,7 +12,8 @@ function Game(gameID, io) {
   this.winner = -1; // Index in this.players
   this.winnerAutopicked = false;
   this.czar = -1; // Index in this.players
-  this.playerLimit = 3;
+  this.playerMinLimit = 3;
+  this.playerMaxLimit = 6;
   this.pointLimit = 5;
   this.state = "awaiting players";
   this.questions = null;
@@ -61,7 +62,8 @@ Game.prototype.prepareGame = function() {
 
   this.io.sockets.in(this.gameID).emit('prepareGame',
     {
-      playerLimit: this.playerLimit,
+      playerMinLimit: this.playerMinLimit,
+      playerMaxLimit: this.playerMaxLimit,
       pointLimit: this.pointLimit,
       timeLimits: this.timeLimits
     });

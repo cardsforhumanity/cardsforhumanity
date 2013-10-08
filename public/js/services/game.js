@@ -9,7 +9,8 @@ angular.module('mean.system')
     winner: -1,
     table: [],
     czar: null,
-    playerLimit: null,
+    playerMinLimit: null,
+    playerMaxLimit: null,
     pointLimit: null,
     state: null,
     curQuestion: null,
@@ -21,7 +22,8 @@ angular.module('mean.system')
   });
 
   socket.on('prepareGame', function(data) {
-    game.playerLimit = data.playerLimit;
+    game.playerMinLimit = data.playerMinLimit;
+    game.playerMaxLimit = data.playerMaxLimit;
     game.pointLimit = data.pointLimit;
     game.timeLimits = data.timeLimits;
   });
