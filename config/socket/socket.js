@@ -14,7 +14,11 @@ module.exports = function(io) {
 
     socket.on('pickCard', function(data) {
       console.log(socket.id,"'s CARD IS!!! - ",data);
-      game.pickCard(data.card,socket.id);
+      if (game) {
+        game.pickCard(data.card,socket.id);
+      } else {
+        console.log(socket.id,'needs to refresh the page!');
+      }
     });
 
     socket.on('pickWinning', function(data) {
