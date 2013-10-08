@@ -1,0 +1,19 @@
+<div id = "app-container" ng-controller="IndexController">
+  <div id = "social-bar-container">
+    <player></player>
+  </div>
+  <div id = "gameplay-container">
+    <div id = "upper-gameplay-container">
+      <div id = "question-container">
+        The Question
+      </div>
+      <div id = "timer-container">
+        The Timer
+      </div> 
+    </div>
+    <div id="cards">
+        <div id='questions' ng-model="question">Q: {{question.text}}</div>
+        <div id='answers' ng-repeat="answer in answers">A: {{answer.text}}</div>
+    </div>
+  </div>
+</div>

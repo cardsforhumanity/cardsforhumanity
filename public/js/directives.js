@@ -1,9 +1,9 @@
-angular.module('card.directives', [])
-  .directive('Cards', function() {
-    return {
+angular.module('mean.directives', [])
+  .directive('player', function(){
+    return{
       restrict: 'EA',
-      templateUrl: '/views/bottom.html',
-      link: function(scope, elem, attr) {
+      templateUrl: '/views/player.html',
+      link: function(scope, elem, attr){
       }
     };
   });
