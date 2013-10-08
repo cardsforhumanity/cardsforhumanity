@@ -444,7 +444,9 @@ body{
 #avatar img {
     max-width: 80px;
     float: left;
-    padding-right: 5px;
+    border-radius: 15px;
+    border: 2px solid black;
+    margin: 0 10px;
 }
 
 #signup-button-smaller:hover {
@@ -540,8 +542,8 @@ footer {
 
 #cards {
     width: 100%;
-    height: 67%;
-    background: orange;
+    height: 100%;
+    background: white;
 }
 
 
@@ -578,6 +580,10 @@ footer {
         background: black radial-gradient(ellipse at bottom right, rgb(50, 50, 50) 0%,#000000 100%);
         border-color: white;
         color: white;
+    }
+
+    &.smallest {
+        font-size: 0.750em;
     }
 
     &:before {

@@ -5,6 +5,7 @@ angular.module('mean.system')
     id: null,
     players: [],
     hand: [],
+    table: [],
     czar: null,
     playerLimit: null,
     pointLimit: null,
@@ -28,6 +29,7 @@ angular.module('mean.system')
 
     game.state = data.state;
     game.players = data.players;
+    game.table = data.table;
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
@@ -41,6 +43,22 @@ angular.module('mean.system')
       }
     }
   });
+
+  socket.on('dissolveGame', function(){
+    console.log('Game Dissolved');
+  });
+
+  game.joinGame = function(){
+    socket.emit('joinGame');
+  };
+
+  game.leaveGame = function(){
+    socket.emit('leaveGame');
+  };
+
+  game.pickCard = function(card){
+    socket.emit('pickCard',{card: card.id});
+  };
 
   return game;
 }]);
