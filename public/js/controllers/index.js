@@ -7,14 +7,4 @@ angular.module('mean.system')
       $location.path('/app');
     };
 
-}]).controller('appController', ['$scope', 'QuestionService', 'AnswerService', function($scope, QuestionService, AnswerService) {
-  QuestionService.getQuestions()
-    .then(function(data) {
-      $scope.question = data;
-    });
-
-  AnswerService.getAnswers()
-    .then(function(data) {
-      $scope.answers = data;
-    });
 }]);

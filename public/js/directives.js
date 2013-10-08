@@ -6,4 +6,11 @@ angular.module('mean.directives', [])
       link: function(scope, elem, attr){
       }
     };
+  })
+  .directive('timer', function(){
+    return{
+      restrict: 'EA',
+      templateUrl: '/views/timer.html',
+      link: function(scope, elem, attr){}
+    }
   });

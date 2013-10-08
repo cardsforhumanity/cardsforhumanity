@@ -38,6 +38,14 @@ body {
   right: 0;
 }
 
+#inner-timer-container {
+  text-align: center;
+}
+
+#time {
+  font-size: 108px;
+}
+
 #inner-join-container {
   height: 65%;
   width: 100%;
