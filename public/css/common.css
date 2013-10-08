@@ -1,392 +1,3 @@
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  font-family: "helvetica neue", helvetica, sans-serif;
-}
-
-.main-container {
-  height: 100%;
-}
-
-.cont {
-  height: 100%;
-}
-
-#first-section {
-  height: 100%;
-}
-
-#inner-container {
-  height: 100%;
-}
-
-#signup-guest-container {
-  width: 200px;
-  margin: 45px auto;
-}
-
-#inner-description-container {
-  height: 65%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-#inner-timer-container {
-  text-align: center;
-}
-
-#time {
-  font-size: 108px;
-}
-
-#inner-join-container {
-  height: 65%;
-  width: 100%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-#mission-statement-container {
-  height: 100%;
-  padding: 1%;
-}
-
-#description-container {
-  height: 100%;
-  position: relative;
-}
-
-.main-container {
-  width: 80%;
-  margin: 0px auto;
-  font-family: "helvetica neue", helvetica, sans-serif;
-}
-@media only screen and (max-width: 1024px) {
-  .main-container {
-    width: 90%;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .main-container {
-    width: 100%;
-  }
-}
-
-.navbar .nav > li > a.brand {
-  padding-left: 20px;
-  margin-left: 0;
-}
-
-.cont {
-  width: 100%;
-  margin: 0px auto;
-}
-
-.content {
-  margin-top: 50px;
-  width: 70%;
-}
-
-#slogan {
-  width: 100%;
-  font-size: 3.7em;
-  text-align: center;
-  font-weight: bold;
-  padding: 2%;
-}
-@media only screen and (max-width: 1025px) {
-  #slogan {
-    font-size: 2.8em;
-  }
-}
-@media only screen and (max-width: 768px) {
-  #slogan {
-    font-size: 2.3em;
-  }
-}
-
-#logo {
-  float: right;
-  margin-left: 20px;
-}
-@media only screen and (max-width: 1024px) {
-  #logo img {
-    width: 70%;
-    height: 70%;
-  }
-}
-
-#longer-description {
-  margin-top: 2%;
-  font-size: 1.6em;
-  width: 81%;
-  margin-left: 10%;
-  text-align: center;
-}
-@media only screen and (max-width: 1024px) {
-  #longer-description {
-    font-size: 1.4em;
-  }
-}
-
-#main-question {
-  font-weight: 600;
-}
-
-#description-paragraphs {
-  font-weight: 400;
-}
-
-#join-game-container {
-  margin: 0px auto;
-  height: 100%;
-  position: relative;
-  width: 100%;
-}
-
-#down_arrow {
-  bottom: 0;
-  height: 70px;
-  width: 64px;
-  margin: 0 auto;
-}
-#down_arrow a {
-  pointer: cursor;
-}
-
-#down_arrow_second {
-  bottom: 0;
-  height: 70px;
-  width: 64px;
-  margin: 0px auto;
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-#up_arrow_second {
-  top: 0;
-  height: 70px;
-  width: 64px;
-  margin: 0px auto;
-  display: block;
-}
-
-#play-as-guest {
-  text-align: right;
-}
-
-#signup-button {
-  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
-  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: #fcfcfc;
-  -webkit-border-top-left-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-right-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  border-bottom-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-left-radius: 20px;
-  text-indent: 0;
-  border: 1px solid #dcdcdc;
-  display: inline-block;
-  color: #777777;
-  font-family: arial;
-  font-size: 50px;
-  font-weight: bold;
-  font-style: normal;
-  height: 200px;
-  line-height: 200px;
-  width: 300px;
-  text-decoration: none;
-  text-align: center;
-  text-shadow: 1px 1px 0px #ffffff;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-#signup-button:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
-  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
-  background-color: #f0f0f0;
-  color: #4e4e4e;
-}
-
-#signup-button-smaller {
-  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
-  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: #fcfcfc;
-  -webkit-border-top-left-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-right-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  border-bottom-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-left-radius: 20px;
-  text-indent: 0;
-  border: 1px solid #dcdcdc;
-  display: inline-block;
-  color: #777777;
-  font-family: arial;
-  font-size: 39px;
-  font-weight: bold;
-  font-style: normal;
-  height: 100px;
-  line-height: 100px;
-  width: 200px;
-  text-decoration: none;
-  text-align: center;
-  text-shadow: 1px 1px 0px #ffffff;
-  cursor: pointer;
-  margin: 5px auto;
-  display: block;
-}
-@media only screen and (max-width: 480px) {
-  #signup-button-smaller {
-    height: 50px;
-    width: 100px;
-    line-height: 50px;
-    font-size: 19px;
-  }
-}
-
-#player-container {
-  height: 13.333%;
-}
-
-#avatar img {
-  max-width: 80px;
-  float: left;
-  border-radius: 15px;
-  border: 2px solid black;
-  margin: 0 10px;
-}
-
-#signup-button-smaller:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
-  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
-  background-color: #f0f0f0;
-  color: #4e4e4e;
-}
-
-#description-container {
-  height: 100%;
-}
-#description-container #first-card {
-  width: 28%;
-}
-#description-container #second-card {
-  width: 28%;
-}
-#description-container #third-card {
-  width: 28%;
-}
-@media only screen and (max-width: 1024px) {
-  #description-container #first-card {
-    width: 26%;
-  }
-  #description-container #second-card {
-    width: 26%;
-  }
-  #description-container #third-card {
-    width: 26%;
-  }
-}
-
-footer {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  height: 30px;
-  width: 100%;
-  background: #ddd;
-  -webkit-box-shadow: 0 8px 6px 6px black;
-  -moz-box-shadow: 0 8px 6px 6px black;
-  box-shadow: 0 8px 6px 6px black;
-}
-footer p {
-  padding: 5px 0 12px 10px;
-}
-
-#social-bar-container {
-  width: 20%;
-  height: 100%;
-  position: fixed;
-  right: 0;
-  top: 0;
-  background: white;
-}
-
-#main-container {
-  height: 100%;
-}
-
-#app-container {
-  height: 100%;
-}
-
-#gameplay-container {
-  height: 100%;
-  width: 80%;
-}
-
-#upper-gameplay-container {
-  height: 33%;
-}
-
-#question-container {
-  height: 100%;
-  float: left;
-  width: 80%;
-  background: white;
-}
-
-#timer-container {
-  float: left;
-  height: 100%;
-  width: 20%;
-}
-
-#cards {
-  width: 100%;
-  height: 100%;
-  background: white;
-}
-
 .card {
   position: relative;
   display: inline-block;
@@ -484,6 +95,49 @@ footer p {
   z-index: 1;
 }
 
+html, body, .main-container, .cont, #first-section, #inner-container {
+  height: 100%;
+}
+
+body {
+  font-family: "helvetica neue", helvetica, sans-serif;
+}
+
+.navbar .nav > li > a.brand {
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+.content {
+  margin-top: 50px;
+  width: 70%;
+}
+
+/*
+** START Home Page CSS
+*/
+.cont {
+  width: 100%;
+  margin: 0px auto;
+}
+
+.main-container {
+  width: 80%;
+  height: 100%;
+  margin: 0px auto;
+  font-family: "helvetica neue", helvetica, sans-serif;
+}
+@media only screen and (max-width: 1024px) {
+  .main-container {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .main-container {
+    width: 100%;
+  }
+}
+
 #inner-container {
   width: 100%;
   font-size: 1em;
@@ -514,4 +168,303 @@ footer p {
 #inner-container.longer-description em:before {
   content: '~';
   margin: 0 10px;
+}
+
+#mission-statement-container {
+  height: 100%;
+  padding: 1%;
+}
+#mission-statement-container #slogan {
+  width: 100%;
+  font-size: 3.7em;
+  text-align: center;
+  font-weight: bold;
+  padding: 2%;
+}
+@media only screen and (max-width: 1025px) {
+  #mission-statement-container #slogan {
+    font-size: 2.8em;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mission-statement-container #slogan {
+    font-size: 2.3em;
+  }
+}
+#mission-statement-container #longer-description {
+  margin-top: 2%;
+  font-size: 1.6em;
+  width: 81%;
+  margin-left: 10%;
+  text-align: center;
+}
+@media only screen and (max-width: 1024px) {
+  #mission-statement-container #longer-description {
+    font-size: 1.4em;
+  }
+}
+#mission-statement-container #longer-description #description-paragraphs {
+  font-weight: 400;
+}
+#mission-statement-container #longer-description #description-paragraphs #main-question {
+  font-weight: 600;
+}
+#mission-statement-container #signup-guest-container {
+  width: 200px;
+  margin: 45px auto;
+}
+#mission-statement-container #signup-guest-container #signup-button-smaller {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 39px;
+  font-weight: bold;
+  font-style: normal;
+  height: 100px;
+  line-height: 100px;
+  width: 200px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  cursor: pointer;
+  margin: 5px auto;
+  display: block;
+}
+@media only screen and (max-width: 480px) {
+  #mission-statement-container #signup-guest-container #signup-button-smaller {
+    height: 50px;
+    width: 100px;
+    line-height: 50px;
+    font-size: 19px;
+  }
+}
+#mission-statement-container #signup-guest-container #signup-button-smaller:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+#mission-statement-container #signup-guest-container #play-as-guest {
+  text-align: right;
+}
+#mission-statement-container #down_arrow {
+  bottom: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0 auto;
+}
+#mission-statement-container #down_arrow a {
+  pointer: cursor;
+}
+
+#description-container {
+  height: 100%;
+  position: relative;
+  height: 100%;
+}
+#description-container #first-card {
+  width: 28%;
+}
+#description-container #second-card {
+  width: 28%;
+}
+#description-container #third-card {
+  width: 28%;
+}
+@media only screen and (max-width: 1024px) {
+  #description-container #first-card {
+    width: 26%;
+  }
+  #description-container #second-card {
+    width: 26%;
+  }
+  #description-container #third-card {
+    width: 26%;
+  }
+}
+#description-container #inner-description-container {
+  height: 65%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#description-container #down_arrow_second {
+  bottom: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0px auto;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#join-game-container {
+  margin: 0px auto;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+#join-game-container #up_arrow_second {
+  top: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0px auto;
+  display: block;
+}
+#join-game-container #inner-join-container {
+  height: 65%;
+  width: 100%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#join-game-container #inner-join-container #signup-button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: normal;
+  height: 200px;
+  line-height: 200px;
+  width: 300px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  margin-top: 15px;
+  cursor: pointer;
+}
+#join-game-container #inner-join-container #signup-button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+
+/*
+** End Home Page CSS
+*/
+/*
+** START App CSS
+*/
+#app-container {
+  height: 100%;
+}
+#app-container #social-bar-container {
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: white;
+}
+#app-container #social-bar-container #player-container {
+  height: 13.333%;
+}
+#app-container #social-bar-container #player-container #avatar_ img {
+  max-width: 80px;
+  float: left;
+  border-radius: 15px;
+  border: 2px solid black;
+  margin: 0 10px;
+}
+#app-container #gameplay-container {
+  height: 100%;
+  width: 80%;
+}
+#app-container #gameplay-container #upper-gameplay-container {
+  height: 33%;
+}
+#app-container #gameplay-container #upper-gameplay-container #question-container {
+  height: 100%;
+  float: left;
+  width: 80%;
+  background: white;
+}
+#app-container #gameplay-container #upper-gameplay-container #timer-container {
+  float: left;
+  height: 100%;
+  width: 20%;
+}
+#app-container #gameplay-container #upper-gameplay-container #timer-container #inner-timer-container {
+  text-align: center;
+}
+#app-container #gameplay-container #upper-gameplay-container #timer-container #inner-timer-container #time {
+  font-size: 108px;
+}
+#app-container #gameplay-container #cards {
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+/*
+** End App CSS
+*/
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background: #ddd;
+  -webkit-box-shadow: 0 8px 6px 6px black;
+  -moz-box-shadow: 0 8px 6px 6px black;
+  box-shadow: 0 8px 6px 6px black;
+}
+footer p {
+  padding: 5px 0 12px 10px;
 }
