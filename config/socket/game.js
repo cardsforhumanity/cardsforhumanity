@@ -6,10 +6,11 @@ var answers = require(__dirname + '/../../app/controllers/answers.js');
 function Game(gameID, io) {
   this.io = io;
   this.gameID = gameID;
-  this.players = [];
-  this.table = [];
-  this.winningCard = -1;
-  this.czar = -1;
+  this.players = []; // Contains array of player models
+  this.table = []; // Contains array of {card: card, player: player.id}
+  this.winningCard = -1; // Index in this.table
+  this.winner = -1; // Index in this.players
+  this.czar = -1; // Index in this.players
   this.playerLimit = 3;
   this.pointLimit = 5;
   this.state = "awaiting players";
@@ -21,7 +22,13 @@ function Game(gameID, io) {
     stateJudging: 10000,
     stateResults: 5000
   };
+  // setTimeout ID that triggers the czar judging state
+  // Used to automatically run czar judging if players don't pick before time limit
+  // Gets cleared if players finish picking before time limit.
   this.choosingTimeout = 0;
+  // setTimeout ID that triggers the result state
+  // Used to automatically run result if czar doesn't decide before time limit
+  // Gets cleared if czar finishes judging before time limit.
   this.judgingTimeout = 0;
 };
 
@@ -120,14 +127,19 @@ Game.prototype.stateResults = function(self) {
   // TODO: do stuff
   for (var i = 0; i < self.players.length; i++) {
     if (self.players[i].points >= self.pointLimit) {
-      // TODO: endGame()
-      //return self.endGame(self.players[i]);
+      return this.stateEndGame(i);
     }
   }
   self.sendUpdate();
   setTimeout(function() {
     self.stateChoosing(self);
   }, self.timeLimits.stateResults);
+};
+
+Game.prototype.stateEndGame = function(winner) {
+  this.state = "game ended";
+  this.winner = winner;
+  this.sendUpdate();
 };
 
 Game.prototype.getQuestions = function(cb) {
