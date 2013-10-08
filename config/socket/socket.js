@@ -17,6 +17,10 @@ module.exports = function(io) {
       game.pickCard(data.card,socket.id);
     });
 
+    socket.on('pickWinning', function(data) {
+      game.pickWinning(data.card,socket.id);
+    });
+
     socket.on('joinGame', function() {
       var player = new Player(socket);
 

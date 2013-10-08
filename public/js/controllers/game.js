@@ -10,15 +10,19 @@ angular.module('mean.system')
       $scope.pickedCard = true;
     };
 
-    $scope.pickWinning = function(card) {
-      if (isCzar()) {
-        game.pickWinning(card);
+    $scope.isCzar = function() {
+      return game.czar === game.playerIndex;
+    };
+
+    $scope.pickWinning = function(winningSet) {
+      if ($scope.isCzar()) {
+        game.pickWinning(winningSet.card);
         $scope.winningCardPicked = true;
       }
     };
 
-    $scope.isCzar = function() {
-      return game.czar === game.playerIndex;
+    $scope.winnerPicked = function() {
+      return game.winningCard !== -1;
     };
 
     $scope.$watch('game.state', function() {

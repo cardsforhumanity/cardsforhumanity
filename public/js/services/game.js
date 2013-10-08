@@ -5,6 +5,7 @@ angular.module('mean.system')
     id: null,
     players: [],
     playerIndex: 0,
+    winningCard: -1,
     table: [],
     czar: null,
     playerLimit: null,
@@ -30,6 +31,7 @@ angular.module('mean.system')
     game.state = data.state;
     game.players = data.players;
     game.table = data.table;
+    game.winningCard = data.winningCard;
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
