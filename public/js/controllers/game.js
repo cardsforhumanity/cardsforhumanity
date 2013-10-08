@@ -2,7 +2,6 @@ angular.module('mean.system')
 .controller('GameController', ['$scope', 'game', function ($scope, game) {
     $scope.pickedCard = false;
     $scope.winningCardPicked = false;
-
     $scope.game = game;
 
     $scope.pickCard = function(card) {
