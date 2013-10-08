@@ -114,25 +114,41 @@ Game.prototype.stateChoosing = function(self) {
 Game.prototype.stateJudging = function(self) {
   self.state = "waiting for czar to decide";
   console.log(self.state);
-  // TODO: do stuff
-  self.sendUpdate();
-  self.judgingTimeout = setTimeout(function() {
+  var selectFirst = function() {
+    self.winningCard = 0;
+    var winnerIndex = self._findPlayerIndexBySocket(self.table[0].player);
+    self.players[winnerIndex].points++;
     self.stateResults(self);
-  }, self.timeLimits.stateJudging);
+  };
+  if (this.table.length === 1) {
+    // Automatically select a card if only one card was submitted
+    selectFirst();
+  } else {
+    self.sendUpdate();
+    self.judgingTimeout = setTimeout(function() {
+      // Automatically select the first submitted card when time runs out.
+      selectFirst();
+    }, self.timeLimits.stateJudging);
+  }
 };
 
 Game.prototype.stateResults = function(self) {
   self.state = "winner has been chosen";
   console.log(self.state);
   // TODO: do stuff
+  var endGame = false;
   for (var i = 0; i < self.players.length; i++) {
     if (self.players[i].points >= self.pointLimit) {
-      return this.stateEndGame(i);
+      endGame = true;
     }
   }
   self.sendUpdate();
   setTimeout(function() {
-    self.stateChoosing(self);
+    if (endGame) {
+      self.stateEndGame(i);
+    } else {
+      self.stateChoosing(self);
+    }
   }, self.timeLimits.stateResults);
 };
 
