@@ -32,7 +32,6 @@ angular.module('mean.system')
             question = data[rnd];
           }
         }
-        console.log(question);
         return question;
       });
     }
