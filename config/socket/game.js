@@ -10,6 +10,7 @@ function Game(gameID, io) {
   this.table = []; // Contains array of {card: card, player: player.id}
   this.winningCard = -1; // Index in this.table
   this.winner = -1; // Index in this.players
+  this.winnerAutopicked = false;
   this.czar = -1; // Index in this.players
   this.playerLimit = 3;
   this.pointLimit = 5;
@@ -49,6 +50,7 @@ Game.prototype.payload = function() {
     czar: this.czar,
     state: this.state,
     winningCard: this.winningCard,
+    winnerAutopicked: this.winnerAutopicked,
     table: this.table,
     curQuestion: this.curQuestion
   };
@@ -96,6 +98,7 @@ Game.prototype.stateChoosing = function(self) {
   console.log(self.state);
   self.table = [];
   self.winningCard = -1;
+  self.winnerAutopicked = false;
   self.curQuestion = self.questions.pop();
   self.dealAnswers();
   // Rotate card czar
@@ -119,6 +122,7 @@ Game.prototype.stateJudging = function(self) {
       self.winningCard = 0;
       var winnerIndex = self._findPlayerIndexBySocket(self.table[0].player);
       self.players[winnerIndex].points++;
+      self.winnerAutopicked = true;
       self.stateResults(self);
     } else {
       console.log('no cards were picked!');

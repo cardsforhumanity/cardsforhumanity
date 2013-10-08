@@ -48,6 +48,7 @@ angular.module('mean.system')
     game.players = data.players;
     game.table = data.table;
     game.winningCard = data.winningCard;
+    game.winnerAutopicked = data.winnerAutopicked;
     game.winner = data.winner;
 
     if (data.state === 'waiting for players to pick') {
