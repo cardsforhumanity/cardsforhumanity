@@ -253,7 +253,7 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
       }
     }
   } else {
-    console.log('NOTE:',thisPlayer,'picked a card during',self.state);
+    console.log('NOTE:',thisPlayer,'picked a card during',this.state);
   }
 };
 

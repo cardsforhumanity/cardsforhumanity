@@ -14,10 +14,10 @@ module.exports = function(io) {
 
     socket.on('pickCard', function(data) {
       console.log(socket.id,"picked",data);
-      if (game) {
-        game.pickCard(data.card,socket.id);
+      if (allGames[socket.gameID]) {
+        allGames[socket.gameID].pickCard(data.card,socket.id);
       } else {
-        console.log(socket.id,'needs to refresh the page!');
+        console.log('Received pickCard from',socket.id, 'but game does not appear to exist!');
       }
     });
 
@@ -30,7 +30,7 @@ module.exports = function(io) {
 
       if (gamesNeedingPlayers.length <= 0) {
         gameID += 1;
-        var gameIDStr = gameID.toString()
+        var gameIDStr = gameID.toString();
         game = new Game(gameIDStr, io);
         game.players.push(player);
         allGames[gameID] = game;
@@ -63,8 +63,8 @@ module.exports = function(io) {
           }
         } else {
           socket.broadcast.in(game.gameID).emit('dissolveGame');
-          for (var i = 0; i < game.players.length; i++) {
-            game.players[i].socket.leave(socket.gameID);
+          for (var j = 0; j < game.players.length; j++) {
+            game.players[j].socket.leave(socket.gameID);
           }
           delete allGames[socket.gameID];
         }
