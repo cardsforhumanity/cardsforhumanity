@@ -115,12 +115,17 @@ Game.prototype.stateJudging = function(self) {
   self.state = "waiting for czar to decide";
   console.log(self.state);
   var selectFirst = function() {
-    self.winningCard = 0;
-    var winnerIndex = self._findPlayerIndexBySocket(self.table[0].player);
-    self.players[winnerIndex].points++;
-    self.stateResults(self);
+    if (self.table.length) {
+      self.winningCard = 0;
+      var winnerIndex = self._findPlayerIndexBySocket(self.table[0].player);
+      self.players[winnerIndex].points++;
+      self.stateResults(self);
+    } else {
+      console.log('no cards were picked!');
+      self.stateChoosing(self);
+    }
   };
-  if (this.table.length === 1) {
+  if (this.table.length <= 1) {
     // Automatically select a card if only one card was submitted
     selectFirst();
   } else {
