@@ -252,6 +252,7 @@ html{
 
 body{
     height: 100%;
+    font-family: $main-font;
 }
 
 .main-container{
@@ -437,7 +438,13 @@ body{
 }
 
 #player-container{
-    height: 33.333%
+    height: 13.333%
+}
+
+#avatar img {
+    max-width: 80px;
+    float: left;
+    padding-right: 5px;
 }
 
 #signup-button-smaller:hover {
@@ -497,7 +504,7 @@ footer {
     position: fixed; 
     right: 0; 
     top: 0;
-    background: green;
+    background: white;
 }
 
 #main-container{
