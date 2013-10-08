@@ -17,11 +17,12 @@ function Game(gameID, io) {
   this.answers = null;
   this.curQuestion = null;
   this.timeLimits = {
-    stateChoosing: 5000,
-    stateJudging: 5000,
+    stateChoosing: 15000,
+    stateJudging: 10000,
     stateResults: 5000
   };
-  this.judgingTimeout;
+  this.choosingTimeout = 0;
+  this.judgingTimeout = 0;
 };
 
 Game.prototype.payload = function() {
@@ -98,7 +99,7 @@ Game.prototype.stateChoosing = function(self) {
   }
   self.sendUpdate();
 
-  setTimeout(function() {
+  self.choosingTimeout = setTimeout(function() {
     self.stateJudging(self);
   }, self.timeLimits.stateChoosing);
 };
@@ -195,15 +196,18 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
     card: this.players[playerIndex].hand.splice(cardIndex,1)[0],
     player: this.players[playerIndex].socket.id});
   console.log(this.table);
+  if (this.table.length === this.players.length-1) {
+    clearTimeout(this.choosingTimeout);
+    this.stateJudging(this);
+  }
   this.sendUpdate();
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer) {
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
-  if (playerIndex === this.czar) {
+  if (playerIndex === this.czar && this.state === "waiting for czar to decide") {
     var cardIndex = -1;
     _.each(this.table, function(winningSet, index) {
-      console.log('comparing cards',winningSet.card,'with',thisCard);
       if (winningSet.card.id === thisCard) {
         cardIndex = index;
       }
@@ -214,6 +218,8 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer) {
     }
     var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
     this.players[winnerIndex].points++;
+    clearTimeout(this.judgingTimeout);
+    this.stateResults(this);
   } else {
     // TODO: Do something?
   }
