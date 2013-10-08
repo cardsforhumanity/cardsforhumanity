@@ -14,6 +14,7 @@ module.exports = function(io) {
 
     socket.on('pickCard', function(data) {
       console.log(socket.id,"'s CARD IS!!! - ",data);
+      game.pickCard(data.card,socket.id);
     });
 
     socket.on('joinGame', function() {
