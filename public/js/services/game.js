@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .factory('game', ['socket', '$timeout', function(socket, $timeout){
+  .factory('game', ['socket', function(socket){
 
   var game = {
     id: null,
@@ -16,20 +16,6 @@ angular.module('mean.system')
     timeLimits: {}
   };
 
-  var countdown = function(){
-    var count = 30;
-    var counter = $timeout(timer, 1000);
-    function timer(){
-      count -= 1;
-      if(count <= 0){
-        clearInterval(counter);
-        return;
-      }
-      document.getElementById('time').innerHTML = count;
-      counter = $timeout(timer, 1000);
-    }
-  };
-
   socket.on('id', function(data) {
     game.id = data.id;
   });
@@ -38,13 +24,14 @@ angular.module('mean.system')
     game.playerLimit = data.playerLimit;
     game.pointLimit = data.pointLimit;
     game.timeLimits = data.timeLimits;
-    countdown();
   });
 
   socket.on('gameUpdate', function(data) {
     console.log(data);
 
-    game.state = data.state;
+    if (data.state !== game.state) {
+      game.state = data.state;
+    }
     game.players = data.players;
     game.table = data.table;
     game.winningCard = data.winningCard;
