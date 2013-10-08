@@ -252,6 +252,7 @@ html{
 
 body{
     height: 100%;
+    font-family: $main-font;
 }
 
 .main-container{
@@ -445,7 +446,15 @@ body{
 }
 
 #player-container{
-    height: 33.333%
+    height: 13.333%
+}
+
+#avatar img {
+    max-width: 80px;
+    float: left;
+    border-radius: 15px;
+    border: 2px solid black;
+    margin: 0 10px;
 }
 
 #signup-button-smaller:hover {
@@ -505,7 +514,7 @@ footer {
     position: fixed; 
     right: 0; 
     top: 0;
-    background: green;
+    background: white;
 }
 
 #main-container{
@@ -529,7 +538,7 @@ footer {
     height: 100%;
     float: left;
     width: 80%;
-    background: red;
+    background: white;
 }
 
 #timer-container {
@@ -541,8 +550,8 @@ footer {
 
 #cards {
     width: 100%;
-    height: 67%;
-    background: orange;
+    height: 100%;
+    background: white;
 }
 
 
@@ -579,6 +588,18 @@ footer {
         background: black radial-gradient(ellipse at bottom right, rgb(50, 50, 50) 0%,#000000 100%);
         border-color: white;
         color: white;
+    }
+
+    &.longBlack {
+        background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+        border-color: white;
+        color: white;
+        height: 10.7em;
+        width: 35.5em;
+    }
+
+    &.smallest {
+        font-size: 0.750em;
     }
 
     &:before {

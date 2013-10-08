@@ -1,0 +1,7 @@
+<div id="cards-container">
+  <div id="cards">
+    <div id='answers' ng-repeat="answer in answers">A: {{answer.text}}</div>
+    <div class="card smallest" id='answers' ng-hide="pickedCard" ng-repeat="card in game.hand" ng-click="pickCard(card)">A: {{card.text}}</div>
+    <div class="card smallest" id='table' ng-show="pickedCard" ng-repeat="answer in game.table">Picked answer: {{ answer.card.text }}</div>
+  </div>
+</div>
