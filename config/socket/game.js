@@ -118,7 +118,6 @@ Game.prototype.stateResults = function(self) {
   self.state = "winner has been chosen";
   console.log(self.state);
   // TODO: do stuff
-  // TODO: increment winner's score here
   for (var i = 0; i < self.players.length; i++) {
     if (self.players[i].points >= self.pointLimit) {
       // TODO: endGame()
@@ -181,34 +180,35 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
   // Find the player's position in the players array
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
   console.log('player is at index',playerIndex);
-  // TODO: Handle cases where playerIndex is still -1 here.
-  // Verify that the player hasn't previously picked a card
-  var previouslySubmitted = false;
-  _.each(this.table, function(pickedSet, index) {
-    if (pickedSet.player === thisPlayer) {
-      previouslySubmitted = true;
-    }
-  });
-  if (!previouslySubmitted) {
-    var cardIndex = -1;
-    _.each(this.players[playerIndex].hand, function(card, index) {
-      if (card.id === thisCard) {
-        cardIndex = index;
+  if (playerIndex !== -1) {
+    // Verify that the player hasn't previously picked a card
+    var previouslySubmitted = false;
+    _.each(this.table, function(pickedSet, index) {
+      if (pickedSet.player === thisPlayer) {
+        previouslySubmitted = true;
       }
     });
-    console.log('card is at index',cardIndex);
-    // TODO: Handle cases where cardIndex is still -1 here.
-
-    this.table.push({
-      card: this.players[playerIndex].hand.splice(cardIndex,1)[0],
-      player: this.players[playerIndex].socket.id
-    });
-    console.log(this.table);
-    if (this.table.length === this.players.length-1) {
-      clearTimeout(this.choosingTimeout);
-      this.stateJudging(this);
-    } else {
-      this.sendUpdate();
+    if (!previouslySubmitted) {
+      var cardIndex = -1;
+      _.each(this.players[playerIndex].hand, function(card, index) {
+        if (card.id === thisCard) {
+          cardIndex = index;
+        }
+      });
+      console.log('card is at index',cardIndex);
+      if (cardIndex !== -1) {
+        this.table.push({
+          card: this.players[playerIndex].hand.splice(cardIndex,1)[0],
+          player: this.players[playerIndex].socket.id
+        });
+        console.log(this.table);
+        if (this.table.length === this.players.length-1) {
+          clearTimeout(this.choosingTimeout);
+          this.stateJudging(this);
+        } else {
+          this.sendUpdate();
+        }
+      }
     }
   }
 };
@@ -232,9 +232,8 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer) {
     this.stateResults(this);
   } else {
     // TODO: Do something?
+    this.sendUpdate();
   }
-
-  this.sendUpdate();
 };
 
 module.exports = Game;

@@ -13,7 +13,7 @@ module.exports = function(io) {
     socket.emit('id', {id: socket.id});
 
     socket.on('pickCard', function(data) {
-      console.log(socket.id,"'s CARD IS!!! - ",data);
+      console.log(socket.id,"picked",data);
       if (game) {
         game.pickCard(data.card,socket.id);
       } else {
