@@ -29,5 +29,5 @@ angular.module('mean.directives', [])
       restrict: 'EA',
       templateUrl: '/views/timer.html',
       link: function(scope, elem, attr){}
-    }
+    };
   });

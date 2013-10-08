@@ -26,7 +26,7 @@ angular.module('mean.system')
       document.getElementById('time').innerHTML = count;
       counter = $timeout(timer, 1000);
     }
-  }
+  };
 
   socket.on('id', function(data) {
     game.id = data.id;
