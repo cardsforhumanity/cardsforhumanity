@@ -1,19 +1,19 @@
-<div id = "app-container" ng-controller="IndexController">
+<div id = "app-container" ng-controller="GameController">
   <div id = "social-bar-container">
     <player></player>
   </div>
   <div id = "gameplay-container">
     <div id = "upper-gameplay-container">
       <div id = "question-container">
-        The Question
+        The Question: {{game.curQuestion.text}}
       </div>
       <div id = "timer-container">
         The Timer
-      </div> 
+      </div>
     </div>
     <div id="cards">
-        <div id='questions' ng-model="question">Q: {{question.text}}</div>
-        <div id='answers' ng-repeat="answer in answers">A: {{answer.text}}</div>
+      <div id='answers' ng-hide="pickedCard" ng-repeat="card in game.hand" ng-click="pickCard(card)">A: {{card.text}}</div>
+      <div id='table' ng-show="pickedCard" ng-repeat="answer in game.table">Picked answer: {{ answer.card.text }}</div>
     </div>
   </div>
 </div>
