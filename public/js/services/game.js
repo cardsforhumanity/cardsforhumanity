@@ -41,7 +41,7 @@ angular.module('mean.system')
   });
 
   socket.on('gameUpdate', function(data) {
-    console.log(data);
+    // console.log(data);
 
     game.state = data.state;
     game.players = data.players;

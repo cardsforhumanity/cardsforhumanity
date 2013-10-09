@@ -12,7 +12,6 @@ angular.module('mean.directives', [])
       restrict: 'EA',
       templateUrl: '/views/answers.html',
       link: function(scope, elem, attr) {
-
       }
     };
   }).directive('question', function() {
