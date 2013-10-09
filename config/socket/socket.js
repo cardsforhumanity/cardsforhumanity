@@ -42,11 +42,13 @@ module.exports = function(io) {
         socket.join(game.gameID);
         socket.gameID = game.gameID;
         console.log('Create new Game');
+        game.sendUpdate();
       } else {
         game = gamesNeedingPlayers[0];
         game.players.push(player);
         socket.join(game.gameID);
         socket.gameID = game.gameID;
+        game.sendUpdate();
         if (game.players.length >= game.playerMaxLimit) {
           gamesNeedingPlayers.shift();
           game.prepareGame();
@@ -71,12 +73,9 @@ module.exports = function(io) {
       game = allGames[socket.gameID];
 
       if (allGames[socket.gameID]) { // Make sure game exists
-        if (game.state === 'awaiting players'){
-          for (var i = 0; i < game.players.length; i++) {
-            if (game.players[i].socket.id === socket.id) {
-              game.players.splice(i,1);
-            }
-          }
+        if (game.state === 'awaiting players' ||
+          game.players.length-1 >= game.playerMinLimit){
+          game.removePlayer(socket.id);
         } else {
           socket.broadcast.in(game.gameID).emit('dissolveGame');
           for (var j = 0; j < game.players.length; j++) {
@@ -89,6 +88,7 @@ module.exports = function(io) {
 
     socket.on('disconnect', function(){
       console.log('Rooms on Disconnect ', io.sockets.manager.rooms);
+
     });
   });
-}
+};

@@ -2,7 +2,7 @@
   <div id = "social-bar-container">
     <player></player>
   </div>
-  <div id = "startGame" ng-click="startGame()">
+  <div id = "startGame" ng-click="startGame()" ng-show="game.playerIndex==0 && game.state=='awaiting players'">
     <h1>Start Game</h1>
   </div>
   <div id = "gameplay-container">
@@ -15,7 +15,6 @@
       </div>
     </div>
     <answers></answers>
-  </div>
-</div>
+  </div></div>
 
 

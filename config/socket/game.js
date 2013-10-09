@@ -257,6 +257,21 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
   }
 };
 
+Game.prototype.removePlayer = function(thisPlayer) {
+  // Check if the player is the czar
+  if (this.czar === this._findPlayerIndexBySocket(thisPlayer)) {
+    // If the player is the czar...
+    // ...
+  }
+  // Remove player from this.players
+  for (var i = 0; i < this.players.length; i++) {
+    if (this.players[i].socket.id === thisPlayer) {
+      this.players.splice(i,1);
+    }
+  }
+  this.sendUpdate();
+};
+
 Game.prototype.pickWinning = function(thisCard, thisPlayer) {
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
   if (playerIndex === this.czar && this.state === "waiting for czar to decide") {
