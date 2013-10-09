@@ -42,12 +42,11 @@ angular.module('mean.system')
       }
     };
 
-    // Catches changes to curQuestion to update when no players pick card
+    // Catches changes to round to update when no players pick card
     // (because game.state remains the same)
-    $scope.$watch('game.curQuestion', function() {
+    $scope.$watch('game.round', function() {
       $scope.pickedCard = false;
       $scope.winningCardPicked = false;
-      console.log('new countdown!');
       $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
     });
 

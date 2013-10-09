@@ -13,6 +13,7 @@ angular.module('mean.system')
     playerMaxLimit: 6,
     pointLimit: null,
     state: null,
+    round: 0,
     curQuestion: null,
     timeLimits: {}
   };
@@ -36,12 +37,15 @@ angular.module('mean.system')
     }
     game.players = data.players;
     game.table = data.table;
+    game.round = data.round;
     game.winningCard = data.winningCard;
     game.winnerAutopicked = data.winnerAutopicked;
     game.winner = data.winner;
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
+      game.curQuestion = data.curQuestion;
+    } else if (data.state === 'winner has been chosen') {
       game.curQuestion = data.curQuestion;
     }
 

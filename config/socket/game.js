@@ -16,6 +16,7 @@ function Game(gameID, io) {
   this.playerMaxLimit = 6;
   this.pointLimit = 5;
   this.state = "awaiting players";
+  this.round = 0;
   this.questions = null;
   this.answers = null;
   this.curQuestion = null;
@@ -51,6 +52,7 @@ Game.prototype.payload = function() {
     players: players,
     czar: this.czar,
     state: this.state,
+    round: this.round,
     winningCard: this.winningCard,
     winnerAutopicked: this.winnerAutopicked,
     table: this.table,
@@ -103,6 +105,7 @@ Game.prototype.stateChoosing = function(self) {
   self.winningCard = -1;
   self.winnerAutopicked = false;
   self.curQuestion = self.questions.pop();
+  self.round++;
   self.dealAnswers();
   // Rotate card czar
   if (self.czar >= self.players.length - 1) {
@@ -156,6 +159,18 @@ Game.prototype.stateResults = function(self) {
       endGame = true;
     }
   }
+  var curQuestionArr = self.curQuestion.text.split('_');
+  if (curQuestionArr.length > 1) {
+    // Handling just one answer for now. It should be an array of answers later.
+    console.log('self.table',self.table);
+    console.log('self.winningCard',self.winningCard);
+    console.log('winning card text',self.table[self.winningCard].card.text);
+    curQuestionArr.splice(1,0,self.table[self.winningCard].card.text);
+    self.curQuestion.text = curQuestionArr.join("");
+  } else {
+    self.curQuestion.text += ' '+self.table[self.winningCard].card.text;
+  }
+
   self.sendUpdate();
   self.resultsTimeout = setTimeout(function() {
     if (endGame) {
