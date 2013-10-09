@@ -3,6 +3,9 @@
     <player></player>
   </div>
   <div id="gameplay-container">
+      <div id = "startGame" ng-click="startGame()" ng-show="game.playerIndex==0 && game.state=='awaiting players'">
+    <h1>Start Game</h1>
+  </div>
     <div id="upper-gameplay-container">
       <div id="menu-timeremaining-container">
         <div id="menu-container">
@@ -11,19 +14,13 @@
         <div id="timer-container">
           <timer></timer>
         </div>
-<!--   <div id = "startGame" ng-click="startGame()" ng-show="game.playerIndex==0 && game.state=='awaiting players'">
-    <h1>Start Game</h1>
-  </div> -->
-  <div id = "gameplay-container">
-    <div id = "upper-gameplay-container">
-      <div id = "question-container">
-        <question></question>
       </div>
       <div id="question-container-outer">
         <question></question>
       </div>
     </div>
     <answers></answers>
-  </div></div>
+  </div>
+</div>
 
 
