@@ -42,12 +42,17 @@ angular.module('mean.system')
       }
     };
 
+    // Catches changes to curQuestion to update when no players pick card
+    // (because game.state remains the same)
+    $scope.$watch('game.curQuestion', function() {
+      $scope.pickedCard = false;
+      $scope.winningCardPicked = false;
+      console.log('new countdown!');
+      $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
+    });
+
     $scope.$watch('game.state', function() {
-      if (game.state === 'waiting for players to pick') {
-        $scope.pickedCard = false;
-        $scope.winningCardPicked = false;
-        $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
-      } else if (game.state === 'waiting for czar to decide') {
+      if (game.state === 'waiting for czar to decide') {
         $scope.countdown(game.timeLimits.stateJudging/1000,game.state);
       } else if (game.state === 'winner has been chosen') {
         $scope.countdown(game.timeLimits.stateResults/1000,game.state);
