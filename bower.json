@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "dependencies": {
         "bootstrap": "~3.0.0",
-        "angular": "~1.0.6",
-        "angular-resource": "~1.0.6",
-        "angular-cookies": "~1.0.6",
+        "angular": "~1.1.5",
+        "angular-resource": "~1.1.5",
+        "angular-cookies": "~1.1.5",
         "angular-bootstrap": "~0.4.0",
         "angular-ui-utils": "0.0.4",
         "json3": "~3.2.4",

@@ -60,6 +60,10 @@ angular.module('mean.system')
     socket.emit('joinGame');
   };
 
+  game.startGame = function() {
+    socket.emit('startGame');
+  };
+
   game.leaveGame = function(){
     socket.emit('leaveGame');
   };

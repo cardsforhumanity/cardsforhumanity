@@ -4,7 +4,6 @@ angular.module('mean.directives', [])
       restrict: 'EA',
       templateUrl: '/views/player.html',
       link: function(scope, elem, attr){
-        $scope.toggle = true;
       }
     };
   }]).directive('answers', function() {

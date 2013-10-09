@@ -105,6 +105,21 @@ $mq-custom-wide : 1200px !default;
     }
 }
 
+@mixin br{
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+@mixin br-bottom {
+    -webkit-border-bottom-right-radius: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
 @mixin button {
     -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -246,22 +261,37 @@ color: #4e4e4e;
     color: #4e4e4e;
 }
 
+@mixin soft-button{
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    @include br;
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+    background-color: #EEEEEE;
+    text-indent: 0;
+    text-shadow: 1px 1px 0px #ffffff;
+    cursor: pointer;
+}
+
 .card {
     position: relative;
 
     display: inline-block;
     box-sizing: border-box;
-    width: 14em;
+    width: 18%;
     height: 20em;
     padding: 1%;
-    margin: 1.3%;
+    margin: 1%;
 
     background-color: rgb(249, 249, 249);
 
     border-radius: 0.5em;
     border: 0.0625em solid black;
 
-    box-shadow: 0 0 0.5em rgba(0,0,0,0.25);
+    // box-shadow: 0 0 0.5em rgba(0,0,0,0.25); //Let's try a flat look.
 
     color: black;
     font-family: Arial;
@@ -370,6 +400,10 @@ html, body, .main-container, .cont, #first-section, #inner-container{
     height: 100%;
 }
 
+html{
+    margin: 20px;
+    position: relative;
+}
 body{
     font-family: $main-font;
 }
@@ -621,68 +655,154 @@ body{
 /*
 ** START App CSS
 */
-
-#app-container{
+#main-container{
     height: 100%;
-
-    #social-bar-container{
-        width: 20%; 
+    #app-container {
         height: 100%;
-        position: fixed; 
-        right: 0; 
-        top: 0;
-        background: white;
+        max-width: 1200px;
+        margin: 0px auto;
+        position: relative;
 
-        #player-container{
-            height: 13.333%;
+        #social-bar-container{
+            width: 20%; 
+            height: 100%;
+            position: absolute; 
+            right: 0; 
+            background: white;
 
-            #avatar_ img {
-                max-width: 80px;
-                float: left;
-                border-radius: 15px;
-                border: 2px solid black;
-                margin: 0 10px;
-            }
-        }
-    }
+            #player-container{
+                height: 13.166667%;
+                position: relative;
+                padding-top: 4%;
+                padding-bottom: 4%;
+                min-height: 85px;
+                background: #7CE4E8;
+                margin: 3%;
+                @include br;
 
-    #gameplay-container{
-        height: 100%;
-        width: 80%;
+                #above-czar-container{
+                    height: 65%;
+                    width: 100%;
 
-        #upper-gameplay-container {
-            height: 33%;
+                    #avatar_ {
+                        height: 100%;
+                        width: 40%;
+                        float: left;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            float: left;
+                            @include br;
+                            margin: 0 10px;
+                            min-width: 40px;
+                            min-height: 40px;
+                        }
+                    }
+                    #player-container-inner{
+                        float: left;
+                        position: relative;
+                        bottom: 8px;
+                        left: 17px;
+                    }
+                }
 
-            #question-container {
-                height: 100%;
-                float: left;
-                width: 80%;
-                background: white;
-            }
-
-            #timer-container {
-                float: left;
-                height: 100%;
-                width: 20%;
-
-                #inner-timer-container{
+                #czar-container {
+                    position: absolute;
+                    bottom: 0;
                     text-align: center;
+                    width: 100%;
+                    @include br-bottom;
+                    background: black;
+                    opacity:0.2;
 
-                    #time{
-                        font-size: 108px;
+                    #the-czar{
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 20px;
                     }
                 }
             }
         }
 
-        #cards {
-            width: 100%;
+        #gameplay-container{
             height: 100%;
-            background: white;
+            width: 80%;
+
+            #upper-gameplay-container {
+                height: 33%;
+                width: 100%;
+
+                #menu-timeremaining-container{
+                    float: left;
+                    width: 17%;
+                    height: 100%;
+
+                    #menu-container{
+                        @include soft-button;
+                        height: 20%;
+                        margin-bottom: 10%;
+                        line-height: 20%;
+                        @include br;
+                        #menu-button{
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            right: 0;
+                        }
+                    }
+
+                    #timer-container {
+                        height: 70%;
+
+                        #inner-timer-container{
+                            text-align: center;
+                            @include soft-button;
+                            background: #89FFAC; //Sexy?
+                            text-shadow: none;
+                            cursor: default;
+                            border: none;
+
+                            #time{
+                                font-size: 108px;
+
+                                @include tablet-landscape-and-below{
+                                    font-size: 50px;
+                                }
+                            }
+                        }
+                    }
+                 }
+
+                #question-container-outer {
+                    height: 100%;
+                    float: left;
+                    width: 83%;
+
+                    #question-container-inner{
+                        width: 100%;
+
+                        .card{
+                            width: 97%;
+                            margin: 0px auto;
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            #cards-container{
+                width: 100%;
+                background: #EEE;
+                @include br;
+
+                #cards {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
     }
 }
-
 
 /*
 ** End App CSS
