@@ -3,7 +3,7 @@
     <player></player>
   </div>
   <div id="gameplay-container">
-      <div id = "startGame" ng-click="startGame()" ng-show="game.playerIndex==0 && game.state=='awaiting players'">
+      <div id = "startGame" ng-click="startGame()" ng-show="game.playerIndex==0 && game.state=='awaiting players' && game.players.length>=game.playerMinLimit">
     <h1>Start Game</h1>
   </div>
     <div id="upper-gameplay-container">
