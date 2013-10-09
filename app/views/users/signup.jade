@@ -27,3 +27,7 @@ block auth
       &nbsp;
       | or&nbsp;
       a.show-login(href="/signin") login
+
+      div(ng-controller="GameController")
+        div(ng-repeat="avatar in avatars")
+          img(ng-src="{{avatar}}")
