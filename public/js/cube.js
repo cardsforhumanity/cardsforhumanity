@@ -181,8 +181,8 @@
         // Area of rotation (fraction or pixel value)
         margin: 10
     };
-
-})( jQuery );
+console.log('in here');
+})(jQuery);
 
 $( '#inner-container' ).foldscroll({
   perspective: 1300,
