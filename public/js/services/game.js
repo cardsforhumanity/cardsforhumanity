@@ -30,7 +30,7 @@ angular.module('mean.system')
   });
 
   socket.on('gameUpdate', function(data) {
-    console.log(data);
+    // console.log(data);
 
     if (data.state !== game.state || game.curQuestion !== data.curQuestion) {
       game.state = data.state;
