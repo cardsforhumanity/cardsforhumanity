@@ -13,7 +13,8 @@ angular.module('mean.system')
         } else if (game.curQuestion.numAnswers === 2 &&
           $scope.pickedCards.length === 2) {
           //delay and send
-          setTimeout($scope.sendPickedCards, 1000);
+          $scope.sendPickedCards();
+          //setTimeout($scope.sendPickedCards, 1000);
         }
       } else {
         $scope.pickedCards.pop();
@@ -51,7 +52,7 @@ angular.module('mean.system')
 
     $scope.pickWinning = function(winningSet) {
       if ($scope.isCzar()) {
-        game.pickWinning(winningSet.card);
+        game.pickWinning(winningSet.card[0]);
         $scope.winningCardPicked = true;
       }
     };

@@ -78,7 +78,7 @@ angular.module('mean.system')
   };
 
   game.pickWinning = function(card) {
-    socket.emit('pickWinning',{card: [card.id]});
+    socket.emit('pickWinning',{card: card.id});
   };
 
   return game;
