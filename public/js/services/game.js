@@ -73,8 +73,8 @@ angular.module('mean.system')
     socket.emit('leaveGame');
   };
 
-  game.pickCard = function(cards){
-    socket.emit('pickCard',{cards: cards});
+  game.pickCards = function(cards){
+    socket.emit('pickCards',{cards: cards});
   };
 
   game.pickWinning = function(card) {
