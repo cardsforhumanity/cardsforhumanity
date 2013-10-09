@@ -4,7 +4,7 @@
   </div>
   <!-- <div id="avatar"><img ng-src="{{player.avatarURL}}"/></div> TODO: for when dyanmic avatars are figured out-->
   <div id="player-name"><h4>Dave<!-- {{player.username}} --></h4></div> 
-  <div id="player-score"><h5>{{player.points}}/5</h5></div>
+  <div id="player-score"><h5 ng-animate="'animated bounceIn'" ng-show="toggle">{{player.points}}/5</h5></div>
 </div> 
 
 
