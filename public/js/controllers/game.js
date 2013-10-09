@@ -13,6 +13,10 @@ angular.module('mean.system')
       return game.czar === game.playerIndex;
     };
 
+    $scope.currentCzar = function($index) {
+      return $index === game.czar;
+    };
+
     $scope.pickWinning = function(winningSet) {
       if ($scope.isCzar()) {
         game.pickWinning(winningSet.card);

@@ -1,18 +1,16 @@
 angular.module('mean.directives', [])
-  .directive('player', function(){
+  .directive('player', ['$animator', function ($animator){
     return{
       restrict: 'EA',
       templateUrl: '/views/player.html',
       link: function(scope, elem, attr){
-
       }
     };
-  }).directive('answers', function() {
+  }]).directive('answers', function() {
     return {
       restrict: 'EA',
       templateUrl: '/views/answers.html',
       link: function(scope, elem, attr) {
-
       }
     };
   }).directive('question', function() {
