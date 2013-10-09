@@ -1,7 +1,7 @@
 <div id="cards-container">
   <div id="cards">
     <h1 ng-show="winnerPicked()">Winner has been chosen!</h1>
-    <div class="card smallest" id='answers' ng-hide="pickedCard || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">A: {{card.text}}</div>
-    <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="pickedCard || isCzar()" ng-repeat="answer in game.table" ng-animate="{enter:'animated flipInX'}">Picked answer: {{ answer.card.text }}</div>
+    <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">A: {{card.text}}</div>
+    <span ng-repeat="answer in game.table"><div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated flipInX'}">Picked answer: {{ card.text }}</div></span>
   </div>
 </div>

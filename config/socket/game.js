@@ -164,11 +164,14 @@ Game.prototype.stateResults = function(self) {
     // Handling just one answer for now. It should be an array of answers later.
     console.log('self.table',self.table);
     console.log('self.winningCard',self.winningCard);
-    console.log('winning card text',self.table[self.winningCard].card.text);
-    curQuestionArr.splice(1,0,self.table[self.winningCard].card.text);
+    console.log('winning card text',self.table[self.winningCard].card[0].text);
+    curQuestionArr.splice(1,0,self.table[self.winningCard].card[0].text);
+    if (self.curQuestion.numAnswers === 2) {
+      curQuestionArr.splice(3,0,self.table[self.winningCard].card[1].text);
+    }
     self.curQuestion.text = curQuestionArr.join("");
   } else {
-    self.curQuestion.text += ' '+self.table[self.winningCard].card.text;
+    self.curQuestion.text += ' '+self.table[self.winningCard].card[0].text;
   }
 
   self.sendUpdate();
@@ -233,7 +236,7 @@ Game.prototype._findPlayerIndexBySocket = function(thisPlayer) {
   return playerIndex;
 };
 
-Game.prototype.pickCard = function(thisCard, thisPlayer) {
+Game.prototype.pickCards = function(thisCardArray, thisPlayer) {
   // Only accept cards when we expect players to pick a card
   if (this.state === "waiting for players to pick") {
     // Find the player's position in the players array
@@ -248,25 +251,33 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
         }
       });
       if (!previouslySubmitted) {
-        var cardIndex = -1;
-        _.each(this.players[playerIndex].hand, function(card, index) {
-          if (card.id === thisCard) {
-            cardIndex = index;
+        // Find the indices of the cards in the player's hand (given the card ids)
+        var tableCard = [];
+        for (var i = 0; i < thisCardArray.length; i++ ) {
+          var cardIndex = null;
+          for (var j = 0; j < this.players[playerIndex].hand.length; j++) {
+            if (this.players[playerIndex].hand[j].id === thisCardArray[i]) {
+              cardIndex = j;
+            }
           }
-        });
-        console.log('card is at index',cardIndex);
-        if (cardIndex !== -1) {
+          console.log('card',i,'is at index',cardIndex);
+          if (cardIndex !== null) {
+            tableCard.push(this.players[playerIndex].hand.splice(cardIndex,1)[0]);
+          }
+          console.log('table object at',cardIndex,':',tableCard);
+        }
+        if (tableCard.length === this.curQuestion.numAnswers) {
           this.table.push({
-            card: this.players[playerIndex].hand.splice(cardIndex,1)[0],
+            card: tableCard,
             player: this.players[playerIndex].socket.id
           });
-          console.log(this.table);
-          if (this.table.length === this.players.length-1) {
-            clearTimeout(this.choosingTimeout);
-            this.stateJudging(this);
-          } else {
-            this.sendUpdate();
-          }
+        }
+        console.log('final table object',this.table);
+        if (this.table.length === this.players.length-1) {
+          clearTimeout(this.choosingTimeout);
+          this.stateJudging(this);
+        } else {
+          this.sendUpdate();
         }
       }
     }
@@ -290,7 +301,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
       return this.stateChoosing();
     } else if (this.state === "waiting for czar to decide") {
       // If players are waiting on a czar to pick, auto pick.
-      this.pickWinning(this.table[0].card.id, thisPlayer, true);
+      this.pickWinning(this.table[0].card[0].id, thisPlayer, true);
     }
   }
 
@@ -298,24 +309,27 @@ Game.prototype.removePlayer = function(thisPlayer) {
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
+  console.log(thisCard);
   autopicked = autopicked || false;
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
   if ((playerIndex === this.czar || autopicked) && this.state === "waiting for czar to decide") {
     var cardIndex = -1;
     _.each(this.table, function(winningSet, index) {
-      if (winningSet.card.id === thisCard) {
+      if (winningSet.card[0].id === thisCard) {
         cardIndex = index;
       }
     });
     console.log('winning card is at index',cardIndex);
     if (cardIndex !== -1) {
       this.winningCard = cardIndex;
+      var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
+      this.players[winnerIndex].points++;
+      clearTimeout(this.judgingTimeout);
+      this.winnerAutopicked = autopicked;
+      this.stateResults(this);
+    } else {
+      console.log('WARNING: czar',thisPlayer,'picked a card that was not on the table.');
     }
-    var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
-    this.players[winnerIndex].points++;
-    clearTimeout(this.judgingTimeout);
-    this.winnerAutopicked = autopicked;
-    this.stateResults(this);
   } else {
     // TODO: Do something?
     this.sendUpdate();
