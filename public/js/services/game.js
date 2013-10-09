@@ -9,8 +9,8 @@ angular.module('mean.system')
     winner: -1,
     table: [],
     czar: null,
-    playerMinLimit: null,
-    playerMaxLimit: null,
+    playerMinLimit: 3,
+    playerMaxLimit: 6,
     pointLimit: null,
     state: null,
     curQuestion: null,
@@ -54,6 +54,7 @@ angular.module('mean.system')
 
   socket.on('dissolveGame', function(){
     console.log('Game Dissolved');
+    alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
   });
 
   game.joinGame = function(){
