@@ -233,7 +233,7 @@ Game.prototype._findPlayerIndexBySocket = function(thisPlayer) {
   return playerIndex;
 };
 
-Game.prototype.pickCard = function(thisCard, thisPlayer) {
+Game.prototype.pickCards = function(thisCardArray, thisPlayer) {
   // Only accept cards when we expect players to pick a card
   if (this.state === "waiting for players to pick") {
     // Find the player's position in the players array
@@ -248,25 +248,33 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
         }
       });
       if (!previouslySubmitted) {
-        var cardIndex = -1;
-        _.each(this.players[playerIndex].hand, function(card, index) {
-          if (card.id === thisCard) {
-            cardIndex = index;
+        // Find the indices of the cards in the player's hand (given the card ids)
+        var tableCard = [];
+        for (var i = 0; i < thisCardArray.length; i++ ) {
+          var cardIndex = null;
+          for (var j = 0; j < this.players[playerIndex].hand.length; j++) {
+            if (this.players[playerIndex].hand[j].id === thisCardArray[i]) {
+              cardIndex = j;
+            }
           }
-        });
-        console.log('card is at index',cardIndex);
-        if (cardIndex !== -1) {
+          console.log('card',i,'is at index',cardIndex);
+          if (cardIndex !== null) {
+            tableCard.push(this.players[playerIndex].hand.splice(cardIndex,1)[0]);
+          }
+          console.log('table object at',cardIndex,':',tableCard);
+        }
+        if (tableCard.length === this.curQuestion.numAnswers) {
           this.table.push({
-            card: this.players[playerIndex].hand.splice(cardIndex,1)[0],
+            card: tableCard,
             player: this.players[playerIndex].socket.id
           });
-          console.log(this.table);
-          if (this.table.length === this.players.length-1) {
-            clearTimeout(this.choosingTimeout);
-            this.stateJudging(this);
-          } else {
-            this.sendUpdate();
-          }
+        }
+        console.log('final table object',this.table);
+        if (this.table.length === this.players.length-1) {
+          clearTimeout(this.choosingTimeout);
+          this.stateJudging(this);
+        } else {
+          this.sendUpdate();
         }
       }
     }
