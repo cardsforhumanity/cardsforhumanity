@@ -1,12 +1,43 @@
 angular.module('mean.system')
 .controller('GameController', ['$scope', 'game', '$timeout', function ($scope, game, $timeout) {
-    $scope.pickedCard = false;
+    $scope.pickedCards = false;
     $scope.winningCardPicked = false;
     $scope.game = game;
+    $scope.pickedCards = [];
 
     $scope.pickCard = function(card) {
-      game.pickCard(card);
-      $scope.pickedCard = true;
+      if ($scope.pickedCards.indexOf(card) < 0) {
+        $scope.pickedCards.push(card);
+        if (game.curQuestion.numAnswers === 1) {
+          $scope.sendPickedCards();
+        } else if (game.curQuestion.numAnswers === 2) {
+          //delay and send
+          setTimeout($scope.sendPickedCards, 1000);
+        }
+      } else {
+        $scope.pickedCards.pop();
+      }
+    };
+
+    $scope.sendPickedCards = function() {
+      game.pickCard($scope.pickedCards);
+      $scope.pickedCards = true;
+    };
+
+    $scope.cardIsFirstSelected = function(card) {
+      if (game.curQuestion.numAnswers > 1) {
+        return card === $scope.pickedCards[0];
+      } else {
+        return false;
+      }
+    };
+
+    $scope.cardIsSecondSelected = function(card) {
+      if (game.curQuestion.numAnswers > 1) {
+        return card === $scope.pickedCards[1];
+      } else {
+        return false;
+      }
     };
 
     $scope.isCzar = function() {
@@ -49,7 +80,7 @@ angular.module('mean.system')
     // Catches changes to round to update when no players pick card
     // (because game.state remains the same)
     $scope.$watch('game.round', function() {
-      $scope.pickedCard = false;
+      $scope.pickedCards = false;
       $scope.winningCardPicked = false;
       $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
     });
