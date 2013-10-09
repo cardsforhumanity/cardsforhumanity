@@ -22,7 +22,11 @@ module.exports = function(io) {
     });
 
     socket.on('pickWinning', function(data) {
-      game.pickWinning(data.card,socket.id);
+      if (allGames[socket.gameID]) {
+        allGames[socket.gameID].pickWinning(data.card,socket.id);
+      } else {
+        console.log('Received pickWinning from',socket.id, 'but game does not appear to exist!');
+      }
     });
 
     socket.on('joinGame', function() {
@@ -43,9 +47,21 @@ module.exports = function(io) {
         game.players.push(player);
         socket.join(game.gameID);
         socket.gameID = game.gameID;
-        if (game.players.length >= game.playerMinLimit) {
+        if (game.players.length >= game.playerMaxLimit) {
           gamesNeedingPlayers.shift();
           game.prepareGame();
+        }
+      }
+    });
+
+    socket.on('startGame', function() {
+      if (allGames[socket.gameID]) {
+        var thisGame = allGames[socket.gameID];
+        console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
+        if (thisGame.players[0].socket.id === socket.id &&
+         thisGame.players.length >= thisGame.playerMinLimit) {
+          console.log(gamesNeedingPlayers.splice(gamesNeedingPlayers.indexOf(thisGame),1));
+          thisGame.prepareGame();
         }
       }
     });

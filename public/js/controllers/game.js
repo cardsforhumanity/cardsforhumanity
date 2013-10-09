@@ -24,6 +24,10 @@ angular.module('mean.system')
       return game.winningCard !== -1;
     };
 
+    $scope.startGame = function() {
+      game.startGame();
+    };
+
     $scope.countdown = function(count,state){
       clearInterval(counter);
       var counter = $timeout(timer, 1000);
