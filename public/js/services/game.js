@@ -9,10 +9,11 @@ angular.module('mean.system')
     winner: -1,
     table: [],
     czar: null,
-    playerMinLimit: null,
-    playerMaxLimit: null,
+    playerMinLimit: 3,
+    playerMaxLimit: 6,
     pointLimit: null,
     state: null,
+    round: 0,
     curQuestion: null,
     timeLimits: {}
   };
@@ -31,17 +32,20 @@ angular.module('mean.system')
   socket.on('gameUpdate', function(data) {
     // console.log(data);
 
-    if (data.state !== game.state) {
+    if (data.state !== game.state || game.curQuestion !== data.curQuestion) {
       game.state = data.state;
     }
     game.players = data.players;
     game.table = data.table;
+    game.round = data.round;
     game.winningCard = data.winningCard;
     game.winnerAutopicked = data.winnerAutopicked;
     game.winner = data.winner;
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
+      game.curQuestion = data.curQuestion;
+    } else if (data.state === 'winner has been chosen') {
       game.curQuestion = data.curQuestion;
     }
 
@@ -54,6 +58,7 @@ angular.module('mean.system')
 
   socket.on('dissolveGame', function(){
     console.log('Game Dissolved');
+    alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
   });
 
   game.joinGame = function(){

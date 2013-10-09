@@ -62,7 +62,7 @@ module.exports = function(io) {
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
         if (thisGame.players[0].socket.id === socket.id &&
          thisGame.players.length >= thisGame.playerMinLimit) {
-          console.log(gamesNeedingPlayers.splice(gamesNeedingPlayers.indexOf(thisGame),1));
+          gamesNeedingPlayers.splice(gamesNeedingPlayers.indexOf(thisGame),1);
           thisGame.prepareGame();
         }
       }
@@ -70,25 +70,31 @@ module.exports = function(io) {
 
     socket.on('leaveGame', function() {
       socket.leave(socket.gameID);
-      game = allGames[socket.gameID];
-
-      if (allGames[socket.gameID]) { // Make sure game exists
-        if (game.state === 'awaiting players' ||
-          game.players.length-1 >= game.playerMinLimit){
-          game.removePlayer(socket.id);
-        } else {
-          socket.broadcast.in(game.gameID).emit('dissolveGame');
-          for (var j = 0; j < game.players.length; j++) {
-            game.players[j].socket.leave(socket.gameID);
-          }
-          delete allGames[socket.gameID];
-        }
-      }
+      exitGame(socket);
     });
 
     socket.on('disconnect', function(){
       console.log('Rooms on Disconnect ', io.sockets.manager.rooms);
-
+      exitGame(socket);
     });
   });
+
+  var exitGame = function(socket) {
+    game = allGames[socket.gameID];
+
+    if (allGames[socket.gameID]) { // Make sure game exists
+      if (game.state === 'awaiting players' ||
+        game.players.length-1 >= game.playerMinLimit){
+        game.removePlayer(socket.id);
+      } else {
+        socket.broadcast.in(game.gameID).emit('dissolveGame');
+        for (var j = 0; j < game.players.length; j++) {
+          game.players[j].socket.leave(socket.gameID);
+        }
+        game.killGame();
+        delete allGames[socket.gameID];
+      }
+    }
+  };
+
 };
