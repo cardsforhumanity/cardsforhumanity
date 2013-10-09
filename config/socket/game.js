@@ -32,7 +32,8 @@ function Game(gameID, io) {
   // Used to automatically run result if czar doesn't decide before time limit
   // Gets cleared if czar finishes judging before time limit.
   this.judgingTimeout = 0;
-};
+  this.resultsTimeout = 0;
+}
 
 Game.prototype.payload = function() {
   var players = [];
@@ -116,29 +117,31 @@ Game.prototype.stateChoosing = function(self) {
   }, self.timeLimits.stateChoosing);
 };
 
+Game.prototype.selectFirst = function() {
+  if (this.table.length) {
+    this.winningCard = 0;
+    var winnerIndex = this._findPlayerIndexBySocket(this.table[0].player);
+    this.players[winnerIndex].points++;
+    this.winnerAutopicked = true;
+    this.stateResults(this);
+  } else {
+    console.log('no cards were picked!');
+    this.stateChoosing(this);
+  }
+};
+
 Game.prototype.stateJudging = function(self) {
   self.state = "waiting for czar to decide";
   console.log(self.state);
-  var selectFirst = function() {
-    if (self.table.length) {
-      self.winningCard = 0;
-      var winnerIndex = self._findPlayerIndexBySocket(self.table[0].player);
-      self.players[winnerIndex].points++;
-      self.winnerAutopicked = true;
-      self.stateResults(self);
-    } else {
-      console.log('no cards were picked!');
-      self.stateChoosing(self);
-    }
-  };
-  if (this.table.length <= 1) {
+
+  if (self.table.length <= 1) {
     // Automatically select a card if only one card was submitted
-    selectFirst();
+    self.selectFirst();
   } else {
     self.sendUpdate();
     self.judgingTimeout = setTimeout(function() {
       // Automatically select the first submitted card when time runs out.
-      selectFirst();
+      self.selectFirst();
     }, self.timeLimits.stateJudging);
   }
 };
@@ -154,7 +157,7 @@ Game.prototype.stateResults = function(self) {
     }
   }
   self.sendUpdate();
-  setTimeout(function() {
+  self.resultsTimeout = setTimeout(function() {
     if (endGame) {
       self.stateEndGame(i);
     } else {
@@ -258,23 +261,31 @@ Game.prototype.pickCard = function(thisCard, thisPlayer) {
 };
 
 Game.prototype.removePlayer = function(thisPlayer) {
-  // Check if the player is the czar
-  if (this.czar === this._findPlayerIndexBySocket(thisPlayer)) {
-    // If the player is the czar...
-    // ...
-  }
+  var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
+
   // Remove player from this.players
-  for (var i = 0; i < this.players.length; i++) {
-    if (this.players[i].socket.id === thisPlayer) {
-      this.players.splice(i,1);
+  this.players.splice(playerIndex,1);
+
+  // Check if the player is the czar
+  if (this.czar === playerIndex) {
+    // If the player is the czar...
+    // If players are currently picking a card, advance to a new round.
+    if (this.state === "waiting for players to pick") {
+      clearTimeout(this.choosingTimeout);
+      return this.stateChoosing();
+    } else if (this.state === "waiting for czar to decide") {
+      // If players are waiting on a czar to pick, auto pick.
+      this.pickWinning(this.table[0].card.id, thisPlayer, true);
     }
   }
+
   this.sendUpdate();
 };
 
-Game.prototype.pickWinning = function(thisCard, thisPlayer) {
+Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
+  autopicked = autopicked || false;
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
-  if (playerIndex === this.czar && this.state === "waiting for czar to decide") {
+  if ((playerIndex === this.czar || autopicked) && this.state === "waiting for czar to decide") {
     var cardIndex = -1;
     _.each(this.table, function(winningSet, index) {
       if (winningSet.card.id === thisCard) {
@@ -288,11 +299,19 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer) {
     var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
     this.players[winnerIndex].points++;
     clearTimeout(this.judgingTimeout);
+    this.winnerAutopicked = autopicked;
     this.stateResults(this);
   } else {
     // TODO: Do something?
     this.sendUpdate();
   }
+};
+
+Game.prototype.killGame = function() {
+  console.log('killing game');
+  clearTimeout(this.resultsTimeout);
+  clearTimeout(this.choosingTimeout);
+  clearTimeout(this.judgingTimeout);
 };
 
 module.exports = Game;
