@@ -1,5 +1,7 @@
 var Game = require('./game');
 var Player = require('./player');
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
 
 module.exports = function(io) {
 
@@ -29,30 +31,51 @@ module.exports = function(io) {
       }
     });
 
-    socket.on('joinGame', function() {
+    socket.on('joinGame', function(data) {
       var player = new Player(socket);
-
-      if (gamesNeedingPlayers.length <= 0) {
-        gameID += 1;
-        var gameIDStr = gameID.toString();
-        game = new Game(gameIDStr, io);
-        game.players.push(player);
-        allGames[gameID] = game;
-        gamesNeedingPlayers.push(game);
-        socket.join(game.gameID);
-        socket.gameID = game.gameID;
-        console.log('Create new Game');
-        game.sendUpdate();
-      } else {
-        game = gamesNeedingPlayers[0];
-        game.players.push(player);
-        socket.join(game.gameID);
-        socket.gameID = game.gameID;
-        game.sendUpdate();
-        if (game.players.length >= game.playerMaxLimit) {
-          gamesNeedingPlayers.shift();
-          game.prepareGame();
+      player.userID = data.userID;
+      var fireGame = function() {
+        if (gamesNeedingPlayers.length <= 0) {
+          gameID += 1;
+          var gameIDStr = gameID.toString();
+          game = new Game(gameIDStr, io);
+          game.players.push(player);
+          allGames[gameID] = game;
+          gamesNeedingPlayers.push(game);
+          socket.join(game.gameID);
+          socket.gameID = game.gameID;
+          console.log('Create new Game');
+          game.sendUpdate();
+        } else {
+          game = gamesNeedingPlayers[0];
+          game.players.push(player);
+          socket.join(game.gameID);
+          socket.gameID = game.gameID;
+          game.sendUpdate();
+          if (game.players.length >= game.playerMaxLimit) {
+            gamesNeedingPlayers.shift();
+            game.prepareGame();
+          }
         }
+      };
+      if (data.userID !== 'unauthenticated') {
+        User.findOne({
+          _id: data.userID
+        }).exec(function(err, user) {
+          if (err) {
+            console.log('err',err);
+            return err; // Hopefully this never happens.
+          }
+          if (!user) {
+            player.username = 'Guest';
+          } else {
+            player.username = user.name;
+          }
+          fireGame();
+        });
+      } else {
+        player.username = 'Guest';
+        fireGame();
       }
     });
 
