@@ -1,5 +1,6 @@
 <div id = "inner-timer-container" ng-show="game.state !== 'awaiting players'">
-  <span id="timer-status-round" ng-show="!hasPickedCards"> Next Round In... </span>
-  <span id="timer-status-czar-choosing" ng-show="!isCzar() && hasPickedCards && !winnerPicked()"> The Czar is Choosing </span>
+  <span id="timer-status-round" ng-show="game.state === 'waiting for players to pick'"> Time Remaining... </span>
+  <span id="timer-status-czar-choosing" ng-show="game.state === 'winner has been chosen'"> Next Round In... </span>
+  <span id="timer-status-czar-choosing" ng-show="game.state === 'waiting for czar to decide'"> Czar Choosing... </span>
   <span id="time" ng-bind="time"></span>
 </div>
