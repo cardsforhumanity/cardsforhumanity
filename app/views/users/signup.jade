@@ -22,6 +22,11 @@ block auth
       .controls
         input#password(type='password', name="password", placeholder='Password')
 
+    div(ng-controller="IndexController")
+      div(ng-repeat="avatar in avatars")
+        input#avatar(name="avatar", type='radio', value="{{$index}}")
+        img(ng-src="{{avatar}}")
+
     .form-actions
       a.show-sign-up(href='/app')
         button.btn.btn-primary(type='submit') Sign up
@@ -29,6 +34,4 @@ block auth
         | or&nbsp;
         a.show-login(href="/signin") login
 
-      div(ng-controller="GameController")
-        div(ng-repeat="avatar in avatars")
-          img(ng-src="{{avatar}}")
+

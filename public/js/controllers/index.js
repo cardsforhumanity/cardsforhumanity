@@ -1,10 +1,16 @@
 angular.module('mean.system')
-.controller('IndexController', ['$scope', 'Global', '$location', 'socket', 'game', function ($scope, Global, $location, socket, game) {
+.controller('IndexController', ['$scope', 'Global', '$location', 'socket', 'game', 'AvatarService', function ($scope, Global, $location, socket, game, AvatarService) {
     $scope.global = Global;
 
     $scope.playAsGuest = function() {
       game.joinGame();
       $location.path('/app');
     };
+
+    $scope.avatars = [];
+    AvatarService.getAvatars()
+      .then(function(data) {
+        $scope.avatars = data;
+      });
 
 }]);
