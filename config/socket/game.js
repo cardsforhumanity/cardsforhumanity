@@ -14,7 +14,7 @@ function Game(gameID, io) {
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
   this.playerMaxLimit = 6;
-  this.pointLimit = 5;
+  this.pointLimit = 500; // Set to 500 points until we properly handle end game
   this.state = "awaiting players";
   this.round = 0;
   this.questions = null;
@@ -57,6 +57,7 @@ Game.prototype.payload = function() {
     winningCard: this.winningCard,
     winnerAutopicked: this.winnerAutopicked,
     table: this.table,
+    pointLimit: this.pointLimit,
     curQuestion: this.curQuestion
   };
 };

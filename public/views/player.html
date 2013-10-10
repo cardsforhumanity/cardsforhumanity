@@ -7,11 +7,11 @@
     <!-- <div id="avatar"><img ng-src="{{player.avatarURL}}"/></div> TODO: for when dyanmic avatars are figured out-->
     <div id="player-container-inner">
       <div id="player-name"><h4>{{player.username}}</h4></div>
-      <div id="player-score"><h5>{{player.points}}/5</h5></div>
+      <div id="player-score"><h5>{{player.points}}/{{game.pointLimit}}</h5></div>
     </div>
   </div>
   <div id="czar-container" ng-show="currentCzar($index)">
     <span id='the-czar'>CZAR</span>
   </div>
-</div> 
+</div>
 
