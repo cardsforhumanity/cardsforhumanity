@@ -31,8 +31,8 @@ angular.module('mean.system')
         } else if (game.curQuestion.numAnswers === 2 &&
           $scope.pickedCards.length === 2) {
           //delay and send
-          $scope.sendPickedCards();
-          //setTimeout($scope.sendPickedCards, 1000);
+          // $scope.sendPickedCards();
+          $timeout($scope.sendPickedCards, 300);
         }
       } else {
         $scope.pickedCards.pop();
@@ -58,6 +58,14 @@ angular.module('mean.system')
       } else {
         return false;
       }
+    };
+
+    $scope.showFirst = function(card) {
+      return game.curQuestion.numAnswers > 1 && $scope.pickedCards[0] === card.id;
+    };
+
+    $scope.showSecond = function(card) {
+      return game.curQuestion.numAnswers > 1 && $scope.pickedCards[1] === card.id;
     };
 
     $scope.isCzar = function() {
