@@ -794,12 +794,19 @@ body{
                             margin: 0px auto;
                             display: block;
 
+                            #notifications {
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                padding: 10px;
+                            }
+
                             #startGame{
                                 width: 100%;
                                 overflow: hidden;
                                 height: 40%;
                                 position: absolute;
-                                bottom: 15%;
+                                bottom: 20%;
                                 right: 1%;
 
                                 #player-count-container, #loading-container, #start-game-container{
