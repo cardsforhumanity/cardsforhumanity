@@ -93,7 +93,8 @@ angular.module('mean.system')
   });
 
   game.joinGame = function(){
-    socket.emit('joinGame');
+    var userID = user ? user._id : 'unauthenticated';
+    socket.emit('joinGame',{userID: userID});
   };
 
   game.startGame = function() {
