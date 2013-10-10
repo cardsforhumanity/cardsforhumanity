@@ -44,7 +44,7 @@ Game.prototype.payload = function() {
       points: player.points,
       username: player.username,
       avatarURL: player.avatarURL,
-      userID: player.userID,
+      //userID: player.userID, // Do we really need to send this?
       socketID: player.socket.id
     });
   });
