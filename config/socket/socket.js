@@ -12,10 +12,10 @@ module.exports = function(io) {
     console.log(socket.id +  ' Connected');
     socket.emit('id', {id: socket.id});
 
-    socket.on('pickCard', function(data) {
+    socket.on('pickCards', function(data) {
       console.log(socket.id,"picked",data);
       if (allGames[socket.gameID]) {
-        allGames[socket.gameID].pickCard(data.card,socket.id);
+        allGames[socket.gameID].pickCards(data.cards,socket.id);
       } else {
         console.log('Received pickCard from',socket.id, 'but game does not appear to exist!');
       }

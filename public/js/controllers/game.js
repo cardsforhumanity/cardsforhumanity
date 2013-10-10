@@ -1,12 +1,45 @@
 angular.module('mean.system')
 .controller('GameController', ['$scope', 'game', '$timeout', function ($scope, game, $timeout) {
-    $scope.pickedCard = false;
+    $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.game = game;
+    $scope.pickedCards = [];
 
     $scope.pickCard = function(card) {
-      game.pickCard(card);
-      $scope.pickedCard = true;
+      if ($scope.pickedCards.indexOf(card.id) < 0) {
+        $scope.pickedCards.push(card.id);
+        if (game.curQuestion.numAnswers === 1) {
+          $scope.sendPickedCards();
+        } else if (game.curQuestion.numAnswers === 2 &&
+          $scope.pickedCards.length === 2) {
+          //delay and send
+          $scope.sendPickedCards();
+          //setTimeout($scope.sendPickedCards, 1000);
+        }
+      } else {
+        $scope.pickedCards.pop();
+      }
+    };
+
+    $scope.sendPickedCards = function() {
+      game.pickCards($scope.pickedCards);
+      $scope.hasPickedCards = true;
+    };
+
+    $scope.cardIsFirstSelected = function(card) {
+      if (game.curQuestion.numAnswers > 1) {
+        return card === $scope.pickedCards[0];
+      } else {
+        return false;
+      }
+    };
+
+    $scope.cardIsSecondSelected = function(card) {
+      if (game.curQuestion.numAnswers > 1) {
+        return card === $scope.pickedCards[1];
+      } else {
+        return false;
+      }
     };
 
     $scope.isCzar = function() {
@@ -19,7 +52,7 @@ angular.module('mean.system')
 
     $scope.pickWinning = function(winningSet) {
       if ($scope.isCzar()) {
-        game.pickWinning(winningSet.card);
+        game.pickWinning(winningSet.card[0]);
         $scope.winningCardPicked = true;
       }
     };
@@ -49,8 +82,9 @@ angular.module('mean.system')
     // Catches changes to round to update when no players pick card
     // (because game.state remains the same)
     $scope.$watch('game.round', function() {
-      $scope.pickedCard = false;
+      $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
+      $scope.pickedCards = [];
       $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
     });
 
