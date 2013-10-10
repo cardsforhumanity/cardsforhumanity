@@ -34,7 +34,7 @@ angular.module('mean.system')
       timeout = false;
     } else {
       game.notification = notificationQueue.shift(); // Show a notification and check again in a bit
-      timeout = $timeout(setNotification, 1000);
+      timeout = $timeout(setNotification, 1300);
     }
   };
 
