@@ -2,7 +2,7 @@
   <div class="card longBlack">
    The Question: {{game.curQuestion.text}}
 
-   <div>{{game.notification}}</div>
+   <div ng-if="game.notification" ng-animate="{enter:'animated fadeInLeftBig', leave:'animated fadeOutRightBig'}">{{game.notification}}</div>
 
     <div id = "startGame" ng-show="game.state === 'awaiting players'">
       <div id="player-count-container">
