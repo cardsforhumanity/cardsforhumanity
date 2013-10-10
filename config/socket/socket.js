@@ -49,6 +49,7 @@ module.exports = function(io) {
         socket.join(game.gameID);
         socket.gameID = game.gameID;
         game.sendUpdate();
+        game.sendNotification(socket.id+' has joined the game!')
         if (game.players.length >= game.playerMaxLimit) {
           gamesNeedingPlayers.shift();
           game.prepareGame();
@@ -64,6 +65,7 @@ module.exports = function(io) {
          thisGame.players.length >= thisGame.playerMinLimit) {
           gamesNeedingPlayers.splice(gamesNeedingPlayers.indexOf(thisGame),1);
           thisGame.prepareGame();
+          thisGame.sendNotification('The game has begun!')
         }
       }
     });
