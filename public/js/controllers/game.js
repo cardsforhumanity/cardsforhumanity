@@ -6,6 +6,9 @@ angular.module('mean.system')
     $scope.pickedCards = [];
 
 
+    $scope.colors = ['#7CE4E8', '#F2ADFF', '#FFEF97', '#FC575E', '#398EC4', '#8CFF95'];
+
+
     $scope.avatars = ['/img/chosen/E01.png',
                       '/img/chosen/F01.png',
                       '/img/chosen/FA04.png',
