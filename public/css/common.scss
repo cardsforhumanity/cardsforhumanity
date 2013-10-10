@@ -785,8 +785,66 @@ body{
                             width: 97%;
                             margin: 0px auto;
                             display: block;
+
+                            #startGame{
+                                width: 100%;
+                                overflow: hidden;
+                                height: 40%;
+                                position: absolute;
+                                bottom: 15%;
+                                right: 1%;
+
+                                #player-count-container, #loading-container, #start-game-container{
+                                    width: 33.333%;
+                                    float: left;
+                                    text-align: center;
+                                }
+
+                                #player-count-container{
+                                    #player-count{
+                                        font-size: 33px;
+                                    }
+                                }
+
+                                #loading-container{
+
+                                }
+
+                                #start-game-container{
+                                    color: #333;
+
+                                    #start-game-button{
+                                        border-radius: 5px;
+                                        -moz-border-radius: 5px;
+                                        -webkit-border-radius: 5px;
+                                        font-size: 20px;
+                                        font-size: 1.25rem;
+                                        font-weight: 400;
+                                        color: white;
+                                        background: #5adae2;
+                                        padding: 0.65em 20px;
+                                        width: 85%;
+                                        cursor: pointer;
+                                    }
+
+                                    #start-game-button:hover{
+                                       background:#41C2CA;
+                                    }
+                                }
+                            }
                         }
                     }
+                }
+            }
+            #info-container{
+                width: 100%;
+                background: #EEE;
+                @include br;
+                text-align: center;
+                padding: 15px;
+
+                #inner-text{
+                    font-size: 22px;
                 }
             }
 
