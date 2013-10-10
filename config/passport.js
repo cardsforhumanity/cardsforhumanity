@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
     GoogleStrategy = require('passport-google-oauth').Strategy,
     User = mongoose.model('User'),
     config = require('./config');
+    
 
 
 module.exports = function(passport) {
