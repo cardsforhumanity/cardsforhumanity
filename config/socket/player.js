@@ -5,6 +5,7 @@ function Player(socket) {
   this.username = null;
   this.avatarURL = null;
   this.userID = null;
+  this.color = null;
 }
 
 module.exports = Player;
