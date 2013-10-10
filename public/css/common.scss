@@ -779,12 +779,14 @@ body{
                             text-shadow: none;
                             cursor: default;
                             border: none;
+                            min-width: 85px;
+                            min-height: 85px;
 
                             #time{
-                                font-size: 108px;
+                                font-size: 104px;
 
                                 @include tablet-landscape-and-below{
-                                    font-size: 50px;
+                                    font-size: 80px;
                                 }
                             }
                         }

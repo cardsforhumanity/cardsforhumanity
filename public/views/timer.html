@@ -1,3 +1,3 @@
-<div id = "inner-timer-container">
-  <span id="time">{{ time }}</span>
+<div id = "inner-timer-container" ng-show="game.state !== 'awaiting players'">
+  <span id="time" ng-bind = "time"></span>
 </div>

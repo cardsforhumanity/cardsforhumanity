@@ -552,13 +552,15 @@ body {
   text-shadow: none;
   cursor: default;
   border: none;
+  min-width: 85px;
+  min-height: 85px;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
-  font-size: 108px;
+  font-size: 104px;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
-    font-size: 50px;
+    font-size: 80px;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
