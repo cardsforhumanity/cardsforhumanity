@@ -21,6 +21,12 @@
     font-size: 16px;
   }
 }
+.card #selection-number {
+  position: absolute;
+  bottom: 1px;
+  left: 7px;
+  font-size: 18px;
+}
 .card.black {
   background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
   border-color: white;
@@ -35,14 +41,7 @@
 }
 .card.smallest {
   font-size: 0.750em;
-}
-.card:before {
-  content: 'CFH';
-  position: absolute;
-  bottom: 0.5em;
-  left: 0.5em;
-  font-size: 0.75em;
-  font-weight: normal;
+  cursor: pointer;
 }
 .card u {
   position: relative;
