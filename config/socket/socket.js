@@ -3,6 +3,8 @@ var Player = require('./player');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
+var avatars = require(__dirname + '/../../app/controllers/avatars.js').all();
+
 module.exports = function(io) {
 
   var game;
@@ -52,7 +54,7 @@ module.exports = function(io) {
           socket.join(game.gameID);
           socket.gameID = game.gameID;
           game.sendUpdate();
-          game.sendNotification(socket.id+' has joined the game!')
+          game.sendNotification(socket.id+' has joined the game!');
           if (game.players.length >= game.playerMaxLimit) {
             gamesNeedingPlayers.shift();
             game.prepareGame();
@@ -68,14 +70,19 @@ module.exports = function(io) {
             return err; // Hopefully this never happens.
           }
           if (!user) {
+            // If the user's ID isn't found (rare)
             player.username = 'Guest';
+            player.avatar = avatars[Math.floor(Math.random()*4)+12];
           } else {
             player.username = user.name;
+            player.avatar = user.avatar || avatars[Math.floor(Math.random()*4)+12];
           }
           fireGame();
         });
       } else {
+        // If the user isn't authenticated (guest)
         player.username = 'Guest';
+        player.avatar = avatars[Math.floor(Math.random()*4)+12];
         fireGame();
       }
     });

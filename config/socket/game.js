@@ -43,7 +43,7 @@ Game.prototype.payload = function() {
       hand: player.hand,
       points: player.points,
       username: player.username,
-      avatarURL: player.avatarURL,
+      avatar: player.avatar,
       //userID: player.userID, // Do we really need to send this?
       socketID: player.socket.id
     });
