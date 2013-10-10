@@ -323,7 +323,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
       return this.stateChoosing();
     } else if (this.state === "waiting for czar to decide") {
       // If players are waiting on a czar to pick, auto pick.
-      this.sendNotification('The Czar left the game! First answer/s submitted wins!')
+      this.sendNotification('The Czar left the game! First answer/s submitted wins!');
       this.pickWinning(this.table[0].card[0].id, thisPlayer, true);
     }
   } else {
