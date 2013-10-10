@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .factory('game', ['socket', function(socket){
+  .factory('game', ['socket', '$timeout', function (socket, $timeout) {
 
   var game = {
     id: null,
@@ -15,7 +15,27 @@ angular.module('mean.system')
     state: null,
     round: 0,
     curQuestion: null,
+    notification: null,
     timeLimits: {}
+  };
+
+  var notificationQueue = [];
+  var timeout = false;
+  var self = this;
+  var addToNotificationQueue = function(msg) {
+    notificationQueue.push(msg);
+    if (!timeout) { // Start a cycle if there isn't one
+      setNotification();
+    }
+  };
+  var setNotification = function() {
+    if (notificationQueue.length === 0) { // If notificationQueue is empty, stop
+      clearInterval(timeout);
+      timeout = false;
+    } else {
+      game.notification = notificationQueue.shift(); // Show a notification and check again in a bit
+      timeout = $timeout(setNotification, 1000);
+    }
   };
 
   socket.on('id', function(data) {
@@ -45,6 +65,13 @@ angular.module('mean.system')
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
+      if (game.czar === game.playerIndex) {
+        addToNotificationQueue('You\'re the Card Czar! Players are choosing answers...');
+      } else if (game.curQuestion.numAnswers === 1) {
+        addToNotificationQueue('Select an answer!');
+      } else {
+        addToNotificationQueue('Select TWO answers!');
+      }
     } else if (data.state === 'winner has been chosen') {
       game.curQuestion = data.curQuestion;
     }
@@ -54,6 +81,10 @@ angular.module('mean.system')
         game.playerIndex = i;
       }
     }
+  });
+
+  socket.on('notification', function(data) {
+    addToNotificationQueue(data.notification);
   });
 
   socket.on('dissolveGame', function(){
