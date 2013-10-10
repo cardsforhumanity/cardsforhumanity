@@ -1,8 +1,22 @@
 <div id="question-container-inner">
   <div class="card longBlack">
    The Question: {{game.curQuestion.text}}
-   <div>
-    {{game.notification}}
-   </div>
+
+   <div>{{game.notification}}</div>
+
+    <div id = "startGame" ng-show="game.state === 'awaiting players'">
+      <div id="player-count-container">
+        <div id="player-count">{{game.players.length}} / 6 </div>
+        <div id="the-word-players"> Players </div>
+      </div>
+      <div id="loading-container">
+        <div id="loading-gif"><img ng-src="../img/loader.gif"/></div>
+      </div>
+      <div id="start-game-container" ng-click="startGame()" ng-show="game.playerIndex===0 && game.players.length >= game.playerMinLimit">
+        <div id = 'start-game-button'>
+          Start Game with {{game.players.length}} players
+        </div>
+      </div>
+    </div>
   </div>
 </div>
