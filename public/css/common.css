@@ -561,6 +561,11 @@ body {
   right: 0;
   padding-top: 5px;
 }
+@media only screen and (max-width: 1024px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+    font-size: 12px;
+  }
+}
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
   font-size: 104px;
 }
