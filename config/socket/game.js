@@ -60,6 +60,10 @@ Game.prototype.payload = function() {
   };
 };
 
+Game.prototype.sendNotification = function(msg) {
+  this.io.sockets.in(this.gameID).emit('notification', {notification: msg});
+}
+
 Game.prototype.prepareGame = function() {
   this.state = "game in progress";
 
@@ -306,6 +310,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
   }
 
   this.sendUpdate();
+  this.sendNotification(thisPlayer+' has left the game.');
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
