@@ -123,7 +123,4 @@ angular.module('mean.system')
     });
 
     game.joinGame();
-    // Use this in the HTML: <h2></h2>
-    // <div ng-repeat="card in game.hand" ng-click="pickCard(card)">{{card.id}}</div>
-
 }]);
