@@ -54,7 +54,7 @@ module.exports = function(io) {
           socket.gameID = game.gameID;
           game.assignPlayerColors();
           game.sendUpdate();
-          game.sendNotification(socket.id+' has joined the game!')
+          game.sendNotification(player.username+' has joined the game!')
           if (game.players.length >= game.playerMaxLimit) {
             gamesNeedingPlayers.shift();
             game.prepareGame();

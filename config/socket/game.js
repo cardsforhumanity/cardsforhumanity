@@ -302,6 +302,9 @@ Game.prototype.pickCards = function(thisCardArray, thisPlayer) {
 Game.prototype.removePlayer = function(thisPlayer) {
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
 
+  // Just used to send the remaining players a notification
+  var playerName = this.players[playerIndex].username;
+
   // Remove player from this.players
   this.players.splice(playerIndex,1);
 
@@ -323,7 +326,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
   }
 
   this.sendUpdate();
-  this.sendNotification(thisPlayer+' has left the game.');
+  this.sendNotification(playerName+' has left the game.');
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
@@ -341,6 +344,7 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
     if (cardIndex !== -1) {
       this.winningCard = cardIndex;
       var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
+      this.sendNotification(this.player[winnerIndex].username+' has won the round!');
       this.players[winnerIndex].points++;
       clearTimeout(this.judgingTimeout);
       this.winnerAutopicked = autopicked;
