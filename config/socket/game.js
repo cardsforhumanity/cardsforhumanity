@@ -44,7 +44,7 @@ Game.prototype.payload = function() {
       points: player.points,
       username: player.username,
       avatarURL: player.avatarURL,
-      userID: player.userID,
+      //userID: player.userID, // Do we really need to send this?
       socketID: player.socket.id
     });
   });
@@ -59,6 +59,10 @@ Game.prototype.payload = function() {
     curQuestion: this.curQuestion
   };
 };
+
+Game.prototype.sendNotification = function(msg) {
+  this.io.sockets.in(this.gameID).emit('notification', {notification: msg});
+}
 
 Game.prototype.prepareGame = function() {
   this.state = "game in progress";
@@ -306,6 +310,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
   }
 
   this.sendUpdate();
+  this.sendNotification(thisPlayer+' has left the game.');
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
