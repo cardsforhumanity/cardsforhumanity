@@ -62,6 +62,17 @@ angular.module('mean.system')
       return $index === game.czar;
     };
 
+    $scope.winningColor = function($index) {
+      console.log($index,game.winningCard);
+      console.log('game.winningCardPlayer',game.winningCardPlayer);
+      if (game.winningCardPlayer !== -1 && $index === game.winningCard) {
+        console.log('color should be',$scope.colors[game.players[game.winningCardPlayer].color]);
+        return $scope.colors[game.players[game.winningCardPlayer].color];
+      } else {
+        return '#f9f9f9';
+      }
+    };
+
     $scope.pickWinning = function(winningSet) {
       if ($scope.isCzar()) {
         game.pickWinning(winningSet.card[0]);

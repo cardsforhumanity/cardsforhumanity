@@ -9,7 +9,7 @@ function Game(gameID, io) {
   this.players = []; // Contains array of player models
   this.table = []; // Contains array of {card: card, player: player.id}
   this.winningCard = -1; // Index in this.table
-  this.winner = -1; // Index in this.players
+  this.gameWinner = -1; // Index in this.players
   this.winnerAutopicked = false;
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
@@ -54,7 +54,9 @@ Game.prototype.payload = function() {
     czar: this.czar,
     state: this.state,
     round: this.round,
+    gameWinner: this.gameWinner,
     winningCard: this.winningCard,
+    winningCardPlayer: this.winningCardPlayer,
     winnerAutopicked: this.winnerAutopicked,
     table: this.table,
     pointLimit: this.pointLimit,
@@ -117,6 +119,7 @@ Game.prototype.stateChoosing = function(self) {
   console.log(self.state);
   self.table = [];
   self.winningCard = -1;
+  self.winningCardPlayer = -1;
   self.winnerAutopicked = false;
   self.curQuestion = self.questions.pop();
   self.round++;
@@ -138,6 +141,7 @@ Game.prototype.selectFirst = function() {
   if (this.table.length) {
     this.winningCard = 0;
     var winnerIndex = this._findPlayerIndexBySocket(this.table[0].player);
+    this.winningCardPlayer = winnerIndex;
     this.players[winnerIndex].points++;
     this.winnerAutopicked = true;
     this.stateResults(this);
@@ -200,7 +204,7 @@ Game.prototype.stateResults = function(self) {
 
 Game.prototype.stateEndGame = function(winner) {
   this.state = "game ended";
-  this.winner = winner;
+  this.gameWinner = winner;
   this.sendUpdate();
 };
 
@@ -349,6 +353,7 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
       this.winningCard = cardIndex;
       var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
       this.sendNotification(this.players[winnerIndex].username+' has won the round!');
+      this.winningCardPlayer = winnerIndex;
       this.players[winnerIndex].points++;
       clearTimeout(this.judgingTimeout);
       this.winnerAutopicked = autopicked;
