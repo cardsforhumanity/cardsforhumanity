@@ -3,7 +3,7 @@ function Player(socket) {
   this.hand = [];
   this.points = 0;
   this.username = null;
-  this.avatarURL = null;
+  this.avatar = null;
   this.userID = null;
   this.color = null;
 }

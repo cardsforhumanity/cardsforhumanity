@@ -1,7 +1,7 @@
 {
     "port": 3001,
     "app": {
-        "name": "MEAN - A Modern Stack - Test on travis"
+        "name": "Cards for Humanity - Test on travis"
     },
     "facebook": {
         "clientID": "APP_ID",
