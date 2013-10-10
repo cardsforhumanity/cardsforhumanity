@@ -45,12 +45,14 @@ module.exports = function(io) {
           socket.join(game.gameID);
           socket.gameID = game.gameID;
           console.log('Create new Game');
+          game.assignPlayerColors();
           game.sendUpdate();
         } else {
           game = gamesNeedingPlayers[0];
           game.players.push(player);
           socket.join(game.gameID);
           socket.gameID = game.gameID;
+          game.assignPlayerColors();
           game.sendUpdate();
           game.sendNotification(socket.id +' has joined the game!');
           if (game.players.length >= game.playerMaxLimit) {
