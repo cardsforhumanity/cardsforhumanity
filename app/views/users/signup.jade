@@ -23,7 +23,12 @@ block auth
         input#password(type='password', name="password", placeholder='Password')
 
     .form-actions
-      button.btn.btn-primary(type='submit') Sign up
-      &nbsp;
-      | or&nbsp;
-      a.show-login(href="/signin") login
+      a.show-sign-up(href='/app')
+        button.btn.btn-primary(type='submit') Sign up
+        &nbsp;
+        | or&nbsp;
+        a.show-login(href="/signin") login
+
+      div(ng-controller="GameController")
+        div(ng-repeat="avatar in avatars")
+          img(ng-src="{{avatar}}")
