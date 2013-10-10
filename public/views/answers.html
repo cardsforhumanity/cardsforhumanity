@@ -1,4 +1,4 @@
-<div id="cards-container">
+<div ng-cloak id="cards-container">
   <div id="cards">
     <h1 ng-show="winnerPicked()">Winner Chosen. Add colors later</h1>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">

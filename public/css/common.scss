@@ -782,6 +782,13 @@ body{
                             min-width: 85px;
                             min-height: 85px;
 
+                            #timer-status-round, #timer-status-czar-choosing{
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                padding-top: 5px;
+                            }
+
                             #time{
                                 font-size: 104px;
 
@@ -806,12 +813,19 @@ body{
                             margin: 0px auto;
                             display: block;
 
+                            #notifications {
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                padding: 10px;
+                            }
+
                             #startGame{
                                 width: 100%;
                                 overflow: hidden;
                                 height: 40%;
                                 position: absolute;
-                                bottom: 15%;
+                                bottom: 20%;
                                 right: 1%;
 
                                 #player-count-container, #loading-container, #start-game-container{
