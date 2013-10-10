@@ -14,7 +14,7 @@ function Game(gameID, io) {
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
   this.playerMaxLimit = 6;
-  this.pointLimit = 5;
+  this.pointLimit = 500; // Set to 500 points until we properly handle end game
   this.state = "awaiting players";
   this.round = 0;
   this.questions = null;
@@ -43,7 +43,7 @@ Game.prototype.payload = function() {
       hand: player.hand,
       points: player.points,
       username: player.username,
-      avatarURL: player.avatarURL,
+      avatar: player.avatar,
       //userID: player.userID, // Do we really need to send this?
       socketID: player.socket.id,
       color: player.color
@@ -57,6 +57,7 @@ Game.prototype.payload = function() {
     winningCard: this.winningCard,
     winnerAutopicked: this.winnerAutopicked,
     table: this.table,
+    pointLimit: this.pointLimit,
     curQuestion: this.curQuestion
   };
 };
@@ -322,7 +323,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
       return this.stateChoosing();
     } else if (this.state === "waiting for czar to decide") {
       // If players are waiting on a czar to pick, auto pick.
-      this.sendNotification('The Czar left the game! First answer/s submitted wins!')
+      this.sendNotification('The Czar left the game! First answer/s submitted wins!');
       this.pickWinning(this.table[0].card[0].id, thisPlayer, true);
     }
   } else {
@@ -347,7 +348,7 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
     if (cardIndex !== -1) {
       this.winningCard = cardIndex;
       var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
-      this.sendNotification(this.player[winnerIndex].username+' has won the round!');
+      this.sendNotification(this.players[winnerIndex].username+' has won the round!');
       this.players[winnerIndex].points++;
       clearTimeout(this.judgingTimeout);
       this.winnerAutopicked = autopicked;

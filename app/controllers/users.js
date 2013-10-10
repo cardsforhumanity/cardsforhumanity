@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
+var avatars = require('./avatars').all();
 
 /**
  * Auth callback
@@ -51,7 +52,8 @@ exports.session = function(req, res) {
  */
 exports.create = function(req, res) {
     var user = new User(req.body);
-
+    // Switch the user's avatar index to an actual avatar url
+    user.avatar = avatars[user.avatar];
     user.provider = 'local';
     user.save(function(err) {
         if (err) {

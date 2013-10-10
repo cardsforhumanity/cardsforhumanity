@@ -61,6 +61,7 @@ angular.module('mean.system')
     game.winningCard = data.winningCard;
     game.winnerAutopicked = data.winnerAutopicked;
     game.winner = data.winner;
+    game.pointLimit = data.pointLimit;
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
@@ -93,7 +94,7 @@ angular.module('mean.system')
   });
 
   game.joinGame = function(){
-    var userID = user ? user._id : 'unauthenticated';
+    var userID = !!window.user ? user._id : 'unauthenticated';
     socket.emit('joinGame',{userID: userID});
   };
 

@@ -6,22 +6,8 @@ angular.module('mean.system')
     $scope.pickedCards = [];
 
 
-    $scope.avatars = ['/img/chosen/E01.png',
-                      '/img/chosen/F01.png',
-                      '/img/chosen/FA04.png',
-                      '/img/chosen/FB03.png',
-                      '/img/chosen/FC01.png',
-                      '/img/chosen/FD01.png',
-                      '/img/chosen/FE01.png',
-                      '/img/chosen/FH03.png',
-                      '/img/chosen/FI02.png',
-                      '/img/chosen/H01.png',
-                      '/img/chosen/J01.png',
-                      '/img/chosen/M05.png',
-                      '/img/chosen/N02.png',
-                      '/img/chosen/N03.png',
-                      '/img/chosen/N04.png',
-                      '/img/chosen/N05.png'];
+    $scope.colors = ['#7CE4E8', '#F2ADFF', '#FFEF97', '#FC575E', '#398EC4', '#8CFF95'];
+
 
     $scope.pickCard = function(card) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
