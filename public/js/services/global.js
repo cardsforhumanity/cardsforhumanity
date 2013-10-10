@@ -7,32 +7,14 @@ angular.module('mean.system')
     };
 
     return _this._data;
-}]).factory('QuestionService', ['$http', '$q', function($http, $q) {
+}]).factory('AvatarService', ['$http', '$q', function($http, $q) {
   return {
-    getQuestions: function() {
+    getAvatars: function() {
       return $q.all([
-        $http.get('/questions')
+        $http.get('/avatars')
       ])
       .then(function(results) {
-        var question;
-        var data = {};
-        data = results[0].data;
-        var maxVal;
-        var minVal = 0;
-        for (var key in data) {
-          maxVal = key;
-        }
-
-        var rnd;
-        var flag = 0;
-        for (var test in data) {
-          rnd = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
-          if (data[rnd].expansion === 'Base' && flag < 1) {
-            flag++;
-            question = data[rnd];
-          }
-        }
-        return question;
+        return results[0].data;
       });
     }
   };

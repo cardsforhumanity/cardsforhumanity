@@ -442,7 +442,7 @@ body {
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
   width: 100%;
-  height: 100%;
+  height: 140%;
   float: left;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;

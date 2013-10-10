@@ -1,7 +1,8 @@
 <div id="player-container" ng-repeat="player in game.players" style="background-color:{{colors[player.color]}}">
   <div id ="above-czar-container">  
     <div id="avatar_">
-      <img src="http://png-5.findicons.com/files/icons/1072/face_avatars/300/o03.png"/>
+      <!-- <img src="http://png-5.findicons.com/files/icons/1072/face_avatars/300/o03.png"/> -->
+      <img ng-src="{{player.avatar}}"/>
     </div>
     <!-- <div id="avatar"><img ng-src="{{player.avatarURL}}"/></div> TODO: for when dyanmic avatars are figured out-->
     <div id="player-container-inner">
