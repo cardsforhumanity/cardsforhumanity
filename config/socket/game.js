@@ -347,7 +347,7 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
     if (cardIndex !== -1) {
       this.winningCard = cardIndex;
       var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
-      this.sendNotification(this.player[winnerIndex].username+' has won the round!');
+      this.sendNotification(this.players[winnerIndex].username+' has won the round!');
       this.players[winnerIndex].points++;
       clearTimeout(this.judgingTimeout);
       this.winnerAutopicked = autopicked;
