@@ -836,6 +836,17 @@ body{
                     }
                 }
             }
+            #info-container{
+                width: 100%;
+                background: #EEE;
+                @include br;
+                text-align: center;
+                padding: 15px;
+
+                #inner-text{
+                    font-size: 22px;
+                }
+            }
 
             #cards-container{
                 width: 100%;

@@ -5,3 +5,13 @@
     <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="pickedCard || isCzar()" ng-repeat="answer in game.table" ng-animate="{enter:'animated flipInX'}">Picked answer: {{ answer.card.text }}</div>
   </div>
 </div>
+<div id="info-container" ng-show="game.state === 'awaiting players'">
+  <div id="inner-info">
+    <h1> Cards for Humanity </h1> 
+    <div id='inner-text'>
+      Thanks for choosing our game. Sorry about not having a Date Rape card, 
+      one of our team members is a little bitch. We hope you enjoy the game, 
+      and nothing crashes. If it does, find big Willie. It's his fault.
+    </div>
+  </div>
+</div>

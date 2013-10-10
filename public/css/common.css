@@ -598,6 +598,18 @@ body {
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button:hover {
   background: #41C2CA;
 }
+#main-container #app-container #gameplay-container #info-container {
+  width: 100%;
+  background: #EEE;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px;
+}
+#main-container #app-container #gameplay-container #info-container #inner-text {
+  font-size: 22px;
+}
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
   background: #EEE;
