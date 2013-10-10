@@ -57,6 +57,7 @@ Game.prototype.payload = function() {
     winningCard: this.winningCard,
     winnerAutopicked: this.winnerAutopicked,
     table: this.table,
+    pointLimit: this.pointLimit,
     curQuestion: this.curQuestion
   };
 };

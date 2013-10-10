@@ -61,6 +61,7 @@ angular.module('mean.system')
     game.winningCard = data.winningCard;
     game.winnerAutopicked = data.winnerAutopicked;
     game.winner = data.winner;
+    game.pointLimit = data.pointLimit;
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
