@@ -481,8 +481,20 @@ body {
   width: 80%;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container {
-  height: 33%;
+  height: 28%;
   width: 100%;
+  min-height: 220px;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container {
+    height: 20%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container {
+    margin-bottom: 10px;
+    min-height: 175px;
+  }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container {
   float: left;
@@ -500,7 +512,7 @@ body {
   -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: #EEEEEE;
+  background-color: #D5D5D5;
   text-indent: 0;
   text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
@@ -532,7 +544,7 @@ body {
   -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: #EEEEEE;
+  background-color: #D5D5D5;
   text-indent: 0;
   text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
@@ -540,13 +552,21 @@ body {
   text-shadow: none;
   cursor: default;
   border: none;
+  min-width: 85px;
+  min-height: 85px;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-top: 5px;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
-  font-size: 108px;
+  font-size: 104px;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
-    font-size: 50px;
+    font-size: 80px;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
@@ -605,7 +625,7 @@ body {
 }
 #main-container #app-container #gameplay-container #info-container {
   width: 100%;
-  background: #EEE;
+  background: #D5D5D5;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -617,7 +637,7 @@ body {
 }
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
-  background: #EEE;
+  background: #D5D5D5;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;

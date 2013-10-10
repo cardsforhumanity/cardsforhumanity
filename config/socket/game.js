@@ -45,7 +45,8 @@ Game.prototype.payload = function() {
       username: player.username,
       avatarURL: player.avatarURL,
       //userID: player.userID, // Do we really need to send this?
-      socketID: player.socket.id
+      socketID: player.socket.id,
+      color: player.color
     });
   });
   return {
@@ -62,6 +63,14 @@ Game.prototype.payload = function() {
 
 Game.prototype.sendNotification = function(msg) {
   this.io.sockets.in(this.gameID).emit('notification', {notification: msg});
+};
+
+// Currently called on each joinGame event from socket.js
+// Also called on removePlayer IF game is in 'awaiting players' state
+Game.prototype.assignPlayerColors = function() {
+  this.players.forEach(function(player,index) {
+    player.color = index;
+  });
 };
 
 Game.prototype.prepareGame = function() {
@@ -295,6 +304,10 @@ Game.prototype.removePlayer = function(thisPlayer) {
 
   // Remove player from this.players
   this.players.splice(playerIndex,1);
+
+  if (this.state === "awaiting players") {
+    this.assignPlayerColors();
+  }
 
   // Check if the player is the czar
   if (this.czar === playerIndex) {

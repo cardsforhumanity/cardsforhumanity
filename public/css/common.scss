@@ -270,7 +270,7 @@ color: #4e4e4e;
     -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
     box-shadow: inset 0px 1px 0px 0px #ffffff;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-    background-color: #EEEEEE;
+    background-color: #D5D5D5;
     text-indent: 0;
     text-shadow: 1px 1px 0px #ffffff;
     cursor: pointer;
@@ -737,8 +737,18 @@ body{
             width: 80%;
 
             #upper-gameplay-container {
-                height: 33%;
+                height: 28%;
                 width: 100%;
+                min-height: 220px;
+
+                @include tablet-portrait-only{
+                   height: 20%;
+                }
+
+                @include tablet-landscape-and-below{
+                    margin-bottom: 10px;
+                    min-height: 175px;
+                }
 
                 #menu-timeremaining-container{
                     float: left;
@@ -769,12 +779,21 @@ body{
                             text-shadow: none;
                             cursor: default;
                             border: none;
+                            min-width: 85px;
+                            min-height: 85px;
+
+                            #timer-status-round, #timer-status-czar-choosing{
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                padding-top: 5px;
+                            }
 
                             #time{
-                                font-size: 108px;
+                                font-size: 104px;
 
                                 @include tablet-landscape-and-below{
-                                    font-size: 50px;
+                                    font-size: 80px;
                                 }
                             }
                         }
@@ -853,7 +872,7 @@ body{
             }
             #info-container{
                 width: 100%;
-                background: #EEE;
+                background: #D5D5D5;
                 @include br;
                 text-align: center;
                 padding: 15px;
@@ -865,7 +884,7 @@ body{
 
             #cards-container{
                 width: 100%;
-                background: #EEE;
+                background: #D5D5D5;
                 @include br;
 
                 #cards {
