@@ -286,7 +286,7 @@ color: #4e4e4e;
     padding: 1%;
     margin: 1%;
 
-    background-color: rgb(249, 249, 249);
+    background-color: #fff;
 
     border-radius: 0.5em;
     border: 0.0625em solid black;
@@ -787,6 +787,10 @@ body{
                                 left: 0;
                                 right: 0;
                                 padding-top: 5px;
+
+                                @include tablet-landscape-and-below{
+                                    font-size: 12px;
+                                }
                             }
 
                             #time{
@@ -879,6 +883,59 @@ body{
 
                 #inner-text{
                     font-size: 22px;
+                }
+            }
+
+            #game-end-container{
+                width: 100%;
+                background: #D5D5D5;
+                @include br;
+                text-align: center;
+                overflow: hidden;
+                height: 50%;
+
+                #inner-info-exit{
+                    width: 60%;
+                    margin: 0px auto;
+                    position: relative;
+                    overflow: hidden;
+                    height: 100%;
+
+                    #inner-text-container{
+                        overflow: hidden;
+                        height: 100%;
+
+                        #join-new-game{
+                            float: left;
+                            @include button-smaller;
+                            width: 40%;
+                            margin: 5%;
+                            height: 28%;
+                            font-size: 21px;
+                            line-height: 155%;
+                            padding-top: 5%;
+
+                             &:hover{
+                                @include button-hover-smaller;
+                            }
+                        }
+
+                        #exit-match{
+                            float: left;
+                            @include button-smaller;
+                            width: 40%;
+                            margin: 5%;
+                            height: 28%;
+                            font-size: 21px;
+                            line-height: 155%;
+                            padding-top: 5%;
+
+                             &:hover{
+                                @include button-hover-smaller;
+                            }
+                        }
+
+                    }
                 }
             }
 

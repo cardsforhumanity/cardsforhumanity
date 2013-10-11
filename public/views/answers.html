@@ -1,4 +1,4 @@
-<div ng-cloak id="cards-container">
+<div ng-cloak id="cards-container" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="cards">
     <h1 ng-show="winnerPicked()"></h1>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
@@ -7,7 +7,7 @@
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>
     <span ng-repeat="answer in game.table">
-        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated flipInX'}">
+        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated flipInX'}" style="background-color:{{winningColor($parent.$index)}}">
             Picked answer: {{ card.text }}
         </div>
     </span>
@@ -18,6 +18,19 @@
     <h1> Cards for Humanity </h1> 
     <div id='inner-text'>
       Aliquip natoque gravida eos unde sunt. Beatae aperiam, turpis provident consequat non quisquam saepe do, quaerat quis conubia, labore! At. Rhoncus harum aliquam egestas ipsum feugiat? Rem dignissim aliquip? Provident! Auctor explicabo elit officiis, sapien ullamcorper, ante posuere senectus, amet, mi mus dicta lacus alias. Tenetur, euismod nostra cupidatat aliquam! Accusamus iusto! Facilisis consequatur. Repudiandae consequat diamlorem dolores mi laoreet. Quaerat dictum occaecat similique aliquip fames habitant.
+    </div>
+  </div>
+</div>
+<div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
+  <div id="inner-info-exit">
+    <h1> What Now?</h1> 
+    <div id='inner-text-container'>
+      <div id="join-new-game">
+        New Opponents
+      </div>
+      <div id="exit-match">
+        Return to Lobby
+      </div>
     </div>
   </div>
 </div>

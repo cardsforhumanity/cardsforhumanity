@@ -6,7 +6,8 @@ angular.module('mean.system')
     players: [],
     playerIndex: 0,
     winningCard: -1,
-    winner: -1,
+    winningCardPlayer: -1,
+    gameWinner: -1,
     table: [],
     czar: null,
     playerMinLimit: 3,
@@ -22,6 +23,7 @@ angular.module('mean.system')
   var notificationQueue = [];
   var timeout = false;
   var self = this;
+
   var addToNotificationQueue = function(msg) {
     notificationQueue.push(msg);
     if (!timeout) { // Start a cycle if there isn't one
@@ -32,6 +34,7 @@ angular.module('mean.system')
     if (notificationQueue.length === 0) { // If notificationQueue is empty, stop
       clearInterval(timeout);
       timeout = false;
+      game.notification = '';
     } else {
       game.notification = notificationQueue.shift(); // Show a notification and check again in a bit
       timeout = $timeout(setNotification, 1300);
@@ -59,8 +62,9 @@ angular.module('mean.system')
     game.table = data.table;
     game.round = data.round;
     game.winningCard = data.winningCard;
+    game.winningCardPlayer = data.winningCardPlayer;
     game.winnerAutopicked = data.winnerAutopicked;
-    game.winner = data.winner;
+    game.gameWinner = data.gameWinner;
     game.pointLimit = data.pointLimit;
 
     if (data.state === 'waiting for players to pick') {
@@ -86,11 +90,6 @@ angular.module('mean.system')
 
   socket.on('notification', function(data) {
     addToNotificationQueue(data.notification);
-  });
-
-  socket.on('dissolveGame', function(){
-    console.log('Game Dissolved');
-    alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
   });
 
   game.joinGame = function(){

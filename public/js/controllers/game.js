@@ -5,10 +5,6 @@ angular.module('mean.system')
     $scope.game = game;
     $scope.pickedCards = [];
 
-
-    $scope.colors = ['#7CE4E8', '#F2ADFF', '#FFEF97', '#FC575E', '#398EC4', '#8CFF95'];
-
-
     $scope.pickCard = function(card) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
         $scope.pickedCards.push(card.id);
@@ -62,6 +58,14 @@ angular.module('mean.system')
       return $index === game.czar;
     };
 
+    $scope.winningColor = function($index) {
+      if (game.winningCardPlayer !== -1 && $index === game.winningCard) {
+        return $scope.colors[game.players[game.winningCardPlayer].color];
+      } else {
+        return '#f9f9f9';
+      }
+    };
+
     $scope.pickWinning = function(winningSet) {
       if ($scope.isCzar()) {
         game.pickWinning(winningSet.card[0]);
@@ -100,13 +104,6 @@ angular.module('mean.system')
       $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
     });
 
-    $scope.$watch('game.state', function() {
-      if (game.state === 'waiting for czar to decide') {
-        $scope.countdown(game.timeLimits.stateJudging/1000,game.state);
-      } else if (game.state === 'winner has been chosen') {
-        $scope.countdown(game.timeLimits.stateResults/1000,game.state);
-      }
-    });
 
     game.joinGame();
 }]);
