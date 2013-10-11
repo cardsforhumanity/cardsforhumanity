@@ -7,19 +7,13 @@
   padding: 1%;
   margin: 1%;
   background-color: #fff;
-  border-radius: 0.5em;
+  border-radius: 8px;
   border: 0.0625em solid black;
   color: black;
   font-family: Arial;
   font-size: 20px;
   font-weight: bold;
   vertical-align: top;
-}
-@media only screen and (max-width: 1024px) {
-  .card {
-    height: 14em;
-    font-size: 16px;
-  }
 }
 .card #selection-number {
   position: absolute;
@@ -36,7 +30,7 @@
   background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
   border-color: white;
   color: white;
-  height: 10.7em;
+  height: 100%;
   width: 35.5em;
 }
 .card.smallest {
@@ -224,18 +218,18 @@ body {
   background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
   background-color: #fcfcfc;
-  -webkit-border-top-left-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-right-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  border-bottom-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-left-radius: 20px;
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-bottom-left-radius: 8px;
   text-indent: 0;
   border: 1px solid #dcdcdc;
   display: inline-block;
@@ -360,18 +354,18 @@ body {
   background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
   background-color: #fcfcfc;
-  -webkit-border-top-left-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-right-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  border-bottom-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-left-radius: 20px;
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-bottom-left-radius: 8px;
   text-indent: 0;
   border: 1px solid #dcdcdc;
   display: inline-block;
@@ -426,10 +420,11 @@ body {
   padding-bottom: 4%;
   min-height: 85px;
   background: #7CE4E8;
-  margin: 3%;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  margin: 6%;
+  margin-top: 0px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container {
   height: 65%;
@@ -444,12 +439,18 @@ body {
   width: 100%;
   height: 140%;
   float: left;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   margin: 0 10px;
   min-width: 40px;
   min-height: 40px;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
+    width: 100%;
+    height: 100%;
+  }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
   float: left;
@@ -462,12 +463,12 @@ body {
   bottom: 0;
   text-align: center;
   width: 100%;
-  -webkit-border-bottom-right-radius: 15px;
-  -webkit-border-bottom-left-radius: 15px;
-  -moz-border-radius-bottomright: 15px;
-  -moz-border-radius-bottomleft: 15px;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+  -webkit-border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
   background: black;
   opacity: 0.2;
 }
@@ -484,30 +485,29 @@ body {
   height: 28%;
   width: 100%;
   min-height: 220px;
+  max-height: 220px;
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container {
-    height: 20%;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  #main-container #app-container #gameplay-container #upper-gameplay-container {
-    margin-bottom: 10px;
-    min-height: 175px;
+    height: 16%;
+    min-height: 180px;
+    max-height: 180px;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container {
   float: left;
-  width: 17%;
+  width: 19%;
   height: 100%;
+  margin-right: 2%;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #menu-container {
+  display: none;
   text-align: center;
   position: relative;
   font-weight: bold;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
   -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -517,11 +517,11 @@ body {
   text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
   height: 20%;
-  margin-bottom: 10%;
+  margin-bottom: 16px;
   line-height: 20%;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #menu-container #menu-button {
   position: absolute;
@@ -530,16 +530,16 @@ body {
   right: 0;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container {
-  height: 70%;
+  height: 100%;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container {
   text-align: center;
   text-align: center;
   position: relative;
   font-weight: bold;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
   -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -554,12 +554,21 @@ body {
   border: none;
   min-width: 85px;
   min-height: 85px;
+  height: 100%;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
   position: absolute;
   left: 0;
   right: 0;
   padding-top: 5px;
+  padding-bottom: 8px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.61);
+  opacity: 0.7;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  color: white;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
@@ -567,7 +576,7 @@ body {
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
-  font-size: 104px;
+  font-size: 110px;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
@@ -577,13 +586,14 @@ body {
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
   height: 100%;
   float: left;
-  width: 83%;
+  width: 79%;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner {
   width: 100%;
+  height: 100%;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card {
-  width: 97%;
+  width: 100%;
   margin: 0px auto;
   display: block;
 }
@@ -613,7 +623,7 @@ body {
   color: #333;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button {
-  border-radius: 5px;
+  border-radius: 8px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   font-size: 20px;
@@ -631,9 +641,9 @@ body {
 #main-container #app-container #gameplay-container #info-container {
   width: 100%;
   background: #D5D5D5;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   text-align: center;
   padding: 15px;
 }
@@ -643,9 +653,9 @@ body {
 #main-container #app-container #gameplay-container #game-end-container {
   width: 100%;
   background: #D5D5D5;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   text-align: center;
   overflow: hidden;
   height: 50%;
@@ -670,18 +680,18 @@ body {
   background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
   background-color: #fcfcfc;
-  -webkit-border-top-left-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-right-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  border-bottom-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-left-radius: 20px;
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-bottom-left-radius: 8px;
   text-indent: 0;
   border: 1px solid #dcdcdc;
   display: inline-block;
@@ -722,18 +732,18 @@ body {
   background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
   background-color: #fcfcfc;
-  -webkit-border-top-left-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-right-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  border-bottom-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-left-radius: 20px;
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-bottom-left-radius: 8px;
   text-indent: 0;
   border: 1px solid #dcdcdc;
   display: inline-block;
@@ -765,12 +775,32 @@ body {
   background-color: #f0f0f0;
   color: #4e4e4e;
 }
+#main-container #app-container #gameplay-container #czar-blank-container {
+  width: 100%;
+  background: #D5D5D5;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+  overflow: hidden;
+  height: 50%;
+  position: relative;
+  font-size: 35px;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #czar-blank-inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50px;
+  margin-top: 16%;
+}
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
   background: #D5D5D5;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  margin-top: 11px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 #main-container #app-container #gameplay-container #cards-container #cards {
   width: 100%;
