@@ -944,6 +944,25 @@ body{
                 }
             }
 
+            #czar-blank-container{
+                width: 100%;
+                background: #D5D5D5;
+                @include br;
+                text-align: center;
+                overflow: hidden;
+                height: 50%;
+                position: relative;
+                font-size: 35px;
+
+                #czar-blank-inner{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    height: 50px;
+                    margin-top: 16%;
+                }
+            }
+
             #cards-container{
                 width: 100%;
                 background: #D5D5D5;
