@@ -8,7 +8,7 @@
     </div>
     <span ng-repeat="answer in game.table">
         <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated flipInX'}" style="background-color:{{winningColor($parent.$index)}}">
-            Picked answer: {{ card.text }}
+            Picked answer: <span ng-bind-html-unsafe="card.text"></span>
         </div>
     </span>
   </div>
@@ -28,7 +28,7 @@
       <div id="join-new-game">
         New Opponents
       </div>
-      <div id="play-again">
+      <div id="play-again" ng-click="playAgain()">
         Play Again
       </div>
       <div id="exit-match">
