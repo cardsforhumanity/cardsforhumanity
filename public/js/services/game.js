@@ -55,21 +55,38 @@ angular.module('mean.system')
   socket.on('gameUpdate', function(data) {
     // console.log(data);
 
+    var i;
     // Cache the index of the player in the players array
-    for (var i = 0; i < data.players.length; i++) {
+    for (i = 0; i < data.players.length; i++) {
       if (game.id === data.players[i].socketID) {
         game.playerIndex = i;
       }
     }
 
     // Set these properties on each update
-    game.table = data.table;
     game.round = data.round;
     game.winningCard = data.winningCard;
     game.winningCardPlayer = data.winningCardPlayer;
     game.winnerAutopicked = data.winnerAutopicked;
     game.gameWinner = data.gameWinner;
     game.pointLimit = data.pointLimit;
+
+    // Handle updating game.table
+    if (data.table.length === 0) {
+      game.table = [];
+    } else {
+      // All players represented in game.table
+      var playersPicked = {};
+      for (i = 0; i < game.table.length; i++) {
+        playersPicked[game.table[i].player] = true;
+      }
+      // Only add new player's picks to game.table
+      for (i = 0; i < data.table.length; i++) {
+        if (!playersPicked[data.table[i].player]) {
+          game.table.push(data.table[i]);
+        }
+      }
+    }
 
     var newState = (data.state !== game.state);
 
