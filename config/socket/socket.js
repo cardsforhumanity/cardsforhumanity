@@ -75,6 +75,17 @@ module.exports = function(io) {
       }
     });
 
+    socket.on('playAgain', function() {
+      if (allGames[socket.gameID]) {
+        // Before we exit the existing game, get this player's info
+        game = allGames[socket.gameID];
+        var player = game.players[game._findPlayerIndexBySocket(socket.id)];
+        console.log(player);
+        exitGame(socket);
+        fireGame(player,socket);
+      }
+    });
+
     socket.on('leaveGame', function() {
       socket.leave(socket.gameID);
       exitGame(socket);
@@ -115,9 +126,8 @@ module.exports = function(io) {
   };
 
   var exitGame = function(socket) {
-    game = allGames[socket.gameID];
-
     if (allGames[socket.gameID]) { // Make sure game exists
+      game = allGames[socket.gameID];
       if (game.state === 'awaiting players' ||
         game.players.length-1 >= game.playerMinLimit){
         game.removePlayer(socket.id);
