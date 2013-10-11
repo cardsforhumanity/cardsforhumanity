@@ -75,7 +75,7 @@ module.exports = function(io) {
       }
     });
 
-    socket.on('playAgain', function() {
+    socket.on('joinNewGame', function() {
       if (allGames[socket.gameID]) {
         // Before we exit the existing game, get this player's info
         game = allGames[socket.gameID];

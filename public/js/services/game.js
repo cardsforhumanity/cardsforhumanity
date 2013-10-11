@@ -112,8 +112,8 @@ angular.module('mean.system')
     socket.emit('leaveGame');
   };
 
-  game.playAgain = function() {
-    socket.emit('playAgain');
+  game.joinNewGame = function() {
+    socket.emit('joinNewGame');
   };
 
   game.pickCards = function(cards) {
