@@ -78,7 +78,6 @@ angular.module('mean.system')
     };
 
     $scope.startGame = function() {
-      $scope.notify = true;
       game.startGame();
     };
 
