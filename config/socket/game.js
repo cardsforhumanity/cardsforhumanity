@@ -21,9 +21,9 @@ function Game(gameID, io) {
   this.answers = null;
   this.curQuestion = null;
   this.timeLimits = {
-    stateChoosing: 15000,
-    stateJudging: 10000,
-    stateResults: 5000
+    stateChoosing: 16000,
+    stateJudging: 11000,
+    stateResults: 6000
   };
   // setTimeout ID that triggers the czar judging state
   // Used to automatically run czar judging if players don't pick before time limit
