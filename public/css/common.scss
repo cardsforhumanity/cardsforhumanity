@@ -704,6 +704,11 @@ body{
                             margin: 0 10px;
                             min-width: 40px;
                             min-height: 40px;
+
+                            @include tablet-portrait-only{
+                                width: 100%;
+                                height: 100%;
+                            }
                         }
                     }
                     #player-container-inner{
