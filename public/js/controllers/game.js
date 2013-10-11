@@ -5,10 +5,6 @@ angular.module('mean.system')
     $scope.game = game;
     $scope.pickedCards = [];
 
-
-    $scope.colors = ['#7CE4E8', '#F2ADFF', '#FFEF97', '#FC575E', '#398EC4', '#8CFF95'];
-
-
     $scope.pickCard = function(card) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
         $scope.pickedCards.push(card.id);
@@ -108,33 +104,6 @@ angular.module('mean.system')
       $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
     });
 
-    $scope.$watch('game.state', function() {
-      if (game.state === 'waiting for czar to decide') {
-        $scope.countdown(game.timeLimits.stateJudging/1000,game.state);
-      } else if (game.state === 'winner has been chosen') {
-          var curQuestionArr = game.curQuestion.text.split('_');
-          var startStyle = "<span style='color: "+$scope.colors[game.players[game.winningCardPlayer].color]+"'>";
-          var endStyle = "</span>";
-          if (curQuestionArr.length > 1) {
-            var cardText = game.table[game.winningCard].card[0].text;
-            if (cardText.indexOf('.') === cardText.length-1) {
-              cardText = cardText.slice(0,cardText.length-1);
-            }
-            curQuestionArr.splice(1,0,startStyle+cardText+endStyle);
-            if (game.curQuestion.numAnswers === 2) {
-              cardText = game.table[game.winningCard].card[1].text;
-              if (cardText.indexOf('.') === cardText.length-1) {
-                cardText = cardText.slice(0,cardText.length-1);
-              }
-              curQuestionArr.splice(3,0,startStyle+cardText+endStyle);
-            }
-            game.curQuestion.text = curQuestionArr.join("");
-          } else {
-            game.curQuestion.text += ' '+startStyle+game.table[game.winningCard].card[0].text+endStyle;
-          }
-        $scope.countdown(game.timeLimits.stateResults/1000,game.state);
-      }
-    });
 
     game.joinGame();
 }]);
