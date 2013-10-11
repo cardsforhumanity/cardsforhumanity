@@ -34,6 +34,7 @@ angular.module('mean.system')
     if (notificationQueue.length === 0) { // If notificationQueue is empty, stop
       clearInterval(timeout);
       timeout = false;
+      game.notification = '';
     } else {
       game.notification = notificationQueue.shift(); // Show a notification and check again in a bit
       timeout = $timeout(setNotification, 1300);

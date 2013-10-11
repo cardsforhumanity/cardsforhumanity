@@ -4,14 +4,6 @@ angular.module('mean.system')
     $scope.winningCardPicked = false;
     $scope.game = game;
     $scope.pickedCards = [];
-    $scope.notify = true;
-
-    if ($scope.notify) {
-      $timeout(function() {
-        $scope.notify = false;
-      }, 1000);
-    }
-
 
     $scope.pickCard = function(card) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
@@ -111,12 +103,6 @@ angular.module('mean.system')
       $scope.winningCardPicked = false;
       $scope.pickedCards = [];
       $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
-      $scope.notify = true;
-      if ($scope.notify) {
-        $timeout(function() {
-          $scope.notify = false;
-        }, 1500);
-      }
     });
 
 

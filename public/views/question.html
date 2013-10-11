@@ -2,7 +2,7 @@
   <div class="card longBlack">
    The Question: <span ng-bind-html-unsafe="game.curQuestion.text"></span>
 
-   <div id="notifications" ng-show="notify" ng-animate="{show:'animated fadeInLeft', hide:'animated fadeOutRight'}">{{game.notification}}</div>
+   <div id="notifications" ng-if="game.notification" ng-animate="{enter:'animated fadeInLeft', leave:'animated fadeOutRight'}">{{game.notification}}</div>
 
     <div id="startGame" ng-show="game.state === 'awaiting players'">
       <div id="player-count-container">
