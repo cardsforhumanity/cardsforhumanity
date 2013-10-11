@@ -886,6 +886,71 @@ body{
                 }
             }
 
+            #game-end-container{
+                width: 100%;
+                background: #D5D5D5;
+                @include br;
+                text-align: center;
+                overflow: hidden;
+                height: 50%;
+
+                #inner-info-exit{
+                    width: 90%;
+                    margin: 0px auto;
+                    position: relative;
+                    overflow: hidden;
+                    height: 100%;
+
+                    #inner-text-container{
+                        overflow: hidden;
+                        height: 100%;
+
+                        #play-again{
+                            float: left;
+                            @include button-smaller;
+                            width: 28%;
+                            margin: 2.666667%;
+                            height: 28%;
+                            font-size: 21px;
+                            line-height: 155%;
+
+                            &:hover{
+                                @include button-hover-smaller;
+                            }
+                        }
+
+                        #join-new-game{
+                            float: left;
+                            @include button-smaller;
+                            width: 28%;
+                            margin: 2.666667%;
+                            height: 28%;
+                            font-size: 21px;
+                            line-height: 155%;
+
+                             &:hover{
+                                @include button-hover-smaller;
+                            }
+                        }
+
+                        #exit-match{
+                            float: left;
+                            @include button-smaller;
+                            width: 28%;
+                            margin: 2.666667%;
+                            height: 28%;
+                            font-size: 21px;
+                            line-height: 155%;
+
+                             &:hover{
+                                @include button-hover-smaller;
+                            }
+                        }
+
+                    }
+                }
+            }
+
             #cards-container{
                 width: 100%;
                 background: #D5D5D5;

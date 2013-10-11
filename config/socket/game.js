@@ -14,7 +14,7 @@ function Game(gameID, io) {
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
   this.playerMaxLimit = 6;
-  this.pointLimit = 500; // Set to 500 points until we properly handle end game
+  this.pointLimit = 1; // Set to 1 to test game end.
   this.state = "awaiting players";
   this.round = 0;
   this.questions = null;
