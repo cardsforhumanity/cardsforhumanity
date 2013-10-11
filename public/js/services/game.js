@@ -99,9 +99,10 @@ angular.module('mean.system')
     alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
   });
 
-  game.joinGame = function() {
+  game.joinGame = function(mode) {
+    mode = mode || 'joinGame';
     var userID = !!window.user ? user._id : 'unauthenticated';
-    socket.emit('joinGame',{userID: userID});
+    socket.emit(mode,{userID: userID});
   };
 
   game.startGame = function() {
@@ -110,10 +111,6 @@ angular.module('mean.system')
 
   game.leaveGame = function() {
     socket.emit('leaveGame');
-  };
-
-  game.joinNewGame = function() {
-    socket.emit('joinNewGame');
   };
 
   game.pickCards = function(cards) {
