@@ -895,7 +895,7 @@ body{
                 height: 50%;
 
                 #inner-info-exit{
-                    width: 90%;
+                    width: 60%;
                     margin: 0px auto;
                     position: relative;
                     overflow: hidden;
@@ -905,26 +905,11 @@ body{
                         overflow: hidden;
                         height: 100%;
 
-                        #play-again{
-                            float: left;
-                            @include button-smaller;
-                            width: 28%;
-                            margin: 2.666667%;
-                            height: 28%;
-                            font-size: 21px;
-                            line-height: 155%;
-                            padding-top: 5%;
-
-                            &:hover{
-                                @include button-hover-smaller;
-                            }
-                        }
-
                         #join-new-game{
                             float: left;
                             @include button-smaller;
-                            width: 28%;
-                            margin: 2.666667%;
+                            width: 40%;
+                            margin: 5%;
                             height: 28%;
                             font-size: 21px;
                             line-height: 155%;
@@ -938,8 +923,8 @@ body{
                         #exit-match{
                             float: left;
                             @include button-smaller;
-                            width: 28%;
-                            margin: 2.666667%;
+                            width: 40%;
+                            margin: 5%;
                             height: 28%;
                             font-size: 21px;
                             line-height: 155%;
