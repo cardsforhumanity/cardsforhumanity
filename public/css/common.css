@@ -1,0 +1,796 @@
+.card {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 18%;
+  height: 20em;
+  padding: 1%;
+  margin: 1%;
+  background-color: #fff;
+  border-radius: 0.5em;
+  border: 0.0625em solid black;
+  color: black;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  vertical-align: top;
+}
+@media only screen and (max-width: 1024px) {
+  .card {
+    height: 14em;
+    font-size: 16px;
+  }
+}
+.card #selection-number {
+  position: absolute;
+  bottom: 1px;
+  left: 7px;
+  font-size: 18px;
+}
+.card.black {
+  background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+  border-color: white;
+  color: white;
+}
+.card.longBlack {
+  background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+  border-color: white;
+  color: white;
+  height: 10.7em;
+  width: 35.5em;
+}
+.card.smallest {
+  font-size: 0.750em;
+  cursor: pointer;
+}
+.card u {
+  position: relative;
+  content: '';
+  display: inline-block;
+  width: 50%;
+  text-decoration: none;
+  height: 1em;
+  border-bottom: 0.125em solid black;
+  margin-bottom: -0.125em;
+}
+.card u .small {
+  width: 25%;
+}
+.card u .big {
+  width: 75%;
+}
+.card u .end:after {
+  position: absolute;
+  right: -0.357em;
+  display: inline-block;
+  content: '.';
+}
+
+.hand {
+  position: relative;
+  width: 24em;
+  height: 34em;
+}
+.hand .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hand .card:nth-child(1) {
+  -webkit-transform: rotate(-7deg);
+}
+.hand .card:nth-child(2) {
+  -webkit-transform: rotate(-3deg);
+  left: 2%;
+  top: 2%;
+}
+.hand .card:nth-child(3) {
+  -webkit-transform: rotate(0deg);
+  left: 4%;
+  top: 4%;
+}
+.hand .card:active {
+  z-index: 1;
+}
+
+html, body, .main-container, .cont, #first-section, #inner-container {
+  height: 100%;
+}
+
+html {
+  margin: 20px;
+  position: relative;
+}
+
+body {
+  font-family: "helvetica neue", helvetica, sans-serif;
+}
+
+.navbar .nav > li > a.brand {
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+.content {
+  margin-top: 50px;
+  width: 70%;
+}
+
+/*
+** START Home Page CSS
+*/
+.cont {
+  width: 100%;
+  margin: 0px auto;
+}
+
+.main-container {
+  width: 80%;
+  height: 100%;
+  margin: 0px auto;
+  font-family: "helvetica neue", helvetica, sans-serif;
+}
+@media only screen and (max-width: 1024px) {
+  .main-container {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .main-container {
+    width: 100%;
+  }
+}
+
+#inner-container {
+  width: 100%;
+  font-size: 1em;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  top: 20px;
+}
+#inner-container.longer-description {
+  border-bottom: 1px dashed #ddd;
+  text-align: justify;
+  line-height: 1.8;
+  background: #fff;
+  max-width: 620px;
+  font-size: 14px;
+  padding: 80px 40px;
+  margin: 0 auto;
+  width: 600px;
+  color: #333;
+}
+#inner-container.longer-description em {
+  font-style: normal;
+  font-size: 12px;
+  color: #666;
+}
+#inner-container.longer-description em:before {
+  content: '~';
+  margin: 0 10px;
+}
+
+#mission-statement-container {
+  height: 100%;
+  padding: 1%;
+}
+#mission-statement-container #slogan {
+  width: 100%;
+  font-size: 3.7em;
+  text-align: center;
+  font-weight: bold;
+  padding: 2%;
+}
+@media only screen and (max-width: 1025px) {
+  #mission-statement-container #slogan {
+    font-size: 2.8em;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mission-statement-container #slogan {
+    font-size: 2.3em;
+  }
+}
+#mission-statement-container #longer-description {
+  margin-top: 2%;
+  font-size: 1.6em;
+  width: 81%;
+  margin-left: 10%;
+  text-align: center;
+}
+@media only screen and (max-width: 1024px) {
+  #mission-statement-container #longer-description {
+    font-size: 1.4em;
+  }
+}
+#mission-statement-container #longer-description #description-paragraphs {
+  font-weight: 400;
+}
+#mission-statement-container #longer-description #description-paragraphs #main-question {
+  font-weight: 600;
+}
+#mission-statement-container #signup-guest-container {
+  width: 200px;
+  margin: 45px auto;
+}
+#mission-statement-container #signup-guest-container #signup-button-smaller {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 39px;
+  font-weight: bold;
+  font-style: normal;
+  height: 100px;
+  line-height: 100px;
+  width: 200px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  cursor: pointer;
+  margin: 5px auto;
+  display: block;
+}
+@media only screen and (max-width: 480px) {
+  #mission-statement-container #signup-guest-container #signup-button-smaller {
+    height: 50px;
+    width: 100px;
+    line-height: 50px;
+    font-size: 19px;
+  }
+}
+#mission-statement-container #signup-guest-container #signup-button-smaller:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+#mission-statement-container #signup-guest-container #play-as-guest {
+  text-align: right;
+}
+#mission-statement-container #down_arrow {
+  bottom: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0 auto;
+}
+#mission-statement-container #down_arrow a {
+  pointer: cursor;
+}
+
+#description-container {
+  height: 100%;
+  position: relative;
+  height: 100%;
+}
+#description-container #first-card {
+  width: 28%;
+}
+#description-container #second-card {
+  width: 28%;
+}
+#description-container #third-card {
+  width: 28%;
+}
+@media only screen and (max-width: 1024px) {
+  #description-container #first-card {
+    width: 26%;
+  }
+  #description-container #second-card {
+    width: 26%;
+  }
+  #description-container #third-card {
+    width: 26%;
+  }
+}
+#description-container #inner-description-container {
+  height: 65%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#description-container #down_arrow_second {
+  bottom: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0px auto;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#join-game-container {
+  margin: 0px auto;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+#join-game-container #up_arrow_second {
+  top: 0;
+  height: 70px;
+  width: 64px;
+  margin: 0px auto;
+  display: block;
+}
+#join-game-container #inner-join-container {
+  height: 65%;
+  width: 100%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#join-game-container #inner-join-container #signup-button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: normal;
+  height: 200px;
+  line-height: 200px;
+  width: 300px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  margin-top: 15px;
+  cursor: pointer;
+}
+#join-game-container #inner-join-container #signup-button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+
+/*
+** End Home Page CSS
+*/
+/*
+** START App CSS
+*/
+#main-container {
+  height: 100%;
+}
+#main-container #app-container {
+  height: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  position: relative;
+}
+#main-container #app-container #social-bar-container {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  background: white;
+}
+#main-container #app-container #social-bar-container #player-container {
+  height: 13.166667%;
+  position: relative;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  min-height: 85px;
+  background: #7CE4E8;
+  margin: 3%;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container {
+  height: 65%;
+  width: 100%;
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
+  height: 100%;
+  width: 40%;
+  float: left;
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
+  width: 100%;
+  height: 140%;
+  float: left;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  margin: 0 10px;
+  min-width: 40px;
+  min-height: 40px;
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
+  float: left;
+  position: relative;
+  bottom: 8px;
+  left: 17px;
+}
+#main-container #app-container #social-bar-container #player-container #czar-container {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  -webkit-border-bottom-right-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background: black;
+  opacity: 0.2;
+}
+#main-container #app-container #social-bar-container #player-container #czar-container #the-czar {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+#main-container #app-container #gameplay-container {
+  height: 100%;
+  width: 80%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container {
+  height: 28%;
+  width: 100%;
+  min-height: 220px;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container {
+    height: 20%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container {
+    margin-bottom: 10px;
+    min-height: 175px;
+  }
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container {
+  float: left;
+  width: 17%;
+  height: 100%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #menu-container {
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #D5D5D5;
+  text-indent: 0;
+  text-shadow: 1px 1px 0px #ffffff;
+  cursor: pointer;
+  height: 20%;
+  margin-bottom: 10%;
+  line-height: 20%;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #menu-container #menu-button {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container {
+  height: 70%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container {
+  text-align: center;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #D5D5D5;
+  text-indent: 0;
+  text-shadow: 1px 1px 0px #ffffff;
+  cursor: pointer;
+  background: #89FFAC;
+  text-shadow: none;
+  cursor: default;
+  border: none;
+  min-width: 85px;
+  min-height: 85px;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-top: 5px;
+}
+@media only screen and (max-width: 1024px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+    font-size: 12px;
+  }
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
+  font-size: 104px;
+}
+@media only screen and (max-width: 1024px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
+    font-size: 80px;
+  }
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
+  height: 100%;
+  float: left;
+  width: 83%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner {
+  width: 100%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card {
+  width: 97%;
+  margin: 0px auto;
+  display: block;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #notifications {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame {
+  width: 100%;
+  overflow: hidden;
+  height: 40%;
+  position: absolute;
+  bottom: 20%;
+  right: 1%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
+  width: 33.333%;
+  float: left;
+  text-align: center;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container #player-count {
+  font-size: 33px;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
+  color: #333;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: white;
+  background: #5adae2;
+  padding: 0.65em 20px;
+  width: 85%;
+  cursor: pointer;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button:hover {
+  background: #41C2CA;
+}
+#main-container #app-container #gameplay-container #info-container {
+  width: 100%;
+  background: #D5D5D5;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px;
+}
+#main-container #app-container #gameplay-container #info-container #inner-text {
+  font-size: 22px;
+}
+#main-container #app-container #gameplay-container #game-end-container {
+  width: 100%;
+  background: #D5D5D5;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  overflow: hidden;
+  height: 50%;
+}
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit {
+  width: 60%;
+  margin: 0px auto;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container {
+  overflow: hidden;
+  height: 100%;
+}
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game {
+  float: left;
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 39px;
+  font-weight: bold;
+  font-style: normal;
+  height: 100px;
+  line-height: 100px;
+  width: 200px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  cursor: pointer;
+  margin: 5px auto;
+  display: block;
+  width: 40%;
+  margin: 5%;
+  height: 28%;
+  font-size: 21px;
+  line-height: 155%;
+  padding-top: 5%;
+}
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match {
+  float: left;
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
+  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+  background-color: #fcfcfc;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #777777;
+  font-family: arial;
+  font-size: 39px;
+  font-weight: bold;
+  font-style: normal;
+  height: 100px;
+  line-height: 100px;
+  width: 200px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ffffff;
+  cursor: pointer;
+  margin: 5px auto;
+  display: block;
+  width: 40%;
+  margin: 5%;
+  height: 28%;
+  font-size: 21px;
+  line-height: 155%;
+  padding-top: 5%;
+}
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
+  background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+  background-color: #f0f0f0;
+  color: #4e4e4e;
+}
+#main-container #app-container #gameplay-container #cards-container {
+  width: 100%;
+  background: #D5D5D5;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+#main-container #app-container #gameplay-container #cards-container #cards {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+** End App CSS
+*/
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background: #ddd;
+  -webkit-box-shadow: 0 8px 6px 6px black;
+  -moz-box-shadow: 0 8px 6px 6px black;
+  box-shadow: 0 8px 6px 6px black;
+}
+footer p {
+  padding: 5px 0 12px 10px;
+}
