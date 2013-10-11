@@ -51,14 +51,8 @@ module.exports = function(io) {
     });
 
     socket.on('joinNewGame', function(data) {
-      if (allGames[socket.gameID]) {
-        // Before we exit the existing game, get this player's info
-        game = allGames[socket.gameID];
-        var player = game.players[game._findPlayerIndexBySocket(socket.id)];
-        console.log(player);
-        exitGame(socket);
-        fireGame(player,socket);
-      }
+      exitGame(socket);
+      joinGame(socket,data);
     });
 
     socket.on('leaveGame', function() {
