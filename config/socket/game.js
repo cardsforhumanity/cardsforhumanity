@@ -193,6 +193,11 @@ Game.prototype.stateEndGame = function(winner) {
   this.sendUpdate();
 };
 
+Game.prototype.stateDissolveGame = function() {
+  this.state = "game dissolved";
+  this.sendUpdate();
+};
+
 Game.prototype.getQuestions = function(cb) {
   questions.allQuestionsForGame(function(data){
     cb(null,data);
