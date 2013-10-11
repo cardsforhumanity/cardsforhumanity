@@ -25,12 +25,18 @@
   <div id="inner-info-exit">
     <h1> What Now?</h1> 
     <div id='inner-text-container'>
+      <a href='/app'>
       <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
         New Opponents
-      </div>
-      <div id="exit-match">
+      </div></a>
+      <a href='/'><div id="exit-match">
         Return to Lobby
-      </div>
+      </div></a>
     </div>
+  </div>
+</div>
+<div id="czar-blank-container" ng-show="isCzar() && game.state ==='waiting for players to pick'">
+  <div id="czar-blank-inner">
+    You are the Card Czar. Players are choosing their answers.
   </div>
 </div>
