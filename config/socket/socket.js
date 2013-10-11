@@ -34,32 +34,7 @@ module.exports = function(io) {
     });
 
     socket.on('joinGame', function(data) {
-      var player = new Player(socket);
-      player.userID = data.userID;
-      if (data.userID !== 'unauthenticated') {
-        User.findOne({
-          _id: data.userID
-        }).exec(function(err, user) {
-          if (err) {
-            console.log('err',err);
-            return err; // Hopefully this never happens.
-          }
-          if (!user) {
-            // If the user's ID isn't found (rare)
-            player.username = 'Guest';
-            player.avatar = avatars[Math.floor(Math.random()*4)+12];
-          } else {
-            player.username = user.name;
-            player.avatar = user.avatar || avatars[Math.floor(Math.random()*4)+12];
-          }
-          fireGame(player,socket);
-        });
-      } else {
-        // If the user isn't authenticated (guest)
-        player.username = 'Guest';
-        player.avatar = avatars[Math.floor(Math.random()*4)+12];
-        fireGame(player,socket);
-      }
+      joinGame(socket,data);
     });
 
     socket.on('startGame', function() {
@@ -75,7 +50,7 @@ module.exports = function(io) {
       }
     });
 
-    socket.on('joinNewGame', function() {
+    socket.on('joinNewGame', function(data) {
       if (allGames[socket.gameID]) {
         // Before we exit the existing game, get this player's info
         game = allGames[socket.gameID];
@@ -96,6 +71,35 @@ module.exports = function(io) {
       exitGame(socket);
     });
   });
+
+  var joinGame = function(socket,data) {
+    var player = new Player(socket);
+    player.userID = data.userID;
+    if (data.userID !== 'unauthenticated') {
+      User.findOne({
+        _id: data.userID
+      }).exec(function(err, user) {
+        if (err) {
+          console.log('err',err);
+          return err; // Hopefully this never happens.
+        }
+        if (!user) {
+          // If the user's ID isn't found (rare)
+          player.username = 'Guest';
+          player.avatar = avatars[Math.floor(Math.random()*4)+12];
+        } else {
+          player.username = user.name;
+          player.avatar = user.avatar || avatars[Math.floor(Math.random()*4)+12];
+        }
+        fireGame(player,socket);
+      });
+    } else {
+      // If the user isn't authenticated (guest)
+      player.username = 'Guest';
+      player.avatar = avatars[Math.floor(Math.random()*4)+12];
+      fireGame(player,socket);
+    }
+  };
 
   var fireGame = function(player,socket) {
     if (gamesNeedingPlayers.length <= 0) {
