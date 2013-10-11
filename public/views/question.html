@@ -1,6 +1,6 @@
 <div id="question-container-inner">
   <div class="card longBlack">
-   The Question: {{game.curQuestion.text}}
+   The Question: <span ng-bind-html-unsafe="game.curQuestion.text"></span>
 
    <div id="notifications" ng-if="game.notification" ng-animate="{enter:'animated fadeInLeft', leave:'animated fadeOutRight'}">{{game.notification}}</div>
 

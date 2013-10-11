@@ -63,10 +63,7 @@ angular.module('mean.system')
     };
 
     $scope.winningColor = function($index) {
-      console.log($index,game.winningCard);
-      console.log('game.winningCardPlayer',game.winningCardPlayer);
       if (game.winningCardPlayer !== -1 && $index === game.winningCard) {
-        console.log('color should be',$scope.colors[game.players[game.winningCardPlayer].color]);
         return $scope.colors[game.players[game.winningCardPlayer].color];
       } else {
         return '#f9f9f9';
@@ -115,6 +112,26 @@ angular.module('mean.system')
       if (game.state === 'waiting for czar to decide') {
         $scope.countdown(game.timeLimits.stateJudging/1000,game.state);
       } else if (game.state === 'winner has been chosen') {
+          var curQuestionArr = game.curQuestion.text.split('_');
+          var startStyle = "<span style='color: "+$scope.colors[game.players[game.winningCardPlayer].color]+"'>";
+          var endStyle = "</span>";
+          if (curQuestionArr.length > 1) {
+            var cardText = game.table[game.winningCard].card[0].text;
+            if (cardText.indexOf('.') === cardText.length-1) {
+              cardText = cardText.slice(0,cardText.length-1);
+            }
+            curQuestionArr.splice(1,0,startStyle+cardText+endStyle);
+            if (game.curQuestion.numAnswers === 2) {
+              cardText = game.table[game.winningCard].card[1].text;
+              if (cardText.indexOf('.') === cardText.length-1) {
+                cardText = cardText.slice(0,cardText.length-1);
+              }
+              curQuestionArr.splice(3,0,startStyle+cardText+endStyle);
+            }
+            game.curQuestion.text = curQuestionArr.join("");
+          } else {
+            game.curQuestion.text += ' '+startStyle+game.table[game.winningCard].card[0].text+endStyle;
+          }
         $scope.countdown(game.timeLimits.stateResults/1000,game.state);
       }
     });

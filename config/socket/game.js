@@ -177,21 +177,6 @@ Game.prototype.stateResults = function(self) {
       endGame = true;
     }
   }
-  var curQuestionArr = self.curQuestion.text.split('_');
-  if (curQuestionArr.length > 1) {
-    // Handling just one answer for now. It should be an array of answers later.
-    console.log('self.table',self.table);
-    console.log('self.winningCard',self.winningCard);
-    console.log('winning card text',self.table[self.winningCard].card[0].text);
-    curQuestionArr.splice(1,0,self.table[self.winningCard].card[0].text);
-    if (self.curQuestion.numAnswers === 2) {
-      curQuestionArr.splice(3,0,self.table[self.winningCard].card[1].text);
-    }
-    self.curQuestion.text = curQuestionArr.join("");
-  } else {
-    self.curQuestion.text += ' '+self.table[self.winningCard].card[0].text;
-  }
-
   self.sendUpdate();
   self.resultsTimeout = setTimeout(function() {
     if (endGame) {
