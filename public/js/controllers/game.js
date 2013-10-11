@@ -104,6 +104,5 @@ angular.module('mean.system')
       $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
     });
 
-
     game.joinGame();
 }]);
