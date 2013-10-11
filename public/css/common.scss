@@ -301,8 +301,7 @@ $mq-custom-wide : 1200px !default;
     vertical-align: top;
 
     @include tablet-landscape-and-below{
-        height: 14em;
-        font-size: 16px;
+
     }
 
     #selection-number {
@@ -322,7 +321,7 @@ $mq-custom-wide : 1200px !default;
         background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
         border-color: white;
         color: white;
-        height: 10.7em;
+        height: 100%;
         width: 35.5em;
     }
 
@@ -746,14 +745,12 @@ body{
                 height: 28%;
                 width: 100%;
                 min-height: 220px;
+                max-height: 220px;
 
                 @include tablet-portrait-only{
-                   height: 20%;
-                }
-
-                @include tablet-landscape-and-below{
-                    margin-bottom: 10px;
-                    min-height: 175px;
+                    height: 16%;
+                    min-height: 180px;
+                    max-height: 180px;
                 }
 
                 #menu-timeremaining-container{
@@ -763,6 +760,7 @@ body{
                     margin-right: 2%;
 
                     #menu-container{
+                        display: none;
                         @include soft-button;
                         height: 20%;
                         margin-bottom: 16px;
@@ -777,7 +775,7 @@ body{
                     }
 
                     #timer-container {
-                        height: 69.7%;
+                        height: 100%;
 
                         #inner-timer-container{
                             text-align: center;
@@ -795,6 +793,14 @@ body{
                                 left: 0;
                                 right: 0;
                                 padding-top: 5px;
+                                padding-bottom: 8px;
+                                bottom: 0;
+                                background: rgba(0,0,0,0.61);
+                                opacity: 0.7;
+                                -webkit-border-radius: 0 0 8px 8px;
+                                -moz-border-radius: 0 0 8px 8px;
+                                border-radius: 0 0 8px 8px;
+                                color: white;
 
                                 @include tablet-landscape-and-below{
                                     font-size: 12px;
@@ -802,7 +808,7 @@ body{
                             }
 
                             #time{
-                                font-size: 104px;
+                                font-size: 110px;
 
                                 @include tablet-landscape-and-below{
                                     font-size: 80px;
@@ -819,7 +825,7 @@ body{
 
                     #question-container-inner{
                         width: 100%;
-
+                        height: 100%;
                         .card{
                             width: 100%;
                             margin: 0px auto;
