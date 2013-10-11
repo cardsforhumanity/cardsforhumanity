@@ -121,7 +121,7 @@ module.exports = function(io) {
         game.players.length-1 >= game.playerMinLimit){
         game.removePlayer(socket.id);
       } else {
-        socket.broadcast.in(game.gameID).emit('dissolveGame');
+        game.stateDissolveGame();
         for (var j = 0; j < game.players.length; j++) {
           game.players[j].socket.leave(socket.gameID);
         }

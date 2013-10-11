@@ -1,4 +1,4 @@
-<div ng-cloak id="cards-container" ng-show="game.state !== 'game ended'">
+<div ng-cloak id="cards-container" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="cards">
     <h1 ng-show="winnerPicked()"></h1>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
@@ -21,18 +21,15 @@
     </div>
   </div>
 </div>
-<div id="game-end-container" ng-show="game.state === 'game ended'">
+<div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
     <h1> What Now?</h1> 
     <div id='inner-text-container'>
       <div id="join-new-game">
         New Opponents
       </div>
-      <div id="play-again">
-        Play Again
-      </div>
       <div id="exit-match">
-        Exit Match
+        Return to Lobby
       </div>
     </div>
   </div>

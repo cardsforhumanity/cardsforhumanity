@@ -92,11 +92,6 @@ angular.module('mean.system')
     addToNotificationQueue(data.notification);
   });
 
-  socket.on('dissolveGame', function(){
-    console.log('Game Dissolved');
-    alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
-  });
-
   game.joinGame = function(){
     var userID = !!window.user ? user._id : 'unauthenticated';
     socket.emit('joinGame',{userID: userID});
