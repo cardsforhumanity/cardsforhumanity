@@ -55,10 +55,12 @@ angular.module('mean.system')
   socket.on('gameUpdate', function(data) {
     // console.log(data);
 
+    if (game.state !== 'waiting for players to pick') {
+      game.players = data.players;
+    }
     if (data.state !== game.state || game.curQuestion !== data.curQuestion) {
       game.state = data.state;
     }
-    game.players = data.players;
     game.table = data.table;
     game.round = data.round;
     game.winningCard = data.winningCard;
@@ -92,20 +94,26 @@ angular.module('mean.system')
     addToNotificationQueue(data.notification);
   });
 
-  game.joinGame = function(){
+  socket.on('dissolveGame', function() {
+    console.log('Game Dissolved');
+    alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
+  });
+
+  game.joinGame = function(mode) {
+    mode = mode || 'joinGame';
     var userID = !!window.user ? user._id : 'unauthenticated';
-    socket.emit('joinGame',{userID: userID});
+    socket.emit(mode,{userID: userID});
   };
 
   game.startGame = function() {
     socket.emit('startGame');
   };
 
-  game.leaveGame = function(){
+  game.leaveGame = function() {
     socket.emit('leaveGame');
   };
 
-  game.pickCards = function(cards){
+  game.pickCards = function(cards) {
     socket.emit('pickCards',{cards: cards});
   };
 
