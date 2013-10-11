@@ -55,13 +55,15 @@ angular.module('mean.system')
   socket.on('gameUpdate', function(data) {
     // console.log(data);
 
-    if (game.state !== 'waiting for players to pick') {
-      game.players = data.players;
+    var i;
+    // Cache the index of the player in the players array
+    for (i = 0; i < data.players.length; i++) {
+      if (game.id === data.players[i].socketID) {
+        game.playerIndex = i;
+      }
     }
-    if (data.state !== game.state || game.curQuestion !== data.curQuestion) {
-      game.state = data.state;
-    }
-    game.table = data.table;
+
+    // Set these properties on each update
     game.round = data.round;
     game.winningCard = data.winningCard;
     game.winningCardPlayer = data.winningCardPlayer;
@@ -69,34 +71,59 @@ angular.module('mean.system')
     game.gameWinner = data.gameWinner;
     game.pointLimit = data.pointLimit;
 
+    // Handle updating game.table
+    if (data.table.length === 0) {
+      game.table = [];
+    } else {
+      // All players represented in game.table
+      var playersPicked = {};
+      for (i = 0; i < game.table.length; i++) {
+        playersPicked[game.table[i].player] = true;
+      }
+      // Only add new player's picks to game.table
+      for (i = 0; i < data.table.length; i++) {
+        if (!playersPicked[data.table[i].player]) {
+          game.table.push(data.table[i]);
+        }
+      }
+    }
+
+    var newState = (data.state !== game.state);
+
+    if (game.state !== 'waiting for players to pick') {
+      game.players = data.players;
+    }
+
+    if (newState || game.curQuestion !== data.curQuestion) {
+      game.state = data.state;
+    }
+
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
-      if (game.czar === game.playerIndex) {
-        addToNotificationQueue('You\'re the Card Czar! Players are choosing answers...');
-      } else if (game.curQuestion.numAnswers === 1) {
-        addToNotificationQueue('Select an answer!');
-      } else {
-        addToNotificationQueue('Select TWO answers!');
+
+      // Set notifications only when entering state
+      if (newState) {
+        if (game.czar === game.playerIndex) {
+          addToNotificationQueue('You\'re the Card Czar! Players are choosing answers...');
+        } else if (game.curQuestion.numAnswers === 1) {
+          addToNotificationQueue('Select an answer!');
+        } else {
+          addToNotificationQueue('Select TWO answers!');
+        }
       }
+
     } else if (data.state === 'winner has been chosen') {
       game.curQuestion = data.curQuestion;
-    }
 
-    for (var i = 0; i < data.players.length; i++) {
-      if (game.id === data.players[i].socketID) {
-        game.playerIndex = i;
-      }
+    } else if (data.state === 'game dissolved' || data.state === 'game ended') {
+      console.log('game dissolved or ended');
+      game.players[game.playerIndex].hand = [];
     }
   });
 
   socket.on('notification', function(data) {
     addToNotificationQueue(data.notification);
-  });
-
-  socket.on('dissolveGame', function() {
-    console.log('Game Dissolved');
-    alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
   });
 
   game.joinGame = function(mode) {
