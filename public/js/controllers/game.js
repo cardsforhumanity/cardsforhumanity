@@ -85,6 +85,10 @@ angular.module('mean.system')
       game.startGame();
     };
 
+    $scope.playAgain = function() {
+      game.playAgain();
+    };
+
     $scope.countdown = function(count,state){
       clearInterval(counter);
       var counter = $timeout(timer, 1000);
