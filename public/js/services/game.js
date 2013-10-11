@@ -6,7 +6,8 @@ angular.module('mean.system')
     players: [],
     playerIndex: 0,
     winningCard: -1,
-    winner: -1,
+    winningCardPlayer: -1,
+    gameWinner: -1,
     table: [],
     czar: null,
     playerMinLimit: 3,
@@ -59,8 +60,9 @@ angular.module('mean.system')
     game.table = data.table;
     game.round = data.round;
     game.winningCard = data.winningCard;
+    game.winningCardPlayer = data.winningCardPlayer;
     game.winnerAutopicked = data.winnerAutopicked;
-    game.winner = data.winner;
+    game.gameWinner = data.gameWinner;
     game.pointLimit = data.pointLimit;
 
     if (data.state === 'waiting for players to pick') {
