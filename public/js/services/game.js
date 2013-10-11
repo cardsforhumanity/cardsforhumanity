@@ -54,19 +54,15 @@ angular.module('mean.system')
 
   socket.on('gameUpdate', function(data) {
     // console.log(data);
-    var newState;
-    if (data.state !== game.state) {
-      newState = true;
-    } else {
-      newState = false;
+
+    // Cache the index of the player in the players array
+    for (var i = 0; i < data.players.length; i++) {
+      if (game.id === data.players[i].socketID) {
+        game.playerIndex = i;
+      }
     }
 
-    if (game.state !== 'waiting for players to pick') {
-      game.players = data.players;
-    }
-    if (data.state !== game.state || game.curQuestion !== data.curQuestion) {
-      game.state = data.state;
-    }
+    // Set these properties on each update
     game.table = data.table;
     game.round = data.round;
     game.winningCard = data.winningCard;
@@ -75,28 +71,37 @@ angular.module('mean.system')
     game.gameWinner = data.gameWinner;
     game.pointLimit = data.pointLimit;
 
+    var newState = (data.state !== game.state);
+
+    if (game.state !== 'waiting for players to pick') {
+      game.players = data.players;
+    }
+
+    if (newState || game.curQuestion !== data.curQuestion) {
+      game.state = data.state;
+    }
+
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
 
-      if (game.czar === game.playerIndex) {
-        addToNotificationQueue('You\'re the Card Czar! Players are choosing answers...');
-      } else if (game.curQuestion.numAnswers === 1) {
-        addToNotificationQueue('Select an answer!');
-      } else {
-        addToNotificationQueue('Select TWO answers!');
+      // Set notifications only when entering state
+      if (newState) {
+        if (game.czar === game.playerIndex) {
+          addToNotificationQueue('You\'re the Card Czar! Players are choosing answers...');
+        } else if (game.curQuestion.numAnswers === 1) {
+          addToNotificationQueue('Select an answer!');
+        } else {
+          addToNotificationQueue('Select TWO answers!');
+        }
       }
+
     } else if (data.state === 'winner has been chosen') {
       game.curQuestion = data.curQuestion;
+
     } else if (data.state === 'game dissolved' || data.state === 'game ended') {
       console.log('game dissolved or ended');
       game.players[game.playerIndex].hand = [];
-    }
-
-    for (var i = 0; i < data.players.length; i++) {
-      if (game.id === data.players[i].socketID) {
-        game.playerIndex = i;
-      }
     }
   });
 
