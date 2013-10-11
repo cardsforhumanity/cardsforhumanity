@@ -54,6 +54,12 @@ angular.module('mean.system')
 
   socket.on('gameUpdate', function(data) {
     // console.log(data);
+    var newState;
+    if (data.state !== game.state) {
+      newState = true;
+    } else {
+      newState = false;
+    }
 
     if (game.state !== 'waiting for players to pick') {
       game.players = data.players;
@@ -72,6 +78,7 @@ angular.module('mean.system')
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
+
       if (game.czar === game.playerIndex) {
         addToNotificationQueue('You\'re the Card Czar! Players are choosing answers...');
       } else if (game.curQuestion.numAnswers === 1) {
@@ -81,6 +88,9 @@ angular.module('mean.system')
       }
     } else if (data.state === 'winner has been chosen') {
       game.curQuestion = data.curQuestion;
+    } else if (data.state === 'game dissolved' || data.state === 'game ended') {
+      console.log('game dissolved or ended');
+      game.players[game.playerIndex].hand = [];
     }
 
     for (var i = 0; i < data.players.length; i++) {
@@ -92,11 +102,6 @@ angular.module('mean.system')
 
   socket.on('notification', function(data) {
     addToNotificationQueue(data.notification);
-  });
-
-  socket.on('dissolveGame', function() {
-    console.log('Game Dissolved');
-    alert('GAME DISSOLVED! SO SORRY! DO STUFF HERE!');
   });
 
   game.joinGame = function(mode) {
