@@ -21,9 +21,9 @@ function Game(gameID, io) {
   this.answers = null;
   this.curQuestion = null;
   this.timeLimits = {
-    stateChoosing: 16000,
-    stateJudging: 11000,
-    stateResults: 6000
+    stateChoosing: 16,
+    stateJudging: 11,
+    stateResults: 6
   };
   // setTimeout ID that triggers the czar judging state
   // Used to automatically run czar judging if players don't pick before time limit
@@ -139,7 +139,7 @@ Game.prototype.stateChoosing = function(self) {
 
   self.choosingTimeout = setTimeout(function() {
     self.stateJudging(self);
-  }, self.timeLimits.stateChoosing);
+  }, self.timeLimits.stateChoosing*1000);
 };
 
 Game.prototype.selectFirst = function() {
@@ -168,7 +168,7 @@ Game.prototype.stateJudging = function(self) {
     self.judgingTimeout = setTimeout(function() {
       // Automatically select the first submitted card when time runs out.
       self.selectFirst();
-    }, self.timeLimits.stateJudging);
+    }, self.timeLimits.stateJudging*1000);
   }
 };
 
@@ -189,7 +189,7 @@ Game.prototype.stateResults = function(self) {
     } else {
       self.stateChoosing(self);
     }
-  }, self.timeLimits.stateResults);
+  }, self.timeLimits.stateResults*1000);
 };
 
 Game.prototype.stateEndGame = function(winner) {
