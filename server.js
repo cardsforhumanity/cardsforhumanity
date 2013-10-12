@@ -20,9 +20,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     mongoose = require('mongoose');
 
 //Bootstrap db connection
-var db = mongoose.connect(config.db, {
-    server: {auto_reconnect: true}
-});
+var db = mongoose.connect(config.db);
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
@@ -51,7 +49,7 @@ app.use(function(req, res, next){
 });
 
 //express settings
-require('./config/express')(app, passport);
+require('./config/express')(app, passport, mongoose);
 
 //Bootstrap routes
 require('./config/routes')(app, passport, auth);
