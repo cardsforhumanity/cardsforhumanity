@@ -15,7 +15,7 @@
 </div>
 <div id="info-container" ng-show="game.state === 'awaiting players'">
   <div id="inner-info">
-    <h1> Cards for Humanity </h1> 
+    <h1> Cards for Humanity </h1>
     <div id='inner-text'>
       Aliquip natoque gravida eos unde sunt. Beatae aperiam, turpis provident consequat non quisquam saepe do, quaerat quis conubia, labore! At. Rhoncus harum aliquam egestas ipsum feugiat? Rem dignissim aliquip? Provident! Auctor explicabo elit officiis, sapien ullamcorper, ante posuere senectus, amet, mi mus dicta lacus alias. Tenetur, euismod nostra cupidatat aliquam! Accusamus iusto! Facilisis consequatur. Repudiandae consequat diamlorem dolores mi laoreet. Quaerat dictum occaecat similique aliquip fames habitant.
     </div>
@@ -23,14 +23,20 @@
 </div>
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
-    <h1> What Now?</h1> 
+    <h1> What Now?</h1>
     <div id='inner-text-container'>
+      <a href='/app'>
       <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
         New Opponents
-      </div>
-      <div id="exit-match">
+      </div></a>
+      <a href='/'><div id="exit-match">
         Return to Lobby
-      </div>
+      </div></a>
     </div>
+  </div>
+</div>
+<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0">
+  <div id="czar-blank-inner">
+    You are the Card Czar. Players are choosing their answers.
   </div>
 </div>

@@ -86,11 +86,11 @@ angular.module('mean.system')
       var counter = $timeout(timer, 1000);
       function timer(){
         count -= 1;
+        $scope.time = count;
         if(count <= 0 || game.state !== state){
           clearInterval(counter);
           return;
         }
-        $scope.time = count;
         counter = $timeout(timer, 1000);
       }
     };
