@@ -623,6 +623,9 @@ body {
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
   font-size: 110px;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {

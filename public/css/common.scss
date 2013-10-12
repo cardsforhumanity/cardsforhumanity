@@ -865,6 +865,9 @@ body{
 
                             #time{
                                 font-size: 110px;
+                                position: absolute;
+                                left: 0;
+                                right: 0;
 
                                 @include tablet-landscape-and-below{
                                     font-size: 80px;
