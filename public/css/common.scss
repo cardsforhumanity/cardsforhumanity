@@ -1,4 +1,5 @@
 $main-font: "helvetica neue", helvetica, sans-serif;
+
 $mq-mobile-portrait : 320px !default;
 $mq-mobile-landscape : 480px !default;
 $mq-tablet-portrait : 768px !default;
@@ -6,13 +7,15 @@ $mq-tablet-landscape : 1024px !default;
 $mq-desktop: 1100px !default;
 $mq-custom-wide : 1200px !default;
 
+$color-background: #4E4E4E;
+
 // Both portrait and landscape
 @mixin mobile-only {
     @media (max-width : $mq-mobile-landscape) {
         @content;
     }
 }
- 
+
 // Everything up to and including the portrait width of the phone
 // Since it's the smallest query it doesn't need a min
 @mixin mobile-portrait-only {
@@ -20,42 +23,42 @@ $mq-custom-wide : 1200px !default;
         @content;
     }
 }
- 
+
 // Everything up to and including the mobile portrait
 @mixin mobile-portrait-and-below {
     @media (max-width : $mq-mobile-portrait) {
         @content;
     }
 }
- 
+
 // Everything above and including the mobile portrait
 @mixin mobile-portrait-and-up {
     @media (min-width : $mq-mobile-portrait) {
         @content;
     }
 }
- 
+
 // Everthing larger than a portrait mobile up until mobile landscape
 @mixin mobile-landscape-only {
     @media only screen and (min-width : $mq-mobile-portrait + 1) and (max-width : $mq-mobile-landscape) {
         @content;
     }
 }
- 
+
 // Everything up to and including the mobile landscape width
 @mixin mobile-landscape-and-below {
     @media only screen and (max-width : $mq-mobile-landscape) {
         @content;
     }
 }
- 
+
 // Everything above and including the mobile landscape width
 @mixin mobile-landscape-and-up {
     @media only screen and (min-width : $mq-mobile-portrait + 1) {
         @content;
     }
 }
- 
+
 // Both the portrait and landscape width of the tablet
 // Larger than a landscape mobile but less than or equal to a landscape tablet
 @mixin tablet-only {
@@ -63,35 +66,35 @@ $mq-custom-wide : 1200px !default;
         @content;
     }
 }
- 
+
 // Everything larger than mobile landscape up until the portrait width of the tablet
 @mixin tablet-portrait-only {
     @media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet-portrait) {
         @content;
     }
 }
- 
+
 // Everything below and including the portrait width of the tablet
 @mixin tablet-portrait-and-below {
     @media only screen and (max-width : $mq-tablet-portrait) {
         @content;
     }
 }
- 
+
 // Larger than portrait but less than or equal to the landscape width
 @mixin tablet-landscape-only {
     @media only screen and (min-width : $mq-tablet-portrait + 1) and (max-width : $mq-tablet-landscape) {
         @content;
     }
 }
- 
+
 // Up to and including the tablet landscape
 @mixin tablet-landscape-and-below {
     @media only screen and (max-width : $mq-tablet-landscape) {
         @content;
     }
 }
- 
+
 // Everything larger than a landscape tablet
 @mixin desktop-and-below {
     @media only screen and (max-width : $mq-tablet-landscape + 1) {
@@ -156,7 +159,7 @@ $mq-custom-wide : 1200px !default;
     text-shadow: 1px 1px 0px #ffffff;
     margin-top: 15px;
     cursor: pointer;
-} 
+}
 
 @mixin button-hover {
     background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed) );
@@ -204,7 +207,7 @@ $mq-custom-wide : 1200px !default;
     cursor: pointer;
     margin: 5px auto;
     display: block;
-} 
+}
 
 @mixin button-hover-smaller {
     background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed) );
@@ -251,7 +254,7 @@ $mq-custom-wide : 1200px !default;
     cursor: pointer;
     margin: 5px auto;
     display: block;
-} 
+}
 
 @mixin button-hover-smallest {
     background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed) );
@@ -338,7 +341,7 @@ $mq-custom-wide : 1200px !default;
     //     font-size: 0.75em;
     //     font-weight: normal;
     // }
-    
+
     u {
         position: relative;
         content: '';
@@ -374,7 +377,7 @@ $mq-custom-wide : 1200px !default;
     position: relative;
     width: 24em;
     height: 34em;
-    
+
     .card {
         position: absolute;
         top: 0;
@@ -413,6 +416,7 @@ html{
 }
 body{
     font-family: $main-font;
+    background-color: $color-background;
 }
 
 .navbar .nav>li>a.brand {
@@ -576,28 +580,28 @@ body{
     height: 100%;
 
     #first-card{
-        width: ($description-width / 3) - 3; 
+        width: ($description-width / 3) - 3;
     }
 
     #second-card{
-        width: ($description-width / 3) - 3; 
+        width: ($description-width / 3) - 3;
     }
 
     #third-card{
-        width: ($description-width / 3) - 3; 
+        width: ($description-width / 3) - 3;
     }
 
     @include tablet-landscape-and-below{
         #first-card{
-            width: ($description-width / 3) - 5; 
+            width: ($description-width / 3) - 5;
         }
 
         #second-card{
-            width: ($description-width / 3) - 5; 
+            width: ($description-width / 3) - 5;
         }
 
         #third-card{
-            width: ($description-width / 3) - 5; 
+            width: ($description-width / 3) - 5;
         }
     }
 
@@ -680,6 +684,7 @@ body{
             padding: 5px;
 
             #logo{
+                display: inline-block;
                 margin-left: 10px;
                 font-size: 28px;
                 font-family: 'Lobster', cursive;
@@ -696,14 +701,38 @@ body{
                     color: #FC575E;
                 }
             }
+
+            #abandon-game-button{
+                display: inline-block;
+                float:right;
+                border-radius: 8px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                font-size: 20px;
+                font-size: 1.25rem;
+                font-weight: 400;
+                text-align: center;
+                color: white;
+                background: #C54141;
+                margin-top: 3px;
+                margin-bottom: 3px;
+                margin-right: 10px;
+                padding: 0.65em 20px;
+                width: 140px;
+                cursor: pointer;
+            }
+
+            #abandon-game-button:hover{
+               background:#F34444;
+            }
         }
 
         #social-bar-container{
-            width: 20%; 
+            width: 20%;
             height: 100%;
-            position: absolute; 
-            right: 0; 
-            background: white;
+            position: absolute;
+            right: 0;
+            background: $color-background;
 
             #player-container{
                 height: 13.166667%;
