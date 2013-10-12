@@ -98,6 +98,7 @@ html {
 
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
+  background-color: #4e4e4e;
 }
 
 .navbar .nav > li > a.brand {
@@ -416,6 +417,7 @@ body {
   padding: 5px;
 }
 #main-container #app-container #menu-container #logo {
+  display: inline-block;
   margin-left: 10px;
   font-size: 28px;
   font-family: 'Lobster', cursive;
@@ -429,12 +431,34 @@ body {
 #main-container #app-container #menu-container #logo #third-word {
   color: #FC575E;
 }
+#main-container #app-container #menu-container #abandon-game-button {
+  display: inline-block;
+  float: right;
+  border-radius: 8px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  background: #C54141;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  padding: 0.65em 20px;
+  width: 140px;
+  cursor: pointer;
+}
+#main-container #app-container #menu-container #abandon-game-button:hover {
+  background: #F34444;
+}
 #main-container #app-container #social-bar-container {
   width: 20%;
   height: 100%;
   position: absolute;
   right: 0;
-  background: white;
+  background: #4e4e4e;
 }
 #main-container #app-container #social-bar-container #player-container {
   height: 13.166667%;
@@ -599,6 +623,9 @@ body {
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
   font-size: 110px;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
