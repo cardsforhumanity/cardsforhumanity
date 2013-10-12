@@ -41,8 +41,7 @@ module.exports = function(io) {
       if (allGames[socket.gameID]) {
         var thisGame = allGames[socket.gameID];
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
-        if (thisGame.players[0].socket.id === socket.id &&
-         thisGame.players.length >= thisGame.playerMinLimit) {
+        if (thisGame.players.length >= thisGame.playerMinLimit) {
           gamesNeedingPlayers.splice(gamesNeedingPlayers.indexOf(thisGame),1);
           thisGame.prepareGame();
           thisGame.sendNotification('The game has begun!');
