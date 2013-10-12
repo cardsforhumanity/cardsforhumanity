@@ -51,7 +51,7 @@ angular.module('mean.system')
     } else {
       timeSetViaUpdate = false;
     }
-    $timeout(decrementTime, 900);
+    $timeout(decrementTime, 950);
   };
 
   socket.on('id', function(data) {

@@ -21,7 +21,7 @@ function Game(gameID, io) {
   this.answers = null;
   this.curQuestion = null;
   this.timeLimits = {
-    stateChoosing: 16,
+    stateChoosing: 21,
     stateJudging: 11,
     stateResults: 6
   };
