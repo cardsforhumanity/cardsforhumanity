@@ -8,8 +8,7 @@
   margin: 1%;
   background-color: #fff;
   border-radius: 8px;
-  border: 0.0625em solid black;
-  color: black;
+  color: #252525;
   font-family: Arial;
   font-size: 20px;
   font-weight: bold;
@@ -493,7 +492,7 @@ body {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   background: black;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 #main-container #app-container #social-bar-container #player-container #czar-container #the-czar {
   color: #fff;
@@ -663,7 +662,8 @@ body {
 }
 #main-container #app-container #gameplay-container #info-container {
   width: 100%;
-  background: #D5D5D5;
+  background: #252525;
+  color: white;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -675,7 +675,8 @@ body {
 }
 #main-container #app-container #gameplay-container #game-end-container {
   width: 100%;
-  background: #D5D5D5;
+  background: #252525;
+  color: white;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -800,8 +801,9 @@ body {
   color: #4e4e4e;
 }
 #main-container #app-container #gameplay-container #czar-blank-container {
+  color: white;
   width: 100%;
-  background: #D5D5D5;
+  background: #252525;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;

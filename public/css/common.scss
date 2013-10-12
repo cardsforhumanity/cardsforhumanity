@@ -289,11 +289,10 @@ $mq-custom-wide : 1200px !default;
     background-color: #fff;
 
     border-radius: 8px;
-    border: 0.0625em solid black;
 
     // box-shadow: 0 0 0.5em rgba(0,0,0,0.25); //Let's try a flat look.
 
-    color: black;
+    color: #252525;
     font-family: Arial;
     font-size: 20px;
     font-weight: bold;
@@ -754,7 +753,7 @@ body{
                     width: 100%;
                     @include br-bottom;
                     background: black;
-                    opacity:0.2;
+                    opacity:0.4;
 
                     #the-czar{
                         color: #fff;
@@ -918,7 +917,8 @@ body{
             }
             #info-container{
                 width: 100%;
-                background: #D5D5D5;
+                background: #252525;
+                color: white;
                 @include br;
                 text-align: center;
                 padding: 15px;
@@ -930,7 +930,8 @@ body{
 
             #game-end-container{
                 width: 100%;
-                background: #D5D5D5;
+                background: #252525;
+                color: white;
                 @include br;
                 text-align: center;
                 overflow: hidden;
@@ -983,8 +984,9 @@ body{
             }
 
             #czar-blank-container{
+                color: white;
                 width: 100%;
-                background: #D5D5D5;
+                background: #252525;
                 @include br;
                 text-align: center;
                 overflow: hidden;
