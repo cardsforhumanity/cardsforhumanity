@@ -282,18 +282,17 @@ $mq-custom-wide : 1200px !default;
     display: inline-block;
     box-sizing: border-box;
     width: 18%;
-    height: 20em;
+    height: 215px;
     padding: 1%;
     margin: 1%;
 
     background-color: #fff;
 
     border-radius: 8px;
-    border: 0.0625em solid black;
 
     // box-shadow: 0 0 0.5em rgba(0,0,0,0.25); //Let's try a flat look.
 
-    color: black;
+    color: #252525;
     font-family: Arial;
     font-size: 20px;
     font-weight: bold;
@@ -312,13 +311,13 @@ $mq-custom-wide : 1200px !default;
     }
 
     &.black {
-        background: black radial-gradient(ellipse at bottom right, rgb(50, 50, 50) 0%,#000000 100%);
+        background: #252525;
         border-color: white;
         color: white;
     }
 
     &.longBlack {
-        background: black radial-gradient(ellipse at bottom right, #323232 0%, black 100%);
+        background: #252525;
         border-color: white;
         color: white;
         height: 100%;
@@ -409,6 +408,7 @@ html, body, .main-container, .cont, #first-section, #inner-container{
 
 html{
     margin: 20px;
+    margin-top: 5px;
     position: relative;
 }
 body{
@@ -670,6 +670,34 @@ body{
         margin: 0px auto;
         position: relative;
 
+        #menu-container{
+            width: 100%;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            background: #252525;
+            margin-bottom: 10px;
+            padding: 5px;
+
+            #logo{
+                margin-left: 10px;
+                font-size: 28px;
+                font-family: 'Lobster', cursive;
+
+                #first-word{
+                    color: #7CE4E8;
+                }
+
+                #second-word{
+                    color: #FFFFA5;
+                }
+
+                #third-word{
+                    color: #FC575E;
+                }
+            }
+        }
+
         #social-bar-container{
             width: 20%; 
             height: 100%;
@@ -684,8 +712,7 @@ body{
                 padding-bottom: 4%;
                 min-height: 85px;
                 background: #7CE4E8;
-                margin: 6%;
-                margin-top: 0px;
+                margin: 0 0 6% 8%;
                 @include br;
 
                 #above-czar-container{
@@ -726,7 +753,7 @@ body{
                     width: 100%;
                     @include br-bottom;
                     background: black;
-                    opacity:0.2;
+                    opacity:0.4;
 
                     #the-czar{
                         color: #fff;
@@ -890,7 +917,8 @@ body{
             }
             #info-container{
                 width: 100%;
-                background: #D5D5D5;
+                background: #252525;
+                color: white;
                 @include br;
                 text-align: center;
                 padding: 15px;
@@ -902,11 +930,13 @@ body{
 
             #game-end-container{
                 width: 100%;
-                background: #D5D5D5;
+                background: #252525;
+                color: white;
                 @include br;
                 text-align: center;
                 overflow: hidden;
                 height: 50%;
+                margin-top: 10px;
 
                 #inner-info-exit{
                     width: 60%;
@@ -954,8 +984,9 @@ body{
             }
 
             #czar-blank-container{
+                color: white;
                 width: 100%;
-                background: #D5D5D5;
+                background: #252525;
                 @include br;
                 text-align: center;
                 overflow: hidden;
@@ -974,13 +1005,14 @@ body{
 
             #cards-container{
                 width: 100%;
-                background: #D5D5D5;
+                background: #252525;
                 margin-top: 11px;
                 @include br;
 
                 #cards {
                     width: 100%;
                     height: 100%;
+                    font-size: 18px;
                 }
             }
         }
