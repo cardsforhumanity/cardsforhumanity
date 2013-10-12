@@ -2,13 +2,13 @@
   <div id="cards">
     <h1 ng-show="winnerPicked()"></h1>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
-        A: {{card.text}}
+          {{card.text}}
         <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>
     <span ng-repeat="answer in game.table">
         <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated flipInX'}" style="background-color:{{winningColor($parent.$index)}}">
-            Picked answer: <span ng-bind-html-unsafe="card.text"></span>
+            <span ng-bind-html-unsafe="card.text"></span>
         </div>
     </span>
   </div>
@@ -35,7 +35,7 @@
     </div>
   </div>
 </div>
-<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0">
+<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved'">
   <div id="czar-blank-inner">
     You are the Card Czar. Players are choosing their answers.
   </div>

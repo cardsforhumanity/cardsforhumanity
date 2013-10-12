@@ -18,12 +18,14 @@ angular.module('mean.system')
     time: 0,
     curQuestion: null,
     notification: null,
-    timeLimits: {}
+    timeLimits: {},
+    joinOverride: false
   };
 
   var notificationQueue = [];
   var timeout = false;
   var self = this;
+  var joinOverrideTimeout = 0;
 
   var addToNotificationQueue = function(msg) {
     notificationQueue.push(msg);
@@ -66,6 +68,8 @@ angular.module('mean.system')
 
   socket.on('gameUpdate', function(data) {
     // console.log(data);
+    game.joinOverride = false;
+    clearTimeout(game.joinOverrideTimeout);
 
     var i;
     // Cache the index of the player in the players array
@@ -139,7 +143,10 @@ angular.module('mean.system')
 
     } else if (data.state === 'winner has been chosen') {
       game.curQuestion = data.curQuestion;
-
+    } else if (data.state === 'awaiting players') {
+      joinOverrideTimeout = $timeout(function() {
+        game.joinOverride = true;
+      }, 15000);
     } else if (data.state === 'game dissolved' || data.state === 'game ended') {
       console.log('game dissolved or ended');
       game.players[game.playerIndex].hand = [];

@@ -7,7 +7,7 @@ var express = require('express'),
     helpers = require('view-helpers'),
     config = require('./config');
 
-module.exports = function(app, passport) {
+module.exports = function(app, passport, mongoose) {
     app.set('showStackError', true);
 
     //Should be placed before express.static
@@ -47,7 +47,8 @@ module.exports = function(app, passport) {
             secret: 'MEAN',
             store: new mongoStore({
                 url: config.db,
-                collection: 'sessions'
+                collection: 'sessions',
+                mongoose_connection: mongoose.connection
             })
         }));
 
