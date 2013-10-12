@@ -89,5 +89,5 @@ angular.module('mean.system')
       $scope.pickedCards = [];
     });
 
-    // game.joinGame();
+    game.joinGame();
 }]);
