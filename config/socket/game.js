@@ -122,6 +122,11 @@ Game.prototype.stateChoosing = function(self) {
   self.winningCardPlayer = -1;
   self.winnerAutopicked = false;
   self.curQuestion = self.questions.pop();
+  if (!self.questions.length) {
+    self.getQuestions(function(err, data) {
+      self.questions = data;
+    });
+  }
   self.round++;
   self.dealAnswers();
   // Rotate card czar
@@ -227,9 +232,15 @@ Game.prototype.shuffleCards = function(cards) {
 
 Game.prototype.dealAnswers = function(maxAnswers) {
   maxAnswers = maxAnswers || 10;
+  var storeAnswers = function(err, data) {
+    this.answers = data;
+  };
   for (var i = 0; i < this.players.length; i++) {
     while (this.players[i].hand.length < maxAnswers) {
       this.players[i].hand.push(this.answers.pop());
+      if (!this.answers.length) {
+        this.getAnswers(storeAnswers);
+      }
     }
   }
 };
