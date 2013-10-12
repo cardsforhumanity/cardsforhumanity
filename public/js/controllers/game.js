@@ -82,17 +82,18 @@ angular.module('mean.system')
     };
 
     $scope.countdown = function(count,state){
-      clearInterval(counter);
-      var counter = $timeout(timer, 1000);
+      clearTimeout(counter);
+      $scope.time = count -1;
       function timer(){
         count -= 1;
         $scope.time = count;
         if(count <= 0 || game.state !== state){
-          clearInterval(counter);
+          clearTimeout(counter);
           return;
         }
         counter = $timeout(timer, 1000);
       }
+      var counter = $timeout(timer, 1000);
     };
 
     // Catches changes to round to update when no players pick card
@@ -101,7 +102,7 @@ angular.module('mean.system')
       $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
       $scope.pickedCards = [];
-      $scope.countdown(game.timeLimits.stateChoosing/1000,game.state);
+      $scope.countdown(game.timeLimits.stateChoosing,game.state);
     });
 
     game.joinGame();

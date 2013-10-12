@@ -15,7 +15,7 @@ angular.module('mean.directives', [])
 
         scope.$watch('game.state', function() {
           if (scope.game.state === 'waiting for czar to decide') {
-            scope.countdown(scope.game.timeLimits.stateJudging/1000,scope.game.state);
+            scope.countdown(scope.game.timeLimits.stateJudging,scope.game.state);
           } else if (scope.game.state === 'winner has been chosen') {
               var curQuestionArr = scope.game.curQuestion.text.split('_');
               var startStyle = "<span style='color: "+scope.colors[scope.game.players[scope.game.winningCardPlayer].color]+"'>";
@@ -37,7 +37,7 @@ angular.module('mean.directives', [])
               } else {
                 scope.game.curQuestion.text += ' '+startStyle+scope.game.table[scope.game.winningCard].card[0].text+endStyle;
               }
-            scope.countdown(scope.game.timeLimits.stateResults/1000,scope.game.state);
+            scope.countdown(scope.game.timeLimits.stateResults,scope.game.state);
           }
         });
       }
@@ -47,7 +47,7 @@ angular.module('mean.directives', [])
       restrict: 'EA',
       templateUrl: '/views/question.html',
       link: function(scope, elem, attr) {
-        
+
 
       }
     };
