@@ -429,6 +429,12 @@ body {
   margin-top: 5px;
   padding: 5px;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #menu-container {
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+}
 #main-container #app-container #menu-container #logo {
   display: inline-block;
   margin-left: 10px;
@@ -490,6 +496,11 @@ body {
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container {
     top: auto;
+    width: 100%;
+    height: 15%;
+    position: relative;
+    top: 0;
+    left: 0;
   }
 }
 #main-container #app-container #social-bar-container #player-container {
@@ -507,6 +518,10 @@ body {
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container {
     min-height: 0;
+    display: inline-block;
+    margin: 0px .5%;
+    width: 15.5%;
+    height: 70px;
   }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container {
@@ -1030,6 +1045,13 @@ body {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #cards-container {
+    background: none;
+    height: 100%;
+    margin-top: 3px;
+  }
 }
 #main-container #app-container #gameplay-container #cards-container #cards {
   width: 100%;

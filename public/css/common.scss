@@ -690,6 +690,11 @@ body{
             margin-top: 5px;
             padding: 5px;
 
+            @include mobile-only{
+                margin-bottom: 3px;
+                margin-top: 3px;
+            }
+
             #logo{
                 display: inline-block;
                 margin-left: 10px;
@@ -755,6 +760,11 @@ body{
 
             @include mobile-only{
                 top: auto;
+                width: 100%;
+                height: 15%;
+                position: relative;
+                top: 0;
+                left: 0;
             }
 
             #player-container{
@@ -769,7 +779,10 @@ body{
 
                 @include mobile-only{
                     min-height: 0;
-                    // height: 8%;
+                    display: inline-block;
+                    margin: 0px .5%;
+                    width: 15.5%;
+                    height: 70px;
                 }
 
                 #above-czar-container{
@@ -912,6 +925,7 @@ body{
                         margin-bottom: 16px;
                         line-height: 20%;
                         @include br;
+
                         #menu-button{
                             position: absolute;
                             top: 50%;
@@ -1196,6 +1210,12 @@ body{
                 background: #252525;
                 margin-top: 11px;
                 @include br;
+
+                @include mobile-only{
+                    background: none;
+                    height: 100%;
+                    margin-top: 3px;
+                }
 
                 #cards {
                     width: 100%;
