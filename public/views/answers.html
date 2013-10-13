@@ -1,6 +1,9 @@
 <div ng-cloak id="cards-container" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'">
+        <div id="social-bar-container">
+    <player></player>
+  </div>
   <div id="cards">
-    <h1 ng-show="winnerPicked()"></h1>
+    <span ng-show="winnerPicked()"></span>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
           {{card.text}}
         <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
@@ -17,7 +20,7 @@
   <div id="inner-info">
     <h1> Cards for Humanity </h1>
     <div id='inner-text'>
-      Aliquip natoque gravida eos unde sunt. Beatae aperiam, turpis provident consequat non quisquam saepe do, quaerat quis conubia, labore! At. Rhoncus harum aliquam egestas ipsum feugiat? Rem dignissim aliquip? Provident! Auctor explicabo elit officiis, sapien ullamcorper, ante posuere senectus, amet, mi mus dicta lacus alias. Tenetur, euismod nostra cupidatat aliquam! Accusamus iusto! Facilisis consequatur. Repudiandae consequat diamlorem dolores mi laoreet. Quaerat dictum occaecat similique aliquip fames habitant.
+      Cards for Humanity is a Web App version of the card game 'Cards Against Humanity'. Cards for Humanity is a Web App version of the card game 'Cards Against Humanity'. 
     </div>
   </div>
 </div>
@@ -38,7 +41,7 @@
 </div>
 <div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved'">
   <div id="czar-blank-inner">
+    You are the Card Czar. <br> Players are choosing their answers. Prepare to select a winner.
     You are the Card Czar.</br>
-    Players are choosing their answers.
   </div>
 </div>
