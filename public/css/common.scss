@@ -325,6 +325,8 @@ $color-background: #4E4E4E;
         color: white;
         height: 100%;
         width: 35.5em;
+        padding-left: 2%;
+        padding-right: 2%;
     }
 
     &.smallest {
@@ -681,6 +683,7 @@ body{
             border-radius: 8px;
             background: #252525;
             margin-bottom: 10px;
+            margin-top: 5px;
             padding: 5px;
 
             #logo{
@@ -900,10 +903,15 @@ body{
                             #startGame{
                                 width: 100%;
                                 overflow: hidden;
-                                height: 40%;
+                                height: 100%;
                                 position: absolute;
-                                bottom: 20%;
                                 right: 1%;
+
+                                #finding-players {
+                                    font-size: 33px;
+                                    text-align: center;
+                                    margin-top: 15px;
+                                }
 
                                 #player-count-container, #loading-container, #start-game-container{
                                     width: 33.333%;
@@ -915,10 +923,13 @@ body{
                                     #player-count{
                                         font-size: 33px;
                                     }
+                                    #the-word-players{
+                                        font-size: 25px;
+                                    }
                                 }
 
-                                #loading-container{
-
+                                #loading-gif{
+                                    margin: 20px;
                                 }
 
                                 #start-game-container{
@@ -932,8 +943,9 @@ body{
                                         font-size: 1.25rem;
                                         font-weight: 400;
                                         color: white;
-                                        background: #5adae2;
+                                        background: #1F959C;
                                         padding: 0.65em 20px;
+                                        margin: 10px;
                                         width: 85%;
                                         cursor: pointer;
                                     }
@@ -1022,16 +1034,17 @@ body{
                 @include br;
                 text-align: center;
                 overflow: hidden;
-                height: 50%;
+                height: 30%;
                 position: relative;
-                font-size: 35px;
+                font-size: 30px;
 
                 #czar-blank-inner{
                     position: absolute;
-                    left: 0;
-                    right: 0;
+                    left: 10%;
+                    right: 10%;
+                    width: 80%;
                     height: 50px;
-                    margin-top: 16%;
+                    margin-top: 5%;
                 }
             }
 
