@@ -501,6 +501,7 @@ body {
     position: relative;
     top: 0;
     left: 0;
+    background: white;
   }
 }
 #main-container #app-container #social-bar-container #player-container {
@@ -628,6 +629,7 @@ body {
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container {
     width: 100%;
+    height: 89%;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container {
@@ -856,8 +858,10 @@ body {
 }
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #info-container {
-    width: 80%;
+    width: 100%;
     padding: 1px;
+    margin: 0px auto;
+    height: 49%;
   }
 }
 #main-container #app-container #gameplay-container #info-container #inner-info h1 {
@@ -877,7 +881,6 @@ body {
 #main-container #app-container #gameplay-container #game-end-container {
   width: 100%;
   background: #252525;
-  color: white;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -885,6 +888,11 @@ body {
   overflow: hidden;
   height: 50%;
   margin-top: 10px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #game-end-container {
+    height: 65%;
+  }
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit {
   width: 60%;
@@ -1026,8 +1034,9 @@ body {
 }
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #czar-blank-container {
-    width: 80%;
+    width: 100%;
     font-size: 16px;
+    margin: 0px auto;
   }
 }
 #main-container #app-container #gameplay-container #czar-blank-container #czar-blank-inner {
@@ -1048,8 +1057,7 @@ body {
 }
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #cards-container {
-    background: none;
-    height: 100%;
+    height: auto;
     margin-top: 3px;
   }
 }
