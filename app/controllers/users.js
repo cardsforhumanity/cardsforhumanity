@@ -9,7 +9,7 @@ var avatars = require('./avatars').all();
  * Auth callback
  */
 exports.authCallback = function(req, res, next) {
-    res.redirect('/');
+    res.redirect('/#!/app');
 };
 
 /**
@@ -64,7 +64,7 @@ exports.create = function(req, res) {
         }
         req.logIn(user, function(err) {
             if (err) return next(err);
-            return res.redirect('/');
+            return res.redirect('/#!/app');
         });
     });
 };
