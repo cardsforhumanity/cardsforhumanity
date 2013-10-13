@@ -14,6 +14,11 @@
   font-weight: bold;
   vertical-align: top;
 }
+@media (max-width: 480px) {
+  .card {
+    font-size: 14px;
+  }
+}
 .card #selection-number {
   position: absolute;
   bottom: 1px;
@@ -105,7 +110,7 @@ html {
 
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
-  background-color: #4e4e4e;
+  background-color: white;
 }
 
 .navbar .nav > li > a.brand {
@@ -465,9 +470,11 @@ body {
 }
 @media (max-width: 480px) {
   #main-container #app-container #menu-container #abandon-game-button {
-    font-size: 1.1rem;
-    margin-top: 1px;
+    font-size: 0.9rem;
+    margin-top: 5px;
     margin-right: 1px;
+    padding: 5px;
+    width: 100px;
   }
 }
 #main-container #app-container #menu-container #abandon-game-button:hover {
@@ -475,10 +482,15 @@ body {
 }
 #main-container #app-container #social-bar-container {
   width: 20%;
-  height: 100%;
+  height: 63%;
   position: absolute;
   right: 0;
-  background: #4e4e4e;
+  top: 60px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container {
+    top: auto;
+  }
 }
 #main-container #app-container #social-bar-container #player-container {
   height: 13.166667%;
@@ -492,9 +504,19 @@ body {
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container {
+    min-height: 0;
+  }
+}
 #main-container #app-container #social-bar-container #player-container #above-czar-container {
   height: 65%;
   width: 100%;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container {
+    height: 100%;
+  }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
   height: 100%;
@@ -518,11 +540,42 @@ body {
     height: 100%;
   }
 }
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
+    height: 69%;
+    width: 100%;
+    min-height: 0;
+    min-width: 0;
+    margin: 0;
+  }
+}
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
   float: left;
   position: relative;
   bottom: 8px;
   left: 17px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+  }
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
+    font-size: 10px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
+    font-size: 17px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 #main-container #app-container #social-bar-container #player-container #czar-container {
   position: absolute;
@@ -538,10 +591,20 @@ body {
   background: black;
   opacity: 0.4;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #czar-container {
+    overflow: auto;
+  }
+}
 #main-container #app-container #social-bar-container #player-container #czar-container #the-czar {
   color: #fff;
   font-weight: bold;
   font-size: 20px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #czar-container #the-czar {
+    display: none;
+  }
 }
 #main-container #app-container #gameplay-container {
   height: 100%;
@@ -654,7 +717,7 @@ body {
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
@@ -668,6 +731,11 @@ body {
     font-size: 80px;
   }
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
+    font-size: 73px;
+  }
+}
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
   height: 100%;
   float: left;
@@ -675,7 +743,8 @@ body {
 }
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
-    width: 73%;
+    width: 71%;
+    margin-left: 2%;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner {
@@ -705,6 +774,12 @@ body {
   text-align: center;
   margin-top: 15px;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #finding-players {
+    font-size: 21px;
+    margin-top: 0;
+  }
+}
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
   width: 33.333%;
   float: left;
@@ -719,10 +794,15 @@ body {
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container #the-word-players {
-  font-size: 25px;
+  font-size: 17px;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-gif {
   margin: 20px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-gif {
+    margin-top: 5px;
+  }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
   color: #333;
@@ -759,8 +839,25 @@ body {
   text-align: center;
   padding: 15px;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #info-container {
+    width: 80%;
+    padding: 1px;
+  }
+}
+#main-container #app-container #gameplay-container #info-container #inner-info h1 {
+  font-size: 22px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 #main-container #app-container #gameplay-container #info-container #inner-text {
   font-size: 22px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #info-container #inner-text {
+    font-size: 15px;
+    padding: 0px 10px 10px 10px;
+  }
 }
 #main-container #app-container #gameplay-container #game-end-container {
   width: 100%;
@@ -781,9 +878,19 @@ body {
   overflow: hidden;
   height: 100%;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #game-end-container #inner-info-exit {
+    width: 100%;
+  }
+}
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container {
   overflow: hidden;
   height: 100%;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container {
+    height: auto;
+  }
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game {
   float: left;
@@ -902,6 +1009,12 @@ body {
   position: relative;
   font-size: 30px;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container {
+    width: 80%;
+    font-size: 16px;
+  }
+}
 #main-container #app-container #gameplay-container #czar-blank-container #czar-blank-inner {
   position: absolute;
   left: 10%;
@@ -924,6 +1037,12 @@ body {
   font-size: 18px;
 }
 
+@media (max-width: 480px) {
+  #notifications {
+    font-size: 15px;
+  }
+}
+
 /*
 ** End App CSS
 */
@@ -940,13 +1059,4 @@ footer {
 }
 footer p {
   padding: 5px 0 12px 10px;
-}
-
-/*
-** Mobile Version 
-*/
-@media (max-width: 480px) {
-  body {
-    background: green;
-  }
 }
