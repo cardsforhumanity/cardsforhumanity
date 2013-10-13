@@ -176,16 +176,16 @@ Game.prototype.stateResults = function(self) {
   self.state = "winner has been chosen";
   console.log(self.state);
   // TODO: do stuff
-  var endGame = false;
+  var winner = -1;
   for (var i = 0; i < self.players.length; i++) {
     if (self.players[i].points >= self.pointLimit) {
-      endGame = true;
+      winner = i;
     }
   }
   self.sendUpdate();
   self.resultsTimeout = setTimeout(function() {
-    if (endGame) {
-      self.stateEndGame(i);
+    if (winner !== -1) {
+      self.stateEndGame(winner);
     } else {
       self.stateChoosing(self);
     }
