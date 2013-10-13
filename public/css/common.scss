@@ -413,6 +413,10 @@ html{
     margin: 20px;
     margin-top: 5px;
     position: relative;
+
+    @include mobile-only{
+        margin: 3px;
+    }
 }
 body{
     font-family: $main-font;
@@ -689,6 +693,10 @@ body{
                 font-size: 28px;
                 font-family: 'Lobster', cursive;
 
+                @include mobile-only{
+                    font-size: 23px;
+                }
+
                 #first-word{
                     color: #7CE4E8;
                 }
@@ -706,8 +714,8 @@ body{
                 display: inline-block;
                 float:right;
                 border-radius: 8px;
-                -moz-border-radius: 5px;
-                -webkit-border-radius: 5px;
+                -moz-border-radius: 8px;
+                -webkit-border-radius: 8px;
                 font-size: 20px;
                 font-size: 1.25rem;
                 font-weight: 400;
@@ -720,6 +728,12 @@ body{
                 padding: 0.65em 20px;
                 width: 140px;
                 cursor: pointer;
+
+                @include mobile-only{
+                    font-size: 1.1rem;
+                    margin-top: 1px;
+                    margin-right: 1px;
+                }
             }
 
             #abandon-game-button:hover{
@@ -797,11 +811,21 @@ body{
             height: 100%;
             width: 80%;
 
+            @include mobile-only{
+                width: 100%;
+            }
+
             #upper-gameplay-container {
                 height: 28%;
                 width: 100%;
                 min-height: 220px;
                 max-height: 220px;
+
+                @include mobile-only{
+                    min-height: 140px;
+                    max-height: 140px;
+
+                }
 
                 @include tablet-portrait-only{
                     height: 16%;
@@ -814,6 +838,10 @@ body{
                     width: 19%;
                     height: 100%;
                     margin-right: 2%;
+
+                    @include mobile-only{
+                        width: 25%;
+                    }
 
                     #menu-container{
                         display: none;
@@ -882,6 +910,10 @@ body{
                     float: left;
                     width: 79%;
 
+                    @include mobile-only{
+                        width: 73%;
+                    }
+
                     #question-container-inner{
                         width: 100%;
                         height: 100%;
@@ -914,6 +946,10 @@ body{
                                 #player-count-container{
                                     #player-count{
                                         font-size: 33px;
+
+                                        @include mobile-only{
+                                            font-size: 21px;
+                                        }
                                     }
                                 }
 
@@ -936,6 +972,10 @@ body{
                                         padding: 0.65em 20px;
                                         width: 85%;
                                         cursor: pointer;
+
+                                        @include mobile-only{
+                                            padding: 0.65em 2px;
+                                        }
                                     }
 
                                     #start-game-button:hover{
@@ -1069,5 +1109,16 @@ footer {
     p {
         padding:5px 0 12px 10px;
     }
+}
+
+
+/*
+** Mobile Version 
+*/
+
+@include mobile-only{
+    body{
+        background: green;
+    }  
 }
 
