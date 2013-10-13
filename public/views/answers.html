@@ -23,11 +23,12 @@
 </div>
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
-    <h1> What Now?</h1>
+    <h2 ng-show="game.state ==='game dissolved'">Oh no! Too many people left. What would you like to do?</h2>
+    <h1 ng-show="game.state === 'game ended'">{{game.players[game.gameWinner].username}} won the game!</h1>
     <div id='inner-text-container'>
       <a href='/#!/app'>
       <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
-        New Opponents
+        Join a New Game
       </div></a>
       <a href='/'><div id="exit-match">
         Return to Lobby
