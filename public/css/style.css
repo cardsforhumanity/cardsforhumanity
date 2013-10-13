@@ -466,13 +466,21 @@
  
  
  /**** About Us ****/
+#main-bod {
+   max-width: 1400px;
+}
+
  .wpb-about-us {
    background-color: #fff;
    margin-top: 9%;
  }
 
+ #how-to {
+   max-width: 1400px;
+ }
+
  #how-to-play {
-   margin-top: 15%;
+   margin-top: 120px;
  }
 
  #how-to-container {
