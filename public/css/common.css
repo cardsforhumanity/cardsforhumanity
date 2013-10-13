@@ -31,6 +31,8 @@
   color: white;
   height: 100%;
   width: 35.5em;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 .card.smallest {
   font-size: 0.750em;
@@ -419,6 +421,7 @@ body {
   border-radius: 8px;
   background: #252525;
   margin-bottom: 10px;
+  margin-top: 5px;
   padding: 5px;
 }
 #main-container #app-container #menu-container #logo {
@@ -693,10 +696,14 @@ body {
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame {
   width: 100%;
   overflow: hidden;
-  height: 40%;
+  height: 100%;
   position: absolute;
-  bottom: 20%;
   right: 1%;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #finding-players {
+  font-size: 33px;
+  text-align: center;
+  margin-top: 15px;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
   width: 33.333%;
@@ -711,6 +718,12 @@ body {
     font-size: 21px;
   }
 }
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container #the-word-players {
+  font-size: 25px;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-gif {
+  margin: 20px;
+}
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
   color: #333;
 }
@@ -722,8 +735,9 @@ body {
   font-size: 1.25rem;
   font-weight: 400;
   color: white;
-  background: #5adae2;
+  background: #1F959C;
   padding: 0.65em 20px;
+  margin: 10px;
   width: 85%;
   cursor: pointer;
 }
@@ -884,17 +898,17 @@ body {
   border-radius: 8px;
   text-align: center;
   overflow: hidden;
-  height: 50%;
+  height: 30%;
   position: relative;
-  font-size: 35px;
+  font-size: 30px;
 }
 #main-container #app-container #gameplay-container #czar-blank-container #czar-blank-inner {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 10%;
+  right: 10%;
+  width: 80%;
   height: 50px;
-  margin-top: 16%;
-  padding: 0px 15px;
+  margin-top: 5%;
 }
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
