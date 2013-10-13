@@ -140,7 +140,7 @@ angular.module('mean.system')
         }
       }
 
-    } else if (data.state === 'winner has been chosen') {
+    } else if (data.state === 'winner has been chosen' && data.state !== game.state) {
       game.curQuestion = data.curQuestion;
     } else if (data.state === 'awaiting players') {
       joinOverrideTimeout = $timeout(function() {
