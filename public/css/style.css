@@ -333,6 +333,8 @@
 
  #avatars {
    width: 100%;
+   margin-top: -11%;
+   margin-bottom: 3%;
  }
 
  #avatar-face {
@@ -343,9 +345,10 @@
    min-height: 450px;
    position: relative;
    z-index:990;
-   width: 92%;
+   width: 90%;
    margin: 0px auto;
    border-radius: 8px;
+   margin-top: -30px;
  }
  
  .wpb-teaser .background-opacity {
@@ -373,11 +376,21 @@
    font-size: 52px;
    text-transform: uppercase;
    line-height: 60px;
+   text-align: center;
  }
+
+ #slogan {
+   text-align: center;
+ } 
  
  .wpb-teaser .wpb-text p {
    color: #fff;
    padding-top: 15px;
+   text-align: center;
+   font-size: 1.4em;
+   margin: 0 auto;
+   width: 84%;
+   padding-bottom: 20px;
  }
  
  /**** Widget Box Bar ****/
@@ -455,6 +468,15 @@
  /**** About Us ****/
  .wpb-about-us {
    background-color: #fff;
+   margin-top: 9%;
+ }
+
+ #how-to-play {
+   margin-top: 15%;
+ }
+
+ #how-to-container {
+   padding-top: 0;
  }
  
  
@@ -1644,3 +1666,22 @@
  .wpb-display-map .wpb-button span {
    line-height: 20px !important;
  }
+
+ 
+.arrow {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left:-20px;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 3;
+  -moz-animation-iteration-count: 3;  
+  -o-animation-iteration-count: 3;
+  animation-delay: 5s;
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  -o-animation-delay: 5s;
+}
