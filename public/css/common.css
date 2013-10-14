@@ -14,6 +14,9 @@
   font-weight: bold;
   vertical-align: top;
 }
+.card.how-to {
+  font-size: 18px;
+}
 .card #selection-number {
   position: absolute;
   bottom: 1px;

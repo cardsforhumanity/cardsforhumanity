@@ -90,6 +90,7 @@
 
  /**** Top Bar ****/
 
+
 #menu-container {
    width: 100%;
    -webkit-border-radius: 8px;
@@ -123,7 +124,7 @@
 
 
  .wpb-top-bar {
-   height: 100px;
+   height: 60px;
    background: transparent;
    position: fixed;
    top:0;
@@ -134,8 +135,7 @@
  .wpb-logo-container {
    color: #fff;
    font-weight: bold;
-   font-size: 24px;
-   line-height: 100px;
+   font-size: 11px;
  }
  
  .wpb-logo-container a {
@@ -147,7 +147,7 @@
  }
  
  .wpb-menu-container {
-   height: 100px;
+   /*height: 100px;*/
    float: right;
  }
  
@@ -392,6 +392,14 @@
    width: 84%;
    padding-bottom: 20px;
  }
+
+
+/**** TESTING ****/
+
+#navver {
+   height: 60px;
+}
+
  
  /**** Widget Box Bar ****/
  .wpb-widget-box-bar {
@@ -470,6 +478,9 @@
    max-width: 1400px;
 }
 
+
+
+
  .wpb-about-us {
    background-color: #fff;
    margin-top: 9%;
@@ -480,14 +491,35 @@
  }
 
  #how-to-play {
-   margin-top: 120px;
+   margin-top: 190px;
+ }
+
+ #how-to-cards {
+   text-align: center;
  }
 
  #how-to-container {
    padding-top: 0;
  }
- 
- 
+
+ #directions {
+   font-family: 'Lobster', cursive;
+   color: #FC575E;
+ }
+
+#sign-up-text {
+   margin: 0px auto;
+   font-size: 28px;
+   font-family: 'Lobster', cursive;
+   border-radius: 8px;
+   background: #252525;
+   width: 17%;
+}
+
+ #tech-stack {
+   margin-top: 190px;
+ }
+
  /**** Portfolio ****/ 
  .wpb-portfolio-list .wpb-portfolio-item {
    margin-left: 0px;
@@ -1600,6 +1632,16 @@
  }
  
  /**** Margins ****/
+
+.mod-contain {
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   width: 90%;
+}
+
+
  .container-margin {
    padding-top:60px;
    padding-bottom: 60px;
