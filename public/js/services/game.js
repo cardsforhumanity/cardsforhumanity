@@ -150,7 +150,6 @@ angular.module('mean.system')
         game.joinOverride = true;
       }, 15000);
     } else if (data.state === 'game dissolved' || data.state === 'game ended') {
-      console.log('game dissolved or ended');
       game.players[game.playerIndex].hand = [];
     }
   });
