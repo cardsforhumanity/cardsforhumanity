@@ -129,7 +129,7 @@ angular.module('mean.system')
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
       // Extending the underscore within the question
-      game.curQuestion.text = data.curQuestion.text.replace(/_/g,'______');
+      game.curQuestion.text = data.curQuestion.text.replace(/_/g,'<u></u>');
 
       // Set notifications only when entering state
       if (newState) {
@@ -143,7 +143,7 @@ angular.module('mean.system')
       }
 
     } else if (data.state === 'winner has been chosen' &&
-              game.curQuestion.text.indexOf('_') > -1) {
+              game.curQuestion.text.indexOf('<u></u>') > -1) {
       game.curQuestion = data.curQuestion;
     } else if (data.state === 'awaiting players') {
       joinOverrideTimeout = $timeout(function() {
