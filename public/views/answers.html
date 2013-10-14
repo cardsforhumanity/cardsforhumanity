@@ -2,7 +2,7 @@
   <div id="cards">
     <h1 ng-show="winnerPicked()"></h1>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
-          {{card.text}}
+          <span ng-bind-html-unsafe="card.text"></span>
         <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>
