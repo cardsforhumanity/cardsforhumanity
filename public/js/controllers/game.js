@@ -6,24 +6,26 @@ angular.module('mean.system')
     $scope.pickedCards = [];
 
     $scope.pickCard = function(card) {
-      if ($scope.pickedCards.indexOf(card.id) < 0) {
-        $scope.pickedCards.push(card.id);
-        if (game.curQuestion.numAnswers === 1) {
-          $scope.sendPickedCards();
-        } else if (game.curQuestion.numAnswers === 2 &&
-          $scope.pickedCards.length === 2) {
-          //delay and send
-          // $scope.sendPickedCards();
-          $timeout($scope.sendPickedCards, 300);
+      if (!$scope.hasPickedCards) {
+        if ($scope.pickedCards.indexOf(card.id) < 0) {
+          $scope.pickedCards.push(card.id);
+          if (game.curQuestion.numAnswers === 1) {
+            $scope.sendPickedCards();
+          } else if (game.curQuestion.numAnswers === 2 &&
+            $scope.pickedCards.length === 2) {
+            //delay and send
+            $scope.hasPickedCards = true;
+            // $scope.sendPickedCards();
+            $timeout($scope.sendPickedCards, 300);
+          }
+        } else {
+          $scope.pickedCards.pop();
         }
-      } else {
-        $scope.pickedCards.pop();
       }
     };
 
     $scope.sendPickedCards = function() {
       game.pickCards($scope.pickedCards);
-      $scope.hasPickedCards = true;
     };
 
     $scope.cardIsFirstSelected = function(card) {
