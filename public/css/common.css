@@ -21,6 +21,9 @@
     word-wrap: break-word;
   }
 }
+.card.how-to {
+  font-size: 1.4rem;
+}
 .card #selection-number {
   position: absolute;
   bottom: 1px;
@@ -885,7 +888,3 @@ body {
 .gradientButton .donateNow {
   border-top: 0px solid black !important;
 }
-
-/*
-** End App CSS
-*/

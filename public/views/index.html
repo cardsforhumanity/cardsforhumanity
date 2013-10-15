@@ -1,78 +1,256 @@
-<section class="cont">
-  <div ng-cloak class="main-container">
-  <nav class ="navbar" ng-include="'views/header.html'" ng-controller="HeaderController" role="navigation"></nav>
-  <section data-ng-controller="IndexController" id="first-section">
-    <div id="inner-container">
-      <div id="mission-statement-container">
-        <div id="slogan">
-          <p>
-            A Game for Horrible People <br> Desperately Trying to do Good
-          </p>
-        </div> 
-        <!-- <div id = "logo"><img src = "/img/smallcardsforhumanity.png"></div>  -->
-        <div id="longer-description">
-          <p id="description-paragraphs">
-          <span id="main-question">What is Cards for Humanity?</span>
-          <br>
-          As much as we like receiving, we also like to give when possible. Cards for Humanity allows you to donate to a charity of your choice, for extras and upgrades - all while remaining as despicable and awkward as you naturally are.</p>`
-          <p id="description-paragraphs">
-          The game is simple. Each round, one player asks a question from a Black Card, and everyone else answers with their funniest White Card.</p>
-        </div>
-        <div id="signup-guest-container">
-          <div id="signup-button-smaller">
-            Sign Up
-          </div>
-          <div id = "play-as-guest" ng-click="playAsGuest()">
-            or <i>Play as Guest</i>
-          </div>
-        </div>
-        <div id = 'down_arrow'>
-          <a href = "/#!/#description-container"><img src = "../img/arrow.png"/></a>
-        </div>
-      </div>
-      <div id ="description-container">
-          <div id = 'up_arrow_second'>
-            <a href = "/#!/#mission-statement-container"><img src = "../img/arrow_up.png"/></a>
-          </div>
-        <div id = "inner-description-container">
-          <div id = "first-card" class = "card">
-            Alias curae nam voluptas congue porro tristique explicabo quo?
-            <span id="number-one"></span>
-          </div>
-          <div id = "second-card" class = "card">
-            Alias curae nam voluptas congue porro tristique explicabo quo?
-            <span id="number-two"></span>
-          </div>
-          <div id = "third-card" class = "card">
-            Alias curae nam voluptas congue porro tristique explicabo quo?
-            <span id="number-three"></span>
-          </div>
-        </div>
-        <div id = 'down_arrow_second'>
-          <a href = "/#!/#join-game-container"><img src = "../img/arrow.png"/></a>
-        </div>
-      </div>
-      <div id ="join-game-container">
-          <div id = 'up_arrow_second'>
-            <a href = "/#!/#description-container"><img src = "../img/arrow_up.png"/></a>
-          </div>
-        <div id = "signup-guest-container">
-          <div id ="join-game-container">
-              <div id = 'up_arrow_second'>
-                <a href = "/#!/#description-container"><img src = "../img/arrow_up.png"/></a>
-              </div>
-            <div id = "inner-join-container">
-              <div id = "signup-button">
-                Sign Up
-              </div>
-              <div id="play-as-guest">
-                  or <i>Play as Guest</i>
-              </div>
+<div id="main-bod">
+  <!-- Fixed Logo & Menu Bar Start -->
+  <div id="top-part">
+    <div class="wpb-top-bar">
+      <div class="mod-contain" id="navver">
+        <div class="row">
+          <!-- Logo -->
+          <div class="wpb-logo-container">
+            <div id="landing-logo"> 
+              <span id="first-word">Cards</span>
+              <span id="second-word"> for</span> 
+              <span id="third-word">Humanity</span> 
+            </div> 
+            <div class="col-md-9 wpb-menu-container">
+              <ul class="wpb-main-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="#!/#how-to">How to Play</a></li>
+                <li><a href="#!/#tech-stack">Tech Stack</a></li>
+                <li><a href="#!/#team-names">About Us</a></li>
+                <li><a href="signup">Sign Up/Sign In</a></li>
+              </ul>
             </div>
-          </div>
+          </div>      
         </div>
       </div>
     </div>
-    </section>
+  </div>
+<!-- Fixed Logo & Menu Bar End -->
+
+<!-- Landing Start -->
+  <div class="wpb-teaser parallax-background" id="homer">
+    <div class="background-opacity"></div> 
+    <div class="container">
+      <div class="row" id="main-text">
+        <div class="col-md-12" id="avatars" ng-controller="IndexController">
+          <img ng-repeat="avatar in avatars" ng-src="{{avatar}}" id="avatar-face">
+        </div>
+        <!-- Teaser Slogan Start -->
+        <div class="wpb-slogan">
+          <h2>A Game for Horrible People <span id="third-word">Desperately</span> Trying to do Good</h2>
+        </div>
+        <!-- Teaser Slogan End -->
+      
+      <!-- Teaser Text Start -->
+      <div class="wpb-text">
+        <h3 id="slogan">What is Cards for Humanity?</h3>
+        <p>
+        As much as we like receiving, we also like to give when possible. Cards for Humanity allows you to donate to a charity of your choice, for extras and upgrades - all while remaining as despicable and awkward as you naturally are.
+        <br><br>
+        The game is simple. Each round, one player asks a question from a Black Card, and everyone else answers with their funniest White Card.</p>
+      </div>
+      <!-- Teaser Text End -->
+      <div id="sign-up">
+        <a href="signup"><div id="sign-up-btn">Sign Up</div></a>
+        <div id="sign-up-text"><a href="#!/app">
+          <span id="first-word">or Play</span>
+          <span id="second-word">as</span> 
+          <span id="third-word">Guest</span></a>
+        </div>
+       </div>
+      </div>
+      </div>
+    </div>
+<!-- Landing End -->
+
+
+<!-- How to Play Start -->
+<section id="how-to">
+  <div class="wpb-teaser parallax-background" id="how-to-play">
+    <div class="background-opacity"></div>
+    
+    <div class="container" id="how-to-container">
+      <div class="row" id="main-text">
+      
+        <!-- Teaser Slogan Start -->
+        <div id="slogan-head">
+          <div class="span6 wpb-slogan">
+            <h2>How to Play</h2>
+          </div>
+        </div>
+        <!-- Teaser Slogan End -->
+        
+        <!-- Teaser Text Start -->
+        <div id="card-list">
+          <div id="how-to-cards">
+            <div class="card how-to">Each player begins with, and will always have, 10 white answer cards.</div>
+            <div class="card how-to">For each round, one player is randomly chosen as the Card Czar.</div>
+            <div class="card how-to">Everyone else answers the black question card by clicking on the answer card they want to use.</div>
+            <div class="card how-to">The Card Czar then picks a favorite answer, and whoever played that answer wins the round.</div>
+          </div>
+        </div>
+       <!-- Teaser Text End -->
+      </div>
+
+      <div id="sign-up">
+        <a href="signup"><div id="sign-up-btn">Sign Up</div></a>
+        <div id="sign-up-text"><a href="#!/app">
+          <span id="first-word">or Play</span>
+          <span id="second-word">as</span> 
+          <span id="third-word">Guest</span></a>
+        </div>
+       </div>
+    </div>
+</section>
+<!-- How to Play End -->
+
+
+<!-- Tech Stack Start -->
+<section class="wpb-portfolio" id="tech-stack">
+  <div class="wpb-teaser parallax-background" id="how-to-play">
+    <div class="background-opacity"></div>
+    
+    <div class="container" id="how-to-container">
+      <div class="row" id="main-text">
+      
+        <!-- Teaser Slogan Start -->
+        <div id="slogan-head">
+          <div class="span6 wpb-slogan">
+            <h2>TECH STACK</h2>
+          </div>
+        </div>
+        <!-- Teaser Slogan End -->
+        <div class="tech-info">
+          <div class="row" id="tech">     
+          <ul class="wpb-portfolio-list">
+            <!-- Portfolio Item Start -->
+            <li class="wpb-portfolio-item span4 web-design">
+              <div class="wpb-portfolio-thumbnail">
+               <a href="#">
+                <div class="wpb-portfolio-overlay">
+                  <div><img src="img/mongo-logo.png" alt="mongo" class="" /></div>
+                </div>
+               </a>
+              </div>
+              <div class="wpb-portfolio-details">
+                <h3>MongoDB</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+              </div>
+            </li>
+            <li class="wpb-portfolio-item span4 web-design">
+              <div class="wpb-portfolio-thumbnail">
+               <a href="#">
+                <div class="wpb-portfolio-overlay">
+                  <div><img src="img/express-logo.jpg" alt="Details" class="" /></div>
+                </div>
+               </a>
+              </div>
+              <div class="wpb-portfolio-details">
+                <h3>Express</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+              </div>
+            </li>
+            <li class="wpb-portfolio-item span4 web-design">
+              <div class="wpb-portfolio-thumbnail">
+               <a href="#">
+                <div class="wpb-portfolio-overlay">
+                  <div><img src="img/angular-logo.png" alt="Details" id="ang-logo" /></div>
+                </div>
+               </a>
+              </div>
+              <div class="wpb-portfolio-details">
+                <h3>Angular</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+              </div>
+            </li>
+            <li class="wpb-portfolio-item span4 web-design">
+              <div class="wpb-portfolio-thumbnail">
+               <a href="#">
+                <div class="wpb-portfolio-overlay">
+                  <div><img src="img/node-logo.png" alt="Details" class="" /></div>
+                </div>
+               </a>
+              </div>
+              <div class="wpb-portfolio-details">
+                <h3>Node.js</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+              </div>
+            </li>
+            <li class="wpb-portfolio-item span4 web-design">
+              <div class="wpb-portfolio-thumbnail">
+               <a href="#">
+                <div class="wpb-portfolio-overlay">
+                  <div><img src="img/socketio-logo.png" alt="Details" class="" /></div>
+                </div>
+               </a>
+              </div>
+              <div class="wpb-portfolio-details">
+                <h3>Socket.io</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+              </div>
+            </li>
+            <li class="wpb-portfolio-item span4 web-design">
+              <div class="wpb-portfolio-thumbnail">
+               <a href="#">
+                <div class="wpb-portfolio-overlay">
+                  <div><img src="img/sass-logo.png" alt="Details" class="" /></div>
+                </div>
+               </a>
+              </div>
+              <div class="wpb-portfolio-details">
+                <h3>Sass</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+              </div>
+            </li>
+          </ul>
+          </div>
+        </div>
+    </div>
+</section>
+<!-- Tech Stack End -->
+
+
+<!-- About Us Start -->
+<section class="wpb-contact-us parallax-background-contact" id="team">
+   <div class="wpb-teaser parallax-background" id="about-team">
+    <div class="background-opacity"></div>
+    
+    <div class="container" id="how-to-container">
+      <div class="row" id="main-text">
+      
+        <!-- Teaser Slogan Start -->
+        <div id="slogan-head">
+          <div class="span6 wpb-slogan">
+            <h2>The Team</h2>
+          </div>
+        </div>
+      </div>
+      <div class="wpb-team-details" id="team-names">
+        <h3>
+          <a href="http://github.com/silversteez">Matt Silverstein,</a>
+          <a href="http://github.com/mrngoitall">Will Ngo,</a> 
+          <a href="http://github.com/tylermcginnis33">Tyler McGinnis,</a>
+          <a href="http://github.com/davegonzalez">David Gonzalez</a></h3>
+      </div>
+      <img src="img/group-shot.jpg" alt="Team Member" id="team-photo">
+    </div>
   </div>
 </section>
+<!-- About Us End -->
+
+<!-- Footer Start -->
+<section class="foot">
+  <div class="wpb-bottom-bar">
+    <div id="test"></div>
+    <div class="text-left">
+        <a href="https://github.com/cardsforhumanity/cardsforhumanity"><img src="img/github.png" id="gitcat"></a>
+        <div class="floater" id="landing-logo">
+          <span id="first-word">Cards</span>
+          <span id="second-word"> for</span> 
+          <span id="third-word">Humanity</span> 
+        </div>
+      </div>
+  </div>
+</section>
+<!-- Footer End -->
+</div>
