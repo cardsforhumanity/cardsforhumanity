@@ -4,13 +4,13 @@
   </div>
   <div id="cards" class='hand'>
     <span ng-show="winnerPicked()"></span>
-    <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
+    <div class="card smallest" id='answers' ng-hide="showTable || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
           <span ng-bind-html-unsafe="card.text"></span>
         <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>
     <span ng-repeat="answer in game.table">
-        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated pulse'}" style="background-color:{{winningColor($parent.$index)}}">
+        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="showTable || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated pulse'}" style="background-color:{{winningColor($parent.$index)}}">
             <span ng-bind-html-unsafe="card.text"></span>
         </div>
     </span>
@@ -42,5 +42,7 @@
 <div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
   <div id="czar-blank-inner">
     You are the Card Czar. <br> Players are choosing their answers. Prepare to select a winner.
+    <br>
+    {{ makeAWishFact }}
   </div>
 </div>
