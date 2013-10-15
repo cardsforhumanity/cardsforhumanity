@@ -5,7 +5,7 @@
   <div id="cards">
     <span ng-show="winnerPicked()"></span>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
-          {{card.text}}
+          <span ng-bind-html-unsafe="card.text"></span>
         <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>
@@ -26,8 +26,8 @@
 </div>
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
-    <h2 ng-show="game.state ==='game dissolved'">Oh no! Too many people left. What would you like to do?</h2>
-    <h1 ng-show="game.state === 'game ended'">{{game.players[game.gameWinner].username}} won the game!</h1>
+    <h2 ng-show="game.state ==='game dissolved' && game.gameWinner === -1">Oh no! Too many people left. What would you like to do?</h2>
+    <h1 ng-show="game.state === 'game ended' || game.gameWinner !== -1">{{game.players[game.gameWinner].username}} won the game!</h1>
     <div id='inner-text-container'>
       <a href='/#!/app'>
       <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
@@ -39,7 +39,7 @@
     </div>
   </div>
 </div>
-<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved'">
+<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
   <div id="czar-blank-inner">
     You are the Card Czar. <br> Players are choosing their answers. Prepare to select a winner.
     You are the Card Czar.</br>
