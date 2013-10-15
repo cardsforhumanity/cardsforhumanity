@@ -16,10 +16,14 @@ exports.authCallback = function(req, res, next) {
  * Show login form
  */
 exports.signin = function(req, res) {
-  res.render('users/signin', {
-    title: 'Signin',
-    message: req.flash('error')
-  });
+  if (!req.user) {
+    res.render('users/signin', {
+      title: 'Signin',
+      message: req.flash('error')
+    });
+  } else {
+    res.redirect('/#!/app');
+  }
 };
 
 /**
@@ -102,8 +106,6 @@ exports.create = function(req, res) {
  */
 exports.avatars = function(req, res) {
   // TODO: Update the current user's profile to include the avatar choice they've made
-  console.log('Received post avatars request from req.user:',req.user);
-  console.log('Post body:',req.body);
   if (req.user && req.user._id && req.body.avatar !== undefined &&
     /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
     User.findOne({
@@ -111,7 +113,6 @@ exports.avatars = function(req, res) {
     })
     .exec(function(err, user) {
       user.avatar = avatars[req.body.avatar];
-      console.log('user object after adding avatar', user);
       user.save();
     });
   }
