@@ -7,7 +7,7 @@ $mq-tablet-landscape : 1024px !default;
 $mq-desktop: 1100px !default;
 $mq-custom-wide : 1200px !default;
 
-$color-background: #4E4E4E;
+$color-background: #fff;
 
 // Both portrait and landscape
 @mixin mobile-only {
@@ -302,8 +302,8 @@ $color-background: #4E4E4E;
 
     vertical-align: top;
 
-    @include tablet-landscape-and-below{
-
+    @include mobile-only{
+        font-size: 14px;
     }
 
     #selection-number {
@@ -348,12 +348,12 @@ $color-background: #4E4E4E;
         position: relative;
         content: '';
         display: inline-block;
-        width: 50%;
+        width: 25%;
 
         text-decoration: none;
 
         height: 1em;
-        border-bottom: 0.125em solid black;
+        border-bottom: 0.125em solid white;
         margin-bottom: -0.125em;
 
         .small {
@@ -415,6 +415,10 @@ html{
     margin: 20px;
     margin-top: 5px;
     position: relative;
+
+    @include mobile-only{
+        margin: 3px;
+    }
 }
 body{
     font-family: $main-font;
@@ -686,11 +690,20 @@ body{
             margin-top: 5px;
             padding: 5px;
 
+            @include mobile-only{
+                margin-bottom: 3px;
+                margin-top: 3px;
+            }
+
             #logo{
                 display: inline-block;
                 margin-left: 10px;
                 font-size: 28px;
                 font-family: 'Lobster', cursive;
+
+                @include mobile-only{
+                    font-size: 23px;
+                }
 
                 #first-word{
                     color: #7CE4E8;
@@ -709,8 +722,8 @@ body{
                 display: inline-block;
                 float:right;
                 border-radius: 8px;
-                -moz-border-radius: 5px;
-                -webkit-border-radius: 5px;
+                -moz-border-radius: 8px;
+                -webkit-border-radius: 8px;
                 font-size: 20px;
                 font-size: 1.25rem;
                 font-weight: 400;
@@ -723,6 +736,14 @@ body{
                 padding: 0.65em 20px;
                 width: 140px;
                 cursor: pointer;
+
+                @include mobile-only{
+                    font-size: 0.9rem;
+                    margin-top: 5px;
+                    margin-right: 1px;
+                    padding: 5px;
+                    width: 100px;
+                }
             }
 
             #abandon-game-button:hover{
@@ -732,10 +753,20 @@ body{
 
         #social-bar-container{
             width: 20%;
-            height: 100%;
+            height: 63%;
             position: absolute;
             right: 0;
-            background: $color-background;
+            top: 60px;
+
+            @include mobile-only{
+                top: auto;
+                width: 100%;
+                height: 15%;
+                position: relative;
+                top: 0;
+                left: 0;
+                background: white;
+            }
 
             #player-container{
                 height: 13.166667%;
@@ -747,14 +778,27 @@ body{
                 margin: 0 0 6% 8%;
                 @include br;
 
+                @include mobile-only{
+                    min-height: 0;
+                    display: inline-block;
+                    margin: 0px .5%;
+                    width: 15.5%;
+                    height: 70px;
+                }
+
                 #above-czar-container{
                     height: 65%;
                     width: 100%;
+
+                    @include mobile-only{
+                        height: 100%;
+                    }
 
                     #avatar_ {
                         height: 100%;
                         width: 40%;
                         float: left;
+
                         img {
                             width: 100%;
                             height: 140%;
@@ -768,6 +812,14 @@ body{
                                 width: 100%;
                                 height: 100%;
                             }
+
+                            @include mobile-only{
+                                height: 69%;
+                                width: 100%;
+                                min-height: 0;
+                                min-width: 0;
+                                margin: 0;
+                            }
                         }
                     }
                     #player-container-inner{
@@ -775,6 +827,33 @@ body{
                         position: relative;
                         bottom: 8px;
                         left: 17px;
+
+                        @include mobile-only{
+                            bottom: 0;
+                            left: 0;
+                            height: 100%;
+                            width: 60%;
+                        }
+
+                        #player-name{
+                            h4{
+                                @include mobile-only{
+                                    font-size: 10px;
+                                    margin-top: 3px;
+                                    margin-bottom: 5px;
+                                }
+                            }
+                        }
+
+                        #player-score{
+                            h2{
+                                @include mobile-only{
+                                    font-size: 17px;
+                                    margin-top: 5px;
+                                    margin-bottom: 5px;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -787,10 +866,18 @@ body{
                     background: black;
                     opacity:0.4;
 
+                    @include mobile-only{
+                        overflow: auto;
+                    }
+
                     #the-czar{
                         color: #fff;
                         font-weight: bold;
                         font-size: 20px;
+
+                        @include mobile-only{
+                            display: none;
+                        }
                     }
                 }
             }
@@ -800,11 +887,22 @@ body{
             height: 100%;
             width: 80%;
 
+            @include mobile-only{
+                width: 100%;
+                height: 89%;
+            }
+
             #upper-gameplay-container {
                 height: 28%;
                 width: 100%;
                 min-height: 220px;
                 max-height: 220px;
+
+                @include mobile-only{
+                    min-height: 140px;
+                    max-height: 140px;
+
+                }
 
                 @include tablet-portrait-only{
                     height: 16%;
@@ -818,6 +916,10 @@ body{
                     height: 100%;
                     margin-right: 2%;
 
+                    @include mobile-only{
+                        width: 25%;
+                    }
+
                     #menu-container{
                         display: none;
                         @include soft-button;
@@ -825,6 +927,7 @@ body{
                         margin-bottom: 16px;
                         line-height: 20%;
                         @include br;
+
                         #menu-button{
                             position: absolute;
                             top: 50%;
@@ -862,7 +965,7 @@ body{
                                 color: white;
 
                                 @include tablet-landscape-and-below{
-                                    font-size: 12px;
+                                    font-size: 13px;
                                 }
                             }
 
@@ -875,6 +978,10 @@ body{
                                 @include tablet-landscape-and-below{
                                     font-size: 80px;
                                 }
+
+                                @include mobile-only{
+                                    font-size: 73px;
+                                }
                             }
                         }
                     }
@@ -884,6 +991,11 @@ body{
                     height: 100%;
                     float: left;
                     width: 79%;
+
+                    @include mobile-only{
+                        width: 71%;
+                        margin-left: 2%;
+                    }
 
                     #question-container-inner{
                         width: 100%;
@@ -911,6 +1023,11 @@ body{
                                     font-size: 33px;
                                     text-align: center;
                                     margin-top: 15px;
+
+                                    @include mobile-only{
+                                        font-size: 21px;
+                                        margin-top: 0;
+                                    }
                                 }
 
                                 #player-count-container, #loading-container, #start-game-container{
@@ -922,14 +1039,22 @@ body{
                                 #player-count-container{
                                     #player-count{
                                         font-size: 33px;
+
+                                        @include mobile-only{
+                                            font-size: 21px;
+                                        }
                                     }
                                     #the-word-players{
-                                        font-size: 25px;
+                                        font-size: 17px;
                                     }
                                 }
 
                                 #loading-gif{
                                     margin: 20px;
+
+                                    @include mobile-only{
+                                        margin-top: 5px;
+                                    }
                                 }
 
                                 #start-game-container{
@@ -948,6 +1073,10 @@ body{
                                         margin: 10px;
                                         width: 85%;
                                         cursor: pointer;
+
+                                        @include mobile-only{
+                                            padding: 0.65em 2px;
+                                        }
                                     }
 
                                     #start-game-button:hover{
@@ -967,20 +1096,42 @@ body{
                 text-align: center;
                 padding: 15px;
 
+                @include mobile-only{
+                    width: 100%;
+                    padding: 1px;
+                    margin: 0px auto;
+                    height: 49%;
+                }
+
+                #inner-info{
+                    h1{
+                        font-size: 22px;
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                    }
+                }
+
                 #inner-text{
                     font-size: 22px;
+                    @include mobile-only{
+                        font-size: 15px;
+                        padding: 0px 10px 10px 10px;
+                    }
                 }
             }
 
             #game-end-container{
                 width: 100%;
                 background: #252525;
-                color: white;
                 @include br;
                 text-align: center;
                 overflow: hidden;
                 height: 50%;
                 margin-top: 10px;
+
+                @include mobile-only{
+                    height: 65%;
+                }
 
                 #inner-info-exit{
                     width: 60%;
@@ -989,9 +1140,17 @@ body{
                     overflow: hidden;
                     height: 100%;
 
+                    @include mobile-only{
+                        width: 100%;
+                    }
+
                     #inner-text-container{
                         overflow: hidden;
                         height: 100%;
+
+                        @include mobile-only{
+                            height: auto;
+                        }
 
                         #join-new-game{
                             float: left;
@@ -1038,6 +1197,12 @@ body{
                 position: relative;
                 margin-top: 10px;
                 font-size: 30px;
+
+                @include mobile-only{
+                    width: 100%;
+                    font-size: 16px;
+                    margin: 0px auto;
+                }
 
                 #czar-blank-inner{
                     position: absolute;
@@ -1095,6 +1260,11 @@ body{
                 margin-top: 11px;
                 @include br;
 
+                @include mobile-only{
+                    height: auto;
+                    margin-top: 3px;
+                }
+
                 #cards {
                     width: 100%;
                     height: 100%;
@@ -1102,6 +1272,12 @@ body{
                 }
             }
         }
+    }
+}
+
+#notifications{
+    @include mobile-only{
+        font-size: 15px;
     }
 }
 

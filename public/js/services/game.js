@@ -128,6 +128,8 @@ angular.module('mean.system')
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
+      // Extending the underscore within the question
+      game.curQuestion.text = data.curQuestion.text.replace(/_/g,'<u></u>');
 
       // Set notifications only when entering state
       if (newState) {
@@ -140,14 +142,14 @@ angular.module('mean.system')
         }
       }
 
-    } else if (data.state === 'winner has been chosen' && data.state !== game.state) {
+    } else if (data.state === 'winner has been chosen' &&
+              game.curQuestion.text.indexOf('<u></u>') > -1) {
       game.curQuestion = data.curQuestion;
     } else if (data.state === 'awaiting players') {
       joinOverrideTimeout = $timeout(function() {
         game.joinOverride = true;
       }, 15000);
     } else if (data.state === 'game dissolved' || data.state === 'game ended') {
-      console.log('game dissolved or ended');
       game.players[game.playerIndex].hand = [];
     }
   });
