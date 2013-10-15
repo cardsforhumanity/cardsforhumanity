@@ -5,7 +5,8 @@ angular.module('mean.system')
     $scope.showTable = false;
     $scope.game = game;
     $scope.pickedCards = [];
-    $scope.makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
+    var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
+    $scope.makeAWishFact = makeAWishFacts.pop();
 
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
@@ -18,7 +19,6 @@ angular.module('mean.system')
             $scope.pickedCards.length === 2) {
             //delay and send
             $scope.hasPickedCards = true;
-            // $scope.sendPickedCards();
             $timeout($scope.sendPickedCards, 300);
           }
         } else {
@@ -93,6 +93,7 @@ angular.module('mean.system')
       $scope.hasPickedCards = false;
       $scope.showTable = false;
       $scope.winningCardPicked = false;
+      $scope.makeAWishFact = makeAWishFacts.pop();
       $scope.pickedCards = [];
     });
 
