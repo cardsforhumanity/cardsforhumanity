@@ -556,10 +556,12 @@ body{
                         #player-name{
 
                             h4{
+                                font-family: 'Lobster', cursive;
                                 margin-bottom: 0px;
                             }
                             h4{
                                 @include mobile-only{
+                                    font-family: 'Lobster', cursive;
                                     font-size: 10px;
                                     margin-top: 3px;
                                     margin-bottom: 5px;
@@ -797,7 +799,7 @@ body{
                                         background: #1F959C;
                                         padding: 0.65em 20px;
                                         margin: 10px;
-                                        width: 85%;
+                                        width: 65%;
                                         cursor: pointer;
 
                                         @include mobile-only{
@@ -943,8 +945,9 @@ body{
                 @include br;
                 text-align: center;
                 overflow: hidden;
-                height: 30%;
+                height: 50%;
                 position: relative;
+                margin-top: 10px;
                 font-size: 30px;
 
                 @include mobile-only{
@@ -960,6 +963,46 @@ body{
                     width: 80%;
                     height: 50px;
                     margin-top: 5%;
+                }
+
+                #charity-fact-container{
+                    @include br;
+                    background-color: #fff;
+                    color: black;
+
+                    position: absolute;
+                    bottom: 4%;
+                    margin: 0 2%;
+                    width: 96%;
+                    padding: 3px;
+                    text-align: left;
+
+                    #charity-fact-tagline{
+                        font-family: 'Lobster', cursive;
+                        font-size: 22px;
+                        margin-left: 2%;
+                        margin-bottom: 3px;
+                        color: #000;
+                    }
+
+                    #charity-fact{
+                        font-size: 14px;
+                        font-style: italic;
+                        text-align: center;
+                        width: 90%;
+                        margin: 0 5% 3px 5%;
+                    }
+
+                    #charity-logo-container{
+
+                        img{
+                            // width: 150px;
+                            // height: 50px;
+                            float: right;
+                            margin-right: 2%;
+                            margin-bottom: 3px;
+                        }
+                    }
                 }
             }
 
