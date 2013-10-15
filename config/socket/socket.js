@@ -4,12 +4,15 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 var avatars = require(__dirname + '/../../app/controllers/avatars.js').all();
+// Valid characters to generate random private game IDs
+var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 
 module.exports = function(io) {
 
   var game;
   var allGames = {};
   var gamesNeedingPlayers = [];
+  var gamesWithFriends = [];
   var gameID = 0;
 
   io.sockets.on('connection', function (socket) {
@@ -84,14 +87,30 @@ module.exports = function(io) {
           player.username = user.name;
           player.avatar = user.avatar || avatars[Math.floor(Math.random()*4)+12];
         }
-        fireGame(player,socket);
+        getGame(player,socket,data.room);
       });
     } else {
       // If the user isn't authenticated (guest)
       player.username = 'Guest';
       player.avatar = avatars[Math.floor(Math.random()*4)+12];
+      getGame(player,socket,data.room);
+    }
+  };
+
+  var getGame = function(player,socket,requestedGameId) {
+    if (requestedGameId.length && allGames[requestedGameId]) {
+      var game = allGames[requestedGameId];
+      if (game.state === 'awaiting players') {
+        // Put player into the requested game
+        
+      } else {
+        // TODO: Send an error message back to this user saying the game has already started
+      }
+    } else {
+      // Put players into the general queue
       fireGame(player,socket);
     }
+
   };
 
   var fireGame = function(player,socket) {
@@ -124,9 +143,9 @@ module.exports = function(io) {
 
   var exitGame = function(socket) {
     if (allGames[socket.gameID]) { // Make sure game exists
-      game = allGames[socket.gameID];
+      var game = allGames[socket.gameID];
       if (game.state === 'awaiting players' ||
-        game.players.length-1 >= game.playerMinLimit){
+        game.players.length-1 >= game.playerMinLimit) {
         game.removePlayer(socket.id);
       } else {
         game.stateDissolveGame();
