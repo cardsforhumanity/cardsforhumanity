@@ -1026,6 +1026,10 @@ body{
                     padding: 3px;
                     text-align: left;
 
+                    @include mobile-only{
+                        height: 46%;
+                    }
+
                     #charity-fact-tagline{
                         font-family: 'Lobster', cursive;
                         font-size: 22px;
@@ -1044,12 +1048,22 @@ body{
 
                     #charity-logo-container{
 
+                        @include mobile-only{
+                            position: absolute;
+                            top: 1px;
+                            right: 0;
+                        }
+
                         img{
                             // width: 150px;
                             // height: 50px;
                             float: right;
                             margin-right: 2%;
                             margin-bottom: 3px;
+
+                            @include mobile-only{
+                                width: 53%;
+                            }
                         }
                     }
                 }

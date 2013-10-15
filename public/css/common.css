@@ -826,6 +826,11 @@ body {
   padding: 3px;
   text-align: left;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container {
+    height: 46%;
+  }
+}
 #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact-tagline {
   font-family: 'Lobster', cursive;
   font-size: 22px;
@@ -840,10 +845,22 @@ body {
   width: 90%;
   margin: 0 5% 3px 5%;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container {
+    position: absolute;
+    top: 1px;
+    right: 0;
+  }
+}
 #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container img {
   float: right;
   margin-right: 2%;
   margin-bottom: 3px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container img {
+    width: 53%;
+  }
 }
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
