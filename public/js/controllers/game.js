@@ -2,6 +2,7 @@ angular.module('mean.system')
 .controller('GameController', ['$scope', 'game', '$timeout', function ($scope, game, $timeout) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
+    $scope.showTable = false;
     $scope.game = game;
     $scope.pickedCards = [];
 
@@ -11,6 +12,7 @@ angular.module('mean.system')
           $scope.pickedCards.push(card.id);
           if (game.curQuestion.numAnswers === 1) {
             $scope.sendPickedCards();
+            $scope.hasPickedCards = true;
           } else if (game.curQuestion.numAnswers === 2 &&
             $scope.pickedCards.length === 2) {
             //delay and send
@@ -26,6 +28,7 @@ angular.module('mean.system')
 
     $scope.sendPickedCards = function() {
       game.pickCards($scope.pickedCards);
+      $scope.showTable = true;
     };
 
     $scope.cardIsFirstSelected = function(card) {
@@ -87,6 +90,7 @@ angular.module('mean.system')
     // (because game.state remains the same)
     $scope.$watch('game.round', function() {
       $scope.hasPickedCards = false;
+      $scope.showTable = false;
       $scope.winningCardPicked = false;
       $scope.pickedCards = [];
     });
