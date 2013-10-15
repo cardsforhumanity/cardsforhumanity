@@ -1,24 +1,7 @@
 @charset "utf-8";
- 
- h1, h2, h3, h4, h5, h6 {
-   text-transform: uppercase;
- }
- 
- blockquote {
-   color: #ffffff !important;
-   font-style: italic;
-   background: url(../img/quote.png) 25px 5px no-repeat;
-   border-left:2px solid #2ecc71;
-   padding: 40px 25px 25px 25px;
-   margin-left: 20px;
- }
 
  .clear {
    clear:both;
- }
- 
- img {
-   max-width: none !important;
  }
  
  *::selection {
@@ -30,14 +13,7 @@
     background: #2ecc71; /* Safari */
     color: #fff;
  }
- 
- .wpb-separator {
-   height: 1px;
-   width: 100%;
-   background-color: #32383c;
-   margin: 25px 0px;
- }
- 
+
  /**** Links ****/
  a {
    color: #515e65;
@@ -62,9 +38,25 @@
    color: #515E65;
  }
 
+
+ /* MEDIA QUERY */
+ @media only screen 
+ and (min-device-width : 320px) {
+   .wpb-menu-container {
+      display: none;
+   }
+   
+
+   .container {
+      position: relative;
+      z-index: 1000;
+   }
+
+ }
+
+
+
  /**** Top Bar ****/
-
-
 #menu-container {
    width: 100%;
    -webkit-border-radius: 8px;
@@ -95,7 +87,6 @@
 #third-word {
    color: #FC575E;
 }
-
 
  .wpb-top-bar {
    height: 60px;
@@ -215,92 +206,7 @@
  }
  
  
- /**** Video ****/
- .wpb-video {
-   position: relative;
-   z-index:990;
- }
- 
- .wpb-video .wpb-video-overlay {
-   position: absolute;
-   top:380px;
-   width: 100%;
-   z-index:1000;
- }
- 
- .wpb-video .wpb-video-overlay .wpb-slogan h1 {
-   font-size: 48px;
-   margin-bottom: 40px;
- }
- 
- .wpb-video .wpb-video-overlay .wpb-slogan {
-   text-align: center;
- }
- 
- .wpb-video .fullscreen-video {
-   display: block;
-   height: auto;
-   max-width: 100%;
-   width: 100%;
-   top:0px;
-   position: relative;
-   left: 0;
-   z-index:999;
- }
- 
- /**** Slider ****/
- .wpb-slider {
-   position: relative;
-   z-index:990;
- }
- 
- .wpb-slider.superslider .flex-direction-nav a {
-   line-height: 845px;
- }
- 
- .wpb-slider.superslider .flexslider {
-   max-height: 845px !important;
- }
- 
- .flexslider .slides>li {
-   position: relative;
- }
- 
- .wpb-slide-content {
-   position: absolute;   
-   width: 100%;
-   padding-top:0;
-   top:0;
- }
- 
- .wpb-slide-content .wpb-slide-inner {
-   width: 100%;
-   max-width: 1170px;
-   margin: 0 auto;
-   position: relative;
- }
- 
- .wpb-slide-content .wpb-slide-inner h3 {
-   margin: 0;
- }
- 
- .wpb-slide-content .wpb-slider-box {
-   position: absolute;
-   top:100px;
-   width: 350px;
-   border: 1px solid transparent;
-   border-radius:5px;
-   background-color: rgba(0,0,0,0.7);
-   overflow: hidden;
-   padding: 15px;
- }
- 
- .wpb-slide-content .wpb-slider-box.right {
-   right:0;
- }
-   
- 
- /**** Teaser ****/
+ /**** LANDING ****/
 
  #main-text {
    margin: 5px;
@@ -345,6 +251,11 @@
    z-index:1000;
    padding-top: 120px;
  }
+
+ .wpb-teaser .modified-container {
+   position: relative;
+   z-index: 1000;
+ }
  
  .wpb-teaser .wpb-slogan h2 {
    color: #fff;
@@ -364,66 +275,16 @@
    color: #fff;
    padding-top: 15px;
    text-align: center;
-   font-size: 1.4em;
+   font-size: 1.15em;
    margin: 0 auto;
    width: 84%;
    padding-bottom: 20px;
  }
 
-
-/**** TESTING ****/
-
 #navver {
    height: 60px;
 }
 
- 
- /**** Widget Box Bar ****/
- .wpb-widget-box-bar {
-   background: url('../img/widget-bar-bg.jpg') top left repeat;
-   padding: 25px 0px;
- }
- 
- /**** Widget Boxes ****/
- .wpb-widget-box [class*="wpb-icon"] { 
-    -webkit-transition-duration: 0.8s;
-    -moz-transition-duration: 0.8s;
-    -o-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-     
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    transition-property: transform;
- }
- 
- .wpb-widget-box:hover [class*="wpb-icon"] { 
-   color: #24a159 !important;
-   -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
- }
- 
- .wpb-widget-box [class*="wpb-icon"] {
-   text-align: center;
-   font-size: 36px;
-   display: block;
-   color: #ffffff;
- }
- 
- .wpb-widget-box .wpb-title {
-   color: #ffffff;
-   font-size: 18px;
-   margin: 15px 0px;
-   text-align: center;
- }
- 
- .wpb-widget-box .wpb-content {
-   color: #ffffff;
-   text-align: center;
-   padding: 0px;
- }
- 
  
  /**** Section Title ****/
  .wpb-section-title {
@@ -475,9 +336,6 @@
    margin: 0px auto;
 }
 
-
-
-
  .wpb-about-us {
    background-color: #fff;
    margin-top: 9%;
@@ -489,6 +347,18 @@
 
  #gitcat {
    max-width: 50px !important;
+ }
+
+ #login-buttons {
+   text-align: center;
+ }
+
+ .login-item {
+   max-width: 48%;
+ }
+
+ .input-info {
+   max-width: 100%;
  }
 
  #how-to {
@@ -520,6 +390,10 @@
  #directions {
    font-family: 'Lobster', cursive;
    color: #FC575E;
+ }
+
+ .sign-body {
+   text-align: center;
  }
 
  #sign-up {
@@ -560,8 +434,25 @@
    float: right;
 }
 
+
  li {
    list-style-type: none;
+ }
+
+ #contain-avatars {
+   margin-top: 25px;
+ }
+
+ .avatar-list {
+   overflow: hidden;
+   padding-left: 0px;
+   margin-left: 3%;
+ }
+
+ .avatars {
+   position: relative;
+   float: left;
+   margin: 2px 5px;
  }
 
  /**** Portfolio ****/ 
