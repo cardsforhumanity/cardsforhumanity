@@ -323,7 +323,6 @@ $color-background: #fff;
 
     &.smallest {
         font-size: 0.750em;
-        cursor: pointer;
 
         @include mobile-only{
             font-size: 10px; //play with later
