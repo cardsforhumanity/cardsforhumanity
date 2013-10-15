@@ -8,6 +8,7 @@ angular.module('mean.system')
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
     $scope.makeAWishFact = makeAWishFacts.pop();
 
+
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
         if ($scope.pickedCards.indexOf(card.id) < 0) {
@@ -24,6 +25,14 @@ angular.module('mean.system')
         } else {
           $scope.pickedCards.pop();
         }
+      }
+    };
+
+    $scope.pointerCursorStyle = function() {
+      if ($scope.isCzar() && $scope.game.state === 'waiting for czar to decide') {
+        return {'cursor': 'pointer'};
+      } else {
+        return {};
       }
     };
 

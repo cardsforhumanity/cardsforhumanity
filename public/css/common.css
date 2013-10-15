@@ -21,6 +21,9 @@
     word-wrap: break-word;
   }
 }
+.card.how-to {
+  font-size: 1.4rem;
+}
 .card #selection-number {
   position: absolute;
   bottom: 1px;
@@ -43,7 +46,6 @@
 }
 .card.smallest {
   font-size: 0.750em;
-  cursor: pointer;
 }
 @media (max-width: 480px) {
   .card.smallest {
@@ -234,6 +236,8 @@ body {
   height: 100%;
   width: 40%;
   float: left;
+  position: relative;
+  z-index: 999;
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
   width: 100%;
@@ -276,10 +280,12 @@ body {
   }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
+  font-family: 'Lobster', cursive;
   margin-bottom: 0px;
 }
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
+    font-family: 'Lobster', cursive;
     font-size: 10px;
     margin-top: 3px;
     margin-bottom: 5px;
@@ -538,7 +544,7 @@ body {
   background: #1F959C;
   padding: 0.65em 20px;
   margin: 10px;
-  width: 85%;
+  width: 65%;
   cursor: pointer;
 }
 @media (max-width: 480px) {
@@ -740,8 +746,9 @@ body {
   border-radius: 8px;
   text-align: center;
   overflow: hidden;
-  height: 30%;
+  height: 50%;
   position: relative;
+  margin-top: 10px;
   font-size: 30px;
 }
 @media (max-width: 480px) {
@@ -758,6 +765,38 @@ body {
   width: 80%;
   height: 50px;
   margin-top: 5%;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background-color: #fff;
+  color: black;
+  position: absolute;
+  bottom: 4%;
+  margin: 0 2%;
+  width: 96%;
+  padding: 3px;
+  text-align: left;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact-tagline {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  margin-left: 2%;
+  margin-bottom: 3px;
+  color: #000;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  width: 90%;
+  margin: 0 5% 3px 5%;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container img {
+  float: right;
+  margin-right: 2%;
+  margin-bottom: 3px;
 }
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
@@ -851,7 +890,3 @@ body {
 .gradientButton .donateNow {
   border-top: 0px solid black !important;
 }
-
-/*
-** End App CSS
-*/
