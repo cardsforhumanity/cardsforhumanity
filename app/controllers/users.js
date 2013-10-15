@@ -53,15 +53,25 @@ exports.session = function(req, res) {
  * to our Choose an Avatar page.
  */
 exports.checkAvatar = function(req, res) {
-  console.log('req.user',req.user);
-  User.findOne({
-    _id: req.user._id
-  })
-  .exec(function(err, user) {
-    if (user.avatar) {
-      res.redirect('/#!/app');
-    }
-  });
+  console.log('checkAvatar: req.user',req.user);
+  if (req.user && req.user._id) {
+    User.findOne({
+      _id: req.user._id
+    })
+    .exec(function(err, user) {
+      if (user.avatar !== undefined) {
+        console.log('user has an avatar; redirecting to game');
+        res.redirect('/#!/app');
+      } else {
+        console.log('user does not have an avatar; redirecting to avatar picker');
+        res.render('users/choose-avatar', {
+          title: 'Choose an Avatar!'
+        });
+      }
+    });
+  }
+  // If user doesn't even exist, redirect to /
+  //res.redirect('/');
 };
 
 /**
@@ -92,6 +102,8 @@ exports.create = function(req, res) {
  */
 exports.avatars = function(req, res) {
   // TODO: Update the current user's profile to include the avatar choice they've made
+  console.log('Received post avatars request from req.user:',req.user);
+
 };
 
 /**
