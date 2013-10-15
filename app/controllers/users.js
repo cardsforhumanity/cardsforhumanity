@@ -103,7 +103,19 @@ exports.create = function(req, res) {
 exports.avatars = function(req, res) {
   // TODO: Update the current user's profile to include the avatar choice they've made
   console.log('Received post avatars request from req.user:',req.user);
-
+  console.log('Post body:',req.body);
+  if (req.user && req.user._id && req.body.avatar !== undefined &&
+    /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
+    User.findOne({
+      _id: req.user._id
+    })
+    .exec(function(err, user) {
+      user.avatar = avatars[req.body.avatar];
+      console.log('user object after adding avatar', user);
+      user.save();
+    });
+  }
+  return res.redirect('/#!/app');
 };
 
 /**
