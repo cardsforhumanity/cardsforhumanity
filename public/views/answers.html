@@ -42,5 +42,7 @@
 <div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
   <div id="czar-blank-inner">
     You are the Card Czar. <br> Players are choosing their answers. Prepare to select a winner.
+    <br>
+    {{ makeAWishFact }}
   </div>
 </div>
