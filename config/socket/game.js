@@ -308,34 +308,36 @@ Game.prototype.pickCards = function(thisCardArray, thisPlayer) {
 Game.prototype.removePlayer = function(thisPlayer) {
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
 
-  // Just used to send the remaining players a notification
-  var playerName = this.players[playerIndex].username;
+  if (playerIndex !== -1) {
+    // Just used to send the remaining players a notification
+    var playerName = this.players[playerIndex].username;
 
-  // Remove player from this.players
-  this.players.splice(playerIndex,1);
+    // Remove player from this.players
+    this.players.splice(playerIndex,1);
 
-  if (this.state === "awaiting players") {
-    this.assignPlayerColors();
-  }
-
-  // Check if the player is the czar
-  if (this.czar === playerIndex) {
-    // If the player is the czar...
-    // If players are currently picking a card, advance to a new round.
-    if (this.state === "waiting for players to pick") {
-      clearTimeout(this.choosingTimeout);
-      this.sendNotification('The Czar left the game! Starting a new round.');
-      return this.stateChoosing(this);
-    } else if (this.state === "waiting for czar to decide") {
-      // If players are waiting on a czar to pick, auto pick.
-      this.sendNotification('The Czar left the game! First answer/s submitted wins!');
-      this.pickWinning(this.table[0].card[0].id, thisPlayer, true);
+    if (this.state === "awaiting players") {
+      this.assignPlayerColors();
     }
-  } else {
-    this.sendNotification(playerName+' has left the game.');
-  }
 
-  this.sendUpdate();
+    // Check if the player is the czar
+    if (this.czar === playerIndex) {
+      // If the player is the czar...
+      // If players are currently picking a card, advance to a new round.
+      if (this.state === "waiting for players to pick") {
+        clearTimeout(this.choosingTimeout);
+        this.sendNotification('The Czar left the game! Starting a new round.');
+        return this.stateChoosing(this);
+      } else if (this.state === "waiting for czar to decide") {
+        // If players are waiting on a czar to pick, auto pick.
+        this.sendNotification('The Czar left the game! First answer/s submitted wins!');
+        this.pickWinning(this.table[0].card[0].id, thisPlayer, true);
+      }
+    } else {
+      this.sendNotification(playerName+' has left the game.');
+    }
+
+    this.sendUpdate();
+  }
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {

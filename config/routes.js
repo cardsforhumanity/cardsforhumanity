@@ -5,10 +5,12 @@ module.exports = function(app, passport, auth) {
     var users = require('../app/controllers/users');
     app.get('/signin', users.signin);
     app.get('/signup', users.signup);
+    app.get('/chooseavatars', users.checkAvatar);
     app.get('/signout', users.signout);
 
     //Setting up the users api
     app.post('/users', users.create);
+    app.post('/users/avatars', users.avatars);
 
     app.post('/users/session', passport.authenticate('local', {
         failureRedirect: '/signin',

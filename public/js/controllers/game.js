@@ -108,6 +108,9 @@ angular.module('mean.system')
       $scope.showTable = false;
       $scope.winningCardPicked = false;
       $scope.makeAWishFact = makeAWishFacts.pop();
+      if (!$scope.makeAWishFact.length) {
+        makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
+      }
       $scope.pickedCards = [];
     });
 

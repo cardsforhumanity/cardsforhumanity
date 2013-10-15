@@ -1,0 +1,13 @@
+extends ../layouts/default
+
+block content
+  form.choose-avatar.form-horizontal(action="/users/avatars", method="post")
+
+    div(ng-controller="IndexController")
+      p You're almost there! Just pick an avatar from the options below!
+      div(ng-repeat="avatar in avatars")
+        input#avatar(name="avatar", type='radio', value="{{$index}}")
+        img(ng-src="{{avatar}}")
+
+    .form-actions
+      button.btn.btn-primary(type='submit') Let's Go!
