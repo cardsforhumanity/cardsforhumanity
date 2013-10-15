@@ -2,104 +2,129 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+  User = mongoose.model('User');
 var avatars = require('./avatars').all();
 
 /**
  * Auth callback
  */
 exports.authCallback = function(req, res, next) {
-    res.redirect('/#!/app');
+  res.redirect('/chooseavatars');
 };
 
 /**
  * Show login form
  */
 exports.signin = function(req, res) {
-    res.render('users/signin', {
-        title: 'Signin',
-        message: req.flash('error')
-    });
+  res.render('users/signin', {
+    title: 'Signin',
+    message: req.flash('error')
+  });
 };
 
 /**
  * Show sign up form
  */
 exports.signup = function(req, res) {
-    res.render('users/signup', {
-        title: 'Sign up',
-        user: new User()
-    });
+  res.render('users/signup', {
+    title: 'Sign up',
+    user: new User()
+  });
 };
 
 /**
  * Logout
  */
 exports.signout = function(req, res) {
-    req.logout();
-    res.redirect('/');
+  req.logout();
+  res.redirect('/');
 };
 
 /**
  * Session
  */
 exports.session = function(req, res) {
-    res.redirect('/');
+  res.redirect('/');
+};
+
+/** 
+ * Check avatar - Confirm if the user who logged in via passport
+ * already has an avatar. If they don't have one, redirect them
+ * to our Choose an Avatar page.
+ */
+exports.checkAvatar = function(req, res) {
+  console.log('req.user',req.user);
+  User.findOne({
+    _id: req.user._id
+  })
+  .exec(function(err, user) {
+    if (user.avatar) {
+      res.redirect('/#!/app');
+    }
+  });
 };
 
 /**
  * Create user
  */
 exports.create = function(req, res) {
-    var user = new User(req.body);
-    // Switch the user's avatar index to an actual avatar url
-    user.avatar = avatars[user.avatar];
-    user.provider = 'local';
-    user.save(function(err) {
-        if (err) {
-            return res.render('users/signup', {
-                errors: err.errors,
-                user: user
-            });
-        }
-        req.logIn(user, function(err) {
-            if (err) return next(err);
-            return res.redirect('/#!/app');
-        });
+  // TODO: This should check to see if the username/email already has an account
+  var user = new User(req.body);
+  // Switch the user's avatar index to an actual avatar url
+  user.avatar = avatars[user.avatar];
+  user.provider = 'local';
+  user.save(function(err) {
+    if (err) {
+      return res.render('users/signup', {
+        errors: err.errors,
+        user: user
+      });
+    }
+    req.logIn(user, function(err) {
+      if (err) return next(err);
+      return res.redirect('/#!/app');
     });
+  });
+};
+
+/**
+ * Assign avatar to user
+ */
+exports.avatars = function(req, res) {
+  // TODO: Update the current user's profile to include the avatar choice they've made
 };
 
 /**
  *  Show profile
  */
 exports.show = function(req, res) {
-    var user = req.profile;
+  var user = req.profile;
 
-    res.render('users/show', {
-        title: user.name,
-        user: user
-    });
+  res.render('users/show', {
+    title: user.name,
+    user: user
+  });
 };
 
 /**
  * Send User
  */
 exports.me = function(req, res) {
-    res.jsonp(req.user || null);
+  res.jsonp(req.user || null);
 };
 
 /**
  * Find user by id
  */
 exports.user = function(req, res, next, id) {
-    User
-        .findOne({
-            _id: id
-        })
-        .exec(function(err, user) {
-            if (err) return next(err);
-            if (!user) return next(new Error('Failed to load User ' + id));
-            req.profile = user;
-            next();
-        });
+  User
+    .findOne({
+      _id: id
+    })
+    .exec(function(err, user) {
+      if (err) return next(err);
+      if (!user) return next(new Error('Failed to load User ' + id));
+      req.profile = user;
+      next();
+    });
 };
