@@ -323,7 +323,6 @@ $color-background: #fff;
 
     &.smallest {
         font-size: 0.750em;
-        cursor: pointer;
 
         @include mobile-only{
             font-size: 10px; //play with later
@@ -388,231 +387,7 @@ body{
     width:70%
 }
 
-/*
-** START Home Page CSS
-*/
 
-.cont {
-    width: 100%;
-    margin: 0px auto;
-}
-
-.main-container{
-    width: 80%;
-    height: 100%;
-    margin: 0px auto;
-    font-family: $main-font;
-    @include tablet-landscape-and-below{
-        width: 90%;
-    }
-    @include mobile-landscape-and-below{
-        width: 100%;
-    }
-}
-
-#inner-container {
-    width: 100%;
-    font-size: 1em;
-    text-align: center;
-    font-weight: bold;
-
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    top: 20px;
-
-    &.longer-description {
-        border-bottom: 1px dashed #ddd;
-        text-align: justify;
-        line-height: 1.8;
-        background: #fff;
-        max-width: 620px;
-        font-size: 14px;
-        padding: 80px 40px;
-        margin: 0 auto;
-        width: 600px;
-        color: #333;
-    }
-
-    &.longer-description em {
-        font-style: normal;
-        font-size: 12px;
-        color: #666;
-    }
-
-    &.longer-description em:before {
-        content: '~';
-        margin: 0 10px;
-    }
-}
-
-
-#mission-statement-container {
-    height: 100%;
-    padding: 1%;
-
-    #slogan {
-        width: 100%;
-        font-size: 3.7em;
-        text-align: center;
-        font-weight: bold;
-        padding:2%;
-        @include desktop-and-below{
-            font-size: 2.8em;
-        }
-        @include tablet-portrait-and-below{
-            font-size: 2.3em;
-        }
-    }
-
-    #longer-description {
-        margin-top: 2%;
-        font-size: 1.6em;
-        width: 81%;
-        margin-left: 10%;
-        text-align: center;
-
-        @include tablet-landscape-and-below{
-            font-size: 1.4em;
-        }
-
-        #description-paragraphs {
-            font-weight: 400;
-
-            #main-question {
-                font-weight: 600;
-            }
-        }
-    }
-
-    #signup-guest-container{
-        width: 200px;
-        margin: 45px auto;
-
-        #signup-button-smaller {
-            @include button-smaller;
-            @include mobile-landscape-and-below{
-                height: 50px;
-                width: 100px;
-                line-height: 50px;
-                font-size: 19px;
-            }
-
-            &:hover {
-                @include button-hover-smaller;
-            }
-        }
-
-        #play-as-guest {
-            text-align: right;
-        }
-    }
-
-    #down_arrow {
-        bottom: 0;
-        height: 70px;
-        width: 64px;
-        margin: 0 auto;
-
-        a {
-            pointer: cursor;
-        }
-    }
-}
-
-#description-container{
-    height: 100%;
-    position: relative;
-    $description-width: 93%;
-    height: 100%;
-
-    #first-card{
-        width: ($description-width / 3) - 3;
-    }
-
-    #second-card{
-        width: ($description-width / 3) - 3;
-    }
-
-    #third-card{
-        width: ($description-width / 3) - 3;
-    }
-
-    @include tablet-landscape-and-below{
-        #first-card{
-            width: ($description-width / 3) - 5;
-        }
-
-        #second-card{
-            width: ($description-width / 3) - 5;
-        }
-
-        #third-card{
-            width: ($description-width / 3) - 5;
-        }
-    }
-
-    #inner-description-container{
-      height: 65%;
-      overflow: auto;
-      margin: auto;
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
-    }
-
-    #down_arrow_second {
-        bottom: 0;
-        height: 70px;
-        width: 64px;
-        margin: 0px auto;
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-    }
-}
-
-#join-game-container{
-    margin: 0px auto;
-    height: 100%;
-    position: relative;
-    width: 100%;
-
-    #up_arrow_second{
-        top: 0;
-        height: 70px;
-        width: 64px;
-        margin: 0px auto;
-        display: block;
-    }
-
-    #inner-join-container{
-      height: 65%;
-      width: 100%;
-      overflow: auto;
-      margin: auto;
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
-
-        #signup-button {
-            @include button;
-        }
-
-        #signup-button:hover {
-            @include button-hover;
-        }
-    }
-}
-
-/*
-** End Home Page CSS
-*/
-
-
-
-/*
-** START App CSS
-*/
 #main-container{
     height: 100%;
     #app-container {
@@ -1086,12 +861,27 @@ body{
                     height: 65%;
                 }
 
+                #charity-widget-container{
+                    width: 40%;
+                    float: left;
+
+                    @include mobile-only{
+                        display: none;
+                    }
+                }
+
                 #inner-info-exit{
                     width: 60%;
-                    margin: 0px auto;
                     position: relative;
                     overflow: hidden;
                     height: 100%;
+                    color: white;
+                    float: left;
+
+                    @include mobile-only{
+                        float: none;
+                        width: 80%;
+                    }
 
                     #people-left-game{
                         color: white;
@@ -1252,22 +1042,85 @@ body{
 }
 
 
+
+//Attempt to Modify our Charity Banner
+.crDonateWidget {
+    -webkit-box-shadow: 0px 0px 0px 0px transparent !important;
+    -moz-box-shadow: 0px 0px 0px 0px transparent !important;
+    box-shadow: 0px 0px 0px 0px transparent !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px !important;
+}
+
+.crDonateWidgetOuter {
+    text-align: center;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0) !important;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0) !important;
+    border: 0px solid #e6e6e6 !important;
+    margin: 0px 0px !important;
+}
+
+.crDonated{
+    margin-top: 2px !important;
+}
+
+.crImageAndTitle{
+    display: none;
+}
+
+.crImageAndTitleOuter{
+    display: none;
+}
+
+.startFundraiser{
+    display: none;
+}
+
+#crDonateWidget_cfhio_cards4humanity{
+    width: 90% !important;
+    margin-top: 67px !important;
+    
+    .crDonateTriangle{
+        right: 6px !important;
+    }
+    h4{
+        margin-bottom: 8px !important;
+    }
+}
+
+
+
+.gradientButton{
+    width: 80% !important;
+    margin-top: 8px !important;
+    background: rgb(244,120,31) !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px !important;
+    text-transform: none !important;
+    .donateNow{
+        border-top: 0px solid black !important;
+    }
+}
+
 /*
 ** End App CSS
 */
 
-footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background:#ddd;
-    -webkit-box-shadow:0 8px 6px 6px black;
-    -moz-box-shadow:0 8px 6px 6px black;
-    box-shadow:0 8px 6px 6px black;
-    p {
-        padding:5px 0 12px 10px;
-    }
-}
+// footer {
+//     position:fixed;
+//     left:0px;
+//     bottom:0px;
+//     height:30px;
+//     width:100%;
+//     background:#ddd;
+//     -webkit-box-shadow:0 8px 6px 6px black;
+//     -moz-box-shadow:0 8px 6px 6px black;
+//     box-shadow:0 8px 6px 6px black;
+//     p {
+//         padding:5px 0 12px 10px;
+//     }
+// }
 
