@@ -73,9 +73,11 @@ exports.checkAvatar = function(req, res) {
         });
       }
     });
+  } else {
+    // If user doesn't even exist, redirect to /
+    res.redirect('/');
   }
-  // If user doesn't even exist, redirect to /
-  //res.redirect('/');
+
 };
 
 /**
@@ -105,7 +107,7 @@ exports.create = function(req, res) {
  * Assign avatar to user
  */
 exports.avatars = function(req, res) {
-  // TODO: Update the current user's profile to include the avatar choice they've made
+  // Update the current user's profile to include the avatar choice they've made
   if (req.user && req.user._id && req.body.avatar !== undefined &&
     /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
     User.findOne({
