@@ -81,7 +81,8 @@ angular.module('mean.system')
     var newState = (data.state !== game.state);
 
     //Handle updating game.time
-    if (data.round !== game.round && data.state !== 'awaiting players') {
+    if (data.round !== game.round && data.state !== 'awaiting players'
+      && data.state !=='game ended' && data.state !== 'game dissolved') {
       game.time = game.timeLimits.stateChoosing - 1;
       timeSetViaUpdate = true;
     } else if (newState && data.state === 'waiting for czar to decide') {
@@ -156,6 +157,7 @@ angular.module('mean.system')
       }, 15000);
     } else if (data.state === 'game dissolved' || data.state === 'game ended') {
       game.players[game.playerIndex].hand = [];
+      game.time = 0;
     }
   });
 
