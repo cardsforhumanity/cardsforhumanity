@@ -236,6 +236,8 @@ body {
   height: 100%;
   width: 40%;
   float: left;
+  position: relative;
+  z-index: 999;
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
   width: 100%;

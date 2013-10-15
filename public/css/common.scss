@@ -520,6 +520,8 @@ body{
                         height: 100%;
                         width: 40%;
                         float: left;
+                        position: relative;
+                        z-index: 999;
 
                         img {
                             width: 100%;
