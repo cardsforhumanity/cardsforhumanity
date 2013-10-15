@@ -829,6 +829,9 @@ body{
                 @include br;
                 text-align: center;
                 padding: 15px;
+                height: 50%;
+                margin-top: 10px;
+
 
                 @include mobile-only{
                     width: 100%;
@@ -838,18 +841,40 @@ body{
                 }
 
                 #inner-info{
-                    h1{
-                        font-size: 22px;
-                        margin-top: 5px;
-                        margin-bottom: 5px;
-                    }
-                }
+                    width: 90%;
+                    margin: 0 5%;
 
-                #inner-text{
-                    font-size: 22px;
-                    @include mobile-only{
-                        font-size: 15px;
-                        padding: 0px 10px 10px 10px;
+                    #lobby-how-to-play{
+                        font-size: 18px;
+                        margin-top: 10px;
+                        @include mobile-only{
+                            font-size: 15px;
+                        }
+                    }
+
+                    #lobby-cfh{
+                        font-family: 'Lobster', cursive;
+                        font-size: 24px;
+                        @include mobile-only{
+                            font-size: 20px;
+                        }
+                    }
+
+                    ol{
+                        margin-top: 10px;
+                        font-family: $main-font;
+                        text-align: left;
+                        font-size: 17px;
+
+                        li{
+                            list-style-type: decimal;
+                            margin-bottom: 5px;
+                        }
+
+                        @include mobile-only{
+                            font-size: 13px;
+                            padding: 0px 10px 10px 10px;
+                        }
                     }
                 }
             }
@@ -1087,7 +1112,7 @@ body{
 #crDonateWidget_cfhio_cards4humanity{
     width: 90% !important;
     margin-top: 67px !important;
-    
+
     .crDonateTriangle{
         right: 6px !important;
     }
