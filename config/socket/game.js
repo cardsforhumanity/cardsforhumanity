@@ -305,6 +305,15 @@ Game.prototype.pickCards = function(thisCardArray, thisPlayer) {
   }
 };
 
+Game.prototype.getPlayer = function(thisPlayer) {
+  var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
+  if (playerIndex > -1) {
+    return this.players[playerIndex];
+  } else {
+    return {};
+  }
+};
+
 Game.prototype.removePlayer = function(thisPlayer) {
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
 

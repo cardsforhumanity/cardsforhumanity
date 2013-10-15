@@ -12,7 +12,6 @@ module.exports = function(io) {
   var game;
   var allGames = {};
   var gamesNeedingPlayers = [];
-  var gamesWithFriends = [];
   var gameID = 0;
 
   io.sockets.on('connection', function (socket) {
@@ -58,7 +57,6 @@ module.exports = function(io) {
     });
 
     socket.on('createGameWithFriends', function() {
-      exitGame(socket);
       createGameWithFriends(socket);
     });
 
@@ -107,7 +105,16 @@ module.exports = function(io) {
       var game = allGames[requestedGameId];
       if (game.state === 'awaiting players') {
         // Put player into the requested game
-
+        game.players.push(player);
+        socket.join(game.gameID);
+        socket.gameID = game.gameID;
+        game.assignPlayerColors();
+        game.sendUpdate();
+        game.sendNotification(player.username+' has joined the game!');
+        if (game.players.length >= game.playerMaxLimit) {
+          gamesNeedingPlayers.shift();
+          game.prepareGame();
+        }
       } else {
         // TODO: Send an error message back to this user saying the game has already started
       }
@@ -129,7 +136,7 @@ module.exports = function(io) {
       gamesNeedingPlayers.push(game);
       socket.join(game.gameID);
       socket.gameID = game.gameID;
-      console.log('Create new Game');
+      console.log('Create new Game',game.gameID);
       game.assignPlayerColors();
       game.sendUpdate();
     } else {
@@ -150,19 +157,31 @@ module.exports = function(io) {
   var createGameWithFriends = function(socket) {
     var isUniqueRoom = false;
     var uniqueRoom = '';
-    // Generate a random 6-character game ID
-    while (!isUniqueRoom) {
-      uniqueRoom = '';
-      for (var i = 0; i < 6; i++) {
-        uniqueRoom += chars[Math.floor(Math.random()*chars.length)];
-      }
-      if (!allGames[uniqueRoom]) {
-        isUniqueRoom = true;
-      }
-    }
-    console.log('created unique game',uniqueRoom);
-    var game = new Game(uniqueRoom,io);
+    // Get player object before we take this player out of the existing game.
+    var existingGame = allGames[socket.gameID];
+    var player = existingGame.getPlayer(socket.id);
 
+    if (Object.keys(player).length !== 0) {
+      exitGame(socket);
+      // Generate a random 6-character game ID
+      while (!isUniqueRoom) {
+        uniqueRoom = '';
+        for (var i = 0; i < 6; i++) {
+          uniqueRoom += chars[Math.floor(Math.random()*chars.length)];
+        }
+        if (!allGames[uniqueRoom]) {
+          isUniqueRoom = true;
+        }
+      }
+      console.log('Created unique game',uniqueRoom);
+      var game = new Game(uniqueRoom,io);
+      game.players.push(player);
+      allGames[gameID] = game;
+      socket.join(game.gameID);
+      socket.gameID = game.gameID;
+      game.assignPlayerColors();
+      game.sendUpdate();
+    }
   };
 
   var exitGame = function(socket) {
