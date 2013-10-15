@@ -15,25 +15,38 @@ angular.module('mean.directives', [])
 
         scope.$watch('game.state', function() {
           if (scope.game.state === 'winner has been chosen') {
-            var curQuestionArr = scope.game.curQuestion.text.split('_');
+            var curQ = scope.game.curQuestion;
+            var curQuestionArr = curQ.text.split('_');
             var startStyle = "<span style='color: "+scope.colors[scope.game.players[scope.game.winningCardPlayer].color]+"'>";
             var endStyle = "</span>";
-            if (curQuestionArr.length > 1) {
-              var cardText = scope.game.table[scope.game.winningCard].card[0].text;
-              if (cardText.indexOf('.') === cardText.length-1) {
+            var shouldRemoveQuestionPunctuation = false;
+            var removePunctuation = function(cardIndex) {
+              var cardText = scope.game.table[scope.game.winningCard].card[cardIndex].text;
+              if (cardText.indexOf('.',cardText.length-2) === cardText.length-1) {
                 cardText = cardText.slice(0,cardText.length-1);
+              } else if ((cardText.indexOf('!',cardText.length-2) === cardText.length-1 ||
+                cardText.indexOf('?',cardText.length-2) === cardText.length-1) &&
+                cardIndex === curQ.numAnswers-1) {
+                shouldRemoveQuestionPunctuation = true;
               }
+              return cardText;
+            };
+            if (curQuestionArr.length > 1) {
+              var cardText = removePunctuation(0);
               curQuestionArr.splice(1,0,startStyle+cardText+endStyle);
-              if (scope.game.curQuestion.numAnswers === 2) {
-                cardText = scope.game.table[scope.game.winningCard].card[1].text;
-                if (cardText.indexOf('.') === cardText.length-1) {
-                  cardText = cardText.slice(0,cardText.length-1);
-                }
+              if (curQ.numAnswers === 2) {
+                cardText = removePunctuation(1);
                 curQuestionArr.splice(3,0,startStyle+cardText+endStyle);
               }
-              scope.game.curQuestion.text = curQuestionArr.join("");
+              curQ.text = curQuestionArr.join("");
+              // Clean up the last punctuation mark in the question if there already is one in the answer
+              if (shouldRemoveQuestionPunctuation) {
+                if (curQ.text.indexOf('.',curQ.text.length-2) === curQ.text.length-1) {
+                  curQ.text = curQ.text.slice(0,curQ.text.length-2);
+                }
+              }
             } else {
-              scope.game.curQuestion.text += ' '+startStyle+scope.game.table[scope.game.winningCard].card[0].text+endStyle;
+              curQ.text += ' '+startStyle+scope.game.table[scope.game.winningCard].card[0].text+endStyle;
             }
           }
         });
