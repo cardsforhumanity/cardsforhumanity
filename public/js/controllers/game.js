@@ -1,10 +1,11 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', function ($scope, game, $timeout) {
+.controller('GameController', ['$scope', 'game', '$timeout', 'MakeAWishFactsService', function ($scope, game, $timeout, MakeAWishFactsService) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
     $scope.game = game;
     $scope.pickedCards = [];
+    $scope.makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
 
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
