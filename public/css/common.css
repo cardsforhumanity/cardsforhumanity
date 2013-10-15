@@ -555,10 +555,12 @@ body {
   }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
+  font-family: 'Lobster', cursive;
   margin-bottom: 0px;
 }
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
+    font-family: 'Lobster', cursive;
     font-size: 10px;
     margin-top: 3px;
     margin-bottom: 5px;
@@ -817,7 +819,7 @@ body {
   background: #1F959C;
   padding: 0.65em 20px;
   margin: 10px;
-  width: 85%;
+  width: 65%;
   cursor: pointer;
 }
 @media (max-width: 480px) {
@@ -1041,7 +1043,7 @@ body {
   font-size: 22px;
   margin-left: 2%;
   margin-bottom: 3px;
-  color: #0076BD;
+  color: #000;
 }
 #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact {
   font-size: 14px;
