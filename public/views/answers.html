@@ -4,8 +4,8 @@
   </div>
   <div id="cards" class='hand'>
     <span ng-show="winnerPicked()"></span>
-    <div class="card smallest" id='answers' ng-hide="showTable || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
-          <span ng-bind-html-unsafe="card.text"></span>
+    <div ng-style="{'cursor': 'pointer'}" class="card smallest" id='answers' ng-hide="showTable || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
+        <span ng-bind-html-unsafe="card.text"></span>
         <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>

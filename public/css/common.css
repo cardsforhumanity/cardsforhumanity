@@ -43,7 +43,6 @@
 }
 .card.smallest {
   font-size: 0.750em;
-  cursor: pointer;
 }
 @media (max-width: 480px) {
   .card.smallest {
