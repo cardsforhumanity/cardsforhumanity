@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', 'MakeAWishFactsService', function ($scope, game, $timeout, MakeAWishFactsService) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', function ($scope, game, $timeout, $location, MakeAWishFactsService) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -87,9 +87,10 @@ angular.module('mean.system')
       game.startGame();
     };
 
-    // $scope.alertIt = function(){
-    //   // alert('worked');
-    // };
+    $scope.abandonGame = function() {
+      game.leaveGame();
+      $location.path('/');
+    };
 
     // Catches changes to round to update when no players pick card
     // (because game.state remains the same)
