@@ -1,10 +1,5 @@
 @charset "utf-8";
 
-/*
- * Theme Name: Flatnica
- * Author: WpBrickr
- * Created: 07/10/2013
- */
 
  
  
@@ -565,7 +560,6 @@
  }
 
  #team {
-   /*margin-top: 130px;*/
    max-width: 1400px;
  }
 
