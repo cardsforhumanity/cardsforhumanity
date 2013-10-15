@@ -5,25 +5,12 @@
  * Author: WpBrickr
  * Created: 07/10/2013
  */
- 
- html, body {
-   margin: 0;
-   padding: 0;
-   height: 100%;
-   font-family: 'Montserrat', sans-serif;
-   background-color: white;
- }
- 
- body {
-   font-family: 'Montserrat', sans-serif;
-   font-size: 12px;
-   
- }
+
  
  
  h1, h2, h3, h4, h5, h6, p {
-   font-family: 'Montserrat', sans-serif !important;
-   color: #ffffff !important;
+/*   font-family: 'Montserrat', sans-serif !important;
+   color: #ffffff !important;*/
  }
  
  h1, h2, h3, h4, h5, h6 {
@@ -101,7 +88,7 @@
    padding: 5px;
 }
 
-#logo {
+#landing-logo {
    margin: 5px 0 5px 0px;
    font-size: 28px;
    font-family: 'Lobster', cursive;
@@ -128,7 +115,7 @@
    background: transparent;
    position: fixed;
    top:0;
-   width: 100%;
+   width: 96%;
    z-index:10000;
    max-width: 1400px;
  }
@@ -383,6 +370,7 @@
 
  #slogan {
    text-align: center;
+   color: white;
  } 
  
  .wpb-teaser .wpb-text p {
