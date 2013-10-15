@@ -1,29 +1,35 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', function ($scope, game, $timeout) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', function ($scope, game, $timeout, $location, MakeAWishFactsService) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
+    $scope.showTable = false;
     $scope.game = game;
     $scope.pickedCards = [];
+    var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
+    $scope.makeAWishFact = makeAWishFacts.pop();
 
     $scope.pickCard = function(card) {
-      if ($scope.pickedCards.indexOf(card.id) < 0) {
-        $scope.pickedCards.push(card.id);
-        if (game.curQuestion.numAnswers === 1) {
-          $scope.sendPickedCards();
-        } else if (game.curQuestion.numAnswers === 2 &&
-          $scope.pickedCards.length === 2) {
-          //delay and send
-          // $scope.sendPickedCards();
-          $timeout($scope.sendPickedCards, 300);
+      if (!$scope.hasPickedCards) {
+        if ($scope.pickedCards.indexOf(card.id) < 0) {
+          $scope.pickedCards.push(card.id);
+          if (game.curQuestion.numAnswers === 1) {
+            $scope.sendPickedCards();
+            $scope.hasPickedCards = true;
+          } else if (game.curQuestion.numAnswers === 2 &&
+            $scope.pickedCards.length === 2) {
+            //delay and send
+            $scope.hasPickedCards = true;
+            $timeout($scope.sendPickedCards, 300);
+          }
+        } else {
+          $scope.pickedCards.pop();
         }
-      } else {
-        $scope.pickedCards.pop();
       }
     };
 
     $scope.sendPickedCards = function() {
       game.pickCards($scope.pickedCards);
-      $scope.hasPickedCards = true;
+      $scope.showTable = true;
     };
 
     $scope.cardIsFirstSelected = function(card) {
@@ -81,11 +87,18 @@ angular.module('mean.system')
       game.startGame();
     };
 
+    $scope.abandonGame = function() {
+      game.leaveGame();
+      $location.path('/');
+    };
+
     // Catches changes to round to update when no players pick card
     // (because game.state remains the same)
     $scope.$watch('game.round', function() {
       $scope.hasPickedCards = false;
+      $scope.showTable = false;
       $scope.winningCardPicked = false;
+      $scope.makeAWishFact = makeAWishFacts.pop();
       $scope.pickedCards = [];
     });
 

@@ -1,13 +1,16 @@
 <div ng-cloak id="cards-container" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'">
-  <div id="cards">
-    <h1 ng-show="winnerPicked()"></h1>
-    <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
-          {{card.text}}
+  <div id="social-bar-container">
+    <player></player>
+  </div>
+  <div id="cards" class='hand'>
+    <span ng-show="winnerPicked()"></span>
+    <div ng-style="{'cursor': 'pointer'}" class="card smallest" id='answers' ng-hide="showTable || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
+        <span ng-bind-html-unsafe="card.text"></span>
         <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>
     <span ng-repeat="answer in game.table">
-        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated flipInX'}" style="background-color:{{winningColor($parent.$index)}}">
+        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="showTable || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated pulse'}" style="background-color:{{winningColor($parent.$index)}}">
             <span ng-bind-html-unsafe="card.text"></span>
         </div>
     </span>
@@ -17,14 +20,14 @@
   <div id="inner-info">
     <h1> Cards for Humanity </h1>
     <div id='inner-text'>
-      Aliquip natoque gravida eos unde sunt. Beatae aperiam, turpis provident consequat non quisquam saepe do, quaerat quis conubia, labore! At. Rhoncus harum aliquam egestas ipsum feugiat? Rem dignissim aliquip? Provident! Auctor explicabo elit officiis, sapien ullamcorper, ante posuere senectus, amet, mi mus dicta lacus alias. Tenetur, euismod nostra cupidatat aliquam! Accusamus iusto! Facilisis consequatur. Repudiandae consequat diamlorem dolores mi laoreet. Quaerat dictum occaecat similique aliquip fames habitant.
+      Cards for Humanity is a Web App version of the card game 'Cards Against Humanity'. Cards for Humanity is a Web App version of the card game 'Cards Against Humanity'. 
     </div>
   </div>
 </div>
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
-    <h2 ng-show="game.state ==='game dissolved'">Oh no! Too many people left. What would you like to do?</h2>
-    <h1 ng-show="game.state === 'game ended'">{{game.players[game.gameWinner].username}} won the game!</h1>
+    <h2 id="people-left-game" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">The game ended because too many people left. What would you like to do now?</h2>
+    <h1 ng-show="game.state === 'game ended' || game.gameWinner !== -1">{{game.players[game.gameWinner].username}} won the game!</h1>
     <div id='inner-text-container'>
       <a href='/#!/app'>
       <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
@@ -35,10 +38,27 @@
       </div></a>
     </div>
   </div>
+  <div id="charity-widget-container">
+      <a href="http://www.crowdrise.com" id="crowdriseStaticLink-fundraiser-121142" title="Fundraising Websites on Crowdrise">Fundraising Websites - Crowdrise</a>
+      <script type="text/javascript" src="https://www.crowdrise.com/widgets/donate/fundraiser/121142/"></script>
+  </div>
 </div>
-<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved'">
+<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
   <div id="czar-blank-inner">
-    You are the Card Czar.</br>
-    Players are choosing their answers.
+    You are the Card Czar. <br> Players are choosing their answers. Prepare to select a winner.
+    <br>
+    {{ makeAWishFact }}
+  </div>
+  <div id='charity-fact-container'>
+    <div id='charity-fact-tagline'>Did you know?</div>
+
+    <div id='charity-fact'>
+      Parents and volunteers observe that a wish come true makes kids feel stronger and more energetic.
+    </div>
+
+    <div id='charity-logo-container'>
+      <img src='/img/make-a-wish-logo.png'/>
+    </div>
+
   </div>
 </div>
