@@ -15,6 +15,7 @@ angular.module('mean.system')
     pointLimit: null,
     state: null,
     round: 0,
+    time: 0,
     curQuestion: null,
     notification: null,
     timeLimits: {},
@@ -43,6 +44,16 @@ angular.module('mean.system')
     }
   };
 
+  var timeSetViaUpdate = false;
+  var decrementTime = function() {
+    if (game.time > 0 && !timeSetViaUpdate) {
+      game.time--;
+    } else {
+      timeSetViaUpdate = false;
+    }
+    $timeout(decrementTime, 950);
+  };
+
   socket.on('id', function(data) {
     game.id = data.id;
   });
@@ -65,6 +76,20 @@ angular.module('mean.system')
       if (game.id === data.players[i].socketID) {
         game.playerIndex = i;
       }
+    }
+
+    var newState = (data.state !== game.state);
+
+    //Handle updating game.time
+    if (data.round !== game.round) {
+      game.time = game.timeLimits.stateChoosing - 1;
+      timeSetViaUpdate = true;
+    } else if (newState && data.state === 'waiting for czar to decide') {
+      game.time = game.timeLimits.stateJudging - 1;
+      timeSetViaUpdate = true;
+    } else if (newState && data.state === 'winner has been chosen') {
+      game.time = game.timeLimits.stateResults - 1;
+      timeSetViaUpdate = true;
     }
 
     // Set these properties on each update
@@ -92,8 +117,6 @@ angular.module('mean.system')
       }
     }
 
-    var newState = (data.state !== game.state);
-
     if (game.state !== 'waiting for players to pick') {
       game.players = data.players;
     }
@@ -117,7 +140,7 @@ angular.module('mean.system')
         }
       }
 
-    } else if (data.state === 'winner has been chosen') {
+    } else if (data.state === 'winner has been chosen' && data.state !== game.state) {
       game.curQuestion = data.curQuestion;
     } else if (data.state === 'awaiting players') {
       joinOverrideTimeout = $timeout(function() {
@@ -154,6 +177,8 @@ angular.module('mean.system')
   game.pickWinning = function(card) {
     socket.emit('pickWinning',{card: card.id});
   };
+
+  decrementTime();
 
   return game;
 }]);

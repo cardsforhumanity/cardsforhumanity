@@ -5,10 +5,10 @@
 // window.init = function() {
 //     window.bootstrap();
 // };
-
+if (window.location.hash == "#_=_") window.location.hash = "#!";
 // $(document).ready(function() {
 //     //Fixing facebook bug with redirect
-//     if (window.location.hash == "#_=_") window.location.hash = "";
+    
 
 //     //Then init the app
 //     window.init();

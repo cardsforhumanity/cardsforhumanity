@@ -3,10 +3,9 @@ var mongoose = require('mongoose'),
     TwitterStrategy = require('passport-twitter').Strategy,
     FacebookStrategy = require('passport-facebook').Strategy,
     GitHubStrategy = require('passport-github').Strategy,
-    GoogleStrategy = require('passport-google-oauth').Strategy,
+    GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     User = mongoose.model('User'),
     config = require('./config');
-    
 
 
 module.exports = function(passport) {
@@ -19,6 +18,9 @@ module.exports = function(passport) {
         User.findOne({
             _id: id
         }, function(err, user) {
+            user.email = null;
+            user.facebook = null;
+            user.hashed_password = null;
             done(err, user);
         });
     });
@@ -45,6 +47,8 @@ module.exports = function(passport) {
                         message: 'Invalid password'
                     });
                 }
+                user.email = null;
+                user.hashed_password = null;
                 return done(null, user);
             });
         }
@@ -52,8 +56,8 @@ module.exports = function(passport) {
 
     //Use twitter strategy
     passport.use(new TwitterStrategy({
-            consumerKey: config.twitter.clientID,
-            consumerSecret: config.twitter.clientSecret,
+            consumerKey: process.env.TWITTER_CONSUMER_KEY || config.twitter.clientID,
+            consumerSecret: process.env.TWITTER_CONSUMER_SECRET || config.twitter.clientSecret,
             callbackURL: config.twitter.callbackURL
         },
         function(token, tokenSecret, profile, done) {
@@ -83,8 +87,8 @@ module.exports = function(passport) {
 
     //Use facebook strategy
     passport.use(new FacebookStrategy({
-            clientID: config.facebook.clientID,
-            clientSecret: config.facebook.clientSecret,
+            clientID: process.env.FB_CLIENT_ID || config.facebook.clientID,
+            clientSecret: process.env.FB_CLIENT_SECRET || config.facebook.clientSecret,
             callbackURL: config.facebook.callbackURL
         },
         function(accessToken, refreshToken, profile, done) {
@@ -95,6 +99,7 @@ module.exports = function(passport) {
                     return done(err);
                 }
                 if (!user) {
+                    console.log(profile);
                     user = new User({
                         name: profile.displayName,
                         email: profile.emails[0].value,
@@ -104,9 +109,11 @@ module.exports = function(passport) {
                     });
                     user.save(function(err) {
                         if (err) console.log(err);
+                        user.facebook = null;
                         return done(err, user);
                     });
                 } else {
+                    user.facebook = null;
                     return done(err, user);
                 }
             });
@@ -115,14 +122,17 @@ module.exports = function(passport) {
 
     //Use github strategy
     passport.use(new GitHubStrategy({
-            clientID: config.github.clientID,
-            clientSecret: config.github.clientSecret,
+            clientID: process.env.GITHUB_CLIENT_ID || config.github.clientID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET || config.github.clientSecret,
             callbackURL: config.github.callbackURL
         },
         function(accessToken, refreshToken, profile, done) {
             User.findOne({
                 'github.id': profile.id
             }, function(err, user) {
+                if (err) {
+                    return done(err);
+                }
                 if (!user) {
                     user = new User({
                         name: profile.displayName,
@@ -144,14 +154,17 @@ module.exports = function(passport) {
 
     //Use google strategy
     passport.use(new GoogleStrategy({
-            consumerKey: config.google.clientID,
-            consumerSecret: config.google.clientSecret,
+            clientID: process.env.GOOGLE_CLIENT_ID || config.google.clientID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET || config.google.clientSecret,
             callbackURL: config.google.callbackURL
         },
         function(accessToken, refreshToken, profile, done) {
             User.findOne({
                 'google.id': profile.id
             }, function(err, user) {
+                if (err) {
+                    return done(err);
+                }
                 if (!user) {
                     user = new User({
                         name: profile.displayName,

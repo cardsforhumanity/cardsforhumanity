@@ -17,7 +17,7 @@
  body {
    font-family: 'Montserrat', sans-serif;
    font-size: 12px;
-   margin-top: 100px;
+   
  }
  
  
@@ -348,7 +348,8 @@
    width: 90%;
    margin: 0px auto;
    border-radius: 8px;
-   margin-top: -30px;
+   margin-top: 70px;
+   padding: 30px;
  }
  
  .wpb-teaser .background-opacity {
@@ -471,6 +472,25 @@
    display: inline-block;
    vertical-align: top;
  }
+
+
+ #sign-up-btn {
+   display: inline-block;
+   border-radius: 8px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   font-size: 20px;
+   font-size: 2.45rem;
+   font-weight: 400;
+   text-align: center;
+   color: white;
+   background: #C54141;
+   margin-top: 3px;
+   margin-bottom: 3px;
+   margin-right: 10px;
+   padding: 0.65em 35px;
+   cursor: pointer;
+ }
  
  
  /**** About Us ****/
@@ -488,6 +508,12 @@
 
  #how-to {
    max-width: 1400px;
+   margin-top: -15px;
+ }
+
+ #tech-stack {
+   max-width: 1400px;
+   margin-top: -15px;
  }
 
  #how-to-play {
@@ -502,28 +528,50 @@
    padding-top: 0;
  }
 
+ #card-list {
+   margin-bottom: 15px;
+ }
+
  #directions {
    font-family: 'Lobster', cursive;
    color: #FC575E;
  }
 
+ #sign-up {
+   text-align: center;
+ }
+
 #sign-up-text {
    margin: 0px auto;
-   font-size: 28px;
+   font-size: 18px;
    font-family: 'Lobster', cursive;
    border-radius: 8px;
    background: #252525;
-   width: 17%;
+   margin-left: 40px;
+   overflow: hidden;
+}
+.tech-info {
+   margin-top: 25px;
 }
 
  #tech-stack {
    margin-top: 190px;
  }
 
+ #tech-stack img {
+   width: 65%;
+ }
+
+ #ang-logo {
+   width: 49% !important;
+ }
+
  /**** Portfolio ****/ 
  .wpb-portfolio-list .wpb-portfolio-item {
-   margin-left: 0px;
-   margin-right: 10px;
+   margin-left: 10px;
+   list-style-type: none;
+   width: 30%;
+   float: left;
  }
  
  .wpb-portfolio-list .wpb-portfolio-item:nth-child(3n) {
@@ -533,6 +581,8 @@
  .wpb-portfolio-item {
    background-color: #fff;
    margin-bottom: 20px;
+   width: 21%;
+   float: left;
  }
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail {
@@ -541,8 +591,14 @@
    position:relative;
  }
  
- .wpb-portfolio-item .wpb-portfolio-thumbnail:hover .wpb-portfolio-overlay {
+ .wpb-portfolio-item .wpb-portfolio-thumbnail:hover .wpb-portfolio-overlay:hover {
+   -webkit-transition: opacity 0.5s ease;
+   -moz-transition: opacity 0.5s ease;
+   -ms-transition: opacity 0.5s ease;
+   -o-transition:  opacity 0.5s ease;
+   transition:  opacity 0.5s ease; 
    opacity:1;
+   background: rgba(26, 204, 113, 0.6);
  }
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail>img {
@@ -551,19 +607,14 @@
  }
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay {
-   -webkit-transition: opacity 0.5s ease;
-   -moz-transition: opacity 0.5s ease;
-   -ms-transition: opacity 0.5s ease;
-   -o-transition:  opacity 0.5s ease;
-   transition:  opacity 0.5s ease; 
    position: absolute;
    top:0;
    left:0;
    width: 100%;
    height: 100%;
    z-index:1001;
-   background: rgba(26, 204, 113, 0.6);
-   opacity:0;
+   background: url('img/mongo-logo.png');
+   /*opacity:0;*/
  }
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {

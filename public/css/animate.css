@@ -25,6 +25,13 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	        animation-fill-mode: both;
 }
 
+.animated.quick {
+  -webkit-animation-duration: 0.5s;
+     -moz-animation-duration: 0.5s;
+       -o-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
 .animated.hinge {
 	-webkit-animation-duration: 2s;
 	   -moz-animation-duration: 2s;
