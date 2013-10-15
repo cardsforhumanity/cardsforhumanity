@@ -170,6 +170,10 @@ angular.module('mean.system')
     socket.emit(mode,{userID: userID, room: room});
   };
 
+  game.createGameWithFriends = function() {
+    socket.emit('createGameWithFriends');
+  };
+
   game.startGame = function() {
     socket.emit('startGame');
   };

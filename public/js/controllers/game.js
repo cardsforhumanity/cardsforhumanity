@@ -96,6 +96,10 @@ angular.module('mean.system')
       game.startGame();
     };
 
+    $scope.createGameWithFriends = function() {
+      game.createGameWithFriends();
+    };
+
     $scope.abandonGame = function() {
       game.leaveGame();
       $location.path('/');

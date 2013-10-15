@@ -57,6 +57,11 @@ module.exports = function(io) {
       joinGame(socket,data);
     });
 
+    socket.on('createGameWithFriends', function() {
+      exitGame(socket);
+      createGameWithFriends(socket);
+    });
+
     socket.on('leaveGame', function() {
       socket.leave(socket.gameID);
       exitGame(socket);
@@ -102,7 +107,7 @@ module.exports = function(io) {
       var game = allGames[requestedGameId];
       if (game.state === 'awaiting players') {
         // Put player into the requested game
-        
+
       } else {
         // TODO: Send an error message back to this user saying the game has already started
       }
@@ -114,6 +119,7 @@ module.exports = function(io) {
   };
 
   var fireGame = function(player,socket) {
+    var game;
     if (gamesNeedingPlayers.length <= 0) {
       gameID += 1;
       var gameIDStr = gameID.toString();
@@ -139,6 +145,24 @@ module.exports = function(io) {
         game.prepareGame();
       }
     }
+  };
+
+  var createGameWithFriends = function(socket) {
+    var isUniqueRoom = false;
+    var uniqueRoom = '';
+    // Generate a random 6-character game ID
+    while (!isUniqueRoom) {
+      uniqueRoom = '';
+      for (var i = 0; i < 6; i++) {
+        uniqueRoom += chars[Math.floor(Math.random()*chars.length)];
+      }
+      if (!allGames[uniqueRoom]) {
+        isUniqueRoom = true;
+      }
+    }
+    console.log('created unique game',uniqueRoom);
+    var game = new Game(uniqueRoom,io);
+
   };
 
   var exitGame = function(socket) {
