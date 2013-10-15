@@ -197,7 +197,6 @@ body {
     position: relative;
     top: 0;
     left: 0;
-    background: white;
   }
 }
 #main-container #app-container #social-bar-container #player-container {
@@ -419,13 +418,14 @@ body {
   text-indent: 0;
   text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
-  background: #89FFAC;
+  background: #FFF;
   text-shadow: none;
   cursor: default;
   border: none;
   min-width: 85px;
   min-height: 85px;
   height: 100%;
+  color: #000;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
   position: absolute;
@@ -434,27 +434,28 @@ body {
   padding-top: 5px;
   padding-bottom: 8px;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.61);
-  opacity: 0.7;
-  -webkit-border-radius: 0 0 8px 8px;
-  -moz-border-radius: 0 0 8px 8px;
-  border-radius: 0 0 8px 8px;
-  color: white;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
     font-size: 13px;
   }
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+    font-size: 12px;
+  }
+}
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
+  font-family: 'Lobster', cursive;
   font-size: 110px;
   position: absolute;
+  bottom: 25%;
   left: 0;
   right: 0;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
-    font-size: 80px;
+    font-size: 90px;
   }
 }
 @media (max-width: 480px) {
