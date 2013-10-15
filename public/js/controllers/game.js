@@ -87,6 +87,10 @@ angular.module('mean.system')
       game.startGame();
     };
 
+    // $scope.alertIt = function(){
+    //   // alert('worked');
+    // };
+
     // Catches changes to round to update when no players pick card
     // (because game.state remains the same)
     $scope.$watch('game.round', function() {
