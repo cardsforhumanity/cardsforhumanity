@@ -1,5 +1,5 @@
-<!-- Fixed Logo & Menu Bar Start -->
 <div id="main-bod">
+  <!-- Fixed Logo & Menu Bar Start -->
   <div class="wpb-top-bar">
     <div class="mod-contain" id="navver">
       <div class="row">
@@ -15,8 +15,8 @@
               <li><a href="/">Home</a></li>
               <li><a href="#!/#how-to">How to Play</a></li>
               <li><a href="#!/#tech-stack">Tech Stack</a></li>
-              <li><a href="#!/#team">About Us</a></li>
-              <li><a href="contact-us.html">Sign Up/Sign In</a></li>
+              <li><a href="#!/#team-names">About Us</a></li>
+              <li><a href="signup">Sign Up/Sign In</a></li>
             </ul>
           </div>
         </div>      
@@ -25,7 +25,7 @@
   </div>
 <!-- Fixed Logo & Menu Bar End -->
 
-<!-- Teaser Start -->
+<!-- Landing Start -->
   <div class="wpb-teaser parallax-background" id="homer">
     <div class="background-opacity"></div> 
     <div class="container">
@@ -49,20 +49,20 @@
       </div>
       <!-- Teaser Text End -->
       <div id="sign-up">
-        <div id="sign-up-btn">Sign Up</div>
-        <div id="sign-up-text">
+        <a href="signup"><div id="sign-up-btn">Sign Up</div></a>
+        <div id="sign-up-text"><a href="#!/app">
           <span id="first-word">or Play</span>
           <span id="second-word">as</span> 
-          <span id="third-word">Guest</span> 
+          <span id="third-word">Guest</span></a>
         </div>
        </div>
       </div>
       </div>
     </div>
-<!-- Teaser End -->
+<!-- Landing End -->
 
 
-<!-- HOW TO PLAY -->
+<!-- How to Play Start -->
 <section id="how-to">
   <div class="wpb-teaser parallax-background" id="how-to-play">
     <div class="background-opacity"></div>
@@ -91,19 +91,19 @@
       </div>
 
       <div id="sign-up">
-        <div id="sign-up-btn">Sign Up</div>
-        <div id="sign-up-text">
+        <a href="signup"><div id="sign-up-btn">Sign Up</div></a>
+        <div id="sign-up-text"><a href="#!/app">
           <span id="first-word">or Play</span>
           <span id="second-word">as</span> 
-          <span id="third-word">Guest</span> 
+          <span id="third-word">Guest</span></a>
         </div>
        </div>
     </div>
 </section>
-<!-- About Us End -->
+<!-- How to Play End -->
 
 
-<!-- Who are We Start -->
+<!-- Tech Stack Start -->
 <section class="wpb-portfolio" id="tech-stack">
   <div class="wpb-teaser parallax-background" id="how-to-play">
     <div class="background-opacity"></div>
@@ -205,10 +205,10 @@
         </div>
     </div>
 </section>
-<!-- Who are We End -->
+<!-- Tech Stack End -->
 
 
-<!-- Contact Us Start -->
+<!-- About Us Start -->
 <section class="wpb-contact-us parallax-background-contact" id="team">
    <div class="wpb-teaser parallax-background" id="about-team">
     <div class="background-opacity"></div>
@@ -223,34 +223,25 @@
           </div>
         </div>
       </div>
-    </div>
-  
-    <!-- Content Start -->
-    <div class="">
-      <div class="row">
-      
-      <ul class="wpb-team-list">
-        <!-- Team Member Item Start -->
-        <li class="wpb-team-item span4">
-          <div class="wpb-team-thumbnail">
-            <img src="http://placehold.it/600x300" alt="Team Member" />
-            <div class="wpb-team-overlay"></div>
-          </div>
-          <div class="wpb-team-details">
-            <h3>Matt Silverstein, Will Ngo, Tyler McGinnis, David Gonzalez</h3>
-          </div>
-        </li>
-      </ul>
+      <div class="wpb-team-details" id="team-names">
+        <h3>
+          <a href="http://github.com/silversteez">Matt Silverstein,</a>
+          <a href="http://github.com/mrngoitall">Will Ngo,</a> 
+          <a href="http://github.com/tylermcginnis33">Tyler McGinnis,</a>
+          <a href="http://github.com/davegonzalez">David Gonzalez</a></h3>
+      </div>
+      <img src="img/group-shot.jpg" alt="Team Member" id="team-photo">
     </div>
   </div>
-</div>
 </section>
+<!-- About Us End -->
 
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="text-left">
-        <a href="https://github.com/cardsforhumanity/cardsforhumanity"><img src="img/github.png"></a>
+<!-- Footer Start -->
+<section class="foot">
+  <div class="wpb-bottom-bar">
+    <div id="test"></div>
+    <div class="text-left">
+        <a href="https://github.com/cardsforhumanity/cardsforhumanity"><img src="img/github.png" id="gitcat"></a>
         <div class="floater" id="logo">
           <span id="first-word">Cards</span>
           <span id="second-word"> for</span> 
@@ -258,7 +249,6 @@
         </div>
       </div>
   </div>
-  </div>
-</footer>
-<!-- Contact Us End -->
+</section>
+<!-- Footer End -->
 </div>

@@ -508,6 +508,14 @@
    margin-top: 9%;
  }
 
+ #team-photo {
+   max-width: 100% !important;
+ }
+
+ #gitcat {
+   max-width: 50px !important;
+ }
+
  #how-to {
    max-width: 1400px;
    margin-top: -15px;
@@ -569,11 +577,12 @@
  }
 
  #team {
-   margin-top: 70px;
+   /*margin-top: 130px;*/
    max-width: 1400px;
  }
 
  .floater {
+   margin-top: 0px !important;
    float: right;
 }
 
@@ -811,6 +820,7 @@
  
  .wpb-team-details {
    padding: 0px 25px 10px 25px;
+   text-align: center;
  }
  
  .wpb-team-details h3 {
@@ -1636,6 +1646,20 @@
  
  
  /**** Footer ****/
+
+ .foot {
+   bottom: 0;
+   max-width: 1400px;
+   height: 60px;
+   border-radius: 8px;
+   background: #252525;
+   padding: 5px 5px 5px 13px;
+   width: 90%;
+   margin: 30px auto;
+ }
+
+
+
  footer {
    background-color: #252525;
    padding: 25px 0px;
