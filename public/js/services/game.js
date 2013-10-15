@@ -163,10 +163,11 @@ angular.module('mean.system')
     addToNotificationQueue(data.notification);
   });
 
-  game.joinGame = function(mode) {
+  game.joinGame = function(mode,room) {
     mode = mode || 'joinGame';
+    room = room || '';
     var userID = !!window.user ? user._id : 'unauthenticated';
-    socket.emit(mode,{userID: userID});
+    socket.emit(mode,{userID: userID, room: room});
   };
 
   game.startGame = function() {
