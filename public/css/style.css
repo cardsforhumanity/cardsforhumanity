@@ -130,6 +130,7 @@
    top:0;
    width: 100%;
    z-index:10000;
+   max-width: 1400px;
  }
  
  .wpb-logo-container {
@@ -496,6 +497,7 @@
  /**** About Us ****/
 #main-bod {
    max-width: 1400px;
+   margin: 0px auto;
 }
 
 
@@ -568,6 +570,7 @@
 
  #team {
    margin-top: 70px;
+   max-width: 1400px;
  }
 
  .floater {
