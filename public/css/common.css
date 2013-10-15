@@ -850,8 +850,9 @@ body {
   border-radius: 8px;
   text-align: center;
   overflow: hidden;
-  height: 30%;
+  height: 50%;
   position: relative;
+  margin-top: 10px;
   font-size: 30px;
 }
 #main-container #app-container #gameplay-container #czar-blank-container #czar-blank-inner {
@@ -861,6 +862,38 @@ body {
   width: 80%;
   height: 50px;
   margin-top: 5%;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background-color: #fff;
+  color: black;
+  position: absolute;
+  bottom: 4%;
+  margin: 0 2%;
+  width: 96%;
+  padding: 3px;
+  text-align: left;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact-tagline {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  margin-left: 2%;
+  margin-bottom: 3px;
+  color: #0076BD;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  width: 90%;
+  margin: 0 5% 3px 5%;
+}
+#main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container img {
+  float: right;
+  margin-right: 2%;
+  margin-bottom: 3px;
 }
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
