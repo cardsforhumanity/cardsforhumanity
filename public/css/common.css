@@ -17,6 +17,8 @@
 @media (max-width: 480px) {
   .card {
     font-size: 14px;
+    height: 115px;
+    word-wrap: break-word;
   }
 }
 .card #selection-number {
@@ -43,6 +45,11 @@
   font-size: 0.750em;
   cursor: pointer;
 }
+@media (max-width: 480px) {
+  .card.smallest {
+    font-size: 10px;
+  }
+}
 .card u {
   position: relative;
   content: '';
@@ -66,33 +73,6 @@
   content: '.';
 }
 
-.hand {
-  position: relative;
-  width: 24em;
-  height: 34em;
-}
-.hand .card {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.hand .card:nth-child(1) {
-  -webkit-transform: rotate(-7deg);
-}
-.hand .card:nth-child(2) {
-  -webkit-transform: rotate(-3deg);
-  left: 2%;
-  top: 2%;
-}
-.hand .card:nth-child(3) {
-  -webkit-transform: rotate(0deg);
-  left: 4%;
-  top: 4%;
-}
-.hand .card:active {
-  z-index: 1;
-}
-
 html, body, .main-container, .cont, #first-section, #inner-container {
   height: 100%;
 }
@@ -105,6 +85,7 @@ html {
 @media (max-width: 480px) {
   html {
     margin: 3px;
+    margin-top: 0px;
   }
 }
 
@@ -224,13 +205,8 @@ body {
   margin: 45px auto;
 }
 #mission-statement-container #signup-guest-container #signup-button-smaller {
-  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
-  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: #fcfcfc;
+  background-color: white;
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topleft: 8px;
   border-top-left-radius: 8px;
@@ -244,10 +220,8 @@ body {
   -moz-border-radius-bottomleft: 8px;
   border-bottom-left-radius: 8px;
   text-indent: 0;
-  border: 1px solid #dcdcdc;
   display: inline-block;
-  color: #777777;
-  font-family: arial;
+  color: #252525;
   font-size: 39px;
   font-weight: bold;
   font-style: normal;
@@ -256,7 +230,6 @@ body {
   width: 200px;
   text-decoration: none;
   text-align: center;
-  text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
   margin: 5px auto;
   display: block;
@@ -431,8 +404,8 @@ body {
 }
 @media (max-width: 480px) {
   #main-container #app-container #menu-container {
-    margin-bottom: 3px;
-    margin-top: 3px;
+    margin-bottom: 1px;
+    margin-top: 0px;
   }
 }
 #main-container #app-container #menu-container #logo {
@@ -497,7 +470,7 @@ body {
   #main-container #app-container #social-bar-container {
     top: auto;
     width: 100%;
-    height: 15%;
+    height: 50px;
     position: relative;
     top: 0;
     left: 0;
@@ -522,7 +495,9 @@ body {
     display: inline-block;
     margin: 0px .5%;
     width: 15.5%;
-    height: 70px;
+    height: 48px;
+    padding-top: 1%;
+    padding-bottom: 0;
   }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container {
@@ -579,12 +554,19 @@ body {
     width: 60%;
   }
 }
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
+  margin-bottom: 0px;
+}
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
     font-size: 10px;
     margin-top: 3px;
     margin-bottom: 5px;
   }
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
@@ -629,7 +611,7 @@ body {
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container {
     width: 100%;
-    height: 89%;
+    height: 91%;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container {
@@ -901,6 +883,15 @@ body {
   overflow: hidden;
   height: 100%;
 }
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #people-left-game {
+  color: white;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #people-left-game {
+    padding: 6px;
+    font-size: 22px;
+  }
+}
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #game-end-container #inner-info-exit {
     width: 100%;
@@ -917,13 +908,8 @@ body {
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game {
   float: left;
-  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
-  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: #fcfcfc;
+  background-color: white;
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topleft: 8px;
   border-top-left-radius: 8px;
@@ -937,10 +923,8 @@ body {
   -moz-border-radius-bottomleft: 8px;
   border-bottom-left-radius: 8px;
   text-indent: 0;
-  border: 1px solid #dcdcdc;
   display: inline-block;
-  color: #777777;
-  font-family: arial;
+  color: #252525;
   font-size: 39px;
   font-weight: bold;
   font-style: normal;
@@ -949,7 +933,6 @@ body {
   width: 200px;
   text-decoration: none;
   text-align: center;
-  text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
   margin: 5px auto;
   display: block;
@@ -969,13 +952,8 @@ body {
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match {
   float: left;
-  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fcfcfc), color-stop(1, #f0f0f0));
-  background: -moz-linear-gradient(center top, #fcfcfc 5%, #f0f0f0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: #fcfcfc;
+  background-color: white;
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topleft: 8px;
   border-top-left-radius: 8px;
@@ -989,10 +967,8 @@ body {
   -moz-border-radius-bottomleft: 8px;
   border-bottom-left-radius: 8px;
   text-indent: 0;
-  border: 1px solid #dcdcdc;
   display: inline-block;
-  color: #777777;
-  font-family: arial;
+  color: #252525;
   font-size: 39px;
   font-weight: bold;
   font-style: normal;
@@ -1001,7 +977,6 @@ body {
   width: 200px;
   text-decoration: none;
   text-align: center;
-  text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
   margin: 5px auto;
   display: block;
@@ -1057,14 +1032,23 @@ body {
 }
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #cards-container {
-    height: auto;
-    margin-top: 3px;
+    background: transparent;
+    margin-top: 2px;
   }
 }
 #main-container #app-container #gameplay-container #cards-container #cards {
   width: 100%;
   height: 100%;
   font-size: 18px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #cards-container #cards {
+    background: #252525;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    max-height: 245px;
+  }
 }
 
 @media (max-width: 480px) {

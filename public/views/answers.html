@@ -1,8 +1,8 @@
 <div ng-cloak id="cards-container" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'">
-        <div id="social-bar-container">
+  <div id="social-bar-container">
     <player></player>
   </div>
-  <div id="cards">
+  <div id="cards" class='hand'>
     <span ng-show="winnerPicked()"></span>
     <div class="card smallest" id='answers' ng-hide="hasPickedCards || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-click="pickCard(card)" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
           <span ng-bind-html-unsafe="card.text"></span>
@@ -10,7 +10,7 @@
         <span id='selection-number' ng-show="showSecond(card)"> 2 </span>
     </div>
     <span ng-repeat="answer in game.table">
-        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated flipInX'}" style="background-color:{{winningColor($parent.$index)}}">
+        <div class="card smallest" id='table' ng-click="pickWinning(answer)" ng-show="hasPickedCards || isCzar()" ng-repeat="card in answer.card" ng-animate="{enter:'animated pulse'}" style="background-color:{{winningColor($parent.$index)}}">
             <span ng-bind-html-unsafe="card.text"></span>
         </div>
     </span>
@@ -26,7 +26,7 @@
 </div>
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
-    <h2 ng-show="game.state ==='game dissolved' && game.gameWinner === -1">Oh no! Too many people left. What would you like to do?</h2>
+    <h2 id="people-left-game" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">The game ended because too many people left. What would you like to do now?</h2>
     <h1 ng-show="game.state === 'game ended' || game.gameWinner !== -1">{{game.players[game.gameWinner].username}} won the game!</h1>
     <div id='inner-text-container'>
       <a href='/#!/app'>
@@ -42,6 +42,5 @@
 <div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
   <div id="czar-blank-inner">
     You are the Card Czar. <br> Players are choosing their answers. Prepare to select a winner.
-    You are the Card Czar.</br>
   </div>
 </div>

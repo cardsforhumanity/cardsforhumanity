@@ -56,10 +56,7 @@ angular.module('mean.directives', [])
     return {
       restrict: 'EA',
       templateUrl: '/views/question.html',
-      link: function(scope, elem, attr) {
-
-
-      }
+      link: function(scope, elem, attr) {}
     };
   })
   .directive('timer', function(){
