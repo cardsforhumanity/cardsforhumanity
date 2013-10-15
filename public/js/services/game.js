@@ -134,14 +134,19 @@ angular.module('mean.system')
       // Set notifications only when entering state
       if (newState) {
         if (game.czar === game.playerIndex) {
-          addToNotificationQueue('You\'re the Card Czar! Players are choosing answers...');
+          addToNotificationQueue('You\'re the Card Czar! Please wait!');
         } else if (game.curQuestion.numAnswers === 1) {
           addToNotificationQueue('Select an answer!');
         } else {
           addToNotificationQueue('Select TWO answers!');
         }
       }
-
+    } else if (data.state === 'waiting for czar to decide') {
+      if (game.czar === game.playerIndex) {
+        addToNotificationQueue("Everyone's done. Choose the winner!");
+      } else {
+        addToNotificationQueue("The czar is contemplating...");
+      }
     } else if (data.state === 'winner has been chosen' &&
               game.curQuestion.text.indexOf('<u></u>') > -1) {
       game.curQuestion = data.curQuestion;
