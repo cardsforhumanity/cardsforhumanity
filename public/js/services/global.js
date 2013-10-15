@@ -21,7 +21,7 @@ angular.module('mean.system')
 }]).factory('MakeAWishFactsService', [function() {
   return {
     getMakeAWishFacts: function() {
-      return ['Health professionals who treat wish kids, including nurses and doctors, overwhelmingly believe that the wish experience can improve a wish kids’ physical health.',
+      var facts = ['Health professionals who treat wish kids, including nurses and doctors, overwhelmingly believe that the wish experience can improve a wish kids’ physical health.',
 'Most health professionals say a wish come true has the potential to be a positive turning point in the child’s battle for health.',
 'Parents and volunteers observe that a wish come true makes kids feel stronger and more energetic.',
 'Wish kids are more willing to comply with difficult, but vital, treatment regimens.',
@@ -45,6 +45,18 @@ angular.module('mean.system')
 'Nearly 75 percent of wish experiences involve travel.',
 'The Walt Disney Company is involved in 40 percent of the wishes Make-A-Wish grants.',
 'As of August 2012, the average cost of a wish was $8,141.'];
+      var shuffleIndex = facts.length;
+      var temp;
+      var randNum;
+
+      while (shuffleIndex) {
+        randNum = Math.floor(Math.random() * shuffleIndex--);
+        temp = facts[randNum];
+        facts[randNum] = facts[shuffleIndex];
+        facts[shuffleIndex] = temp;
+      }
+
+      return facts;
     }
   };
 }]);
