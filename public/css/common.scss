@@ -388,18 +388,19 @@ html, body, .main-container, .cont, #first-section, #inner-container{
 
 html{
     // margin: 20px;
-    margin-top: 5px;
-    position: relative;
-
-    @include gradient-bg;
+    // margin-top: 5px;
     // background: url(/img/minimal-wallpaper.jpg) no-repeat center center fixed;
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // -o-background-size: cover;
     // background-size: cover;
+    @include gradient-bg;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
 
     @include mobile-only{
-        margin: 3px;
+        //margin: 3px;
         margin-top: 0px;
     }
 }
@@ -579,7 +580,7 @@ body{
                         position: relative;
                         bottom: 8px;
                         left: 17px;
-                        
+
                         @include tablet-portrait-only{
                             left: 8px;
                         }
@@ -865,6 +866,10 @@ body{
                                        background:#41C2CA;
                                     }
                                 }
+                            }
+
+                            #people-left-game-top{
+                                text-align: center;
                             }
                         }
                     }
