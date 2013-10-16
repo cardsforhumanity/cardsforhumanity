@@ -1,4 +1,4 @@
-<div id="main-bod">
+<div landing id="main-bod">
   <!-- Fixed Logo & Menu Bar Start -->
   <div id="top-part">
     <div class="wpb-top-bar">
@@ -17,8 +17,13 @@
                 <li><a href="#!/#how-to">How to Play</a></li>
                 <li><a href="#!/#tech-stack">Tech Stack</a></li>
                 <li><a href="#!/#team-names">About Us</a></li>
-                <li><a href="#!/sign">Sign Up</a></li>
-                <li><a href="#!/signin">Sign In</a></li>
+                <span ng-show="showOptions">
+                  <li><a href="#!/sign">Sign Up</a></li>
+                  <li><a href="#!/signin">Sign In</a></li>
+                </span>
+                <span ng-hide="showOptions">
+                  <li><a href="#!/signin">Sign Out</a></li>
+                </span>
               </ul>
             </div>
           </div>      
@@ -52,12 +57,20 @@
       </div>
       <!-- Teaser Text End -->
       <div id="sign-up">
+        <span ng-show="showOptions">
         <a href="#!/sign"><div id="sign-up-btn">Sign Up</div></a>
-        <div id="sign-up-text"><a href="#!/app">
-          <span id="first-word">or Play</span>
-          <span id="second-word">as</span> 
-          <span id="third-word">Guest</span></a>
-        </div>
+          <div id="sign-up-text"><a href="#!/app">
+            <span id="first-word">or Play</span>
+            <span id="second-word">as</span> 
+            <span id="third-word">Guest</span></a>
+          </div>
+        </span>
+
+        <span ng-hide="showOptions">
+          <a href="#!/app"><div id="sign-up-btn">Join Game</div></a>
+        </span>
+
+
        </div>
       </div>
       </div>
@@ -94,12 +107,18 @@
       </div>
 
       <div id="sign-up">
-        <a href="#!/sign"><div id="sign-up-btn">Sign Up</div></a>
-        <div id="sign-up-text"><a href="#!/app">
-          <span id="first-word">or Play</span>
-          <span id="second-word">as</span> 
-          <span id="third-word">Guest</span></a>
-        </div>
+        <span ng-show="showOptions">
+          <a href="#!/sign"><div id="sign-up-btn">Sign Up</div></a>
+          <div id="sign-up-text"><a href="#!/app">
+            <span id="first-word">or Play</span>
+            <span id="second-word">as</span> 
+            <span id="third-word">Guest</span></a>
+          </div>
+        </span>
+
+        <span ng-hide="showOptions">
+          <a href="#!/app"><div id="sign-up-btn">Join Game</div></a>
+        </span>
        </div>
     </div>
 </section>
