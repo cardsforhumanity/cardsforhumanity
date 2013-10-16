@@ -5,7 +5,7 @@
     <div id="notifications" ng-if="game.notification" ng-animate="{enter:'animated fadeInLeft', leave:'animated fadeOut'}">{{game.notification}}</div>
 
     <div id="startGame" ng-show="game.state === 'awaiting players'">
-      <div id="finding-players">Finding Players<div>
+      <div id="finding-players">Finding Players</div>
       <div id="player-count-container">
         <div id="player-count">{{game.players.length}} / 6 </div>
         <div id="the-word-players"> Players </div>
@@ -18,6 +18,11 @@
           Start Game</br>with {{game.players.length}} players
         </div>
       </div>
+    </div>
+
+    <div id="people-left-game-top" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
+      <h2>What the!? The game ended because too many people left! </h2>
+      Our sincere apologies.
     </div>
   </div>
 </div>

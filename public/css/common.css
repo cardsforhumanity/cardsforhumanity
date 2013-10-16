@@ -80,20 +80,30 @@ html, body, .main-container, .cont, #first-section, #inner-container {
 }
 
 html {
-  margin: 20px;
-  margin-top: 5px;
+  /* IE10 Consumer Preview */
+  background-image: -ms-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0b394e), color-stop(1, #abce8d));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom right, #0b394e 0%, #abce8d 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   position: relative;
 }
 @media (max-width: 480px) {
   html {
-    margin: 3px;
     margin-top: 0px;
   }
 }
 
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
-  background-image: url("/img/bg-pattern.png");
 }
 
 .navbar .nav > li > a.brand {
@@ -578,6 +588,9 @@ body {
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button:hover {
   background: #41C2CA;
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #people-left-game-top {
+  text-align: center;
 }
 #main-container #app-container #gameplay-container #info-container {
   width: 100%;
