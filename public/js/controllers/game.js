@@ -69,6 +69,10 @@ angular.module('mean.system')
       return game.czar === game.playerIndex;
     };
 
+    $scope.isCustomGame = function() {
+      return !(/^\d$/).test(game.gameID) && game.state === 'awaiting players';
+    };
+
     $scope.currentCzar = function($index) {
       return $index === game.czar;
     };
@@ -96,6 +100,10 @@ angular.module('mean.system')
       game.startGame();
     };
 
+    $scope.createGameWithFriends = function() {
+      game.createGameWithFriends();
+    };
+
     $scope.abandonGame = function() {
       game.leaveGame();
       $location.path('/');
@@ -114,5 +122,23 @@ angular.module('mean.system')
       $scope.pickedCards = [];
     });
 
-    game.joinGame();
+    $scope.$watch('game.gameID', function() {
+      if (game.gameID && game.state === 'awaiting players') {
+        if (!$scope.isCustomGame() && $location.search().game) {
+          // If the player didn't successfully enter the request room,
+          // reset the URL so they don't think they're in the requested room.
+          $location.search({});
+        } else if ($scope.isCustomGame() && !$location.search().game) {
+          // Once the game ID is set, update the URL if this is a game with friends,
+          // where the link is meant to be shared.
+          $location.search({game: game.gameID});
+        }
+      }
+    });
+
+    if (!(/^\d$/).test($location.search().game)) {
+      game.joinGame('joinGame',$location.search().game);
+    } else {
+      game.joinGame();
+    }
 }]);
