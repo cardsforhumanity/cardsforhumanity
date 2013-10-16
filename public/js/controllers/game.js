@@ -63,7 +63,7 @@ angular.module('mean.system')
       } else{
         return false;
       }
-    }
+    };
 
     $scope.secondAnswer = function($index){
       if($index % 2 === 1 && game.curQuestion.numAnswers > 1){
@@ -71,7 +71,7 @@ angular.module('mean.system')
       } else{
         return false;
       }
-    }
+    };
 
     $scope.showFirst = function(card) {
       return game.curQuestion.numAnswers > 1 && $scope.pickedCards[0] === card.id;
