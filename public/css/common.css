@@ -105,7 +105,17 @@ html {
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
   background: transparent;
-  margin: 2px;
+  margin: 10px;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    margin: 5px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    margin: 1px;
+  }
 }
 
 .navbar .nav > li > a.brand {
@@ -242,6 +252,11 @@ body {
   #main-container #app-container #social-bar-container #player-container #above-czar-container {
     height: 100%;
   }
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-star {
+  position: absolute;
+  top: 3px;
+  right: 5px;
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
   height: 100%;
@@ -589,9 +604,16 @@ body {
   width: 65%;
   cursor: pointer;
 }
-@media (max-width: 480px) {
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button {
     padding: 0.65em 2px;
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button {
+    padding: 0.65em 1px;
+    font-size: 1rem;
   }
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button:hover {

@@ -407,7 +407,15 @@ html{
 body{
     font-family: $main-font;
     background: transparent;
-    margin: 2px;
+    margin: 10px;
+
+    @include tablet-portrait-only{
+        margin: 5px;
+    }
+
+    @include mobile-only{
+        margin: 1px;
+    }
 }
 
 .navbar .nav>li>a.brand {
@@ -543,6 +551,12 @@ body{
 
                     @include mobile-only{
                         height: 100%;
+                    }
+
+                    #player-star{
+                        position: absolute;
+                        top: 3px;
+                        right: 5px;
                     }
 
                     #avatar_ {
@@ -863,8 +877,14 @@ body{
                                         width: 65%;
                                         cursor: pointer;
 
-                                        @include mobile-only{
+                                        @include tablet-portrait-only{
                                             padding: 0.65em 2px;
+                                            font-size: 1.1rem;
+                                        }
+
+                                        @include mobile-only{
+                                            padding: 0.65em 1px;
+                                            font-size: 1rem;
                                         }
                                     }
 
