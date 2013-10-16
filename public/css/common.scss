@@ -1027,7 +1027,8 @@ body{
                     text-align: left;
 
                     @include mobile-only{
-                        height: 46%;
+                        height: 40%;
+                        display: none;
                     }
 
                     #charity-fact-tagline{
@@ -1036,6 +1037,10 @@ body{
                         margin-left: 2%;
                         margin-bottom: 3px;
                         color: #000;
+
+                        @include mobile-only{
+                            font-size: 16px;
+                        }
                     }
 
                     #charity-fact{
@@ -1044,6 +1049,10 @@ body{
                         text-align: center;
                         width: 90%;
                         margin: 0 5% 3px 5%;
+
+                        @include mobile-only{
+                            font-size: 12px;
+                        }
                     }
 
                     #charity-logo-container{
@@ -1055,8 +1064,6 @@ body{
                         }
 
                         img{
-                            // width: 150px;
-                            // height: 50px;
                             float: right;
                             margin-right: 2%;
                             margin-bottom: 3px;
@@ -1099,6 +1106,10 @@ body{
 }
 
 #notifications{
+
+    @include tablet-portrait-only{
+        font-size: 18px;
+    }
     @include mobile-only{
         font-size: 15px;
     }
