@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  width: 18%;
+  width: 17.5%;
   height: 215px;
   padding: 1%;
   margin: 1%;
@@ -104,6 +104,7 @@ html {
 
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
+  background: transparent;
 }
 
 .navbar .nav > li > a.brand {

@@ -296,7 +296,7 @@ background-image: linear-gradient(to bottom right, #0B394E 0%, #ABCE8D 100%);
 
     display: inline-block;
     box-sizing: border-box;
-    width: 18%;
+    width: 17.5%;
     height: 215px;
     padding: 1%;
     margin: 1%;
@@ -406,7 +406,7 @@ html{
 }
 body{
     font-family: $main-font;
-    // background-image: url('/img/bg-pattern.png');
+    background: transparent;
 }
 
 .navbar .nav>li>a.brand {
