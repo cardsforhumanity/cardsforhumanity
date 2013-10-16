@@ -18,7 +18,7 @@
           Start Game</br>with {{game.players.length}} players
         </div>
       </div>
-      <div id="start-game-with-friends-container" ng-show="isCustomGame()" ng-click="createGameWithFriends()">
+      <div id="start-game-with-friends-container" ng-show="!isCustomGame()" ng-click="createGameWithFriends()">
         <div id='start-game-button'>
           Create Game</br>with Friends
         </div>
