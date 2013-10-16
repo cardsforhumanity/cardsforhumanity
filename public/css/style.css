@@ -79,6 +79,8 @@
    color: #fff;
    font-weight: bold;
    font-size: 11px;
+   max-width: 100%;
+   margin-right: 4px;
  }
  
  .wpb-logo-container a {
@@ -88,6 +90,7 @@
  
  .wpb-menu-container {
    float: right;
+
  }
  
  .wpb-menu-container .wpb-dropdown-menu {
@@ -441,7 +444,6 @@
    height: 100%;
    z-index:1001;
    background: url('img/mongo-logo.png');
-   /*opacity:0;*/
  }
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
@@ -802,8 +804,8 @@
  /**** Margins ****/
 
 .mod-contain {
-   padding-right: 15px;
-   padding-left: 15px;
+   /*padding-right: 15px;
+   padding-left: 15px;*/
    margin-right: auto;
    margin-left: auto;
    width: 90%;
@@ -845,17 +847,62 @@
   border-radius: 8px;
   color: #252525;
   font-family: Arial;
-  font-size: 20px;
+  font-size: 1.1em;
   font-weight: bold;
   vertical-align: top;
 }
+
+.row {
+   margin-left: 0;
+   margin-right: -6px;
+}
+
+
+
 
 
  /* MEDIA QUERY */
 
   /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
 
-@media (min-width : 528px) and (max-width : 768px)  { 
+
+@media (min-width: 992px) {
+   .col-md-9 {
+      width: 76%;
+   }
+
+   .row {
+      margin-left: 0;
+      margin-right: -6px;
+   }
+
+   .mod-contain {
+      width: 89%;
+   }
+}
+
+/*@media (min-width: 1127px) {
+   .row {
+   margin-left: 0;
+   margin-right: -6px;
+   }
+
+   .mod-contain {
+      width: 89%;
+   }
+}*/
+
+@media(max-width: 680px) {
+   .wpb-menu-container {
+      display: none;
+   }
+
+   .mod-contain {
+      text-align: center;
+   }
+}
+
+@media (min-width : 480px) and (max-width : 865px)  { 
    .wpb-menu-container .wpb-main-menu {
       text-align: right;
       height: 100px;
@@ -891,9 +938,13 @@
       z-index: 1000;
       padding-top: 70px;
    }
+
+   .landing-card {
+      font-size: 0.8em;
+   }
 }
 
-@media (min-width : 768px) and (max-width : 1024px)  { 
+@media (min-width : 865px) and (max-width : 1024px)  { 
    .wpb-menu-container .wpb-main-menu {
       text-align: right;
       height: 100px;
@@ -941,6 +992,35 @@
       padding: 0;
    }
 
+    .wpb-teaser {
+      min-height: 360px;
+      position: relative;
+      z-index: 990;
+      width: 98%;
+      margin: 0px auto;
+      border-radius: 8px;
+      padding: 30px;
+   }
+
+   .wpb-teaser .wpb-text p {
+      color: #fff;
+      padding-top: 3px;
+      text-align: center;
+      font-size: 0.95em;
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 20px;
+   }
+
+    .wpb-teaser .wpb-slogan h2 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.6em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 24px;
+   }
+
    .wpb-top-bar {
       height: 60px;
       background: transparent;
@@ -951,19 +1031,9 @@
       max-width: 1400px;
    }
 
-   .wpb-teaser {
-      min-height: 360px;
-      position: relative;
-      z-index: 990;
-      width: 98%;
-      margin: 0px auto;
-      border-radius: 8px;
-      padding: 30px;
-   }
-
    .mod-contain {
-      padding-right: 15px;
-      padding-left: 15px;
+      /*padding-right: 15px;
+      padding-left: 15px;*/
       width: 99%;
       text-align: center;
    }
@@ -984,27 +1054,8 @@
       padding: 10% 0 0 0;
    }
 
-   .wpb-teaser .wpb-text p {
-      color: #fff;
-      padding-top: 3px;
-      text-align: center;
-      font-size: 0.95em;
-      margin: 0 auto;
-      width: 100%;
-      padding-bottom: 20px;
-   }
-
    #avatars {
       display: none;
-   }
-
-   .wpb-teaser .wpb-slogan h2 {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.6em;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 24px;
    }
 
    #slogan {
