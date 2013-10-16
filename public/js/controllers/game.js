@@ -57,6 +57,22 @@ angular.module('mean.system')
       }
     };
 
+    $scope.firstAnswer = function($index){
+      if($index % 2 === 0 && game.curQuestion.numAnswers > 1){
+        return true;
+      } else{
+        return false;
+      }
+    }
+
+    $scope.secondAnswer = function($index){
+      if($index % 2 === 1 && game.curQuestion.numAnswers > 1){
+        return true;
+      } else{
+        return false;
+      }
+    }
+
     $scope.showFirst = function(card) {
       return game.curQuestion.numAnswers > 1 && $scope.pickedCards[0] === card.id;
     };
