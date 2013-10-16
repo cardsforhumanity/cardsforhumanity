@@ -104,6 +104,9 @@ module.exports = function(io) {
     if (requestedGameId.length && allGames[requestedGameId]) {
       console.log('Room',requestedGameId,'is valid');
       var game = allGames[requestedGameId];
+      // Ensure that the same socket doesn't try to join the same game
+      // This can happen because we rewrite the browser's URL to reflect
+      // the new game ID, causing the view to reload.
       if (game.state === 'awaiting players' && game.players[0].socket.id !== socket.id) {
         // Put player into the requested game
         console.log('Allowing player to join',requestedGameId);
