@@ -11,6 +11,9 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
           when('/bottom', {
             templateUrl: '/views/bottom.html'
           }).
+          when('/sign', {
+            templateUrl: '/views/sign.html'
+          }).
           otherwise({
               redirectTo: '/'
           });
