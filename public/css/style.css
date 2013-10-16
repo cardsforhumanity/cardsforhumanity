@@ -6,15 +6,7 @@
    text-transform: uppercase;
  }
  
- *::selection {
-    background: #2ecc71; /* Safari */
-    color: #fff;
- }
- 
- *::-moz-selection {
-    background: #2ecc71; /* Safari */
-    color: #fff;
- }
+
 
  /**** Links ****/
  a {
@@ -93,9 +85,6 @@
    color: #ffffff !important;
  }
  
- .wpb-logo-container a:hover {
-   color: #2ecc71 !important;
- }
  
  .wpb-menu-container {
    float: right;
@@ -139,14 +128,7 @@
    z-index:1000;
  }
  
- .wpb-menu-container .wpb-main-menu li a.active {
-   color: #ffffff;
-   background-color: #2ecc71;
- }
- 
- .wpb-menu-container .wpb-main-menu li a:hover {
-   color: #ffffff !important;
- }
+
  
  
  /**** LANDING ****/
@@ -444,16 +426,7 @@
    overflow: hidden;
    position:relative;
  }
- 
- .wpb-portfolio-item .wpb-portfolio-thumbnail:hover .wpb-portfolio-overlay:hover {
-   -webkit-transition: opacity 0.5s ease;
-   -moz-transition: opacity 0.5s ease;
-   -ms-transition: opacity 0.5s ease;
-   -o-transition:  opacity 0.5s ease;
-   transition:  opacity 0.5s ease; 
-   opacity:1;
-   background: rgba(26, 204, 113, 0.6);
- }
+
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail>img {
    position: absolute;
@@ -548,15 +521,7 @@
    transition:  background-color 0.5s ease; 
  }
  
- .wpb-portfolio-body .wpb-portfolio-filter li a:hover {
-   border-radius:5px !important;
-   background-color: #2ecc71;
- }
  
- .wpb-portfolio-body .wpb-portfolio-filter li a.active {
-   background-color: #2ecc71;
-   color: #ffffff;
- }
  
  /**** Team List ****/ 
  .wpb-team-list .wpb-team-item {
@@ -625,10 +590,7 @@
 
  }
  
- .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content a:hover {
-   color: #2ecc71 !important;
- }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content i {
    font-size: 1.5em;
    padding-right: 5px;
@@ -764,9 +726,7 @@
    text-transform: uppercase;
  }
  
- .wpb-single-portfolio .wpb-portfolio-description ul li p.wpb-list-content {
-   color: #2ecc71 !important;
- }
+
  
  .wpb-single-portfolio .wpb-portfolio-description ul li p {
    padding: 0;
