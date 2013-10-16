@@ -256,6 +256,8 @@
  #create {
     text-align: center;
     color: white;
+    font-family: arial;
+    margin-bottom: -13px;
  }
 
  #sign-up-btn {
@@ -351,6 +353,21 @@
    margin-left: 40px;
    overflow: hidden;
 }
+
+.sign-in-header {
+   color: #fff;
+   font-weight: bold;
+   font-size: 52px;
+   text-transform: uppercase;
+   line-height: 60px;
+   text-align: center;
+   margin-bottom: -15px;
+}
+
+.top-margin {
+   margin-top: 15px;
+}
+
 .tech-info {
    margin-top: 25px;
 }
@@ -392,10 +409,15 @@
    margin-left: 3%;
  }
 
+ .avatar-list img {
+   max-width: 60%;
+ }
+
  .avatars {
    position: relative;
    float: left;
    margin: 2px 5px;
+   border-radius: 8px;
  }
 
  /**** Portfolio ****/ 
