@@ -19,7 +19,6 @@
 <div id="info-container" ng-show="game.state === 'awaiting players'">
   <div id="inner-info">
     <div id="lobby-how-to-play">How To Play</div>
-    <div id="lobby-cfh">Cards for Humanity</div>
     <ol>
       <li>Each player begins with, and will always have, 10 white answer cards.</li>
       <li>For each round, one player is randomly chosen as the Card Czar.</li>
@@ -30,7 +29,7 @@
 </div>
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
-    <h2 id="people-left-game" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">The game ended because too many people left. What would you like to do now?</h2>
+    <div id="people-left-game" ng-show="game.state ==='game dissolved' && game.gameWinner === -1"><h2>What would you like to do now?</h2>You might consider donating to charity to atone for the horrifying answers you've submitted...</div>
     <h1 ng-show="game.state === 'game ended' || game.gameWinner !== -1">{{game.players[game.gameWinner].username}} won the game!</h1>
     <div id='inner-text-container'>
       <a href='/#!/app'>

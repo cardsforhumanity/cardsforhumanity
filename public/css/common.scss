@@ -9,6 +9,26 @@ $mq-custom-wide : 1200px !default;
 
 $color-background: #fff;
 
+@mixin gradient-bg {
+/* IE10 Consumer Preview */
+background-image: -ms-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* Mozilla Firefox */
+background-image: -moz-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* Opera */
+background-image: -o-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* Webkit (Safari/Chrome 10) */
+background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0B394E), color-stop(1, #ABCE8D));
+
+/* Webkit (Chrome 11+) */
+background-image: -webkit-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* W3C Markup, IE10 Release Preview */
+background-image: linear-gradient(to bottom right, #0B394E 0%, #ABCE8D 100%);
+}
+
 // Both portrait and landscape
 @mixin mobile-only {
     @media (max-width : $mq-mobile-landscape) {
@@ -367,18 +387,26 @@ html, body, .main-container, .cont, #first-section, #inner-container{
 }
 
 html{
-    margin: 20px;
-    margin-top: 5px;
+    // margin: 20px;
+    // margin-top: 5px;
+    // background: url(/img/minimal-wallpaper.jpg) no-repeat center center fixed;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+    @include gradient-bg;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     position: relative;
 
     @include mobile-only{
-        margin: 3px;
+        //margin: 3px;
         margin-top: 0px;
     }
 }
 body{
     font-family: $main-font;
-    background-image: url('/img/bg-pattern.png');
+    // background-image: url('/img/bg-pattern.png');
 }
 
 .navbar .nav>li>a.brand {
@@ -535,6 +563,7 @@ body{
                             @include tablet-portrait-only{
                                 width: 100%;
                                 height: 100%;
+                                margin-left: 3px;
                             }
 
                             @include mobile-only{
@@ -552,6 +581,10 @@ body{
                         bottom: 8px;
                         left: 17px;
 
+                        @include tablet-portrait-only{
+                            left: 8px;
+                        }
+
                         @include mobile-only{
                             bottom: 0;
                             left: 0;
@@ -566,6 +599,11 @@ body{
                                 margin-bottom: 0px;
                             }
                             h4{
+
+                                @include tablet-portrait-only{
+                                    font-size: 14px;
+                                }
+
                                 @include mobile-only{
                                     font-family: 'Lobster', cursive;
                                     font-size: 10px;
@@ -580,6 +618,10 @@ body{
 
                                 margin-top: 0;
                                 margin-bottom: 0;
+
+                                @include tablet-portrait-only{
+                                    font-size: 19px;
+                                }
 
                                 @include mobile-only{
                                     font-size: 17px;
@@ -727,7 +769,13 @@ body{
                     float: left;
                     width: 79%;
 
+                    @include tablet-portrait-only{
+                        width: 74%;
+                        float: right;
+                    }
+
                     @include mobile-only{
+                        float: left;
                         width: 71%;
                         margin-left: 2%;
                     }
@@ -819,6 +867,10 @@ body{
                                     }
                                 }
                             }
+
+                            #people-left-game-top{
+                                text-align: center;
+                            }
                         }
                     }
                 }
@@ -833,12 +885,16 @@ body{
                 height: 50%;
                 margin-top: 10px;
 
+                @include tablet-portrait-only{
+                    padding-top: 5px;
+                    height: auto;
+                }
 
                 @include mobile-only{
                     width: 100%;
                     padding: 1px;
                     margin: 0px auto;
-                    height: 49%;
+                    height: 72%;
                 }
 
                 #inner-info{
@@ -848,16 +904,9 @@ body{
                     #lobby-how-to-play{
                         font-size: 18px;
                         margin-top: 10px;
-                        @include mobile-only{
-                            font-size: 15px;
-                        }
-                    }
 
-                    #lobby-cfh{
-                        font-family: 'Lobster', cursive;
-                        font-size: 24px;
-                        @include mobile-only{
-                            font-size: 20px;
+                        @include tablet-portrait-only{
+                            font-size: 14px;
                         }
                     }
 
@@ -1009,12 +1058,21 @@ body{
                     padding: 3px;
                     text-align: left;
 
+                    @include mobile-only{
+                        height: 40%;
+                        display: none;
+                    }
+
                     #charity-fact-tagline{
                         font-family: 'Lobster', cursive;
                         font-size: 22px;
                         margin-left: 2%;
                         margin-bottom: 3px;
                         color: #000;
+
+                        @include mobile-only{
+                            font-size: 16px;
+                        }
                     }
 
                     #charity-fact{
@@ -1023,16 +1081,28 @@ body{
                         text-align: center;
                         width: 90%;
                         margin: 0 5% 3px 5%;
+
+                        @include mobile-only{
+                            font-size: 12px;
+                        }
                     }
 
                     #charity-logo-container{
 
+                        @include mobile-only{
+                            position: absolute;
+                            top: 1px;
+                            right: 0;
+                        }
+
                         img{
-                            // width: 150px;
-                            // height: 50px;
                             float: right;
                             margin-right: 2%;
                             margin-bottom: 3px;
+
+                            @include mobile-only{
+                                width: 53%;
+                            }
                         }
                     }
                 }
@@ -1068,6 +1138,10 @@ body{
 }
 
 #notifications{
+
+    @include tablet-portrait-only{
+        font-size: 18px;
+    }
     @include mobile-only{
         font-size: 15px;
     }

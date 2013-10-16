@@ -22,7 +22,7 @@ function Game(gameID, io) {
   this.curQuestion = null;
   this.timeLimits = {
     stateChoosing: 21,
-    stateJudging: 11,
+    stateJudging: 16,
     stateResults: 6
   };
   // setTimeout ID that triggers the czar judging state
@@ -44,12 +44,12 @@ Game.prototype.payload = function() {
       points: player.points,
       username: player.username,
       avatar: player.avatar,
-      //userID: player.userID, // Do we really need to send this?
       socketID: player.socket.id,
       color: player.color
     });
   });
   return {
+    gameID: this.gameID,
     players: players,
     czar: this.czar,
     state: this.state,
@@ -104,7 +104,7 @@ Game.prototype.prepareGame = function() {
 };
 
 Game.prototype.startGame = function() {
-  console.log(this.state);
+  console.log(this.gameID,this.state);
   this.shuffleCards(this.questions);
   this.shuffleCards(this.answers);
   this.stateChoosing(this);
@@ -116,7 +116,7 @@ Game.prototype.sendUpdate = function() {
 
 Game.prototype.stateChoosing = function(self) {
   self.state = "waiting for players to pick";
-  console.log(self.state);
+  console.log(self.gameID,self.state);
   self.table = [];
   self.winningCard = -1;
   self.winningCardPlayer = -1;
@@ -151,14 +151,14 @@ Game.prototype.selectFirst = function() {
     this.winnerAutopicked = true;
     this.stateResults(this);
   } else {
-    console.log('no cards were picked!');
+    console.log(this.gameID,'no cards were picked!');
     this.stateChoosing(this);
   }
 };
 
 Game.prototype.stateJudging = function(self) {
   self.state = "waiting for czar to decide";
-  console.log(self.state);
+  console.log(self.gameID,self.state);
 
   if (self.table.length <= 1) {
     // Automatically select a card if only one card was submitted
@@ -302,6 +302,15 @@ Game.prototype.pickCards = function(thisCardArray, thisPlayer) {
     }
   } else {
     console.log('NOTE:',thisPlayer,'picked a card during',this.state);
+  }
+};
+
+Game.prototype.getPlayer = function(thisPlayer) {
+  var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
+  if (playerIndex > -1) {
+    return this.players[playerIndex];
+  } else {
+    return {};
   }
 };
 
