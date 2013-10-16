@@ -176,6 +176,8 @@ angular.module('mean.system')
   };
 
   game.leaveGame = function() {
+    game.players = [];
+    game.time = 0;
     socket.emit('leaveGame');
   };
 
