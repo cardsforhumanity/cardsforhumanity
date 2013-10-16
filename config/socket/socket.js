@@ -214,6 +214,9 @@ module.exports = function(io) {
       if (game.state === 'awaiting players' ||
         game.players.length-1 >= game.playerMinLimit) {
         game.removePlayer(socket.id);
+        if (game.players.length === 0) {
+          delete allGames[socket.gameID];
+        }
       } else {
         game.stateDissolveGame();
         for (var j = 0; j < game.players.length; j++) {

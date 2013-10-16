@@ -350,7 +350,6 @@ Game.prototype.removePlayer = function(thisPlayer) {
 };
 
 Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
-  console.log(thisCard);
   autopicked = autopicked || false;
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
   if ((playerIndex === this.czar || autopicked) && this.state === "waiting for czar to decide") {
@@ -360,7 +359,6 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
         cardIndex = index;
       }
     });
-    console.log('winning card is at index',cardIndex);
     if (cardIndex !== -1) {
       this.winningCard = cardIndex;
       var winnerIndex = this._findPlayerIndexBySocket(this.table[cardIndex].player);
@@ -380,7 +378,7 @@ Game.prototype.pickWinning = function(thisCard, thisPlayer, autopicked) {
 };
 
 Game.prototype.killGame = function() {
-  console.log('killing game');
+  console.log('Killing game',this.gameID);
   clearTimeout(this.resultsTimeout);
   clearTimeout(this.choosingTimeout);
   clearTimeout(this.judgingTimeout);
