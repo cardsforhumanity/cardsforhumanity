@@ -9,6 +9,26 @@ $mq-custom-wide : 1200px !default;
 
 $color-background: #fff;
 
+@mixin gradient-bg {
+/* IE10 Consumer Preview */
+background-image: -ms-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* Mozilla Firefox */
+background-image: -moz-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* Opera */
+background-image: -o-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* Webkit (Safari/Chrome 10) */
+background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0B394E), color-stop(1, #ABCE8D));
+
+/* Webkit (Chrome 11+) */
+background-image: -webkit-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+
+/* W3C Markup, IE10 Release Preview */
+background-image: linear-gradient(to bottom right, #0B394E 0%, #ABCE8D 100%);
+}
+
 // Both portrait and landscape
 @mixin mobile-only {
     @media (max-width : $mq-mobile-landscape) {
@@ -367,18 +387,26 @@ html, body, .main-container, .cont, #first-section, #inner-container{
 }
 
 html{
-    margin: 20px;
-    margin-top: 5px;
+    // margin: 20px;
+    // margin-top: 5px;
+    // background: url(/img/minimal-wallpaper.jpg) no-repeat center center fixed;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+    @include gradient-bg;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     position: relative;
 
     @include mobile-only{
-        margin: 3px;
+        //margin: 3px;
         margin-top: 0px;
     }
 }
 body{
     font-family: $main-font;
-    background-image: url('/img/bg-pattern.png');
+    // background-image: url('/img/bg-pattern.png');
 }
 
 .navbar .nav>li>a.brand {
@@ -552,7 +580,7 @@ body{
                         position: relative;
                         bottom: 8px;
                         left: 17px;
-                        
+
                         @include tablet-portrait-only{
                             left: 8px;
                         }
@@ -838,6 +866,10 @@ body{
                                        background:#41C2CA;
                                     }
                                 }
+                            }
+
+                            #people-left-game-top{
+                                text-align: center;
                             }
                         }
                     }
