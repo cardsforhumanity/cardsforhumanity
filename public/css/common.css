@@ -80,9 +80,20 @@ html, body, .main-container, .cont, #first-section, #inner-container {
 }
 
 html {
-  margin: 20px;
   margin-top: 5px;
   position: relative;
+  /* IE10 Consumer Preview */
+  background-image: -ms-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0b394e), color-stop(1, #abce8d));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top left, #0b394e 0%, #abce8d 100%);
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom right, #0b394e 0%, #abce8d 100%);
 }
 @media (max-width: 480px) {
   html {
@@ -93,7 +104,6 @@ html {
 
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
-  background-image: url("/img/bg-pattern.png");
 }
 
 .navbar .nav > li > a.brand {
