@@ -2,7 +2,8 @@ angular.module('mean.system')
   .factory('game', ['socket', '$timeout', function (socket, $timeout) {
 
   var game = {
-    id: null,
+    id: null, // This player's socket ID, so we know who this player is
+    gameID: null,
     players: [],
     playerIndex: 0,
     winningCard: -1,
@@ -66,7 +67,13 @@ angular.module('mean.system')
   });
 
   socket.on('gameUpdate', function(data) {
-    // console.log(data);
+
+    // Update gameID field only if it changed.
+    // That way, we don't trigger the $scope.$watch too often
+    if (game.gameID !== data.gameID) {
+      game.gameID = data.gameID;
+    }
+
     game.joinOverride = false;
     clearTimeout(game.joinOverrideTimeout);
 
@@ -163,10 +170,15 @@ angular.module('mean.system')
     addToNotificationQueue(data.notification);
   });
 
-  game.joinGame = function(mode) {
+  game.joinGame = function(mode,room) {
     mode = mode || 'joinGame';
+    room = room || '';
     var userID = !!window.user ? user._id : 'unauthenticated';
-    socket.emit(mode,{userID: userID});
+    socket.emit(mode,{userID: userID, room: room});
+  };
+
+  game.createGameWithFriends = function() {
+    socket.emit('createGameWithFriends');
   };
 
   game.startGame = function() {

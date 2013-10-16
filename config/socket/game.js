@@ -44,12 +44,12 @@ Game.prototype.payload = function() {
       points: player.points,
       username: player.username,
       avatar: player.avatar,
-      //userID: player.userID, // Do we really need to send this?
       socketID: player.socket.id,
       color: player.color
     });
   });
   return {
+    gameID: this.gameID,
     players: players,
     czar: this.czar,
     state: this.state,
@@ -302,6 +302,15 @@ Game.prototype.pickCards = function(thisCardArray, thisPlayer) {
     }
   } else {
     console.log('NOTE:',thisPlayer,'picked a card during',this.state);
+  }
+};
+
+Game.prototype.getPlayer = function(thisPlayer) {
+  var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
+  if (playerIndex > -1) {
+    return this.players[playerIndex];
+  } else {
+    return {};
   }
 };
 

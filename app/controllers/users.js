@@ -30,10 +30,14 @@ exports.signin = function(req, res) {
  * Show sign up form
  */
 exports.signup = function(req, res) {
-  res.render('users/signup', {
-    title: 'Sign up',
-    user: new User()
-  });
+  if (!req.user) {
+    res.render('users/signup', {
+      title: 'Sign up',
+      user: new User()
+    });
+  } else {
+    res.redirect('/#!/app');
+  }
 };
 
 /**
