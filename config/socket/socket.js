@@ -44,7 +44,6 @@ module.exports = function(io) {
         var thisGame = allGames[socket.gameID];
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
         if (thisGame.players.length >= thisGame.playerMinLimit) {
-          gamesNeedingPlayers.splice(gamesNeedingPlayers.indexOf(thisGame),1);
           thisGame.prepareGame();
           thisGame.sendNotification('The game has begun!');
         }
@@ -101,10 +100,13 @@ module.exports = function(io) {
   };
 
   var getGame = function(player,socket,requestedGameId) {
+    console.log(socket.id,'is requesting room',requestedGameId);
     if (requestedGameId.length && allGames[requestedGameId]) {
+      console.log('Room',requestedGameId,'is valid');
       var game = allGames[requestedGameId];
       if (game.state === 'awaiting players') {
         // Put player into the requested game
+        console.log('Allowing player to join',requestedGameId);
         game.players.push(player);
         socket.join(game.gameID);
         socket.gameID = game.gameID;
@@ -120,6 +122,7 @@ module.exports = function(io) {
       }
     } else {
       // Put players into the general queue
+      console.log('Redirecting player',socket.id,'to general queue');
       fireGame(player,socket);
     }
 
@@ -157,30 +160,33 @@ module.exports = function(io) {
   var createGameWithFriends = function(socket) {
     var isUniqueRoom = false;
     var uniqueRoom = '';
-    // Get player object before we take this player out of the existing game.
-    var existingGame = allGames[socket.gameID];
-    var player = existingGame.getPlayer(socket.id);
 
-    if (Object.keys(player).length !== 0) {
-      exitGame(socket);
-      // Generate a random 6-character game ID
-      while (!isUniqueRoom) {
-        uniqueRoom = '';
-        for (var i = 0; i < 6; i++) {
-          uniqueRoom += chars[Math.floor(Math.random()*chars.length)];
+    if (allGames[socket.gameID]) {
+      // Get player object before we take this player out of the existing game.
+      var existingGame = allGames[socket.gameID];
+      var player = existingGame.getPlayer(socket.id);
+
+      if (Object.keys(player).length !== 0) {
+        exitGame(socket);
+        // Generate a random 6-character game ID
+        while (!isUniqueRoom) {
+          uniqueRoom = '';
+          for (var i = 0; i < 6; i++) {
+            uniqueRoom += chars[Math.floor(Math.random()*chars.length)];
+          }
+          if (!allGames[uniqueRoom]) {
+            isUniqueRoom = true;
+          }
         }
-        if (!allGames[uniqueRoom]) {
-          isUniqueRoom = true;
-        }
+        console.log('Created unique game',uniqueRoom);
+        var game = new Game(uniqueRoom,io);
+        game.players.push(player);
+        allGames[uniqueRoom] = game;
+        socket.join(game.gameID);
+        socket.gameID = game.gameID;
+        game.assignPlayerColors();
+        game.sendUpdate();
       }
-      console.log('Created unique game',uniqueRoom);
-      var game = new Game(uniqueRoom,io);
-      game.players.push(player);
-      allGames[gameID] = game;
-      socket.join(game.gameID);
-      socket.gameID = game.gameID;
-      game.assignPlayerColors();
-      game.sendUpdate();
     }
   };
 
