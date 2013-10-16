@@ -852,18 +852,23 @@
   vertical-align: top;
 }
 
+
+/*Override Bootstrap Row Class*/
 .row {
    margin-left: 0;
    margin-right: -6px;
 }
 
-
-
-
-
  /* MEDIA QUERY */
 
   /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
+
+
+@media(min-width: 1350px) {
+   .wpb-logo-container {
+      margin-right: 3px;
+   }
+}
 
 
 @media (min-width: 992px) {
@@ -880,17 +885,6 @@
       width: 89%;
    }
 }
-
-/*@media (min-width: 1127px) {
-   .row {
-   margin-left: 0;
-   margin-right: -6px;
-   }
-
-   .mod-contain {
-      width: 89%;
-   }
-}*/
 
 @media(max-width: 680px) {
    .wpb-menu-container {
