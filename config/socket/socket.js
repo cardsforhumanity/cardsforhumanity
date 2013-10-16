@@ -11,6 +11,7 @@ module.exports = function(io) {
 
   var game;
   var allGames = {};
+  var allPlayers = {};
   var gamesNeedingPlayers = [];
   var gameID = 0;
 
@@ -36,7 +37,9 @@ module.exports = function(io) {
     });
 
     socket.on('joinGame', function(data) {
-      joinGame(socket,data);
+      if (!allPlayers[socket.id]) {
+        joinGame(socket,data);
+      }
     });
 
     socket.on('startGame', function() {
@@ -44,6 +47,12 @@ module.exports = function(io) {
         var thisGame = allGames[socket.gameID];
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
         if (thisGame.players.length >= thisGame.playerMinLimit) {
+          // Remove this game from gamesNeedingPlayers so new players can't join it.
+          gamesNeedingPlayers.forEach(function(game,index) {
+            if (game.gameID === socket.gameID) {
+              return gamesNeedingPlayers.splice(index,1);
+            }
+          });
           thisGame.prepareGame();
           thisGame.sendNotification('The game has begun!');
         }
@@ -60,7 +69,6 @@ module.exports = function(io) {
     });
 
     socket.on('leaveGame', function() {
-      socket.leave(socket.gameID);
       exitGame(socket);
     });
 
@@ -110,6 +118,7 @@ module.exports = function(io) {
       if (game.state === 'awaiting players' && game.players[0].socket.id !== socket.id) {
         // Put player into the requested game
         console.log('Allowing player to join',requestedGameId);
+        allPlayers[socket.id] = true;
         game.players.push(player);
         socket.join(game.gameID);
         socket.gameID = game.gameID;
@@ -137,17 +146,20 @@ module.exports = function(io) {
       gameID += 1;
       var gameIDStr = gameID.toString();
       game = new Game(gameIDStr, io);
+      allPlayers[socket.id] = true;
       game.players.push(player);
       allGames[gameID] = game;
       gamesNeedingPlayers.push(game);
       socket.join(game.gameID);
       socket.gameID = game.gameID;
-      console.log('Create new Game',game.gameID);
+      console.log(socket.id,'has joined newly created game',game.gameID);
       game.assignPlayerColors();
       game.sendUpdate();
     } else {
       game = gamesNeedingPlayers[0];
+      allPlayers[socket.id] = true;
       game.players.push(player);
+      console.log(socket.id,'has joined game',game.gameID);
       socket.join(game.gameID);
       socket.gameID = game.gameID;
       game.assignPlayerColors();
@@ -181,8 +193,9 @@ module.exports = function(io) {
             isUniqueRoom = true;
           }
         }
-        console.log('Created unique game',uniqueRoom);
+        console.log(socket.id,'has created unique game',uniqueRoom);
         var game = new Game(uniqueRoom,io);
+        allPlayers[socket.id] = true;
         game.players.push(player);
         allGames[uniqueRoom] = game;
         socket.join(game.gameID);
@@ -196,6 +209,8 @@ module.exports = function(io) {
   var exitGame = function(socket) {
     if (allGames[socket.gameID]) { // Make sure game exists
       var game = allGames[socket.gameID];
+      console.log(socket.id,'has left game',game.gameID);
+      delete allPlayers[socket.id];
       if (game.state === 'awaiting players' ||
         game.players.length-1 >= game.playerMinLimit) {
         game.removePlayer(socket.id);
@@ -208,6 +223,7 @@ module.exports = function(io) {
         delete allGames[socket.gameID];
       }
     }
+    socket.leave(socket.gameID);
   };
 
 };

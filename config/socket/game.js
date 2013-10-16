@@ -104,7 +104,7 @@ Game.prototype.prepareGame = function() {
 };
 
 Game.prototype.startGame = function() {
-  console.log(this.state);
+  console.log(this.gameID,this.state);
   this.shuffleCards(this.questions);
   this.shuffleCards(this.answers);
   this.stateChoosing(this);
@@ -116,7 +116,7 @@ Game.prototype.sendUpdate = function() {
 
 Game.prototype.stateChoosing = function(self) {
   self.state = "waiting for players to pick";
-  console.log(self.state);
+  console.log(self.gameID,self.state);
   self.table = [];
   self.winningCard = -1;
   self.winningCardPlayer = -1;
@@ -151,14 +151,14 @@ Game.prototype.selectFirst = function() {
     this.winnerAutopicked = true;
     this.stateResults(this);
   } else {
-    console.log('no cards were picked!');
+    console.log(this.gameID,'no cards were picked!');
     this.stateChoosing(this);
   }
 };
 
 Game.prototype.stateJudging = function(self) {
   self.state = "waiting for czar to decide";
-  console.log(self.state);
+  console.log(self.gameID,self.state);
 
   if (self.table.length <= 1) {
     // Automatically select a card if only one card was submitted
