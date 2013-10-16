@@ -189,7 +189,7 @@ module.exports = function(io) {
           for (var i = 0; i < 6; i++) {
             uniqueRoom += chars[Math.floor(Math.random()*chars.length)];
           }
-          if (!allGames[uniqueRoom]) {
+          if (!allGames[uniqueRoom] && !(/^\d$/).test(uniqueRoom)) {
             isUniqueRoom = true;
           }
         }
