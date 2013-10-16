@@ -12,7 +12,7 @@
               <span id="third-word">Humanity</span> 
             </div> 
             <div class="col-md-9 wpb-menu-container">
-              <ul class="wpb-main-menu">`
+              <ul class="wpb-main-menu">
                 <li><a href="/">Home</a></li>
               </ul>
             </div>
@@ -30,87 +30,52 @@
     <div class="row" id="main-text"> 
     <!-- Teaser Text Start -->
     <div id="landing-logo">
-      <h2 id="slogan">Sign Up</h2>
+      <h2 class="uppercase" id="slogan">Sign Up with:</h2>
       <div id="login-buttons">
         <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
         <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
         <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
         <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
       </div>
+      <p id="create">Or create a username and password:</p>
 
       <div class="sign-body">
         <div class="more-sign">
           <form class="signup form-horizontal" action="/users" method="post">
             <div class="control-group">
-              <label for="name" class="control-label">Full name</label>
+              <label for="name" class="control-label"></label>
               <div class="controls">
                 <input class="input-info" id="name" type="text" name="name" placeholder="Full name">
               </div>
             </div>
             <div class="control-group">
-              <label for="email" class="control-label">Email</label>
+              <label for="email" class="control-label"></label>
               <div class="controls">
                 <input class="input-info" id="email" type="text" name="email" placeholder="Email">
               </div>
             </div>
             <div class="control-group">
-              <label for="password" class="control-label">Password</label>
+              <label for="password" class="control-label"></label>
               <div class="controls">
                 <input class="input-info" id="password" type="password" name="password" placeholder="Password">
               </div>
             </div>
+            <p id="create">Choose an avatar!</p>
             <div id="contain-avatars">
               <ul ng-controller="IndexController" class="avatar-list">
-                <li ng-repeat="avatar in avatars" class="avatars ng-scope"><img ng-src="{{avatar}}"></li>
+                <li ng-repeat="avatar in avatars" class="avatars ng-scope"><img ng-src="{{avatar}}" name="avatar" type='radio' value="{{$index}}"></li>
               </ul>
+            </div>
+            <div class="form-actions">
+              <a class="show-sign-up" href="/app">
+                <button class="btn btn-primary" type='submit'>Sign Up</button>
+              </a>
             </div>
           </form>
         </div>
       </div>
     </div>
-    <!-- Teaser Text End -->
     </div>
     </div>
   </div>
 </div>
-
-
-
-<!--   div.sign-body
-    div.more-sign
-      form.signup.form-horizontal(action="/users", method="post")
-        .control-group
-          label.control-label(for='name') Full name
-          .controls
-            input#name(type='text', name="name", placeholder='Full name', value=user.name)
-
-        .control-group
-          label.control-label(for='email') Email
-          .controls
-            input#email(type='text', name="email", placeholder='Email', value=user.email)
-
-        .control-group
-          label.control-label(for='username') Username
-          .controls
-            input#username(type='text', name="username", placeholder='Username', value=user.username)
-
-        .control-group
-          label.control-label(for='password') Password
-          .controls
-            input#password(type='password', name="password", placeholder='Password')
-
-        ul.avatar-list(ng-controller="IndexController")
-          li.avatars(ng-repeat="avatar in avatars")
-            input#avatar(name="avatar", type='radio', value="{{$index}}")
-            img(ng-src="{{avatar}}")
-
-        .form-actions
-          a.show-sign-up(href='/app')
-            button.btn.btn-primary(type='submit') Sign up
-            &nbsp;
-            | or&nbsp;
-            a.show-login(href="/signin") login -->
-
-
-
-
