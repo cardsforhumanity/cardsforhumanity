@@ -2,7 +2,8 @@ angular.module('mean.system')
   .factory('game', ['socket', '$timeout', function (socket, $timeout) {
 
   var game = {
-    id: null,
+    id: null, // This player's socket ID, so we know who this player is
+    gameID: null,
     players: [],
     playerIndex: 0,
     winningCard: -1,
@@ -66,7 +67,13 @@ angular.module('mean.system')
   });
 
   socket.on('gameUpdate', function(data) {
-    // console.log(data);
+
+    // Update gameID field only if it changed.
+    // That way, we don't trigger the $scope.$watch too often
+    if (game.gameID !== data.gameID) {
+      game.gameID = data.gameID;
+    }
+
     game.joinOverride = false;
     clearTimeout(game.joinOverrideTimeout);
 
