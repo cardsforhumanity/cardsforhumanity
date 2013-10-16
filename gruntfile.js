@@ -72,8 +72,7 @@ module.exports = function(grunt) {
                     style: 'expanded'
                 },
                 files: {
-                    'public/css/common.css': 'public/css/common.scss',
-                    'public/css/views/articles.css': 'public/css/views/articles.scss'
+                    'public/css/common.css': 'public/css/common.scss'
                 },
             }
         },
