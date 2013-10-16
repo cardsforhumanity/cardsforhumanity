@@ -253,6 +253,7 @@ body {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
     width: 100%;
     height: 100%;
+    margin-left: 3px;
   }
 }
 @media (max-width: 480px) {
@@ -270,6 +271,11 @@ body {
   bottom: 8px;
   left: 17px;
 }
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
+    left: 8px;
+  }
+}
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
     bottom: 0;
@@ -282,6 +288,11 @@ body {
   font-family: 'Lobster', cursive;
   margin-bottom: 0px;
 }
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
+    font-size: 14px;
+  }
+}
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
     font-family: 'Lobster', cursive;
@@ -293,6 +304,11 @@ body {
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
   margin-top: 0;
   margin-bottom: 0;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
+    font-size: 19px;
+  }
 }
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
@@ -468,8 +484,15 @@ body {
   float: left;
   width: 79%;
 }
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
+    width: 74%;
+    float: right;
+  }
+}
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
+    float: left;
     width: 71%;
     margin-left: 2%;
   }
@@ -568,12 +591,18 @@ body {
   height: 50%;
   margin-top: 10px;
 }
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #gameplay-container #info-container {
+    padding-top: 5px;
+    height: auto;
+  }
+}
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #info-container {
     width: 100%;
     padding: 1px;
     margin: 0px auto;
-    height: 49%;
+    height: 72%;
   }
 }
 #main-container #app-container #gameplay-container #info-container #inner-info {
@@ -584,18 +613,9 @@ body {
   font-size: 18px;
   margin-top: 10px;
 }
-@media (max-width: 480px) {
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #info-container #inner-info #lobby-how-to-play {
-    font-size: 15px;
-  }
-}
-#main-container #app-container #gameplay-container #info-container #inner-info #lobby-cfh {
-  font-family: 'Lobster', cursive;
-  font-size: 24px;
-}
-@media (max-width: 480px) {
-  #main-container #app-container #gameplay-container #info-container #inner-info #lobby-cfh {
-    font-size: 20px;
+    font-size: 14px;
   }
 }
 #main-container #app-container #gameplay-container #info-container #inner-info ol {
@@ -806,12 +826,23 @@ body {
   padding: 3px;
   text-align: left;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container {
+    height: 40%;
+    display: none;
+  }
+}
 #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact-tagline {
   font-family: 'Lobster', cursive;
   font-size: 22px;
   margin-left: 2%;
   margin-bottom: 3px;
   color: #000;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact-tagline {
+    font-size: 16px;
+  }
 }
 #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact {
   font-size: 14px;
@@ -820,10 +851,27 @@ body {
   width: 90%;
   margin: 0 5% 3px 5%;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact {
+    font-size: 12px;
+  }
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container {
+    position: absolute;
+    top: 1px;
+    right: 0;
+  }
+}
 #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container img {
   float: right;
   margin-right: 2%;
   margin-bottom: 3px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container img {
+    width: 53%;
+  }
 }
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
@@ -854,6 +902,11 @@ body {
   }
 }
 
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #notifications {
+    font-size: 18px;
+  }
+}
 @media (max-width: 480px) {
   #notifications {
     font-size: 15px;
