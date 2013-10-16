@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 var avatars = require(__dirname + '/../../app/controllers/avatars.js').all();
-// Valid characters to generate random private game IDs
+// Valid characters to use to generate random private game IDs
 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 
 module.exports = function(io) {
@@ -104,7 +104,7 @@ module.exports = function(io) {
     if (requestedGameId.length && allGames[requestedGameId]) {
       console.log('Room',requestedGameId,'is valid');
       var game = allGames[requestedGameId];
-      if (game.state === 'awaiting players') {
+      if (game.state === 'awaiting players' && game.players[0].socket.id !== socket.id) {
         // Put player into the requested game
         console.log('Allowing player to join',requestedGameId);
         game.players.push(player);
