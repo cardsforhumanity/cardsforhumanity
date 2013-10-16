@@ -243,6 +243,11 @@ body {
     height: 100%;
   }
 }
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-star {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+}
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
   height: 100%;
   width: 40%;
