@@ -93,7 +93,7 @@ html {
 
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
-  background-color: white;
+  background-image: url("/img/bg-pattern.png");
 }
 
 .navbar .nav > li > a.brand {
@@ -197,7 +197,6 @@ body {
     position: relative;
     top: 0;
     left: 0;
-    background: white;
   }
 }
 #main-container #app-container #social-bar-container #player-container {
@@ -236,6 +235,8 @@ body {
   height: 100%;
   width: 40%;
   float: left;
+  position: relative;
+  z-index: 999;
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
   width: 100%;
@@ -417,13 +418,14 @@ body {
   text-indent: 0;
   text-shadow: 1px 1px 0px #ffffff;
   cursor: pointer;
-  background: #89FFAC;
+  background: #FFF;
   text-shadow: none;
   cursor: default;
   border: none;
   min-width: 85px;
   min-height: 85px;
   height: 100%;
+  color: #000;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
   position: absolute;
@@ -432,27 +434,28 @@ body {
   padding-top: 5px;
   padding-bottom: 8px;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.61);
-  opacity: 0.7;
-  -webkit-border-radius: 0 0 8px 8px;
-  -moz-border-radius: 0 0 8px 8px;
-  border-radius: 0 0 8px 8px;
-  color: white;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
     font-size: 13px;
   }
 }
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+    font-size: 12px;
+  }
+}
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
+  font-family: 'Lobster', cursive;
   font-size: 110px;
   position: absolute;
+  bottom: 25%;
   left: 0;
   right: 0;
 }
 @media only screen and (max-width: 1024px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
-    font-size: 80px;
+    font-size: 90px;
   }
 }
 @media (max-width: 480px) {
@@ -562,6 +565,8 @@ body {
   border-radius: 8px;
   text-align: center;
   padding: 15px;
+  height: 50%;
+  margin-top: 10px;
 }
 @media (max-width: 480px) {
   #main-container #app-container #gameplay-container #info-container {
@@ -571,17 +576,41 @@ body {
     height: 49%;
   }
 }
-#main-container #app-container #gameplay-container #info-container #inner-info h1 {
-  font-size: 22px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+#main-container #app-container #gameplay-container #info-container #inner-info {
+  width: 90%;
+  margin: 0 5%;
 }
-#main-container #app-container #gameplay-container #info-container #inner-text {
-  font-size: 22px;
+#main-container #app-container #gameplay-container #info-container #inner-info #lobby-how-to-play {
+  font-size: 18px;
+  margin-top: 10px;
 }
 @media (max-width: 480px) {
-  #main-container #app-container #gameplay-container #info-container #inner-text {
+  #main-container #app-container #gameplay-container #info-container #inner-info #lobby-how-to-play {
     font-size: 15px;
+  }
+}
+#main-container #app-container #gameplay-container #info-container #inner-info #lobby-cfh {
+  font-family: 'Lobster', cursive;
+  font-size: 24px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #info-container #inner-info #lobby-cfh {
+    font-size: 20px;
+  }
+}
+#main-container #app-container #gameplay-container #info-container #inner-info ol {
+  margin-top: 10px;
+  font-family: "helvetica neue", helvetica, sans-serif;
+  text-align: left;
+  font-size: 17px;
+}
+#main-container #app-container #gameplay-container #info-container #inner-info ol li {
+  list-style-type: decimal;
+  margin-bottom: 5px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #info-container #inner-info ol {
+    font-size: 13px;
     padding: 0px 10px 10px 10px;
   }
 }

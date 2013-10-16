@@ -81,7 +81,7 @@ angular.module('mean.system')
     var newState = (data.state !== game.state);
 
     //Handle updating game.time
-    if (data.round !== game.round) {
+    if (data.round !== game.round && data.state !== 'awaiting players') {
       game.time = game.timeLimits.stateChoosing - 1;
       timeSetViaUpdate = true;
     } else if (newState && data.state === 'waiting for czar to decide') {
