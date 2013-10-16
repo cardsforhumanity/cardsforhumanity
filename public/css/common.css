@@ -105,7 +105,17 @@ html {
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
   background: transparent;
-  margin: 2px;
+  margin: 10px;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    margin: 5px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    margin: 1px;
+  }
 }
 
 .navbar .nav > li > a.brand {

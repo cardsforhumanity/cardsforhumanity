@@ -407,7 +407,15 @@ html{
 body{
     font-family: $main-font;
     background: transparent;
-    margin: 2px;
+    margin: 10px;
+
+    @include tablet-portrait-only{
+        margin: 5px;
+    }
+
+    @include mobile-only{
+        margin: 1px;
+    }
 }
 
 .navbar .nav>li>a.brand {
