@@ -863,8 +863,14 @@ body{
                                         width: 65%;
                                         cursor: pointer;
 
-                                        @include mobile-only{
+                                        @include tablet-portrait-only{
                                             padding: 0.65em 2px;
+                                            font-size: 1.1rem;
+                                        }
+
+                                        @include mobile-only{
+                                            padding: 0.65em 1px;
+                                            font-size: 1rem;
                                         }
                                     }
 
