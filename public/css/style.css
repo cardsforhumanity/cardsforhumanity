@@ -78,7 +78,7 @@
    background: transparent;
    position: fixed;
    top:0;
-   width: 96%;
+   width: 100%;
    z-index:10000;
    max-width: 1400px;
  }
