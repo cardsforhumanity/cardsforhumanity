@@ -3,6 +3,7 @@ angular.module('mean.system')
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
+    $scope.modalShown = false;
     $scope.game = game;
     $scope.pickedCards = [];
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
@@ -152,6 +153,12 @@ angular.module('mean.system')
           // Once the game ID is set, update the URL if this is a game with friends,
           // where the link is meant to be shared.
           $location.search({game: game.gameID});
+          alert($scope.modalShown);
+          if(!$scope.modalShown){
+            $('#finding-players').text('test');
+            alert('penis');
+            $scope.modalShown = true;
+          }
         }
       }
     });
