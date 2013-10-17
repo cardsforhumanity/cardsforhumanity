@@ -43,7 +43,7 @@
         <div class="sign-error" ng-show="showError() === 'incomplete'">
           Please be sure to fill out all of the fields.
         </div>
-        <div class="sign-error" ng-show="showError() === 'existingusers'">
+        <div class="sign-error" ng-show="showError() === 'existinguser'">
           Looks like you already have an account. You should sign in!
         </div>
         <div class="sign-error" ng-show="showError() === 'unknown'">
@@ -70,7 +70,7 @@
               </div>
             </div>
             <div id="contain-avatars">
-              <ul ng-controller="IndexController" class="avatar-list">
+              <ul class="avatar-list">
                 <li ng-repeat="avatar in avatars" class="avatars ng-scope">
                   <input name="avatar" type='radio' value="{{$index}}">
                     <img ng-src="{{avatar}}">
@@ -79,9 +79,7 @@
               </ul>
             </div>
             <div class="form-actions">
-              <a class="show-sign-up" href="#!/app">
-                <div id="sign-up-btn" type='submit'>Sign Up</div>
-              </a>
+              <button id="sign-up-btn" type='submit'>Sign Up</button>
             </div>
           </form>
         </div>
