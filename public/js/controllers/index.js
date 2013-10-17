@@ -7,6 +7,14 @@ angular.module('mean.system')
       $location.path('/app');
     };
 
+    $scope.showError = function() {
+      if ($location.search().error) {
+        return $location.search().error;
+      } else {
+        return false;
+      }
+    };
+
     $scope.avatars = [];
     AvatarService.getAvatars()
       .then(function(data) {

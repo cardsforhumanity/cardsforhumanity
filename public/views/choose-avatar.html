@@ -1,0 +1,61 @@
+<div id="main-bod" ng-controller="IndexController">
+  <!-- Fixed Logo & Menu Bar Start -->
+  <div id="top-part">
+    <div class="wpb-top-bar">
+      <div class="mod-contain" id="navver">
+        <div class="row">
+          <!-- Logo -->
+          <div class="wpb-logo-container">
+            <div id="landing-logo"> 
+              <span id="first-word">Cards</span>
+              <span id="second-word"> for</span> 
+              <span id="third-word">Humanity</span> 
+            </div> 
+            <div class="col-md-9 wpb-menu-container">
+              <ul class="wpb-main-menu">
+                <li><a href="/">Home</a></li>
+              </ul>
+            </div>
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Fixed Logo & Menu Bar End -->
+
+<!-- Landing Start -->
+<div class="wpb-teaser parallax-background" id="homer">
+  <div class="background-opacity"></div> 
+  <div class="modified-container">
+    <div class="row" id="main-text"> 
+    <!-- Teaser Text Start -->
+    <div id="landing-logo">
+      <h2 id="slogan">Choose an Avatar!</h2>
+      <p id="create">You're almost there! Just pick an avatar from the options below!</p>
+
+      <div class="sign-body">
+        <div class="more-sign">
+          <form class="signup form-horizontal" action="/users/avatars" method="post">
+            <div id="contain-avatars">
+              <ul class="avatar-list">
+                <li ng-repeat="avatar in avatars" class="avatars ng-scope">
+                  <input name="avatar" type='radio' value="{{$index}}">
+                    <img ng-src="{{avatar}}">
+                  </input>
+                </li>
+              </ul>
+            </div>
+            <div class="form-actions">
+              <button id="sign-up-btn" type='submit'>Let's Go!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
