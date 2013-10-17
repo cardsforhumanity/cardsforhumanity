@@ -15,7 +15,10 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
             templateUrl: '/views/signin.html'
           }).
           when('/signup', {
-            templateUrl: '/views/sign.html'
+            templateUrl: '/views/signup.html'
+          }).
+          when('/choose-avatar', {
+            templateUrl: '/views/choose-avatar.html'
           }).
           otherwise({
               redirectTo: '/'
@@ -35,6 +38,10 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
     } else {
         this.$apply(fn);
       }
+    };
+  }]).run(['DonationService', function (DonationService) {
+    window.userDonationCb = function (donationObject) {
+      DonationService.userDonated(donationObject);
     };
   }]);
 

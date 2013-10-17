@@ -18,16 +18,21 @@
           Start Game</br>with {{game.players.length}} players
         </div>
       </div>
-      <div id="start-game-with-friends-container" ng-show="!isCustomGame()" ng-click="createGameWithFriends()">
-        <div id='start-game-button'>
-          Create Game</br>with Friends
-        </div>
-      </div>
     </div>
-
-    <div id="people-left-game-top" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
-      <h2>What the!? The game ended because too many people left! </h2>
-      Our sincere apologies.
+    <!-- Game Over Stuff -->
+    <div id="game-end-info">
+      <div id="people-left-game-top" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
+        <div class="game-end-headline">What the!? The game ended because too many people left! </div>
+        Our sincere apologies.
+      </div>
+      <div ng-show="game.state === 'game ended' && game.gameWinner === game.playerIndex">
+        <div class="game-end-headline">Congratulations! You won the game, {{game.players[game.playerIndex].username | upperFirstLetter}}!</div>We hope you feel special. If you'd like to share that special feeling with the world, consider donating to charity. Or just horde it all for youself.
+      </div>
+      <div ng-show="game.state === 'game ended' && game.gameWinner !== game.playerIndex">
+        <div class="game-end-headline">Aw, shucks! {{game.players[game.gameWinner].username | upperFirstLetter }} won the game!</div>
+        That makes you a loser, unfortunately.
+      </div>
     </div>
   </div>
 </div>
+

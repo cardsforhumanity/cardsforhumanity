@@ -8,7 +8,6 @@ angular.module('mean.system')
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
     $scope.makeAWishFact = makeAWishFacts.pop();
 
-
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
         if ($scope.pickedCards.indexOf(card.id) < 0) {
@@ -120,10 +119,6 @@ angular.module('mean.system')
       game.startGame();
     };
 
-    $scope.createGameWithFriends = function() {
-      game.createGameWithFriends();
-    };
-
     $scope.abandonGame = function() {
       game.leaveGame();
       $location.path('/');
@@ -156,9 +151,13 @@ angular.module('mean.system')
       }
     });
 
-    if (!(/^\d$/).test($location.search().game)) {
+    if ($location.search().game && !(/^\d$/).test($location.search().game)) {
+      console.log('joining custom game');
       game.joinGame('joinGame',$location.search().game);
+    } else if ($location.search().custom) {
+      game.joinGame('joinGame',null,true);
     } else {
       game.joinGame();
     }
+
 }]);

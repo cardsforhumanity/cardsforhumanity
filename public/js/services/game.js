@@ -172,15 +172,12 @@ angular.module('mean.system')
     addToNotificationQueue(data.notification);
   });
 
-  game.joinGame = function(mode,room) {
+  game.joinGame = function(mode,room,createPrivate) {
     mode = mode || 'joinGame';
     room = room || '';
+    createPrivate = createPrivate || false;
     var userID = !!window.user ? user._id : 'unauthenticated';
-    socket.emit(mode,{userID: userID, room: room});
-  };
-
-  game.createGameWithFriends = function() {
-    socket.emit('createGameWithFriends');
+    socket.emit(mode,{userID: userID, room: room, createPrivate: createPrivate});
   };
 
   game.startGame = function() {
