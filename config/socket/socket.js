@@ -91,6 +91,7 @@ module.exports = function(io) {
           player.avatar = avatars[Math.floor(Math.random()*4)+12];
         } else {
           player.username = user.name;
+          player.premium = user.premium || 0;
           player.avatar = user.avatar || avatars[Math.floor(Math.random()*4)+12];
         }
         getGame(player,socket,data.room,data.createPrivate);
