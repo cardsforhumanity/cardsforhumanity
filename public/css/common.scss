@@ -557,6 +557,17 @@ body{
                         position: absolute;
                         top: 3px;
                         right: 5px;
+
+                        @include mobile-only{
+                            top: 29px;
+                            left: 6px;
+                        }
+
+                        img{
+                            @include mobile-only{
+                                width: 13px;
+                            }
+                        }
                     }
 
                     #avatar_ {

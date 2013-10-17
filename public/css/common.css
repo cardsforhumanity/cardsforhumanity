@@ -258,6 +258,17 @@ body {
   top: 3px;
   right: 5px;
 }
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-star {
+    top: 29px;
+    left: 6px;
+  }
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-star img {
+    width: 13px;
+  }
+}
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
   height: 100%;
   width: 40%;
