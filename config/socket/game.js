@@ -34,6 +34,20 @@ function Game(gameID, io) {
   // Gets cleared if czar finishes judging before time limit.
   this.judgingTimeout = 0;
   this.resultsTimeout = 0;
+  this.guestNames = [
+    "Disco Potato",
+    "Silver Blister",
+    "Insulated Mustard",
+    "Funeral Flapjack",
+    "Toenail",
+    "Urgent Drip",
+    "Raging Bagel",
+    "Aggressive Pie",
+    "Loving Spoon",
+    "Swollen Node",
+    "The Spleen",
+    "Dingle Dangle"
+  ];
 }
 
 Game.prototype.payload = function() {
@@ -73,6 +87,16 @@ Game.prototype.sendNotification = function(msg) {
 Game.prototype.assignPlayerColors = function() {
   this.players.forEach(function(player,index) {
     player.color = index;
+  });
+};
+
+Game.prototype.assignGuestNames = function() {
+  var self = this;
+  this.players.forEach(function(player) {
+    if (player.username === 'Guest' && self.guestNames.length > 0) {
+      var randIndex = Math.floor(Math.random() * self.guestNames.length);
+      player.username = self.guestNames.splice(randIndex, 1)[0];
+    }
   });
 };
 
