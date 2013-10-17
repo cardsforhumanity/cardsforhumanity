@@ -1,4 +1,4 @@
-<div id="main-bod">
+<div landing id="main-bod">
   <!-- Fixed Logo & Menu Bar Start -->
   <div id="top-part">
     <div class="wpb-top-bar">
@@ -17,7 +17,13 @@
                 <li><a href="#!/#how-to">How to Play</a></li>
                 <li><a href="#!/#tech-stack">Tech Stack</a></li>
                 <li><a href="#!/#team-names">About Us</a></li>
-                <li><a href="#!/sign">Sign Up/Sign In</a></li>
+                <span ng-show="showOptions">
+                  <li><a href="#!/sign">Sign Up</a></li>
+                  <li><a href="#!/signin">Sign In</a></li>
+                </span>
+                <span ng-hide="showOptions">
+                  <li><a href="#!/signin">Sign Out</a></li>
+                </span>
               </ul>
             </div>
           </div>      
@@ -51,12 +57,17 @@
       </div>
       <!-- Teaser Text End -->
       <div id="sign-up">
+        <span ng-show="showOptions">
         <a href="#!/sign"><div id="sign-up-btn">Sign Up</div></a>
-        <div id="sign-up-text"><a href="play">
-          <span id="first-word">or Play</span>
-          <span id="second-word">as</span> 
-          <span id="third-word">Guest</span></a>
-        </div>
+          <div id="sign-up-text"><a href="#!/app">
+            <span id="first-word">or Play</span>
+            <span id="second-word">as</span> 
+            <span id="third-word">Guest</span></a>
+          </div>
+        </span>
+        <span ng-hide="showOptions">
+          <a href="#!/app"><div id="sign-up-btn">Join Game</div></a>
+        </span>
        </div>
       </div>
       </div>
@@ -83,22 +94,28 @@
         <!-- Teaser Text Start -->
         <div id="card-list">
           <div id="how-to-cards">
-            <div class="card how-to">Each player begins with, and will always have, 10 white answer cards.</div>
-            <div class="card how-to">For each round, one player is randomly chosen as the Card Czar.</div>
-            <div class="card how-to">Everyone else answers the black question card by clicking on the answer card they want to use.</div>
-            <div class="card how-to">The Card Czar then picks a favorite answer, and whoever played that answer wins the round.</div>
+            <div class="landing-card how-to">Each player begins with, and will always have, 10 white answer cards.</div>
+            <div class="landing-card how-to">For each round, one player is randomly chosen as the Card Czar.</div>
+            <div class="landing-card how-to">Everyone else answers the black question card by clicking on the answer card they want to use.</div>
+            <div class="landing-card how-to">The Card Czar then picks a favorite answer, and whoever played that answer wins the round.</div>
           </div>
         </div>
        <!-- Teaser Text End -->
       </div>
 
       <div id="sign-up">
-        <a href="#!/sign"><div id="sign-up-btn">Sign Up</div></a>
-        <div id="sign-up-text"><a href="#!/app">
-          <span id="first-word">or Play</span>
-          <span id="second-word">as</span> 
-          <span id="third-word">Guest</span></a>
-        </div>
+        <span ng-show="showOptions">
+          <a href="#!/sign"><div id="sign-up-btn">Sign Up</div></a>
+          <div id="sign-up-text"><a href="#!/app">
+            <span id="first-word">or Play</span>
+            <span id="second-word">as</span> 
+            <span id="third-word">Guest</span></a>
+          </div>
+        </span>
+
+        <span ng-hide="showOptions">
+          <a href="#!/app"><div id="sign-up-btn">Join Game</div></a>
+        </span>
        </div>
     </div>
 </section>
@@ -126,11 +143,9 @@
             <!-- Portfolio Item Start -->
             <li class="wpb-portfolio-item span4 web-design">
               <div class="wpb-portfolio-thumbnail">
-               <a href="#">
                 <div class="wpb-portfolio-overlay">
                   <div><img src="img/mongo-logo.png" alt="mongo" class="" /></div>
                 </div>
-               </a>
               </div>
               <div class="wpb-portfolio-details">
                 <h3>MongoDB</h3>
@@ -139,11 +154,9 @@
             </li>
             <li class="wpb-portfolio-item span4 web-design">
               <div class="wpb-portfolio-thumbnail">
-               <a href="#">
                 <div class="wpb-portfolio-overlay">
                   <div><img src="img/express-logo.jpg" alt="Details" class="" /></div>
                 </div>
-               </a>
               </div>
               <div class="wpb-portfolio-details">
                 <h3>Express</h3>
@@ -152,11 +165,11 @@
             </li>
             <li class="wpb-portfolio-item span4 web-design">
               <div class="wpb-portfolio-thumbnail">
-               <a href="#">
+               
                 <div class="wpb-portfolio-overlay">
                   <div><img src="img/angular-logo.png" alt="Details" id="ang-logo" /></div>
                 </div>
-               </a>
+               
               </div>
               <div class="wpb-portfolio-details">
                 <h3>Angular</h3>
@@ -165,11 +178,11 @@
             </li>
             <li class="wpb-portfolio-item span4 web-design">
               <div class="wpb-portfolio-thumbnail">
-               <a href="#">
+               
                 <div class="wpb-portfolio-overlay">
                   <div><img src="img/node-logo.png" alt="Details" class="" /></div>
                 </div>
-               </a>
+               
               </div>
               <div class="wpb-portfolio-details">
                 <h3>Node.js</h3>
@@ -178,11 +191,11 @@
             </li>
             <li class="wpb-portfolio-item span4 web-design">
               <div class="wpb-portfolio-thumbnail">
-               <a href="#">
+               
                 <div class="wpb-portfolio-overlay">
                   <div><img src="img/socketio-logo.png" alt="Details" class="" /></div>
                 </div>
-               </a>
+               
               </div>
               <div class="wpb-portfolio-details">
                 <h3>Socket.io</h3>
@@ -191,11 +204,11 @@
             </li>
             <li class="wpb-portfolio-item span4 web-design">
               <div class="wpb-portfolio-thumbnail">
-               <a href="#">
+               
                 <div class="wpb-portfolio-overlay">
                   <div><img src="img/sass-logo.png" alt="Details" class="" /></div>
                 </div>
-               </a>
+               
               </div>
               <div class="wpb-portfolio-details">
                 <h3>Sass</h3>

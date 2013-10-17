@@ -30,14 +30,14 @@
     <div class="row" id="main-text"> 
     <!-- Teaser Text Start -->
     <div id="landing-logo">
-      <h2 class="uppercase" id="slogan">Sign Up with:</h2>
+      <h2 id="slogan">Sign Up with:</h2>
       <div id="login-buttons">
         <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
         <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
         <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
         <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
       </div>
-      <p id="create">Or create a username and password:</p>
+      <p id="create">Or create a username/password and select an avatar:</p>
 
       <div class="sign-body">
         <div class="sign-error" ng-show="showError() === 'incomplete'">
@@ -69,15 +69,18 @@
                 <input class="input-info" id="password" type="password" name="password" placeholder="Password" required novalidate />
               </div>
             </div>
-            <p id="create">Choose an avatar!</p>
             <div id="contain-avatars">
               <ul ng-controller="IndexController" class="avatar-list">
-                <li ng-repeat="avatar in avatars" class="avatars ng-scope"><img ng-src="{{avatar}}" name="avatar" type='radio' value="{{$index}}"></li>
+                <li ng-repeat="avatar in avatars" class="avatars ng-scope">
+                  <input name="avatar" type='radio' value="{{$index}}">
+                    <img ng-src="{{avatar}}">
+                  </input>
+                </li>
               </ul>
             </div>
             <div class="form-actions">
-              <a class="show-sign-up" href="/app">
-                <button class="btn btn-primary" type='submit'>Sign Up</button>
+              <a class="show-sign-up" href="#!/app">
+                <div id="sign-up-btn" type='submit'>Sign Up</div>
               </a>
             </div>
           </form>
@@ -88,3 +91,6 @@
     </div>
   </div>
 </div>
+
+
+
