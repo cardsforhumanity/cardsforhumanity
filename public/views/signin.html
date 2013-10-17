@@ -1,4 +1,4 @@
-<div id="main-bod">
+<div id="main-bod" ng-controller="IndexController">
   <!-- Fixed Logo & Menu Bar Start -->
   <div id="top-part">
     <div class="wpb-top-bar">
@@ -30,9 +30,20 @@
     <div class="row" id="main-text"> 
     <!-- Teaser Text Start -->
     <div id="landing-logo">
+      <h2 id="slogan">Sign in with:</h2>
+      <div id="login-buttons">
+        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
+        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
+        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
+        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
+      </div>
+      <p id="create">Or log in below:</p>
+
       <div class="sign-body">
         <div class="more-sign">
-          <h2 class="sign-in-header uppercase">Sign In</h2>
+          <div class="sign-error" ng-show="showError() === 'invalid'">
+            Please check your username/password and try again.
+          </div>
           <form class="signup form-horizontal" action="/users/session" method="post">
             <div class="control-group">
               <label for="email" class="control-label"></label>
@@ -47,9 +58,7 @@
               </div>
             </div>
             <div class="form-actions top-margin">
-              <a class="show-sign-up" href="/app">
-                <div id="sign-up-btn" type='submit'>Sign In</div>
-              </a>
+              <button id="sign-up-btn" type='submit'>Sign In</button>
             </div>
           </form>
         </div>
