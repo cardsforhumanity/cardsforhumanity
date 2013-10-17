@@ -125,6 +125,33 @@ exports.avatars = function(req, res) {
   return res.redirect('/#!/app');
 };
 
+exports.addDonation = function(req, res) {
+  if (req.body && req.user && req.user._id) {
+    // Verify that the object contains crowdrise data
+    if (req.body.amount && req.body.crowdrise_donation_id && req.body.donor_name) {
+      User.findOne({
+        _id: req.user._id
+      })
+      .exec(function(err, user) {
+        // Confirm that this object hasn't already been entered
+        var duplicate = false;
+        for (var i = 0; i < user.donations.length; i++ ) {
+          if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
+            duplicate = true;
+          }
+        }
+        if (!duplicate) {
+          console.log('Validated donation');
+          user.donations.push(req.body);
+          user.premium = 1;
+          user.save();
+        }
+      });
+    }
+  }
+  res.send();
+};
+
 /**
  *  Show profile
  */
