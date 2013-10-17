@@ -555,8 +555,11 @@ body{
 
                     #player-star{
                         position: absolute;
-                        top: 3px;
-                        right: 5px;
+                        top: 34px;
+                        right: 50px;
+                        img {
+                            width: 22px;
+                        }
                     }
 
                     #avatar_ {
@@ -631,6 +634,7 @@ body{
                         #player-score{
                             h2{
 
+                                font-size: 26px;
                                 margin-top: 0;
                                 margin-bottom: 0;
 

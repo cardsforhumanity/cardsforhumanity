@@ -255,8 +255,11 @@ body {
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-star {
   position: absolute;
-  top: 3px;
-  right: 5px;
+  top: 34px;
+  right: 50px;
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-star img {
+  width: 22px;
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
   height: 100%;
@@ -329,6 +332,7 @@ body {
   }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
+  font-size: 26px;
   margin-top: 0;
   margin-bottom: 0;
 }
