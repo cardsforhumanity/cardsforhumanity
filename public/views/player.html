@@ -7,7 +7,7 @@
       <img ng-src="{{player.avatar}}"/>
     </div>
     <div id="player-container-inner">
-      <div id="player-name"><h4>{{player.username}}</h4></div>
+      <div id="player-name"><h4>{{player.username | upperFirstLetter}}</h4></div>
       <div id="player-score"><h2>{{player.points}}/{{game.pointLimit}}</h2></div>
     </div>
   </div>
