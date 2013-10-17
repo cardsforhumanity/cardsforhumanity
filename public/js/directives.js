@@ -65,4 +65,15 @@ angular.module('mean.directives', [])
       templateUrl: '/views/timer.html',
       link: function(scope, elem, attr){}
     };
+  }).directive('landing', function() {
+    return {
+      restrict: 'EA',
+      link: function(scope, elem, attr) {
+        scope.showOptions = true;
+
+        if (scope.$$childHead.global.authenticated === true) {
+          scope.showOptions = false;
+        }
+      }
+    };
   });
