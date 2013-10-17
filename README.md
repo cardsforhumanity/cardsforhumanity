@@ -1,4 +1,46 @@
-# Cards For Humanity
+Cards for Humanity
+===========
+<h3>Brief Non-Technical Description </h3> 
+<p>Cards for Humanity is a...
+</p>
+
+<img src="http://www.tylermcginnis.com/images/cfh1.png" alt="Cards For Humanity" />
+<br />
+<br />
+<br />
+<img src="http://www.tylermcginnis.com/images/cfh2.png" alt="Cards For Humanity" />
+<br />
+<br />
+<br />
+<img src="http://www.tylermcginnis.com/images/cfh3.png" alt="Cards For Humanity"/>
+<br />
+<br />
+<br />
+<img src="http://www.tylermcginnis.com/images/cfh4.png" alt="Cards For Humanity"/>
+<br />
+<br />
+<br />
+<h3> Technical Description </h3>
+<p>Cards for Humanity utilizes various technologies including 
+  <img src="http://www.tylermcginnis.com/images/cfh8.png" alt="Cards for Humanity Stack"/>
+</p>
+<p> The reason we chose this stack was because...</p> 
+<br /><br />
+<h3> Challenges </h3> 
+<p> The biggest challenges we faced were...
+</p>
+<br />
+<p> Oh yeah works on Mobile </p>
+<img src="http://www.tylermcginnis.com/images/cfh8.png" alt="Cards for Humanity Stack"/>
+
+<br />
+<br />
+<br />
+<img src="http://www.tylermcginnis.com/images/cfh7.png" alt="Cards for Humanity Exit"/>
+
+
+
+
 
 ## License
 
