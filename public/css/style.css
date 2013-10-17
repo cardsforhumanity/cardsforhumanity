@@ -41,6 +41,13 @@
    }
 }
 
+.sign-error {
+   text-align: center;
+   color: white;
+   font-family: arial;
+   margin-bottom: -13px;
+}
+
 
  /**** Links ****/
  a {
