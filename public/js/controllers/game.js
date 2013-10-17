@@ -154,7 +154,7 @@ angular.module('mean.system')
               var txt = 'Give the following link to your friends so they can join your game: ';
               $('#lobby-how-to-play').text(txt);
               $('#oh-el').css({'text-align': 'center', 'font-size':'22px', 'background': 'white', 'color': 'black'}).text(link);
-            }, 200)
+            }, 200);
             $scope.modalShown = true;
           }
         }
