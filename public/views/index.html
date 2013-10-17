@@ -1,6 +1,9 @@
 <script type="text/javascript">
 $(document).ready(function() {
-$('body').append('<a href="http://hackreactor.com"><img style="z-index: 10000; position: absolute; top: 0; right: 0; border: 0;" src="http://i.imgur.com/x86kKmF.png" alt="Built at Hack Reactor"></a>');
+
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) === false && location.href !== "http://localhost:3000/#!/app") {
+    $('body').append('<a href="http://hackreactor.com"><img style="z-index: 10000; position: absolute; top: 0; right: 0; border: 0;" src="http://i.imgur.com/x86kKmF.png" alt="Built at Hack Reactor"></a>');
+  }
 });
 </script>
 <div landing id="main-bod">
@@ -20,9 +23,8 @@ $('body').append('<a href="http://hackreactor.com"><img style="z-index: 10000; p
               <ul class="wpb-main-menu">
                 <li><a onClick="scroll(0,0)">Home</a></li>
                 <li><a onClick="scroll(0,742);">How to Play</a></li>
-                <li><a onClick="scroll(0,1408);">Charity</a></li>
-                <li><a onClick="scroll(0,1978);">Tech Stack</a></li>
-                <li><a onClick="scroll(0,2751);">About Us</a></li>
+                <li><a onClick="scroll(0,1411);">Charity</a></li>
+                <li><a onClick="scroll(0,2021);">About Us</a></li>
                 <span ng-show="showOptions">
                   <li><a href="#!/signup">Sign Up</a></li>
                   <li><a href="#!/signin">Sign In</a></li>
@@ -137,7 +139,8 @@ $('body').append('<a href="http://hackreactor.com"><img style="z-index: 10000; p
         <!-- Teaser Slogan Start -->
         <div id="slogan-head">
           <div class="span6 wpb-slogan">
-            <h2>Donation Stuffs</h2>
+            <h2>Charity</h2>
+            <h4>If you don't give back, no one will like you&trade;</h4>
           </div>
         </div>
       </div>
@@ -149,115 +152,13 @@ $('body').append('<a href="http://hackreactor.com"><img style="z-index: 10000; p
           </div>
         </div>
         <div class="some-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut gravida malesuada mauris sit amet laoreet. Maecenas semper, quam vitae dapibus vestibulum, risus eros tempus diam, a aliquet leo lacus dictum risus. Nam faucibus viverra dolor at feugiat. Nunc pharetra massa nec est sollicitudin lobortis. Nunc a ante nec eros viverra ultricies eget vel tellus. Pellentesque dapibus tincidunt orci sit amet ornare. Phasellus eget tortor vel orci tempor volutpat.
+            
           </div>
       </div>
     </div>
   </div>
 </section>
 <!-- Donation Info End -->
-
-
-<!-- Tech Stack Start -->
-<section class="wpb-portfolio" id="tech-stack">
-  <div class="wpb-teaser parallax-background" id="how-to-play">
-    <div class="background-opacity"></div>
-    
-    <div class="container" id="how-to-container">
-      <div class="row" id="main-text">
-      
-        <!-- Teaser Slogan Start -->
-        <div id="slogan-head">
-          <div class="span6 wpb-slogan">
-            <h2>TECH STACK</h2>
-          </div>
-        </div>
-        <!-- Teaser Slogan End -->
-        <div class="tech-info">
-          <div class="row" id="tech">     
-          <ul class="wpb-portfolio-list">
-            <!-- Portfolio Item Start -->
-            <li class="wpb-portfolio-item span4 web-design">
-              <div class="wpb-portfolio-thumbnail">
-                <div class="wpb-portfolio-overlay">
-                  <div><img src="img/mongo-logo.png" alt="mongo" class="" /></div>
-                </div>
-              </div>
-              <div class="wpb-portfolio-details">
-                <h3>MongoDB</h3>
-                <p></p>
-              </div>
-            </li>
-            <li class="wpb-portfolio-item span4 web-design">
-              <div class="wpb-portfolio-thumbnail">
-                <div class="wpb-portfolio-overlay">
-                  <div><img src="img/express-logo.jpg" alt="Details" class="" /></div>
-                </div>
-              </div>
-              <div class="wpb-portfolio-details">
-                <h3>Express</h3>
-                <p></p>
-              </div>
-            </li>
-            <li class="wpb-portfolio-item span4 web-design">
-              <div class="wpb-portfolio-thumbnail">
-               
-                <div class="wpb-portfolio-overlay">
-                  <div><img src="img/angular-logo.png" alt="Details" id="ang-logo" /></div>
-                </div>
-               
-              </div>
-              <div class="wpb-portfolio-details">
-                <h3>Angular</h3>
-                <p></p>
-              </div>
-            </li>
-            <li class="wpb-portfolio-item span4 web-design">
-              <div class="wpb-portfolio-thumbnail">
-               
-                <div class="wpb-portfolio-overlay">
-                  <div><img src="img/node-logo.png" alt="Details" class="" /></div>
-                </div>
-               
-              </div>
-              <div class="wpb-portfolio-details">
-                <h3>Node.js</h3>
-                <p></p>
-              </div>
-            </li>
-            <li class="wpb-portfolio-item span4 web-design">
-              <div class="wpb-portfolio-thumbnail">
-               
-                <div class="wpb-portfolio-overlay">
-                  <div><img src="img/socketio-logo.png" alt="Details" class="" /></div>
-                </div>
-               
-              </div>
-              <div class="wpb-portfolio-details">
-                <h3>Socket.io</h3>
-                <p></p>
-              </div>
-            </li>
-            <li class="wpb-portfolio-item span4 web-design">
-              <div class="wpb-portfolio-thumbnail">
-               
-                <div class="wpb-portfolio-overlay">
-                  <div><img src="img/sass-logo.png" alt="Details" class="" /></div>
-                </div>
-               
-              </div>
-              <div class="wpb-portfolio-details">
-                <h3>Sass</h3>
-                <p>Because of Tyler.</p>
-              </div>
-            </li>
-          </ul>
-          </div>
-        </div>
-    </div>
-</section>
-<!-- Tech Stack End -->
-
 
 <!-- About Us Start -->
 <section class="wpb-contact-us parallax-background-contact" id="team">
