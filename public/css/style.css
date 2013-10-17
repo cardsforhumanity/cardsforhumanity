@@ -6,15 +6,7 @@
    text-transform: uppercase;
  }
  
- *::selection {
-    background: #2ecc71; /* Safari */
-    color: #fff;
- }
- 
- *::-moz-selection {
-    background: #2ecc71; /* Safari */
-    color: #fff;
- }
+
 
  /**** Links ****/
  a {
@@ -87,18 +79,18 @@
    color: #fff;
    font-weight: bold;
    font-size: 11px;
+   max-width: 100%;
+   margin-right: 9px;
  }
  
  .wpb-logo-container a {
    color: #ffffff !important;
  }
  
- .wpb-logo-container a:hover {
-   color: #2ecc71 !important;
- }
  
  .wpb-menu-container {
    float: right;
+
  }
  
  .wpb-menu-container .wpb-dropdown-menu {
@@ -139,14 +131,7 @@
    z-index:1000;
  }
  
- .wpb-menu-container .wpb-main-menu li a.active {
-   color: #ffffff;
-   background-color: #2ecc71;
- }
- 
- .wpb-menu-container .wpb-main-menu li a:hover {
-   color: #ffffff !important;
- }
+
  
  
  /**** LANDING ****/
@@ -256,6 +241,8 @@
  #create {
     text-align: center;
     color: white;
+    font-family: arial;
+    margin-bottom: -13px;
  }
 
  #sign-up-btn {
@@ -351,6 +338,21 @@
    margin-left: 40px;
    overflow: hidden;
 }
+
+.sign-in-header {
+   color: #fff;
+   font-weight: bold;
+   font-size: 52px;
+   text-transform: uppercase;
+   line-height: 60px;
+   text-align: center;
+   margin-bottom: -15px;
+}
+
+.top-margin {
+   margin-top: 15px;
+}
+
 .tech-info {
    margin-top: 25px;
 }
@@ -392,10 +394,15 @@
    margin-left: 3%;
  }
 
+ .avatar-list img {
+   max-width: 60%;
+ }
+
  .avatars {
    position: relative;
    float: left;
    margin: 2px 5px;
+   border-radius: 8px;
  }
 
  /**** Portfolio ****/ 
@@ -422,16 +429,7 @@
    overflow: hidden;
    position:relative;
  }
- 
- .wpb-portfolio-item .wpb-portfolio-thumbnail:hover .wpb-portfolio-overlay:hover {
-   -webkit-transition: opacity 0.5s ease;
-   -moz-transition: opacity 0.5s ease;
-   -ms-transition: opacity 0.5s ease;
-   -o-transition:  opacity 0.5s ease;
-   transition:  opacity 0.5s ease; 
-   opacity:1;
-   background: rgba(26, 204, 113, 0.6);
- }
+
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail>img {
    position: absolute;
@@ -446,7 +444,6 @@
    height: 100%;
    z-index:1001;
    background: url('img/mongo-logo.png');
-   /*opacity:0;*/
  }
  
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
@@ -526,15 +523,7 @@
    transition:  background-color 0.5s ease; 
  }
  
- .wpb-portfolio-body .wpb-portfolio-filter li a:hover {
-   border-radius:5px !important;
-   background-color: #2ecc71;
- }
  
- .wpb-portfolio-body .wpb-portfolio-filter li a.active {
-   background-color: #2ecc71;
-   color: #ffffff;
- }
  
  /**** Team List ****/ 
  .wpb-team-list .wpb-team-item {
@@ -603,10 +592,7 @@
 
  }
  
- .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content a:hover {
-   color: #2ecc71 !important;
- }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content i {
    font-size: 1.5em;
    padding-right: 5px;
@@ -742,9 +728,7 @@
    text-transform: uppercase;
  }
  
- .wpb-single-portfolio .wpb-portfolio-description ul li p.wpb-list-content {
-   color: #2ecc71 !important;
- }
+
  
  .wpb-single-portfolio .wpb-portfolio-description ul li p {
    padding: 0;
@@ -820,8 +804,8 @@
  /**** Margins ****/
 
 .mod-contain {
-   padding-right: 15px;
-   padding-left: 15px;
+   /*padding-right: 15px;
+   padding-left: 15px;*/
    margin-right: auto;
    margin-left: auto;
    width: 90%;
@@ -831,8 +815,6 @@
    padding-top:60px;
    padding-bottom: 60px;
  }
- 
-
  
 .arrow {
   position: fixed;
@@ -853,11 +835,55 @@
 }
 
 
+.landing-card {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 17.5%;
+  height: 215px;
+  padding: 1%;
+  margin: 1%;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #252525;
+  font-family: Arial;
+  font-size: 1.1em;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+
+/*Override Bootstrap Row Class*/
+.row {
+   margin-left: 0;
+   margin-right: 9px;
+}
+
  /* MEDIA QUERY */
 
   /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
 
-@media (min-width : 528px) and (max-width : 768px)  { 
+@media (min-width: 1470px) {
+   .row {
+      margin: 0 0 -9px 0;
+   }
+
+   .wpb-logo-container {
+      margin-right: 0;
+   }
+}
+
+@media(max-width: 680px) {
+   .wpb-menu-container {
+      display: none;
+   }
+
+   .mod-contain {
+      text-align: center;
+   }
+}
+
+@media (min-width : 480px) and (max-width : 865px)  { 
    .wpb-menu-container .wpb-main-menu {
       text-align: right;
       height: 100px;
@@ -884,7 +910,7 @@
    .wpb-logo-container {
       color: #fff;
       font-weight: bold;
-      margin-right: 10px;
+      margin-right: 0;
       font-size: 11px;
    }
 
@@ -893,9 +919,13 @@
       z-index: 1000;
       padding-top: 70px;
    }
+
+   .landing-card {
+      font-size: 0.8em;
+   }
 }
 
-@media (min-width : 768px) and (max-width : 1024px)  { 
+@media (min-width : 865px) and (max-width : 1024px)  { 
    .wpb-menu-container .wpb-main-menu {
       text-align: right;
       height: 100px;
@@ -943,6 +973,35 @@
       padding: 0;
    }
 
+    .wpb-teaser {
+      min-height: 360px;
+      position: relative;
+      z-index: 990;
+      width: 98%;
+      margin: 0px auto;
+      border-radius: 8px;
+      padding: 30px;
+   }
+
+   .wpb-teaser .wpb-text p {
+      color: #fff;
+      padding-top: 3px;
+      text-align: center;
+      font-size: 0.95em;
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 20px;
+   }
+
+    .wpb-teaser .wpb-slogan h2 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.6em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 24px;
+   }
+
    .wpb-top-bar {
       height: 60px;
       background: transparent;
@@ -953,20 +1012,10 @@
       max-width: 1400px;
    }
 
-   .wpb-teaser {
-      min-height: 360px;
-      position: relative;
-      z-index: 990;
-      width: 98%;
-      margin: 0px auto;
-      border-radius: 8px;
-      padding: 30px;
-   }
-
    .mod-contain {
-      padding-right: 15px;
-      padding-left: 15px;
-      width: 99%;
+      /*padding-right: 15px;
+      padding-left: 15px;*/
+      width: 100%;
       text-align: center;
    }
 
@@ -986,27 +1035,8 @@
       padding: 10% 0 0 0;
    }
 
-   .wpb-teaser .wpb-text p {
-      color: #fff;
-      padding-top: 3px;
-      text-align: center;
-      font-size: 0.95em;
-      margin: 0 auto;
-      width: 100%;
-      padding-bottom: 20px;
-   }
-
    #avatars {
       display: none;
-   }
-
-   .wpb-teaser .wpb-slogan h2 {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.6em;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 24px;
    }
 
    #slogan {
@@ -1023,7 +1053,7 @@
       margin-top: 0;
    }
 
-   .card {
+   .landing-card {
       position: relative;
       display: block;
       box-sizing: border-box;
@@ -1091,6 +1121,10 @@
       padding: 5px 5px 5px 13px;
       width: 100%;
       margin: 30px auto;
+   }
+
+   .row {
+      margin: 0 0 0 4px;
    }
 
    /*If we're not using images for tech stack on mobile, uncomment the below style*/
