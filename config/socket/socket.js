@@ -123,6 +123,7 @@ module.exports = function(io) {
         socket.join(game.gameID);
         socket.gameID = game.gameID;
         game.assignPlayerColors();
+        game.assignGuestNames();
         game.sendUpdate();
         game.sendNotification(player.username+' has joined the game!');
         if (game.players.length >= game.playerMaxLimit) {
@@ -154,6 +155,7 @@ module.exports = function(io) {
       socket.gameID = game.gameID;
       console.log(socket.id,'has joined newly created game',game.gameID);
       game.assignPlayerColors();
+      game.assignGuestNames();
       game.sendUpdate();
     } else {
       game = gamesNeedingPlayers[0];
@@ -163,6 +165,7 @@ module.exports = function(io) {
       socket.join(game.gameID);
       socket.gameID = game.gameID;
       game.assignPlayerColors();
+      game.assignGuestNames();
       game.sendUpdate();
       game.sendNotification(player.username+' has joined the game!');
       if (game.players.length >= game.playerMaxLimit) {
@@ -201,6 +204,7 @@ module.exports = function(io) {
         socket.join(game.gameID);
         socket.gameID = game.gameID;
         game.assignPlayerColors();
+        game.assignGuestNames();
         game.sendUpdate();
       }
     }
