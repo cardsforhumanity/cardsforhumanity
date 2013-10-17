@@ -72,9 +72,7 @@ exports.checkAvatar = function(req, res) {
         res.redirect('/#!/app');
       } else {
         console.log('user does not have an avatar; redirecting to avatar picker');
-        res.render('users/choose-avatar', {
-          title: 'Choose an Avatar!'
-        });
+        res.redirect('/#!/choose-avatar');
       }
     });
   } else {
@@ -88,23 +86,35 @@ exports.checkAvatar = function(req, res) {
  * Create user
  */
 exports.create = function(req, res) {
-  // TODO: This should check to see if the username/email already has an account
-  var user = new User(req.body);
-  // Switch the user's avatar index to an actual avatar url
-  user.avatar = avatars[user.avatar];
-  user.provider = 'local';
-  user.save(function(err) {
-    if (err) {
-      return res.render('users/signup', {
-        errors: err.errors,
-        user: user
-      });
-    }
-    req.logIn(user, function(err) {
-      if (err) return next(err);
-      return res.redirect('/#!/app');
+  console.log(req.body);
+  if (req.body.name && req.body.password && req.body.email) {
+    User.findOne({
+      email: req.body.email
+    }).exec(function(err,existingUser) {
+      if (!existingUser) {
+        var user = new User(req.body);
+        // Switch the user's avatar index to an actual avatar url
+        user.avatar = avatars[user.avatar];
+        user.provider = 'local';
+        user.save(function(err) {
+          if (err) {
+            return res.render('/#!/sign?error=unknown', {
+              errors: err.errors,
+              user: user
+            });
+          }
+          req.logIn(user, function(err) {
+            if (err) return next(err);
+            return res.redirect('/#!/app');
+          });
+        });
+      } else {
+        return res.redirect('/#!/sign?error=existinguser');
+      }
     });
-  });
+  } else {
+    return res.redirect('/#!/sign?error=incomplete');
+  }
 };
 
 /**
