@@ -148,10 +148,13 @@ angular.module('mean.system')
           // Once the game ID is set, update the URL if this is a game with friends,
           // where the link is meant to be shared.
           $location.search({game: game.gameID});
-          alert($scope.modalShown);
           if(!$scope.modalShown){
-            $('#finding-players').text('test');
-            alert('penis');
+            setTimeout(function(){
+              var link = document.URL;
+              var txt = 'Give the following link to your friends so they can join your game: ';
+              $('#lobby-how-to-play').text(txt);
+              $('#oh-el').css({'text-align': 'center', 'font-size':'22px', 'background': 'white', 'color': 'black'}).text(link);
+            }, 200)
             $scope.modalShown = true;
           }
         }
