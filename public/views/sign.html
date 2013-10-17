@@ -1,4 +1,4 @@
-<div id="main-bod">
+<div id="main-bod" ng-controller="IndexController">
   <!-- Fixed Logo & Menu Bar Start -->
   <div id="top-part">
     <div class="wpb-top-bar">
@@ -40,6 +40,15 @@
       <p id="create">Or create a username and password:</p>
 
       <div class="sign-body">
+        <div class="sign-error" ng-show="showError() === 'incomplete'">
+          Please be sure to fill out all of the fields.
+        </div>
+        <div class="sign-error" ng-show="showError() === 'existingusers'">
+          Looks like you already have an account. You should sign in!
+        </div>
+        <div class="sign-error" ng-show="showError() === 'unknown'">
+          We had some trouble processing your request. Please try <again class=""></again>
+        </div>
         <div class="more-sign">
           <form class="signup form-horizontal" action="/users" method="post">
             <div class="control-group">
