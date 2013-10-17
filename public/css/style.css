@@ -6,6 +6,40 @@
    text-transform: uppercase;
  }
  
+ #landing-charity {
+   width: 300px !important;
+   margin-left: 15px !important;
+   max-width: 100% !important;
+   position: relative !important;
+   float: left !important;
+   top: -65px;
+}
+
+.some-text {
+   text-align: center;
+}
+
+@media(min-width: 400px) and (max-width: 770px) {
+   .some-text {
+      text-align: center;
+      float: left;
+      margin-top: -50px;
+   }
+
+   #landing-charity {
+      width: 67%!important;
+      margin-left: 21% !important;
+      max-width: 100% !important;
+      float: left !important;
+      top: -65px;
+   }
+}
+
+@media (max-width: 400px) {
+   #landing-charity {
+      margin-bottom: -60px;
+   }
+}
 
 
  /**** Links ****/
@@ -106,6 +140,7 @@
    text-align: right;
    height: 100px;
    margin-top: -77px;
+   margin-right: 35px;
  }
  
  .wpb-menu-container .wpb-main-menu li {
@@ -120,7 +155,7 @@
    line-height: 100px;
    font-weight: bold;
    color: white;
-   padding: 0px 25px;
+   padding: 0px 10px;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
@@ -358,7 +393,7 @@
 }
 
  #tech-stack {
-   margin-top: 190px;
+   margin-top: -160px;
    max-width: 1400px;
  }
 
@@ -859,11 +894,15 @@
    margin-right: 9px;
 }
 
+#donations {
+   margin-top: 160px;
+}
+
  /* MEDIA QUERY */
 
   /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
 
-@media (min-width: 1470px) {
+@media (min-width: 1430px) {
    .row {
       margin: 0 0 -9px 0;
    }
@@ -912,6 +951,7 @@
       font-weight: bold;
       margin-right: 0;
       font-size: 11px;
+      max-width: 99%;
    }
 
    .wpb-teaser .container {
@@ -931,6 +971,7 @@
       height: 100px;
       margin-top: -77px;
       font-size: .9em;
+      margin-right: 35px;
    }
 
    .wpb-menu-container .wpb-main-menu li a {
