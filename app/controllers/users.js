@@ -17,10 +17,7 @@ exports.authCallback = function(req, res, next) {
  */
 exports.signin = function(req, res) {
   if (!req.user) {
-    res.render('users/signin', {
-      title: 'Signin',
-      message: req.flash('error')
-    });
+    res.redirect('/#!/signin?error=invalid');
   } else {
     res.redirect('/#!/app');
   }
@@ -31,10 +28,7 @@ exports.signin = function(req, res) {
  */
 exports.signup = function(req, res) {
   if (!req.user) {
-    res.render('users/signup', {
-      title: 'Sign up',
-      user: new User()
-    });
+    res.redirect('/#!/signup');
   } else {
     res.redirect('/#!/app');
   }
@@ -98,7 +92,7 @@ exports.create = function(req, res) {
         user.provider = 'local';
         user.save(function(err) {
           if (err) {
-            return res.render('/#!/sign?error=unknown', {
+            return res.render('/#!/signup?error=unknown', {
               errors: err.errors,
               user: user
             });
@@ -109,11 +103,11 @@ exports.create = function(req, res) {
           });
         });
       } else {
-        return res.redirect('/#!/sign?error=existinguser');
+        return res.redirect('/#!/signup?error=existinguser');
       }
     });
   } else {
-    return res.redirect('/#!/sign?error=incomplete');
+    return res.redirect('/#!/signup?error=incomplete');
   }
 };
 

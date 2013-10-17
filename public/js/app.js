@@ -14,8 +14,8 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
           when('/signin', {
             templateUrl: '/views/signin.html'
           }).
-          when('/sign', {
-            templateUrl: '/views/sign.html'
+          when('/signup', {
+            templateUrl: '/views/signup.html'
           }).
           when('/choose-avatar', {
             templateUrl: '/views/choose-avatar.html'
