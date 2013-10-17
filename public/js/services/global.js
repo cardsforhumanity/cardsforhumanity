@@ -24,7 +24,7 @@ angular.module('mean.system')
     return {
       userDonated: function(donationObject) {
         return $q.all([
-          $http.post('/donated', donationObject)
+          $http.post('/donations', donationObject)
         ])
         .then(function(results) {
           console.log('userDonated success', results);

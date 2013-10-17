@@ -58,6 +58,7 @@ Game.prototype.payload = function() {
       points: player.points,
       username: player.username,
       avatar: player.avatar,
+      premium: player.premium,
       socketID: player.socket.id,
       color: player.color
     });
