@@ -4,6 +4,9 @@
       <img src="../img/11.png"/>
     </div>
     <div id="avatar_">
+      <span ng-show="isPremium($index)">
+        <img ng-src="img/king.png"/>
+      </span>
       <img ng-src="{{player.avatar}}"/>
     </div>
     <div id="player-container-inner">
