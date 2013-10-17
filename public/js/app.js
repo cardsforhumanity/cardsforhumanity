@@ -39,6 +39,10 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
         this.$apply(fn);
       }
     };
+  }]).run(['DonationService', function (DonationService) {
+    window.userDonationCb = function (donationObject) {
+      DonationService.userDonated(donationObject);
+    };
   }]);
 
 angular.module('mean.system', []);

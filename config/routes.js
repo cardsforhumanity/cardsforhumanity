@@ -82,6 +82,12 @@ module.exports = function(app, passport, auth) {
     var avatars = require('../app/controllers/avatars');
     app.get('/avatars', avatars.allJSON);
 
+    // Donation Routes
+    app.post('/donated', function (req, res){
+        console.log('/donated worked', req.body);
+        res.jsonp({bigWilly: 'do stuff!'});
+    });
+
     //Home route
     var index = require('../app/controllers/index');
     app.get('/play', index.play);
