@@ -40,41 +40,42 @@ $('body').append('<a href="http://hackreactor.com"><img style="z-index: 10000; p
 <!-- Fixed Logo & Menu Bar End -->
 
 <!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
-  <div class="background-opacity"></div> 
-  <div class="container">
-    <div class="row" id="main-text">
-      <div class="col-md-12" id="avatars" ng-controller="IndexController">
-        <img ng-repeat="avatar in avatars" ng-src="{{avatar}}" id="avatar-face">
-      </div>
-      <!-- Teaser Slogan Start -->
-      <div class="wpb-slogan">
-        <h2>A Game for Horrible People <span id="third-word">Desperately</span> Trying to do Good</h2>
-      </div>
-      <!-- Teaser Slogan End -->
-    
-    <!-- Teaser Text Start -->
-    <div class="wpb-text">
-      <h3 id="slogan">What is Cards for Humanity?</h3>
-      <p>
-      Cards for Humanity is a polished web version of the popular card game <a href="http://cardsagainsthumanity.com/">Cards Against Humanity</a>. As much as we like receiving, when possible, we also like to give. Cards for Humanity allows you to donate to children in need - all while remaining as despicable and awkward as you naturally are.
-      </p>
-    </div>
-    <!-- Teaser Text End -->
-    <div id="sign-up">
-      <span ng-show="showOptions">
-      <a href="#!/signup"><div id="sign-up-btn">Sign Up</div></a>
-        <div id="sign-up-text"><a href="#!/app">
-          <span id="first-word">or Play</span>
-          <span id="second-word">as</span> 
-          <span id="third-word">Guest</span></a>
+  <div class="wpb-teaser parallax-background" id="homer">
+    <div class="background-opacity"></div> 
+    <div class="container">
+      <div class="row" id="main-text">
+        <div class="col-md-12" id="avatars" ng-controller="IndexController">
+          <img ng-repeat="avatar in avatars" ng-src="{{avatar}}" id="avatar-face">
         </div>
-      </span>
-      <span ng-hide="showOptions">
-        <a href="#!/app"><div id="sign-up-btn">Join Game</div></a>
-      </span>
-     </div>
-    </div>
+        <!-- Teaser Slogan Start -->
+        <div class="wpb-slogan">
+          <h2>A Game for Horrible People <span id="third-word">Desperately</span> Trying to do Good</h2>
+        </div>
+        <!-- Teaser Slogan End -->
+      
+      <!-- Teaser Text Start -->
+      <div class="wpb-text">
+        <h3 id="slogan">What is Cards for Humanity?</h3>
+        <p>
+             Cards for Humanity is a polished web version of the popular card game <a href="http://cardsagainsthumanity.com/">Cards Against Humanity</a>. As much as we like receiving, when possible, we also like to give. Cards for Humanity allows you to donate to children in need - all while remaining as despicable and awkward as you naturally are.
+        </p>
+      </div>
+      <!-- Teaser Text End -->
+      <div id="sign-up">
+        <span ng-show="showOptions">
+        <a href="#!/signup"><div id="sign-up-btn">Sign Up</div></a>
+          <div id="sign-up-text"><a href="#!/app">
+            <span id="first-word">or Play</span>
+            <span id="second-word">as</span> 
+            <span id="third-word">Guest</span></a>
+          </div>
+        </span>
+        <span ng-hide="showOptions">
+          <a href="/play"><div id="sign-up-btn">Join Game with Guests</div></a>
+          <a href="/play?custom"><div id="sign-up-btn">Play Game with Friends</div></a>
+        </span>
+       </div>
+      </div>
     </div>
   </div>
 <!-- Landing End -->
