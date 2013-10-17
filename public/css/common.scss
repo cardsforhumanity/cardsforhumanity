@@ -1,7 +1,7 @@
 $main-font: "helvetica neue", helvetica, sans-serif;
 
 $mq-mobile-portrait : 320px !default;
-$mq-mobile-landscape : 480px !default;
+$mq-mobile-landscape : 520px !default;
 $mq-tablet-portrait : 768px !default;
 $mq-tablet-landscape : 1024px !default;
 $mq-desktop: 1100px !default;
@@ -555,7 +555,7 @@ body{
 
                     #avatar_ {
                         height: 100%;
-                        width: 40%;
+                        width: 38%;
                         float: left;
                         position: relative;
                         z-index: 999;
@@ -607,7 +607,9 @@ body{
                         float: left;
                         position: relative;
                         bottom: 8px;
-                        left: 5px;
+                        left: 2px;
+                        max-width: 62%;
+                        overflow: hidden;
 
                         @include tablet-portrait-only{
                             left: 3px;

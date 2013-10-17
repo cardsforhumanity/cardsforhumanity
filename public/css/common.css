@@ -14,7 +14,7 @@
   font-weight: bold;
   vertical-align: top;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .card {
     font-size: 14px;
     height: 115px;
@@ -47,7 +47,7 @@
 .card.smallest {
   font-size: 0.750em;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .card.smallest {
     font-size: 10px;
   }
@@ -96,7 +96,7 @@ html {
   background-repeat: no-repeat;
   position: relative;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   html {
     margin-top: 0px;
   }
@@ -107,12 +107,12 @@ body {
   background: transparent;
   margin: 10px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   body {
     margin: 5px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   body {
     margin: 1px;
   }
@@ -147,7 +147,7 @@ body {
   margin-top: 5px;
   padding: 5px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #menu-container {
     margin-bottom: 1px;
     margin-top: 0px;
@@ -159,7 +159,7 @@ body {
   font-size: 28px;
   font-family: 'Lobster', cursive;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #menu-container #logo {
     font-size: 23px;
   }
@@ -192,7 +192,7 @@ body {
   width: 140px;
   cursor: pointer;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #menu-container #abandon-game-button {
     font-size: 0.9rem;
     margin-top: 5px;
@@ -211,7 +211,7 @@ body {
   right: 0;
   top: 60px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container {
     top: auto;
     width: 100%;
@@ -233,7 +233,7 @@ body {
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container {
     min-height: 0;
     display: inline-block;
@@ -248,14 +248,14 @@ body {
   height: 65%;
   width: 100%;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container {
     height: 100%;
   }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
   height: 100%;
-  width: 40%;
+  width: 38%;
   float: left;
   position: relative;
   z-index: 999;
@@ -290,14 +290,14 @@ body {
   min-width: 40px;
   min-height: 40px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
     width: 100%;
     height: 100%;
     margin-left: 3px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ img {
     height: 69%;
     width: 100%;
@@ -310,14 +310,16 @@ body {
   float: left;
   position: relative;
   bottom: 8px;
-  left: 5px;
+  left: 2px;
+  max-width: 62%;
+  overflow: hidden;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
     left: 3px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
     bottom: 0;
     left: 0;
@@ -329,12 +331,12 @@ body {
   font-family: 'Lobster', cursive;
   margin-bottom: 0px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
     font-size: 14px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
     font-family: 'Lobster', cursive;
     font-size: 10px;
@@ -350,12 +352,12 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
     font-size: 21px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
     font-size: 17px;
     line-height: 40%;
@@ -366,13 +368,13 @@ body {
   margin-top: 3px;
   margin-left: 10px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star {
     margin-top: 1px;
     margin-left: 5px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star {
     margin-top: -8px;
     margin-left: 2px;
@@ -381,12 +383,12 @@ body {
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
   width: 22px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
     width: 18px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
     width: 10px;
     position: absolute;
@@ -410,7 +412,7 @@ body {
   background: black;
   opacity: 0.4;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #czar-container {
     overflow: auto;
   }
@@ -420,7 +422,7 @@ body {
   font-weight: bold;
   font-size: 20px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #czar-container #the-czar {
     display: none;
   }
@@ -429,7 +431,7 @@ body {
   height: 100%;
   width: 80%;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container {
     width: 100%;
     height: 91%;
@@ -441,13 +443,13 @@ body {
   min-height: 220px;
   max-height: 220px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container {
     min-height: 140px;
     max-height: 140px;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container {
     height: 16%;
     min-height: 180px;
@@ -460,12 +462,12 @@ body {
   height: 100%;
   margin-right: 2%;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container {
     width: 21%;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container {
     width: 27%;
     margin-right: 1%;
@@ -541,7 +543,7 @@ body {
     font-size: 13px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
     font-size: 12px;
   }
@@ -559,7 +561,7 @@ body {
     font-size: 90px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
     font-size: 73px;
   }
@@ -569,13 +571,13 @@ body {
   float: left;
   width: 79%;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
     width: 77%;
     float: right;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer {
     float: left;
     width: 71%;
@@ -609,7 +611,7 @@ body {
   text-align: center;
   margin-top: 15px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #finding-players {
     font-size: 21px;
     margin-top: 0;
@@ -623,7 +625,7 @@ body {
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container #player-count {
   font-size: 33px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container #player-count {
     font-size: 21px;
   }
@@ -634,7 +636,7 @@ body {
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-gif {
   margin: 20px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-gif {
     margin-top: 5px;
   }
@@ -656,13 +658,13 @@ body {
   width: 65%;
   cursor: pointer;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button {
     padding: 0.65em 2px;
     font-size: 1.1rem;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button {
     padding: 0.65em 1px;
     font-size: 1rem;
@@ -675,7 +677,7 @@ body {
   text-align: center;
   font-size: 16px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #game-end-info {
     font-size: 13px;
   }
@@ -684,7 +686,7 @@ body {
   font-size: 24px;
   margin-bottom: 10px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #game-end-info .game-end-headline {
     font-size: 18px;
   }
@@ -701,13 +703,13 @@ body {
   height: 50%;
   margin-top: 10px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #info-container {
     padding-top: 5px;
     height: auto;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #info-container {
     width: 100%;
     padding: 1px;
@@ -723,7 +725,7 @@ body {
   font-size: 18px;
   margin-top: 10px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #info-container #inner-info #lobby-how-to-play {
     font-size: 14px;
   }
@@ -738,7 +740,7 @@ body {
   list-style-type: decimal;
   margin-bottom: 5px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #info-container #inner-info ol {
     font-size: 13px;
     padding: 0px 10px 10px 10px;
@@ -755,7 +757,7 @@ body {
   height: 50%;
   margin-top: 10px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #game-end-container {
     height: 65%;
   }
@@ -764,7 +766,7 @@ body {
   width: 40%;
   float: left;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #game-end-container #charity-widget-container {
     display: none;
   }
@@ -777,7 +779,7 @@ body {
   color: white;
   float: left;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #game-end-container #inner-info-exit {
     float: none;
     width: 80%;
@@ -786,13 +788,13 @@ body {
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit .game-end-answer-text {
   color: white;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #game-end-container #inner-info-exit .game-end-answer-text {
     padding: 6px;
     font-size: 22px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #game-end-container #inner-info-exit {
     width: 100%;
   }
@@ -801,7 +803,7 @@ body {
   overflow: hidden;
   height: 100%;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container {
     height: auto;
   }
@@ -908,7 +910,7 @@ body {
   margin-top: 10px;
   font-size: 30px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #czar-blank-container {
     width: 100%;
     font-size: 16px;
@@ -936,7 +938,7 @@ body {
   padding: 3px;
   text-align: left;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container {
     height: 40%;
     display: none;
@@ -949,7 +951,7 @@ body {
   margin-bottom: 3px;
   color: #000;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact-tagline {
     font-size: 16px;
   }
@@ -961,12 +963,12 @@ body {
   width: 90%;
   margin: 0 5% 3px 5%;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact {
     font-size: 12px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container {
     position: absolute;
     top: 1px;
@@ -978,7 +980,7 @@ body {
   margin-right: 2%;
   margin-bottom: 3px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-logo-container img {
     width: 53%;
   }
@@ -991,7 +993,7 @@ body {
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #cards-container {
     background: transparent;
     margin-top: 2px;
@@ -1003,7 +1005,7 @@ body {
   font-size: 18px;
   padding-left: 5px;
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #gameplay-container #cards-container #cards {
     background: #252525;
     -webkit-border-radius: 8px;
@@ -1013,12 +1015,12 @@ body {
   }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #notifications {
     font-size: 18px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #notifications {
     font-size: 15px;
   }
