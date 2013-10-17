@@ -147,6 +147,16 @@
    display: inline-block;
    height: 100%;
    position: relative;
+   cursor: pointer;
+ }
+
+  .wpb-menu-container .wpb-main-menu li a:hover {
+   color: #2ECC71 !important;
+   -webkit-transition: color 0.5s ease;
+   -moz-transition: color 0.5s ease;
+   -ms-transition: color 0.5s ease;
+   -o-transition:  color 0.5s ease;
+   transition:  color 0.5s ease; 
  }
  
  .wpb-menu-container .wpb-main-menu li a {
