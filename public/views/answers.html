@@ -31,8 +31,14 @@
 </div>
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="inner-info-exit">
-    <div id="people-left-game" ng-show="game.state ==='game dissolved' && game.gameWinner === -1"><h2>What would you like to do now?</h2>You might consider donating to charity to atone for the horrifying answers you've submitted...</div>
-    <h1 ng-show="game.state === 'game ended' || game.gameWinner !== -1">{{game.players[game.gameWinner].username}} won the game!</h1>
+    <div class="game-end-answer-text" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
+      <h2>What would you like to do now?</h2>
+      You might consider donating to charity to atone for the horrifying answers you've submitted...
+    </div>
+    <div class="game-end-answer-text" ng-show="game.state === 'game ended' || game.gameWinner !== -1">
+      <h2>What would you like to do now?</h2>
+      Help yourself to another game or help a child in need?
+    </div>
     <div id='inner-text-container'>
       <a href='/#!/app'>
       <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
