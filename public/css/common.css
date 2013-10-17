@@ -267,13 +267,13 @@ body {
   -webkit-transform: rotate(-18deg);
   left: -5px;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ #king {
     max-width: 80%;
     bottom: 27px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ #king {
     max-width: 80%;
     bottom: 31px;
