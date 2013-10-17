@@ -1,6 +1,9 @@
 <div id="player-container" ng-repeat="player in game.players" style="background-color:{{colors[player.color]}}">
   <div id ="above-czar-container">
     <div id="avatar_">
+      <span ng-show="isPremium($index)">
+        <img ng-src="img/king.png" id="king">
+      </span>
       <img ng-src="{{player.avatar}}"/>
     </div>
     <div id="player-container-inner">

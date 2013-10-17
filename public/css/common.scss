@@ -560,6 +560,26 @@ body{
                         position: relative;
                         z-index: 999;
 
+                        #king {
+                           position: absolute;
+                           max-width: 80%;
+                           bottom: 20px;
+                           -webkit-transform: rotate(-18deg);
+                           left: -5px;
+
+                           @include tablet-portrait-only {
+                                max-width: 80%;
+                                bottom: 27px;
+                           }
+
+                           @include mobile-only {
+                                max-width: 80%;
+                                bottom: 31px;
+                                left: -3px;
+                           }
+                         }
+
+
                         img {
                             width: 100%;
                             height: 140%;

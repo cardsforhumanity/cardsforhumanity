@@ -41,6 +41,13 @@
    }
 }
 
+.sign-error {
+   text-align: center;
+   color: white;
+   font-family: arial;
+   margin-bottom: -13px;
+}
+
 
  /**** Links ****/
  a {
@@ -147,6 +154,16 @@
    display: inline-block;
    height: 100%;
    position: relative;
+   cursor: pointer;
+ }
+
+  .wpb-menu-container .wpb-main-menu li a:hover {
+   color: #2ECC71 !important;
+   -webkit-transition: color 0.5s ease;
+   -moz-transition: color 0.5s ease;
+   -ms-transition: color 0.5s ease;
+   -o-transition:  color 0.5s ease;
+   transition:  color 0.5s ease; 
  }
  
  .wpb-menu-container .wpb-main-menu li a {
@@ -388,23 +405,6 @@
    margin-top: 15px;
 }
 
-.tech-info {
-   margin-top: 25px;
-}
-
- #tech-stack {
-   margin-top: -160px;
-   max-width: 1400px;
- }
-
- #tech-stack img {
-   width: 65%;
- }
-
- #ang-logo {
-   width: 49% !important;
- }
-
  #team {
    max-width: 1400px;
  }
@@ -413,7 +413,6 @@
    margin-top: 0px !important;
    float: right;
 }
-
 
  li {
    list-style-type: none;
@@ -898,9 +897,7 @@
    margin-top: 160px;
 }
 
- /* MEDIA QUERY */
-
-  /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
+/*MORE MEDIA QUERIESS WHOOOOOAAAA*/
 
 @media (min-width: 1430px) {
    .row {
@@ -1058,8 +1055,6 @@
    }
 
    .mod-contain {
-      /*padding-right: 15px;
-      padding-left: 15px;*/
       width: 100%;
       text-align: center;
    }
@@ -1094,8 +1089,8 @@
       margin-top: 0;
    }
 
-   #tech-stack {
-      margin-top: 0;
+   #how-to-play {
+      margin-top: 80px;
    }
 
    .landing-card {
@@ -1133,16 +1128,8 @@
       margin-top: -5px;
    }
 
-   #how-to-play {
-      margin-top: 80px;
-   }
-
    #how-to-container {
       padding-top: 0;
-   }
-
-   #tech-stack img {
-      width: 52%;
    }
 
    .avatar-list {
@@ -1171,11 +1158,4 @@
    .row {
       margin: 0 0 0 4px;
    }
-
-   /*If we're not using images for tech stack on mobile, uncomment the below style*/
-   /*.wpb-portfolio-item .wpb-portfolio-thumbnail {
-      height: 0;
-      overflow: hidden;
-      position: relative;
-   }*/
  }

@@ -93,6 +93,10 @@ angular.module('mean.system')
       return !(/^\d$/).test(game.gameID) && game.state === 'awaiting players';
     };
 
+    $scope.isPremium = function($index) {
+      return game.players[$index].premium;
+    };
+
     $scope.currentCzar = function($index) {
       return $index === game.czar;
     };
