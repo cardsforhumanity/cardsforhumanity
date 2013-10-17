@@ -253,22 +253,6 @@ body {
     height: 100%;
   }
 }
-#main-container #app-container #social-bar-container #player-container #above-czar-container #player-star {
-  position: absolute;
-  top: 3px;
-  right: 5px;
-}
-@media (max-width: 480px) {
-  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-star {
-    top: 29px;
-    left: 6px;
-  }
-}
-@media (max-width: 480px) {
-  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-star img {
-    width: 13px;
-  }
-}
 #main-container #app-container #social-bar-container #player-container #above-czar-container #avatar_ {
   height: 100%;
   width: 40%;
@@ -283,7 +267,6 @@ body {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  margin: 0 10px;
   min-width: 40px;
   min-height: 40px;
 }
@@ -307,11 +290,11 @@ body {
   float: left;
   position: relative;
   bottom: 8px;
-  left: 17px;
+  left: 5px;
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner {
-    left: 8px;
+    left: 3px;
   }
 }
 @media (max-width: 480px) {
@@ -339,20 +322,58 @@ body {
     margin-bottom: 5px;
   }
 }
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score {
+  float: left;
+}
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
+  font-size: 26px;
   margin-top: 0;
   margin-bottom: 0;
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
-    font-size: 19px;
+    font-size: 21px;
   }
 }
 @media (max-width: 480px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-score h2 {
     font-size: 17px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    line-height: 40%;
+  }
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star {
+  float: left;
+  margin-top: 3px;
+  margin-left: 10px;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star {
+    margin-top: 1px;
+    margin-left: 5px;
+  }
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star {
+    margin-top: -8px;
+    margin-left: 2px;
+  }
+}
+#main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
+  width: 22px;
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
+    width: 18px;
+  }
+}
+@media (max-width: 480px) {
+  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
+    width: 10px;
+    position: absolute;
+    left: -16px;
+    bottom: 2px;
+    margin-top: 0;
+    margin-left: 0;
   }
 }
 #main-container #app-container #social-bar-container #player-container #czar-container {
