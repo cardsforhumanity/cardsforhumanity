@@ -93,7 +93,7 @@ angular.module('mean.system')
     };
 
     $scope.isPremium = function($index) {
-      return game.players[$index].premium = 1;
+      return game.players[$index].premium;
     };
 
     $scope.currentCzar = function($index) {

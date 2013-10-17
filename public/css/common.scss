@@ -569,9 +569,9 @@ body{
                         #king {
                            position: absolute;
                            max-width: 80%;
-                           bottom: 17px;
+                           bottom: 20px;
                            -webkit-transform: rotate(-18deg);
-                           left: -8px;
+                           left: -5px;
 
                            @include tablet-portrait-only {
                                 max-width: 80%;
