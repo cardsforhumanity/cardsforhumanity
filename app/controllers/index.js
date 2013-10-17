@@ -5,6 +5,12 @@ var mongoose = require('mongoose'),
     async = require('async'),
     _ = require('underscore');
 
+/**
+ * Redirect users to /#!/app (forcing Angular to reload the page)
+ */
+exports.play = function(req, res) {
+  res.redirect('/#!/app');
+};
 
 exports.render = function(req, res) {
     res.render('index', {

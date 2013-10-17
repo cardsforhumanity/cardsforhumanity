@@ -125,7 +125,7 @@ angular.module('mean.system')
       }
     }
 
-    if (game.state !== 'waiting for players to pick') {
+    if (game.state !== 'waiting for players to pick' || game.players.length !== data.players.length) {
       game.players = data.players;
     }
 

@@ -80,7 +80,7 @@
    font-weight: bold;
    font-size: 11px;
    max-width: 100%;
-   margin-right: 4px;
+   margin-right: 9px;
  }
  
  .wpb-logo-container a {
@@ -856,33 +856,20 @@
 /*Override Bootstrap Row Class*/
 .row {
    margin-left: 0;
-   margin-right: -6px;
+   margin-right: 9px;
 }
 
  /* MEDIA QUERY */
 
   /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
 
-
-@media(min-width: 1350px) {
-   .wpb-logo-container {
-      margin-right: 3px;
-   }
-}
-
-
-@media (min-width: 992px) {
-   .col-md-9 {
-      width: 76%;
-   }
-
+@media (min-width: 1470px) {
    .row {
-      margin-left: 0;
-      margin-right: -6px;
+      margin: 0 0 -9px 0;
    }
 
-   .mod-contain {
-      width: 89%;
+   .wpb-logo-container {
+      margin-right: 0;
    }
 }
 
@@ -923,7 +910,7 @@
    .wpb-logo-container {
       color: #fff;
       font-weight: bold;
-      margin-right: 10px;
+      margin-right: 0;
       font-size: 11px;
    }
 
@@ -1028,7 +1015,7 @@
    .mod-contain {
       /*padding-right: 15px;
       padding-left: 15px;*/
-      width: 99%;
+      width: 100%;
       text-align: center;
    }
 
@@ -1134,6 +1121,10 @@
       padding: 5px 5px 5px 13px;
       width: 100%;
       margin: 30px auto;
+   }
+
+   .row {
+      margin: 0 0 0 4px;
    }
 
    /*If we're not using images for tech stack on mobile, uncomment the below style*/
