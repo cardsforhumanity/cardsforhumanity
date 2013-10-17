@@ -553,15 +553,6 @@ body{
                         height: 100%;
                     }
 
-                    #player-star{
-                        position: absolute;
-                        top: 34px;
-                        right: 50px;
-                        img {
-                            width: 22px;
-                        }
-                    }
-
                     #avatar_ {
                         height: 100%;
                         width: 40%;
@@ -574,7 +565,6 @@ body{
                             height: 140%;
                             float: left;
                             @include br;
-                            margin: 0 10px;
                             min-width: 40px;
                             min-height: 40px;
 
@@ -597,10 +587,10 @@ body{
                         float: left;
                         position: relative;
                         bottom: 8px;
-                        left: 17px;
+                        left: 5px;
 
                         @include tablet-portrait-only{
-                            left: 8px;
+                            left: 3px;
                         }
 
                         @include mobile-only{
@@ -632,6 +622,8 @@ body{
                         }
 
                         #player-score{
+                            float: left;
+
                             h2{
 
                                 font-size: 26px;
@@ -639,13 +631,45 @@ body{
                                 margin-bottom: 0;
 
                                 @include tablet-portrait-only{
-                                    font-size: 19px;
+                                    font-size: 21px;
                                 }
 
                                 @include mobile-only{
                                     font-size: 17px;
-                                    margin-top: 5px;
-                                    margin-bottom: 5px;
+                                    line-height: 40%;
+                                }
+                            }
+                        }
+
+                        #player-star{
+                        float: left;
+                        margin-top: 3px;
+                        margin-left: 10px;
+
+                        @include tablet-portrait-only{
+                            margin-top: 1px;
+                            margin-left: 5px;
+                        }
+
+                        @include mobile-only{
+                            margin-top: -8px;
+                            margin-left: 2px;
+                        }
+
+                            img {
+                                width: 22px;
+
+                                @include tablet-portrait-only{
+                                    width: 18px;
+                                }
+
+                                @include mobile-only{
+                                    width: 10px;
+                                    position: absolute;
+                                    left: -16px;
+                                    bottom: 2px;
+                                    margin-top: 0;
+                                    margin-left: 0;
                                 }
                             }
                         }
