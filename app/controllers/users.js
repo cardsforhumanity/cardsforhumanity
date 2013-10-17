@@ -55,17 +55,14 @@ exports.session = function(req, res) {
  * to our Choose an Avatar page.
  */
 exports.checkAvatar = function(req, res) {
-  console.log('checkAvatar: req.user',req.user);
   if (req.user && req.user._id) {
     User.findOne({
       _id: req.user._id
     })
     .exec(function(err, user) {
       if (user.avatar !== undefined) {
-        console.log('user has an avatar; redirecting to game');
-        res.redirect('/#!/app');
+        res.redirect('/#!/');
       } else {
-        console.log('user does not have an avatar; redirecting to avatar picker');
         res.redirect('/#!/choose-avatar');
       }
     });
@@ -80,7 +77,6 @@ exports.checkAvatar = function(req, res) {
  * Create user
  */
 exports.create = function(req, res) {
-  console.log(req.body);
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
@@ -99,7 +95,7 @@ exports.create = function(req, res) {
           }
           req.logIn(user, function(err) {
             if (err) return next(err);
-            return res.redirect('/#!/app');
+            return res.redirect('/#!/');
           });
         });
       } else {
