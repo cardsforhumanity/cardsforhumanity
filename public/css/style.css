@@ -286,7 +286,7 @@
    -moz-border-radius: 5px;
    -webkit-border-radius: 5px;
    font-size: 20px;
-   font-size: 2.45rem;
+   font-size: 2em;
    font-weight: 400;
    text-align: center;
    color: white;
@@ -1008,6 +1008,10 @@
    }
 }
  @media (max-width: 480px) {
+
+   #sign-up-btn{
+      font-size: 1.5rem;
+   }
    .wpb-teaser .container {
       position: relative;
       z-index: 1000;
