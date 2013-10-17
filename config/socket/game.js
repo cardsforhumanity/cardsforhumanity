@@ -91,10 +91,11 @@ Game.prototype.assignPlayerColors = function() {
 };
 
 Game.prototype.assignGuestNames = function() {
+  var self = this;
   this.players.forEach(function(player) {
-    if (player.username === 'Guest' && this.guestNames.length > 0) {
-      var randIndex = Math.floor(Math.random() * this.guestNames.length);
-      player.username = this.guestNames.splice(randIndex, 1)[0];
+    if (player.username === 'Guest' && self.guestNames.length > 0) {
+      var randIndex = Math.floor(Math.random() * self.guestNames.length);
+      player.username = self.guestNames.splice(randIndex, 1)[0];
     }
   });
 };
