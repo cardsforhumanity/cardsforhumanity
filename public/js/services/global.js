@@ -27,7 +27,6 @@ angular.module('mean.system')
           $http.post('/donated', donationObject)
         ])
         .then(function(results) {
-          // return results[0].data;
           console.log('userDonated success', results);
         });
       }
