@@ -905,8 +905,23 @@ body{
                                 }
                             }
 
-                            #people-left-game-top{
+                            #game-end-info{
                                 text-align: center;
+                                font-size: 16px;
+
+                                @include mobile-only{
+                                    font-size: 13px;
+                                }
+
+                                .game-end-headline{
+                                    font-size: 24px;
+                                    margin-bottom: 10px;
+
+                                    @include mobile-only{
+                                        font-size: 18px;
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -1001,7 +1016,7 @@ body{
                         width: 80%;
                     }
 
-                    #people-left-game{
+                    .game-end-answer-text{
                         color: white;
 
                         @include mobile-only{

@@ -630,8 +630,23 @@ body {
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button:hover {
   background: #41C2CA;
 }
-#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #people-left-game-top {
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #game-end-info {
   text-align: center;
+  font-size: 16px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #game-end-info {
+    font-size: 13px;
+  }
+}
+#main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #game-end-info .game-end-headline {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+@media (max-width: 480px) {
+  #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #game-end-info .game-end-headline {
+    font-size: 18px;
+  }
 }
 #main-container #app-container #gameplay-container #info-container {
   width: 100%;
@@ -727,11 +742,11 @@ body {
     width: 80%;
   }
 }
-#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #people-left-game {
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit .game-end-answer-text {
   color: white;
 }
 @media (max-width: 480px) {
-  #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #people-left-game {
+  #main-container #app-container #gameplay-container #game-end-container #inner-info-exit .game-end-answer-text {
     padding: 6px;
     font-size: 22px;
   }
