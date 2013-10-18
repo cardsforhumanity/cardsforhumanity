@@ -5,7 +5,7 @@
  .uppercase {
    text-transform: uppercase;
  }
- 
+
  #landing-charity {
    width: 300px !important;
    margin-left: 15px !important;
@@ -56,19 +56,19 @@
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
    -o-transition:  color 0.5s ease;
-   transition:  color 0.5s ease; 
+   transition:  color 0.5s ease;
  }
- 
+
  a:hover {
    text-decoration: none;
    color: #2ecc71;
    border-radius:0px !important;
  }
- 
+
  p a {
    color: #2ecc71;
  }
- 
+
  p a:hover {
    color: #515E65;
  }
@@ -115,7 +115,7 @@
    z-index:10000;
    max-width: 1400px;
  }
- 
+
  .wpb-logo-container {
    color: #fff;
    font-weight: bold;
@@ -123,24 +123,24 @@
    max-width: 100%;
    margin-right: 9px;
  }
- 
+
  .wpb-logo-container a {
    color: #ffffff !important;
  }
- 
- 
+
+
  .wpb-menu-container {
    float: right;
 
  }
- 
+
  .wpb-menu-container .wpb-dropdown-menu {
    display: none;
    margin-top: 35px;
    text-align: center;
    float: right;
  }
- 
+
  .wpb-menu-container .wpb-main-menu {
    list-style: none;
    margin: 0;
@@ -149,7 +149,7 @@
    margin-top: -77px;
    margin-right: 35px;
  }
- 
+
  .wpb-menu-container .wpb-main-menu li {
    display: inline-block;
    height: 100%;
@@ -165,7 +165,7 @@
    -o-transition:  color 0.5s ease;
    transition:  color 0.5s ease; 
  }
- 
+
  .wpb-menu-container .wpb-main-menu li a {
    display: block;
    height: 100%;
@@ -177,15 +177,15 @@
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
    -o-transition:  color 0.5s ease;
-   transition:  color 0.5s ease; 
+   transition:  color 0.5s ease;
    text-transform: uppercase;
    position: relative;
    z-index:1000;
  }
- 
 
- 
- 
+
+
+
  /**** LANDING ****/
 
  #main-text {
@@ -212,7 +212,7 @@
    margin-top: 70px;
    padding: 30px;
  }
- 
+
  .wpb-teaser .background-opacity {
    position: absolute;
    top: 0;
@@ -225,7 +225,7 @@
    border-radius: 8px;
    padding: 20px;
  }
- 
+
  .wpb-teaser .container {
    position: relative;
    z-index:1000;
@@ -236,7 +236,7 @@
    position: relative;
    z-index: 1000;
  }
- 
+
  .wpb-teaser .wpb-slogan h2 {
    color: #fff;
    font-weight: bold;
@@ -249,8 +249,8 @@
  #slogan {
    text-align: center;
    color: white;
- } 
- 
+ }
+
  .wpb-teaser .wpb-text p {
    color: #fff;
    padding-top: 15px;
@@ -265,13 +265,13 @@
    height: 60px;
 }
 
- 
+
  /**** Section Title ****/
  .wpb-section-title {
    background-color: #24272a;
    height: 100px;
  }
- 
+
  .wpb-section-title .wpb-title {
    color: #fff;
    font-size: 32px;
@@ -279,7 +279,7 @@
    font-weight: bold;
    line-height: 100px;
  }
- 
+
  .wpb-section-title .wpb-title-description {
    color: #515e65;
    font-size: 14px;
@@ -333,7 +333,6 @@
    cursor: pointer;
  }
  
- 
  /**** About Us ****/
 #main-bod {
    max-width: 1400px;
@@ -346,7 +345,9 @@
  }
 
  #team-photo {
-   max-width: 100% !important;
+   max-width: 84% !important;
+   width: 84%;
+   margin: 0 8%;
  }
 
  #gitcat {
@@ -457,37 +458,37 @@
    border-radius: 8px;
  }
 
- /**** Portfolio ****/ 
+ /**** Portfolio ****/
  .wpb-portfolio-list .wpb-portfolio-item {
    margin-left: 10px;
    list-style-type: none;
    width: 30%;
    float: left;
  }
- 
+
  .wpb-portfolio-list .wpb-portfolio-item:nth-child(3n) {
    margin-right: 0px;
  }
- 
+
  .wpb-portfolio-item {
    background-color: #fff;
    margin-bottom: 20px;
    width: 21%;
    float: left;
  }
- 
+
  .wpb-portfolio-item .wpb-portfolio-thumbnail {
    height: 170px;
    overflow: hidden;
    position:relative;
  }
 
- 
+
  .wpb-portfolio-item .wpb-portfolio-thumbnail>img {
    position: absolute;
    width: 100%;
  }
- 
+
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay {
    position: absolute;
    top:0;
@@ -497,71 +498,71 @@
    z-index:1001;
    background: url('img/mongo-logo.png');
  }
- 
+
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
    min-width: none !important;
  }
- 
+
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay div {
    line-height: 170px;
    width: 100%;
    text-align: center;
    font-size: 3em;
  }
- 
+
  .wpb-portfolio-details {
    padding: 0px 25px 10px 25px;
  }
- 
+
  .wpb-portfolio-details h3 {
    font-size: 18px;
    color: #24272a !important;
  }
- 
+
  .wpb-portfolio-details p {
    color:#515e65 !important;
  }
- 
+
  /**** Portfolio ****/
  .wpb-portfolio-body {
-   
+
  }
- 
+
  .wpb-portfolio-body .wpb-teaser {
    min-height: 350px;
  }
- 
+
  .wpb-portfolio-body .wpb-teaser .container {
    padding-top: 60px;
  }
- 
+
  .wpb-portfolio-page .container {
    top:0px;
  }
- 
+
  .wpb-portfolio-body .wpb-portfolio-filter-container {
    padding-top: 50px;
  }
- 
+
  .wpb-portfolio-body .wpb-portfolio-filter-container span {
    display: inline-block;
    padding-right: 30px;
    text-transform: uppercase;
    color: #ffffff !important;
  }
- 
+
  .wpb-portfolio-body .wpb-portfolio-filter {
    margin: 0;
    display: inline-block;
  }
- 
+
  .wpb-portfolio-body .wpb-portfolio-filter li {
    display: inline-block;
    text-transform: uppercase;
    color: #ffffff !important;
    padding-right: 15px;
  }
- 
+
  .wpb-portfolio-body .wpb-portfolio-filter li a {
    color: #ffffff;
    padding: 5px 14px;
@@ -572,47 +573,47 @@
    -moz-transition: background-color 0.5s ease;
    -ms-transition: background-color 0.5s ease;
    -o-transition:  background-color 0.5s ease;
-   transition:  background-color 0.5s ease; 
+   transition:  background-color 0.5s ease;
  }
- 
- 
- 
- /**** Team List ****/ 
+
+
+
+ /**** Team List ****/
  .wpb-team-list .wpb-team-item {
    margin-left: 0px;
    margin-right: 10px;
  }
- 
+
  .wpb-team-list .wpb-team-item:nth-child(3n) {
    margin-right: 0px;
  }
- 
+
  .wpb-team-item {
    background-color: #fff;
    margin-bottom: 20px;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail {
    height: 300px;
    overflow: hidden;
    position:relative;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail:hover .wpb-team-overlay {
    opacity:1;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail>img {
    position: absolute;
    width: 100%;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay {
    -webkit-transition: opacity 0.5s ease;
    -moz-transition: opacity 0.5s ease;
    -ms-transition: opacity 0.5s ease;
    -o-transition:  opacity 0.5s ease;
-   transition:  opacity 0.5s ease; 
+   transition:  opacity 0.5s ease;
    position: absolute;
    top:0;
    left:0;
@@ -622,34 +623,34 @@
    background: rgba(55, 50, 53, 0.9);
    opacity:0;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay img {
    min-width: none !important;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div {
    line-height: 500px;
    width: 100%;
    text-align: center;
    font-size: 3em;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content h3 {
       color: #ffffff !important;
       font-size: 18px;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content a {
    color: #ffffff !important;
 
  }
- 
+
 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content i {
    font-size: 1.5em;
    padding-right: 5px;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content {
    text-transform: uppercase;
    color: #ffffff !important;
@@ -657,55 +658,55 @@
    line-height: normal;
    margin-top: 125px;
  }
- 
+
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content p {
    line-height: normal;
    display: inline-block;
    width: 100%;
  }
- 
+
  .wpb-team-details {
    padding: 0px 25px 10px 25px;
    text-align: center;
  }
- 
+
  .wpb-team-details h3 {
    font-size: 18px;
    color: #24272a !important;
  }
- 
+
  .wpb-team-details p {
    color:#515e65 !important;
  }
- 
- 
+
+
  /**** Single Portfolio Item ****/
  .wpb-single-portfolio {
  }
- 
+
  .wpb-single-portfolio .wpb-content-inner {
    padding: 0px;
  }
- 
+
  .wpb-single-portfolio .wpb-content-inner p {
    padding: 12px 0px;
  }
- 
+
  .wpb-single-portfolio .wpb-content-inner .inner {
    padding: 0px 25px 25px 25px;
  }
- 
+
  .wpb-single-portfolio .container {
    top:-100px;
    position: relative;
    z-index:1010;
    background-color: #24272A;
  }
- 
+
  .wpb-single-portfolio .wpb-content {
    padding: 25px 0px 25px 0px;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-thumbnail {
    height: 270px;
    overflow: hidden;
@@ -715,11 +716,11 @@
    display: inline-block;
    margin-bottom: 25px;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-thumbnail:hover .wpb-portfolio-overlay {
    opacity:1;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-thumbnail>img {
    position: absolute;
    min-height: 100%;
@@ -727,13 +728,13 @@
    max-width: none !important;
    min-width: 100%;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay {
    -webkit-transition: opacity 0.5s ease;
    -moz-transition: opacity 0.5s ease;
    -ms-transition: opacity 0.5s ease;
    -o-transition:  opacity 0.5s ease;
-   transition:  opacity 0.5s ease; 
+   transition:  opacity 0.5s ease;
    position: absolute;
    top:0;
    left:0;
@@ -743,61 +744,61 @@
    background: rgba(26, 204, 113, 0.6);
    opacity:0;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
    min-width: none !important;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay div {
    line-height: 200px;
    width: 100%;
    text-align: center;
    font-size: 3em;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-description .wpb-portfolio-main-thumbnail {
    margin-bottom: 25px;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-main-thumbnail img {
    max-width:100% !important;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-description {
    margin-right: 25px;
    margin-left: 0px;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-description ul {
    margin: 0;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-description ul li {
    padding-bottom: 15px;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-description ul li p.wpb-list-title {
    text-transform: uppercase;
  }
- 
 
- 
+
+
  .wpb-single-portfolio .wpb-portfolio-description ul li p {
    padding: 0;
    margin: 0;
  }
- 
+
  .wpb-single-portfolio .wpb-portfolio-description h3 {
    margin: 0;
  }
- 
+
  /**** Contact Us ****/
  .wpb-contact-us {
    min-height: 540px;
    position: relative;
    z-index:890;
  }
- 
+
  .wpb-contact-us .google-map-container {
    width: 100%;
    height: 100%;
@@ -806,12 +807,12 @@
    bottom: 0;
    left:0;
  }
- 
+
  .wpb-contact-us .wpb-section-title, .wpb-contact-us .container {
    position: relative;
    z-index: 1000;
  }
- 
+
  .wpb-contact-us .background-opacity {
    position: absolute;
    top: 0;
@@ -823,23 +824,23 @@
    background: #252525;
  }
 
- 
+
  /**** Contact Us Information ****/
  .wpb-contact-us-info {
    margin-top: 25px;
    color: #fff;
  }
- 
+
  .wpb-contact-us-info ul {
    margin: 0;
    padding: 0;
  }
- 
+
  .wpb-contact-us-info ul li {
    padding-bottom:10px;
  }
- 
- 
+
+
  /**** Footer ****/
 
  .foot {
@@ -867,7 +868,7 @@
    padding-top:60px;
    padding-bottom: 60px;
  }
- 
+
 .arrow {
   position: fixed;
   bottom: 0;
@@ -878,7 +879,7 @@
   background-size: contain;
   animation-iteration-count: 3;
   -webkit-animation-iteration-count: 3;
-  -moz-animation-iteration-count: 3;  
+  -moz-animation-iteration-count: 3;
   -o-animation-iteration-count: 3;
   animation-delay: 5s;
   -webkit-animation-delay: 5s;
@@ -937,7 +938,7 @@
    }
 }
 
-@media (min-width : 480px) and (max-width : 865px)  { 
+@media (min-width : 480px) and (max-width : 865px)  {
    .wpb-menu-container .wpb-main-menu {
       text-align: right;
       height: 100px;
@@ -980,7 +981,7 @@
    }
 }
 
-@media (min-width : 865px) and (max-width : 1024px)  { 
+@media (min-width : 865px) and (max-width : 1024px)  {
    .wpb-menu-container .wpb-main-menu {
       text-align: right;
       height: 100px;
