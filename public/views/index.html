@@ -65,7 +65,7 @@ $(document).ready(function() {
         </p>
       </div>
       <!-- Teaser Text End -->
-      <span id='send-link'> *To send a private link to you're friends, sign up! </span>
+      <span id='send-link' ng-show="showOptions"> *To send a private link to your friends, sign up! </span>
       <div id="sign-up">
         <span ng-show="showOptions">
         <a href="#!/signup"><div id="sign-up-btn-landing">Sign Up</div></a>
@@ -79,12 +79,12 @@ $(document).ready(function() {
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                 </span>
                 <span id='facebook-share'>
-                    <a href="#" 
+                    <a href="#"
                       onclick="
                         window.open(
-                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-                          'facebook-share-dialog', 
-                          'width=626,height=436'); 
+                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                          'facebook-share-dialog',
+                          'width=626,height=436');
                         return false;">
                       Share on Facebook
                     </a>
@@ -99,12 +99,12 @@ $(document).ready(function() {
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                 </span>
                 <span id='facebook-share'>
-                    <a href="#" 
+                    <a href="#"
                       onclick="
                         window.open(
-                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-                          'facebook-share-dialog', 
-                          'width=626,height=436'); 
+                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                          'facebook-share-dialog',
+                          'width=626,height=436');
                         return false;">
                       Share on Facebook
                     </a>
