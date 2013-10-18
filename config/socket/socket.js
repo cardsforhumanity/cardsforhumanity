@@ -76,7 +76,8 @@ module.exports = function(io) {
 
   var joinGame = function(socket,data) {
     var player = new Player(socket);
-    player.userID = data.userID;
+    data = data || {};
+    player.userID = data.userID || 'unauthenticated';
     if (data.userID !== 'unauthenticated') {
       User.findOne({
         _id: data.userID
@@ -105,6 +106,8 @@ module.exports = function(io) {
   };
 
   var getGame = function(player,socket,requestedGameId,createPrivate) {
+    requestedGameId = requestedGameId || '';
+    createPrivate = createPrivate || false;
     console.log(socket.id,'is requesting room',requestedGameId);
     if (requestedGameId.length && allGames[requestedGameId]) {
       console.log('Room',requestedGameId,'is valid');
@@ -209,9 +212,6 @@ module.exports = function(io) {
       if (game.state === 'awaiting players' ||
         game.players.length-1 >= game.playerMinLimit) {
         game.removePlayer(socket.id);
-        if (game.players.length === 0) {
-          delete allGames[socket.gameID];
-        }
       } else {
         game.stateDissolveGame();
         for (var j = 0; j < game.players.length; j++) {
