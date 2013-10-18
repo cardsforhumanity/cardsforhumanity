@@ -15,6 +15,47 @@
    top: -65px;
 }
 
+#twitter-widget-0 {
+   width: 78px !important;
+}
+
+#tweet-container-index{
+   margin-top: 10px;
+   display: inline-block;
+   position: relative;
+   top: 5px;
+}
+
+#facebook-share{
+   font-size: 12px;
+   padding: 3px;
+   background: white;
+   border-radius: 3px;
+   margin-left: 10px;
+   background-color: #f8f8f8;
+   background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#dedede));
+   background-image: -moz-linear-gradient(top,#fff,#dedede);
+   background-image: -o-linear-gradient(top,#fff,#dedede);
+   background-image: -ms-linear-gradient(top,#fff,#dedede);
+   background-image: linear-gradient(top,#fff,#dedede);
+   border: #ccc solid 1px;
+   -moz-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+   color: #333;
+   font-weight: bold;
+   text-shadow: 0 1px 0 rgba(255,255,255,.5);
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+   cursor: pointer;
+}
+
+#facebook-share a{
+   color: #333;
+}
+
 .some-text {
    text-align: center;
    color: white;
