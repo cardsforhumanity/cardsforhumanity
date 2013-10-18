@@ -22,9 +22,13 @@ to donate to children in need - all while remaining as despicable and awkward as
 
 <h3> Challenges </h3> 
 <p> 
-<a href="http://www.tylermcginnis.com">Tyler McGinnis</a>: The biggest challenge I faced was...
-something about mobile.
-<img src="http://www.tylermcginnis.com/images/cfhm.png" width="326" height="410" alt="Cards for Humanity Stack"/>
+<a href="http://www.tylermcginnis.com">Tyler McGinnis</a>: I was mostly in charge of creating a wonderful 
+user experience inside the game itself. We're not nieve and we realized that odds are, the majority of our users
+would be playing on a mobile device from inside a bathroom stall. Because of this, it was necessary that 
+the experience on mobile was just as amazing as the one on a desktop. To do this, I built our main app on a fluid 
+layout then used some media queries to take care of some things on Mobile phones. Overall I'm confident that no matter
+what device you're, you're going to have an awesome time.
+<br/ ><img src="http://www.tylermcginnis.com/images/cfhm.png" width="326" height="410" alt="Cards for Humanity Stack"/>
 </p>
 <p> 
 <a href="http://www.truthyfalsy.com">David Gonzalez</a>: The biggest challenge I faced was...
@@ -48,7 +52,7 @@ something about mobile.
 <br />
 <br />
 <br />
-<img src="http://www.tylermcginnis.com/images/cfh7.png" alt="Cards for Humanity Exit"/>
+<img src="http://www.tylermcginnis.com/images/cfh6.png" alt="Cards for Humanity Exit"/>
 <br />
 <br />
 <br />
