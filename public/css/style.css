@@ -193,7 +193,7 @@
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
    -o-transition:  color 0.5s ease;
-   transition:  color 0.5s ease; 
+   transition:  color 0.5s ease;
  }
 
  .wpb-menu-container .wpb-main-menu li a {
@@ -288,6 +288,7 @@
    font-size: 1.15em;
    margin: 0 auto;
    width: 84%;
+   max-width: 585px;
    padding-bottom: 20px;
  }
 
@@ -362,7 +363,7 @@
    padding: 0.1em 35px;
    cursor: pointer;
  }
- 
+
  /**** About Us ****/
 #main-bod {
    max-width: 1400px;
@@ -1072,16 +1073,6 @@
       margin: 0px auto;
       border-radius: 8px;
       padding: 30px;
-   }
-
-   .wpb-teaser .wpb-text p {
-      color: #fff;
-      padding-top: 3px;
-      text-align: center;
-      font-size: 0.95em;
-      margin: 0 auto;
-      width: 100%;
-      padding-bottom: 20px;
    }
 
     .wpb-teaser .wpb-slogan h2 {
