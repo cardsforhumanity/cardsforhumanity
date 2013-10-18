@@ -506,6 +506,35 @@ body{
             #abandon-game-button:hover{
                background:#F34444;
             }
+
+            #tweet-container{
+                float: right;
+                padding-top: 10px;
+                width: 77px;
+                margin-right: 10px;
+
+                @include mobile-only{
+                    float: right;
+                    padding-top: 6px;
+                    width: 58px;
+                    overflow: hidden;
+                    margin-right: 11px;
+                }
+
+                .hcount .count-o{
+                    display: none !important;
+                    width: 0 !important;
+                }
+
+                .count-0{
+                    width: 0 !important;
+                }
+
+                .count-ready .count-o {
+                    visibility: visible;
+                    visibility: hidden !important;
+                }
+            }
         }
 
         #social-bar-container{
@@ -674,8 +703,7 @@ body{
                         }
 
                         @include mobile-only{
-                            margin-top: -8px;
-                            margin-left: 2px;
+                            display: none;
                         }
 
                             img {
@@ -683,15 +711,6 @@ body{
 
                                 @include tablet-portrait-only{
                                     width: 18px;
-                                }
-
-                                @include mobile-only{
-                                    width: 10px;
-                                    position: absolute;
-                                    left: -16px;
-                                    bottom: 2px;
-                                    margin-top: 0;
-                                    margin-left: 0;
                                 }
                             }
                         }
