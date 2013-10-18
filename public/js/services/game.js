@@ -112,15 +112,20 @@ angular.module('mean.system')
     if (data.table.length === 0) {
       game.table = [];
     } else {
-      // All players represented in game.table
-      var playersPicked = {};
-      for (i = 0; i < game.table.length; i++) {
-        playersPicked[game.table[i].player] = true;
+      var added = _.difference(_.pluck(data.table,'player'), _.pluck(game.table,'player'));
+      var removed = _.difference(_.pluck(game.table,'player'), _.pluck(data.table,'player'));
+      for (i = 0; i < added.length; i++) {
+        for (var j = 0; j < data.table.length; j++) {
+          if (added[i] === data.table[j].player) {
+            game.table.push(data.table[j],1);
+          }
+        }
       }
-      // Only add new player's picks to game.table
-      for (i = 0; i < data.table.length; i++) {
-        if (!playersPicked[data.table[i].player]) {
-          game.table.push(data.table[i]);
+      for (i = 0; i < removed.length; i++) {
+        for (var k = 0; k < game.table.length; k++) {
+          if (removed[i] === game.table[k].player) {
+            game.table.splice(k,1);
+          }
         }
       }
     }

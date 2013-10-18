@@ -90,7 +90,7 @@ angular.module('mean.system')
     };
 
     $scope.isCustomGame = function() {
-      return !(/^\d$/).test(game.gameID) && game.state === 'awaiting players';
+      return !(/^\d+$/).test(game.gameID) && game.state === 'awaiting players';
     };
 
     $scope.isPremium = function($index) {
@@ -172,7 +172,7 @@ angular.module('mean.system')
       }
     });
 
-    if ($location.search().game && !(/^\d$/).test($location.search().game)) {
+    if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
       console.log('joining custom game');
       game.joinGame('joinGame',$location.search().game);
     } else if ($location.search().custom) {
