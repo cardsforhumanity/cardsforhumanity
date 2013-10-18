@@ -6,14 +6,40 @@ As much as we like receiving, when possible, we also like to give. Cards for Hum
 to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 </p>
 
-<img src="http://www.tylermcginnis.com/images/cfh1.png" height="346" width="646" alt="Cards For Humanity" />
+
+<img src="http://www.tylermcginnis.com/images/cfh1.png" alt="Cards For Humanity" />
 <br />
 <br />
 <br />
-<img src="http://www.tylermcginnis.com/images/cfh2.png" alt="Cards For Humanity" />
+
+<h3> Technical Description </h3>
+<p>Cards for Humanity utilizes various technologies including 
+  <img src="http://www.tylermcginnis.com/images/cfh8.png" alt="Cards for Humanity Stack"/>
+</p>
+<p> The reason we chose this stack was because...</p> 
+<br /><br />
+
+
+<h3> Challenges </h3> 
+<p> 
+<a href="http://www.tylermcginnis.com">Tyler McGinnis</a>: The biggest challenge I faced was...
+something about mobile.
+<img src="http://www.tylermcginnis.com/images/cfhm.png" width="326" height="410" alt="Cards for Humanity Stack"/>
+</p>
+<p> 
+<a href="http://www.truthyfalsy.com">David Gonzalez</a>: The biggest challenge I faced was...
+</p>
+<p> 
+<a href="http://www.mattsilverstein.com/">Matt Silverstein</a>: The biggest challenge I faced was...
+</p>
+<p> 
+<a href="https://github.com/mrngoitall">Will Ngo</a>: The biggest challenge I faced was...
+</p>
 <br />
-<br />
-<br />
+
+
+
+
 <img src="http://www.tylermcginnis.com/images/cfh3.png" alt="Cards For Humanity"/>
 <br />
 <br />
@@ -22,19 +48,7 @@ to donate to children in need - all while remaining as despicable and awkward as
 <br />
 <br />
 <br />
-<h3> Technical Description </h3>
-<p>Cards for Humanity utilizes various technologies including 
-  <img src="http://www.tylermcginnis.com/images/cfh8.png" alt="Cards for Humanity Stack"/>
-</p>
-<p> The reason we chose this stack was because...</p> 
-<br /><br />
-<h3> Challenges </h3> 
-<p> The biggest challenges we faced were...
-</p>
-<br />
-<p> Oh yeah works on Mobile </p>
-<img src="http://www.tylermcginnis.com/images/cfhm.png" alt="Cards for Humanity Stack"/>
-
+<img src="http://www.tylermcginnis.com/images/cfh7.png" alt="Cards for Humanity Exit"/>
 <br />
 <br />
 <br />
