@@ -925,6 +925,9 @@ body {
   height: 50px;
   margin-top: 5%;
 }
+#main-container #app-container #gameplay-container #czar-blank-container #czar-blank-inner #smaller-text {
+  font-size: 18px;
+}
 #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
