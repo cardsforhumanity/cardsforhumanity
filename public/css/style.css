@@ -24,6 +24,11 @@
    display: inline-block;
    position: relative;
    top: 5px;
+   width: 79px !important;
+}
+
+#twitter-facebook{
+   display: block;
 }
 
 #facebook-share{
