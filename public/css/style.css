@@ -18,6 +18,8 @@
 .some-text {
    text-align: center;
    color: white;
+   max-width: 800px;
+   margin: 0 30px;
 }
 
 #give {
@@ -25,11 +27,21 @@
    text-align: center;
 }
 
-@media(min-width: 400px) and (max-width: 770px) {
+#info-box {
+   margin-top: 25px;
+   margin-left: 10%;
+}
+
+
+@media(min-width: 400px) and (max-width: 950px) {
    .some-text {
       text-align: center;
       float: left;
       margin-top: -50px;
+   }
+
+   #info-box {
+      margin-left: 0%;
    }
 
    #landing-charity {
@@ -44,6 +56,14 @@
 @media (max-width: 400px) {
    #landing-charity {
       margin-bottom: -60px;
+   }
+
+   #info-box {
+      margin-left: 0%;
+   }
+
+   .some-text {
+      margin: 0;
    }
 }
 
