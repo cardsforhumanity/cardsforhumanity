@@ -17,6 +17,12 @@
 
 .some-text {
    text-align: center;
+   color: white;
+}
+
+#give {
+   color: white;
+   text-align: center;
 }
 
 @media(min-width: 400px) and (max-width: 770px) {
@@ -51,7 +57,7 @@
 
  /**** Links ****/
  a {
-   color: #515e65;
+   color: white;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
@@ -672,7 +678,7 @@
 
  .wpb-team-details h3 {
    font-size: 18px;
-   color: #24272a !important;
+   color: white !important;
  }
 
  .wpb-team-details p {
