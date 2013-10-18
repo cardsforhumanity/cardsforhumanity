@@ -18,6 +18,8 @@
 .some-text {
    text-align: center;
    color: white;
+   max-width: 800px;
+   margin: 0 30px;
 }
 
 #give {
@@ -25,11 +27,25 @@
    text-align: center;
 }
 
-@media(min-width: 400px) and (max-width: 770px) {
+#info-box {
+   margin-top: 25px;
+   margin-left: 10%;
+}
+
+#wish {
+   max-width: 25%;
+}
+
+
+@media(min-width: 400px) and (max-width: 950px) {
    .some-text {
       text-align: center;
       float: left;
       margin-top: -50px;
+   }
+
+   #info-box {
+      margin-left: 0%;
    }
 
    #landing-charity {
@@ -45,6 +61,14 @@
    #landing-charity {
       margin-bottom: -60px;
    }
+
+   #info-box {
+      margin-left: 0%;
+   }
+
+   .some-text {
+      margin: 0;
+   }
 }
 
 .sign-error {
@@ -57,7 +81,7 @@
 
  /**** Links ****/
  a {
-   color: white;
+   color: #60B197;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
@@ -72,11 +96,11 @@
  }
 
  p a {
-   color: #2ecc71;
+   color: #60B197;
  }
 
  p a:hover {
-   color: #515E65;
+   color: #2ecc71;
  }
 
 
@@ -169,7 +193,7 @@
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
    -o-transition:  color 0.5s ease;
-   transition:  color 0.5s ease; 
+   transition:  color 0.5s ease;
  }
 
  .wpb-menu-container .wpb-main-menu li a {
@@ -264,6 +288,7 @@
    font-size: 1.15em;
    margin: 0 auto;
    width: 84%;
+   max-width: 585px;
    padding-bottom: 20px;
  }
 
@@ -338,7 +363,7 @@
    padding: 0.1em 35px;
    cursor: pointer;
  }
- 
+
  /**** About Us ****/
 #main-bod {
    max-width: 1400px;
@@ -1048,16 +1073,6 @@
       margin: 0px auto;
       border-radius: 8px;
       padding: 30px;
-   }
-
-   .wpb-teaser .wpb-text p {
-      color: #fff;
-      padding-top: 3px;
-      text-align: center;
-      font-size: 0.95em;
-      margin: 0 auto;
-      width: 100%;
-      padding-bottom: 20px;
    }
 
     .wpb-teaser .wpb-slogan h2 {
