@@ -297,7 +297,7 @@
     margin-bottom: -13px;
  }
 
- #sign-up-btn {
+ #sign-up-btn-landing {
    display: inline-block;
    border-radius: 8px;
    -moz-border-radius: 5px;
@@ -315,7 +315,24 @@
    cursor: pointer;
  }
 
-
+  #sign-up-btn-other {
+   display: inline-block;
+   border-radius: 8px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   font-size: 20px;
+   font-size: 1.5em;
+   font-weight: 400;
+   text-align: center;
+   color: white;
+   background: #C54141;
+   margin-top: 3px;
+   margin-bottom: 3px;
+   margin-right: 10px;
+   padding: 0.1em 35px;
+   cursor: pointer;
+ }
+ 
  /**** About Us ****/
 #main-bod {
    max-width: 1400px;
