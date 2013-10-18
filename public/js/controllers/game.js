@@ -142,6 +142,13 @@ angular.module('mean.system')
       $scope.pickedCards = [];
     });
 
+    // In case player doesn't pick a card in time, show the table
+    $scope.$watch('game.state', function() {
+      if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
+        $scope.showTable = true;
+      }
+    });
+
     $scope.$watch('game.gameID', function() {
       if (game.gameID && game.state === 'awaiting players') {
         if (!$scope.isCustomGame() && $location.search().game) {
