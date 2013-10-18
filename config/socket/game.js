@@ -48,7 +48,7 @@ function Game(gameID, io) {
   // Gets cleared if czar finishes judging before time limit.
   this.judgingTimeout = 0;
   this.resultsTimeout = 0;
-  this.guestNames = guestNames;
+  this.guestNames = guestNames.slice();
 }
 
 Game.prototype.payload = function() {
@@ -99,7 +99,7 @@ Game.prototype.assignGuestNames = function() {
       var randIndex = Math.floor(Math.random() * self.guestNames.length);
       player.username = self.guestNames.splice(randIndex, 1)[0];
       if (!self.guestNames.length) {
-        self.guestNames = guestNames;
+        self.guestNames = guestNames.slice();
       }
     }
   });
@@ -350,6 +350,13 @@ Game.prototype.removePlayer = function(thisPlayer) {
     // Just used to send the remaining players a notification
     var playerName = this.players[playerIndex].username;
 
+    // If this player submitted a card, take it off the table
+    for (var i = 0; i < this.table.length; i++) {
+      if (this.table[i].player === thisPlayer) {
+        this.table.splice(i,1);
+      }
+    }
+
     // Remove player from this.players
     this.players.splice(playerIndex,1);
 
@@ -367,10 +374,14 @@ Game.prototype.removePlayer = function(thisPlayer) {
         return this.stateChoosing(this);
       } else if (this.state === "waiting for czar to decide") {
         // If players are waiting on a czar to pick, auto pick.
-        this.sendNotification('The Czar left the game! First answer/s submitted wins!');
+        this.sendNotification('The Czar left the game! First answer submitted wins!');
         this.pickWinning(this.table[0].card[0].id, thisPlayer, true);
       }
     } else {
+      // Update the czar's position if the removed player is above the current czar
+      if (playerIndex < this.czar) {
+        this.czar--;
+      }
       this.sendNotification(playerName+' has left the game.');
     }
 
