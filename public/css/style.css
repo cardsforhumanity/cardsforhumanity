@@ -81,7 +81,7 @@
 
  /**** Links ****/
  a {
-   color: white;
+   color: #60B197;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
@@ -96,11 +96,11 @@
  }
 
  p a {
-   color: #2ecc71;
+   color: #60B197;
  }
 
  p a:hover {
-   color: #515E65;
+   color: #2ecc71;
  }
 
 
