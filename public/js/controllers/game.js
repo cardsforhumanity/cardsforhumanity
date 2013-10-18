@@ -3,6 +3,7 @@ angular.module('mean.system')
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
+    $scope.modalShown = false;
     $scope.game = game;
     $scope.pickedCards = [];
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
@@ -92,6 +93,10 @@ angular.module('mean.system')
       return !(/^\d+$/).test(game.gameID) && game.state === 'awaiting players';
     };
 
+    $scope.isPremium = function($index) {
+      return game.players[$index].premium;
+    };
+
     $scope.currentCzar = function($index) {
       return $index === game.czar;
     };
@@ -137,6 +142,13 @@ angular.module('mean.system')
       $scope.pickedCards = [];
     });
 
+    // In case player doesn't pick a card in time, show the table
+    $scope.$watch('game.state', function() {
+      if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
+        $scope.showTable = true;
+      }
+    });
+
     $scope.$watch('game.gameID', function() {
       if (game.gameID && game.state === 'awaiting players') {
         if (!$scope.isCustomGame() && $location.search().game) {
@@ -147,6 +159,15 @@ angular.module('mean.system')
           // Once the game ID is set, update the URL if this is a game with friends,
           // where the link is meant to be shared.
           $location.search({game: game.gameID});
+          if(!$scope.modalShown){
+            setTimeout(function(){
+              var link = document.URL;
+              var txt = 'Give the following link to your friends so they can join your game: ';
+              $('#lobby-how-to-play').text(txt);
+              $('#oh-el').css({'text-align': 'center', 'font-size':'22px', 'background': 'white', 'color': 'black'}).text(link);
+            }, 200);
+            $scope.modalShown = true;
+          }
         }
       }
     });
