@@ -38,7 +38,9 @@
     "grunt-cli": "latest",
     "grunt-bower-task": "latest",
     "socket.io": "~0.9.16",
-    "bcrypt": "latest"
+    "bcrypt": "latest",
+    "socket.io-client": "~0.9.16",
+    "sinon": "~1.7.3"
   },
   "devDependencies": {
     "supertest": "latest",
