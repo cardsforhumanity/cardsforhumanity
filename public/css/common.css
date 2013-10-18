@@ -204,6 +204,32 @@ body {
 #main-container #app-container #menu-container #abandon-game-button:hover {
   background: #F34444;
 }
+#main-container #app-container #menu-container #tweet-container {
+  float: right;
+  padding-top: 10px;
+  width: 77px;
+  margin-right: 10px;
+}
+@media (max-width: 520px) {
+  #main-container #app-container #menu-container #tweet-container {
+    float: right;
+    padding-top: 6px;
+    width: 58px;
+    overflow: hidden;
+    margin-right: 11px;
+  }
+}
+#main-container #app-container #menu-container #tweet-container .hcount .count-o {
+  display: none !important;
+  width: 0 !important;
+}
+#main-container #app-container #menu-container #tweet-container .count-0 {
+  width: 0 !important;
+}
+#main-container #app-container #menu-container #tweet-container .count-ready .count-o {
+  visibility: visible;
+  visibility: hidden !important;
+}
 #main-container #app-container #social-bar-container {
   width: 20%;
   height: 63%;
@@ -376,8 +402,7 @@ body {
 }
 @media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star {
-    margin-top: -8px;
-    margin-left: 2px;
+    display: none;
   }
 }
 #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
@@ -386,16 +411,6 @@ body {
 @media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
     width: 18px;
-  }
-}
-@media (max-width: 520px) {
-  #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-star img {
-    width: 10px;
-    position: absolute;
-    left: -16px;
-    bottom: 2px;
-    margin-top: 0;
-    margin-left: 0;
   }
 }
 #main-container #app-container #social-bar-container #player-container #czar-container {
