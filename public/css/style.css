@@ -31,6 +31,13 @@
    display: block;
 }
 
+#send-link{
+   color: white;
+   text-align: center;
+   display: block;
+   margin-bottom: 10px;
+}
+
 #facebook-share{
    font-size: 12px;
    padding: 3px;
