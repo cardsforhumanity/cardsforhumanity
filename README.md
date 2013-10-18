@@ -23,7 +23,7 @@ to donate to children in need - all while remaining as despicable and awkward as
 <h3> Challenges </h3> 
 <p> 
 <a href="http://www.tylermcginnis.com">Tyler McGinnis</a>: I was mostly in charge of creating a wonderful 
-user experience inside the game itself. We're not nieve and we realized that odds are, the majority of our users
+user experience inside the game itself. We're not naive and we realized that odds are, the majority of our users
 would be playing on a mobile device from inside a bathroom stall. Because of this, it was necessary that 
 the experience on mobile was just as amazing as the one on a desktop. To do this, I built our main app on a fluid 
 layout then used some media queries to take care of some things on Mobile phones. Overall I'm confident that no matter
