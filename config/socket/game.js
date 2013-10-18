@@ -2,6 +2,20 @@ var async = require('async');
 var _ = require('underscore');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
+var guestNames = [
+    "Disco Potato",
+    "Silver Blister",
+    "Insulated Mustard",
+    "Funeral Flapjack",
+    "Toenail",
+    "Urgent Drip",
+    "Raging Bagel",
+    "Aggressive Pie",
+    "Loving Spoon",
+    "Swollen Node",
+    "The Spleen",
+    "Dingle Dangle"
+  ];
 
 function Game(gameID, io) {
   this.io = io;
@@ -34,20 +48,7 @@ function Game(gameID, io) {
   // Gets cleared if czar finishes judging before time limit.
   this.judgingTimeout = 0;
   this.resultsTimeout = 0;
-  this.guestNames = [
-    "Disco Potato",
-    "Silver Blister",
-    "Insulated Mustard",
-    "Funeral Flapjack",
-    "Toenail",
-    "Urgent Drip",
-    "Raging Bagel",
-    "Aggressive Pie",
-    "Loving Spoon",
-    "Swollen Node",
-    "The Spleen",
-    "Dingle Dangle"
-  ];
+  this.guestNames = guestNames;
 }
 
 Game.prototype.payload = function() {
@@ -97,6 +98,9 @@ Game.prototype.assignGuestNames = function() {
     if (player.username === 'Guest' && self.guestNames.length > 0) {
       var randIndex = Math.floor(Math.random() * self.guestNames.length);
       player.username = self.guestNames.splice(randIndex, 1)[0];
+      if (!self.guestNames.length) {
+        self.guestNames = guestNames;
+      }
     }
   });
 };
