@@ -33,6 +33,7 @@
       <li>For each round, one player is randomly chosen as the Card Czar.</li>
       <li>Everyone else answers the black question card by clicking on the answer card they want to use.</li>
       <li>The Card Czar then picks a favorite answer, and whoever played that answer wins the round.</li>
+      <li>*Want to adorn your avatar with a glorious crown? Donate to charity after the game!</li>
     </ol>
   </div>
 </div>
@@ -40,11 +41,11 @@
   <div id="inner-info-exit">
     <div class="game-end-answer-text" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
       <h2>What would you like to do now?</h2>
-      You might consider donating to charity to atone for the horrifying answers you've submitted...
+      You might consider donating to charity to atone for the horrifying answers you've submitted. Donating will also place a lovely crown on your avatar's head.
     </div>
     <div class="game-end-answer-text" ng-show="game.state === 'game ended' || game.gameWinner !== -1">
       <h2>What would you like to do now?</h2>
-      Help yourself to another game or help a child in need?
+      Help yourself to another game or help a child in need? Donating will also place a lovely crown on your avatar's head.
     </div>
     <div id='inner-text-container'>
       <a href='/#!/app'>
