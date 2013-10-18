@@ -30,6 +30,26 @@ describe("Game Server",function(){
     });
   });
 
+  it('Should send a game update upon receiving request to joinGame', function(done) {
+    var client1 = io.connect(socketURL, options);
+
+    var disconnect = function() {
+      client1.disconnect();
+      done();
+    };
+
+    client1.on('connect', function(data){
+      client1.emit('joinGame');
+
+      client1.on('gameUpdate', function(data) {
+        '1'.should.equal(data.gameID);
+      });
+
+      setTimeout(disconnect,200);
+
+    });
+  });
+
   // it('Should broadcast new user to all users', function(done){
   // var client1 = io.connect(socketURL, options);
 
