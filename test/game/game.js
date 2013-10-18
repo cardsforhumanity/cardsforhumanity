@@ -50,35 +50,31 @@ describe("Game Server",function(){
     });
   });
 
-  // it('Should broadcast new user to all users', function(done){
-  // var client1 = io.connect(socketURL, options);
+  it('Should announce new user to all users', function(done){
+    var client1 = io.connect(socketURL, options);
 
-  // client1.on('connect', function(data){
-  //   client1.emit('connection name', chatUser1);
+    var disconnect = function() {
+      client1.disconnect();
+      done();
+    };
 
-  //   /* Since first client is connected, we connect
-  //   the second client. */
-  //   var client2 = io.connect(socketURL, options);
+    client1.on('connect', function(data){
+      client1.emit('joinGame');
 
-  //   client2.on('connect', function(data){
-  //     client2.emit('connection name', chatUser2);
-  //   });
+      var client2 = io.connect(socketURL, options);
 
-  //   client2.on('new user', function(usersName){
-  //     usersName.should.equal(chatUser2.name + " has joined.");
-  //     client2.disconnect();
-  //   });
+      client2.on('connect', function(data) {
 
-  // });
+        client2.emit('joinGame');
 
-  // var numUsers = 0;
-  // client1.on('new user', function(usersName){
-  //   numUsers += 1;
+        client1.on('notification', function(data) {
+          data.notification.should.match(/ has joined the game\!/);
+        });
 
-  //   if(numUsers === 2){
-  //     usersName.should.equal(chatUser2.name + " has joined.");
-  //     client1.disconnect();
-  //     done();
-  //   }
-  // });
+      });
+
+      setTimeout(disconnect,200);
+
+    });
+  });
 });
