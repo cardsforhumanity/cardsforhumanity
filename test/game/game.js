@@ -60,7 +60,6 @@ describe("Game Server",function(){
     });
   });
 
-  // In progress
   it('Should start game when startGame event is sent with 3 players', function(done){
     var client1, client2, client3;
     client1 = io.connect(socketURL, options);
@@ -75,8 +74,9 @@ describe("Game Server",function(){
       }
     };
     var expectStartGame = function() {
-      client1.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pisk");
+      client1.emit('startGame');
+      client3.on('gameUpdate', function(data) {
+        data.state.should.equal("waiting for players to pick");
       });
       setTimeout(disconnect,200);
     };
@@ -88,7 +88,6 @@ describe("Game Server",function(){
         client3 = io.connect(socketURL, options);
         client3.on('connect', function(data) {
           client3.emit('joinGame');
-          client1.emit('startGame');
           setTimeout(expectStartGame,100);
         });
       });
