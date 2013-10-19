@@ -459,7 +459,7 @@ body{
                 font-family: 'Lobster', cursive;
 
                 @include mobile-only{
-                    font-size: 23px;
+                    font-size: 20px;
                 }
 
                 #first-word{
@@ -495,11 +495,11 @@ body{
                 cursor: pointer;
 
                 @include mobile-only{
-                    font-size: 0.9rem;
+                    font-size: 0.7rem;
                     margin-top: 5px;
                     margin-right: 1px;
                     padding: 5px;
-                    width: 100px;
+                    width: 60px;
                 }
             }
 
@@ -516,7 +516,7 @@ body{
                 @include mobile-only{
                     float: right;
                     padding-top: 6px;
-                    width: 58px;
+                    width: 55px;
                     overflow: hidden;
                     margin-right: 11px;
                 }
