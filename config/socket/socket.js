@@ -1,5 +1,6 @@
 var Game = require('./game');
 var Player = require('./player');
+require("console-stamp")(console, "m/dd HH:mm:ss");
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
@@ -115,7 +116,10 @@ module.exports = function(io) {
       // Ensure that the same socket doesn't try to join the same game
       // This can happen because we rewrite the browser's URL to reflect
       // the new game ID, causing the view to reload.
-      if (game.state === 'awaiting players' && game.players[0].socket.id !== socket.id) {
+      // Also checking the number of players, so node doesn't crash when
+      // no one is in this custom room.
+      if (game.state === 'awaiting players' && (!game.players.length ||
+        game.players[0].socket.id !== socket.id)) {
         // Put player into the requested game
         console.log('Allowing player to join',requestedGameId);
         allPlayers[socket.id] = true;
@@ -205,6 +209,7 @@ module.exports = function(io) {
   };
 
   var exitGame = function(socket) {
+    console.log(socket.id,'has disconnected');
     if (allGames[socket.gameID]) { // Make sure game exists
       var game = allGames[socket.gameID];
       console.log(socket.id,'has left game',game.gameID);
