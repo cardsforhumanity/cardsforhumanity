@@ -3,19 +3,19 @@ var _ = require('underscore');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
 var guestNames = [
-    "Disco Potato",
-    "Silver Blister",
-    "Insulated Mustard",
-    "Funeral Flapjack",
-    "Toenail",
-    "Urgent Drip",
-    "Raging Bagel",
-    "Aggressive Pie",
-    "Loving Spoon",
-    "Swollen Node",
-    "The Spleen",
-    "Dingle Dangle"
-  ];
+  "Disco Potato",
+  "Silver Blister",
+  "Insulated Mustard",
+  "Funeral Flapjack",
+  "Toenail",
+  "Urgent Drip",
+  "Raging Bagel",
+  "Aggressive Pie",
+  "Loving Spoon",
+  "Swollen Node",
+  "The Spleen",
+  "Dingle Dangle"
+];
 
 function Game(gameID, io) {
   this.io = io;
