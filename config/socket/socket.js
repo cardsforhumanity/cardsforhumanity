@@ -1,6 +1,6 @@
 var Game = require('./game');
 var Player = require('./player');
-require("console-stamp")(console, "m/dd HH:mm:ss");
+require("console-stamp")(console, "m/dd HH:MM:ss");
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
