@@ -1,9 +1,7 @@
 Cards for Humanity
 ===========
 <h3>Brief Non-Technical Description </h3> 
-<p>Cards for Humanity is a polished web version of the popular card game Cards Against Humanity. 
-As much as we like receiving, when possible, we also like to give. Cards for Humanity allows you 
-to donate to children in need - all while remaining as despicable and awkward as you naturally are.
+<p>Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 </p>
 
 
@@ -13,7 +11,7 @@ to donate to children in need - all while remaining as despicable and awkward as
 <br />
 
 <h3> Technical Description </h3>
-<p>Cards for Humanity utilizes various technologies including 
+<p>
   <img src="http://www.tylermcginnis.com/images/cfh8.png" alt="Cards for Humanity Stack"/>
 </p>
 <p> The reason we chose this stack was because...</p> 
