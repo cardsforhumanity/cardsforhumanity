@@ -1,47 +1,36 @@
 Cards for Humanity
 ===========
-<h3>Brief Non-Technical Description </h3> 
+<h3>Description</h3>
 <p>Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 </p>
-
-
 <img src="http://www.tylermcginnis.com/images/cfh1.png" alt="Cards For Humanity" />
 <br />
 <br />
 <br />
-
-<h3> Technical Description </h3>
+<img src="http://www.tylermcginnis.com/images/cfh8.png" alt="Cards for Humanity Stack"/>
+<br />
+<br />
+<br />
+<h3> The Team </h3>
 <p>
-  <img src="http://www.tylermcginnis.com/images/cfh8.png" alt="Cards for Humanity Stack"/>
+<a href="http://www.tylermcginnis.com">Tyler McGinnis</a>
 </p>
-<p> The reason we chose this stack was because...</p> 
-<br /><br />
-
-
-<h3> Challenges </h3> 
-<p> 
-<a href="http://www.tylermcginnis.com">Tyler McGinnis</a>: I was mostly in charge of creating a wonderful 
-user experience inside the game itself. We're not naive and we realized that odds are, the majority of our users
-would be playing on a mobile device from inside a bathroom stall. Because of this, it was necessary that 
-the experience on mobile was just as amazing as the one on a desktop. To do this, I built our main app on a fluid 
-layout then used some media queries to take care of some things on Mobile phones. Overall I'm confident that no matter
-what device you're, you're going to have an awesome time.
-<br/ ><img src="http://www.tylermcginnis.com/images/cfhm.png" width="326" height="410" alt="Cards for Humanity Stack"/>
+<p>
+<a href="http://www.truthyfalsy.com">David Gonzalez</a>
+<p>
+<a href="http://www.mattsilverstein.com/">Matt Silverstein</a>
 </p>
-<p> 
-<a href="http://www.truthyfalsy.com">David Gonzalez</a>: The biggest challenge I faced was...
-</p>
-<p> 
-<a href="http://www.mattsilverstein.com/">Matt Silverstein</a>: The biggest challenge I faced was...
-</p>
-<p> 
-<a href="https://github.com/mrngoitall">Will Ngo</a>: The biggest challenge I faced was...
+<p>
+<a href="https://mrngoitall.net">Will Ngo</a>
 </p>
 <br />
-
-
-
-
+<br />
+<br />
+<h3> Screenshots </h3>
+<img src="http://www.tylermcginnis.com/images/cfhm.png" width="326" height="410" alt="Cards for Humanity Stack"/>
+<br />
+<br />
+<br />
 <img src="http://www.tylermcginnis.com/images/cfh3.png" alt="Cards For Humanity"/>
 <br />
 <br />
@@ -55,10 +44,8 @@ what device you're, you're going to have an awesome time.
 <br />
 <br />
 <img src="http://www.tylermcginnis.com/images/cfh7.png" alt="Cards for Humanity Exit"/>
-
-
-
-
+<br />
+<br />
 
 ## License
 
