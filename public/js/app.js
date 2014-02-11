@@ -3,10 +3,13 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
       function($routeProvider) {
           $routeProvider.
           when('/', {
-              templateUrl: 'views/index.html'
+            templateUrl: 'views/index.html'
           }).
           when('/app', {
-              templateUrl: '/views/app.html',
+            templateUrl: '/views/app.html',
+          }).
+          when('/privacy', {
+            templateUrl: '/views/privacy.html',
           }).
           when('/bottom', {
             templateUrl: '/views/bottom.html'
@@ -21,7 +24,7 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
             templateUrl: '/views/choose-avatar.html'
           }).
           otherwise({
-              redirectTo: '/'
+            redirectTo: '/'
           });
       }
   ]).config(['$locationProvider',
