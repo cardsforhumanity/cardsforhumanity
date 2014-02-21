@@ -6,8 +6,14 @@ $(document).ready(function() {
   if (/Android|webOS|CriOs|ChroMo|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) === false && location.href !== "http://localhost:3000/#!/app") {
     $('body').append('<a href="http://hackreactor.com"><img style="z-index: 10000; position: absolute; top: 0; right: 0; width: 125px; height: 125px; border: 0;" src="http://i.imgur.com/x86kKmF.png" alt="Built at Hack Reactor"></a>');
   }
-});
+
+  //Twitter buttons
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+  });
 </script>
+
+<script></script>
 <div landing id="main-bod">
   <!-- Fixed Logo & Menu Bar Start -->
   <div id="top-part">
@@ -77,21 +83,21 @@ $(document).ready(function() {
             <span id="second-word">as</span>
             <span id="third-word">Guest</span></a>
           </div>
-                <span id="tweet-container-index">
-                  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                </span>
-                <span id='facebook-share'>
-                    <a href="#"
-                      onclick="
-                        window.open(
-                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-                          'facebook-share-dialog',
-                          'width=626,height=436');
-                        return false;">
-                      Share on Facebook
-                    </a>
-                </span>
+          <span id="tweet-container-index">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
+            <a href="https://twitter.com/cfh_app" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @cfh_app</a>
+          </span>
+          <span id='facebook-share'>
+              <a href="#"
+                onclick="
+                  window.open(
+                    'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                    'facebook-share-dialog',
+                    'width=626,height=436');
+                  return false;">
+                Share on Facebook
+              </a>
+          </span>
         </span>
         <span ng-hide="showOptions">
           <a href="/play"><div id="sign-up-btn-landing">Play Game with Strangers</div></a>
