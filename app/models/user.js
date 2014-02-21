@@ -93,6 +93,9 @@ UserSchema.methods = {
      * @api public
      */
     authenticate: function(plainText) {
+        if (!plainText || !this.hashed_password) {
+            return false;
+        }
         return bcrypt.compareSync(plainText,this.hashed_password);
     },
 
