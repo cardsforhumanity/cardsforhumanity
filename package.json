@@ -1,12 +1,12 @@
 {
-  "name": "mean",
-  "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
+  "name": "Cards for Humanity",
+  "description": "A Game For Horrible People Desperately Trying To Do Good",
   "version": "1.0.0",
   "private": false,
-  "author": "Amos Haviv",
+  "author": "cardsforhumanity",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/cardsforhumanity/cardsforhumanity.git"
   },
   "engines": {
     "node": "0.10.x",
@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "~3.4.0",
     "jade": "~0.35.0",
+    "bower": "~1.3.3",
     "mongoose": "~3.6.20",
     "connect-mongo": "~0.3.3",
     "connect-flash": "~0.1.1",
@@ -38,7 +39,7 @@
     "grunt-cli": "~0.1.9",
     "grunt-bower-task": "~0.3.2",
     "socket.io": "~0.9.16",
-    "bcrypt": "~0.7.7",
+    "bcryptjs": "~1.0.4",
     "socket.io-client": "~0.9.16",
     "sinon": "~1.7.3",
     "console-stamp": "~0.1.1"
