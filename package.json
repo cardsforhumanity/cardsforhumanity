@@ -26,7 +26,7 @@
     "connect-flash": "~0.1.1",
     "passport": "~0.1.17",
     "passport-local": "~0.1.6",
-    "passport-facebook": "~1.0.1",
+    "passport-facebook": "~2.0.0",
     "passport-twitter": "~1.0.2",
     "passport-github": "~0.1.5",
     "passport-google-oauth": "~0.1.5",
