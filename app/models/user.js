@@ -12,9 +12,9 @@ var mongoose = require('mongoose'),
  * User Schema
  */
 var UserSchema = new Schema({
-    name: String,
+    name: {type: String, required: true},
     email: String,
-    username: String,
+    username: {type: String, required: true, unique: true, index: true},
     provider: String,
     avatar: String,
     premium: Number, // null or 0 for non-donors, 1 for everyone else (for now)
@@ -25,6 +25,7 @@ var UserSchema = new Schema({
     github: {},
     google: {}
 });
+//UserSchema.index({ username: 1 }, { unique: true });
 
 /**
  * Virtuals
@@ -67,6 +68,16 @@ UserSchema.path('hashed_password').validate(function(hashed_password) {
     if (authTypes.indexOf(this.provider) !== -1) return true;
     return hashed_password.length;
 }, 'Password cannot be blank');
+
+//small, simple check for email syntax
+UserSchema.path('email').validate(function (email) {
+   //var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+   //var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   //return emailRegex.test(email.text); // Assuming email has a text attribute
+
+   //TODO: this is a dummy test, and should be replaced with a suitable regex test
+   return email.indexOf('@') > -1;
+}, 'Email is not properly formed.');
 
 
 /**
