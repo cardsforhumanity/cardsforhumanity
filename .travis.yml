@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6.11.x"
+  - "6.9.4"
 #services:
 #  - mongodb
 
@@ -8,7 +8,6 @@ notifications:
   email: false
   
 before_script:
-  - nvm install 6.11.x
   - npm install bower
   - npm install grunt
   - npm install grunt-bower-task
