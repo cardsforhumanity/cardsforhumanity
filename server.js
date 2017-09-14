@@ -1,3 +1,6 @@
+//support loading of env variables from .env files
+require('dotenv-extended').load();
+
 /**
  * Module dependencies.
  */

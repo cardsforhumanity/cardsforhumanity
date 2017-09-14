@@ -2,5 +2,7 @@ node_modules
 public/lib
 .sass-cache/
 .DS_store
+.env
+.travis.yml
 c4h_keys.txt
 
