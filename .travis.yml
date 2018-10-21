@@ -1,6 +1,6 @@
-  language: node_js
+language: node_js
 node_js:
- - "stable"
+  - "stable"
  env:
   global:
     - CC_TEST_REPORTER_ID=e686ee9971f90dd596dc7b61717348b05c035deade82f8f4249c552d8ef3c515
