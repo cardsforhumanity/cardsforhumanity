@@ -3,11 +3,11 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/nayebare/cardsforhumanity?branch=master)](https://bettercodehub.com/)
 
 **CODE CLIMATE MAINTAINABILITY**
-<a href="https://codeclimate.com/github/nayebare/cardsforhumanity/maintainability"><img src="https://api.codeclimate.com/v1/badges/e0775b899dddcf1bec95/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/e0775b899dddcf1bec95/maintainability)](https://codeclimate.com/github/nayebare/cardsforhumanity/maintainability)
 
 **CODE CLIMATE TEST COVERAGE**
 
-<a href="https://codeclimate.com/github/nayebare/cardsforhumanity/test_coverage"><img src="https://api.codeclimate.com/v1/badges/e0775b899dddcf1bec95/test_coverage" /></a>
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e0775b899dddcf1bec95/test_coverage)](https://codeclimate.com/github/nayebare/cardsforhumanity/test_coverage)
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 
