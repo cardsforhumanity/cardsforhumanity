@@ -4,6 +4,7 @@
 var should = require('should'),
     app = require('../../server'),
     mongoose = require('mongoose'),
+    describe = require('describe'),
     User = mongoose.model('User'),
     Article = mongoose.model('Article');
 

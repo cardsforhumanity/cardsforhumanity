@@ -1,15 +1,11 @@
-language: node_js
+  language: node_js
 node_js:
-  - "6.9.4"
-#services:
-#  - mongodb
+ - "stable"
+services:
+  - mongodb
+install: 
+  - npm install
 
-notifications:
-  email: false
-  
-before_script:
-  - npm install bower
-  - npm install grunt
-  - npm install grunt-bower-task
-  - npm install grunt-cli
-#  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+script: npm test
+after_success:
+  - npm run coverage
