@@ -9,10 +9,11 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e0775b899dddcf1bec95/test_coverage)](https://codeclimate.com/github/nayebare/cardsforhumanity/test_coverage)
 
-Cards for Humanity - [http://cfh.io](http://cfh.io)
+**HEROKU APP**
+
+Cards for Humanity - [https://cfhapp.herokuapp.com/](https://cfhapp.herokuapp.com/)
 
 
-===========
 Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 
 Our Team
