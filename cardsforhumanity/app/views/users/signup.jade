@@ -1,0 +1,69 @@
+extends auth
+
+block auth
+  #main-bod
+      //Fixed Logo & Menu Bar Start 
+      #top-part
+         .wpb-top-bar
+           #navver.mod-contain
+              .row
+                //
+                   Logo 
+                .wpb-logo-container
+                  #landing-logo
+                    span#first-word Cards
+                    span#second-word  for
+                    span#third-word Humanity
+                  .col-md-9.wpb-menu-container
+                    ul.wpb-main-menu
+                      li
+                        a(href='/') Home
+
+      #homer.wpb-teaser.parallax-background
+        .background-opacity
+          .container
+            #main-text.row
+              //
+                 Teaser Text Start 
+              .wpb-text
+                h3#slogan Sign Up / Sign In
+              //
+                 Teaser Text End 
+
+
+  div.sign-body
+    div.more-sign
+      form.signup.form-horizontal(action="/users", method="post")
+        .control-group
+          label.control-label(for='name') Full name
+          .controls
+            input#name(type='text', name="name", placeholder='Full name', value=user.name)
+
+        .control-group
+          label.control-label(for='email') Email
+          .controls
+            input#email(type='text', name="email", placeholder='Email', value=user.email)
+
+        .control-group
+          label.control-label(for='username') Username
+          .controls
+            input#username(type='text', name="username", placeholder='Username', value=user.username)
+
+        .control-group
+          label.control-label(for='password') Password
+          .controls
+            input#password(type='password', name="password", placeholder='Password')
+
+        ul.avatar-list(ng-controller="IndexController")
+          li.avatars(ng-repeat="avatar in avatars")
+            input#avatar(name="avatar", type='radio', value="{{$index}}")
+            img(ng-src="{{avatar}}")
+
+        .form-actions
+          a.show-sign-up(href='/app')
+            button.btn.btn-primary(type='submit') Sign up
+            &nbsp;
+            | or&nbsp;
+            a.show-login(href="/signin") login
+
+

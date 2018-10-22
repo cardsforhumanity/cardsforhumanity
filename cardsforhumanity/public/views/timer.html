@@ -1,0 +1,6 @@
+<div id = "inner-timer-container">
+  <span id="timer-status-round" ng-hide="game.state === 'winner has been chosen' || game.state === 'waiting for czar to decide'"> Time Remaining</span>
+  <span id="timer-status-czar-choosing" ng-show="game.state === 'winner has been chosen'"> Next Round In</span>
+  <span id="timer-status-czar-choosing" ng-show="game.state === 'waiting for czar to decide'"> Czar Choosing</span>
+  <div id="time" ng-bind="game.time"></div>
+</div>

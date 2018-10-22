@@ -1,0 +1,1257 @@
+ .clear {
+   clear:both;
+ }
+
+ .uppercase {
+   text-transform: uppercase;
+ }
+
+ #landing-charity {
+   width: 300px !important;
+   margin-left: 15px !important;
+   max-width: 100% !important;
+   position: relative !important;
+   float: left !important;
+   top: -65px;
+}
+
+#tweet-container-index{
+   margin-top: 10px;
+   display: inline-block;
+   position: relative;
+   top: 5px;
+}
+
+#twitter-facebook{
+   display: block;
+}
+
+#send-link{
+   color: white;
+   text-align: center;
+   display: block;
+   margin-bottom: 10px;
+}
+
+#facebook-share{
+   font-size: 12px;
+   padding: 3px;
+   background: white;
+   border-radius: 3px;
+   margin-left: 10px;
+   background-color: #f8f8f8;
+   background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#dedede));
+   background-image: -moz-linear-gradient(top,#fff,#dedede);
+   background-image: -o-linear-gradient(top,#fff,#dedede);
+   background-image: -ms-linear-gradient(top,#fff,#dedede);
+   background-image: linear-gradient(top,#fff,#dedede);
+   border: #ccc solid 1px;
+   -moz-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+   color: #333;
+   font-weight: bold;
+   text-shadow: 0 1px 0 rgba(255,255,255,.5);
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+   cursor: pointer;
+}
+
+#facebook-share a{
+   color: #333;
+}
+
+.some-text {
+   text-align: center;
+   color: white;
+   max-width: 800px;
+   margin: 0 30px;
+}
+
+#give {
+   color: white;
+   text-align: center;
+}
+
+#info-box {
+   margin-top: 25px;
+   margin-left: 10%;
+}
+
+#wish {
+   max-width: 25%;
+}
+
+
+@media(min-width: 400px) and (max-width: 950px) {
+   .some-text {
+      text-align: center;
+      float: left;
+      margin-top: -50px;
+   }
+
+   #info-box {
+      margin-left: 0%;
+   }
+
+   #landing-charity {
+      width: 67%!important;
+      margin-left: 21% !important;
+      max-width: 100% !important;
+      float: left !important;
+      top: -65px;
+   }
+}
+
+@media (max-width: 400px) {
+   #landing-charity {
+      margin-bottom: -60px;
+   }
+
+   #info-box {
+      margin-left: 0%;
+   }
+
+   .some-text {
+      margin: 0;
+   }
+}
+
+.sign-error {
+   text-align: center;
+   color: white;
+   font-family: arial;
+   margin-bottom: -13px;
+}
+
+
+ /**** Links ****/
+ a {
+   color: #60B197;
+   -webkit-transition: color 0.5s ease;
+   -moz-transition: color 0.5s ease;
+   -ms-transition: color 0.5s ease;
+   -o-transition:  color 0.5s ease;
+   transition:  color 0.5s ease;
+ }
+
+ a:hover {
+   text-decoration: none;
+   color: #2ecc71;
+   border-radius:0px !important;
+ }
+
+ p a {
+   color: #60B197;
+ }
+
+ p a:hover {
+   color: #2ecc71;
+ }
+
+
+ /**** Top Bar ****/
+#menu-container {
+   width: 100%;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   background: #252525;
+   margin: 10px 0;
+   padding: 5px;
+}
+
+#landing-logo {
+   margin: 5px 0 5px 0px;
+   font-size: 28px;
+   font-family: 'Lobster', cursive;
+   border-radius: 8px;
+   background: #252525;
+   padding: 5px 5px 5px 13px;
+}
+
+#first-word {
+   color: #7CE4E8;
+}
+
+#second-word {
+   color: #FFFFA5;
+}
+
+#third-word {
+   color: #FC575E;
+}
+
+#warning-word {
+   color: #FC575E;
+}
+
+ .wpb-top-bar {
+   height: 60px;
+   background: transparent;
+   position: fixed;
+   top:0;
+   width: 100%;
+   z-index:10000;
+   max-width: 1400px;
+ }
+
+ .wpb-logo-container {
+   color: #fff;
+   font-weight: bold;
+   font-size: 11px;
+   max-width: 100%;
+   margin-right: 9px;
+ }
+
+ .wpb-logo-container a {
+   color: #ffffff !important;
+ }
+
+
+ .wpb-menu-container {
+   float: right;
+
+ }
+
+ .wpb-menu-container .wpb-dropdown-menu {
+   display: none;
+   margin-top: 35px;
+   text-align: center;
+   float: right;
+ }
+
+ .wpb-menu-container .wpb-main-menu {
+   list-style: none;
+   margin: 0;
+   text-align: right;
+   height: 100px;
+   margin-top: -77px;
+   margin-right: 35px;
+ }
+
+ .wpb-menu-container .wpb-main-menu li {
+   display: inline-block;
+   height: 100%;
+   position: relative;
+   cursor: pointer;
+ }
+
+  .wpb-menu-container .wpb-main-menu li a:hover {
+   color: #2ECC71 !important;
+   -webkit-transition: color 0.5s ease;
+   -moz-transition: color 0.5s ease;
+   -ms-transition: color 0.5s ease;
+   -o-transition:  color 0.5s ease;
+   transition:  color 0.5s ease;
+ }
+
+ .wpb-menu-container .wpb-main-menu li a {
+   display: block;
+   height: 100%;
+   line-height: 100px;
+   font-weight: bold;
+   color: white;
+   padding: 0px 10px;
+   -webkit-transition: color 0.5s ease;
+   -moz-transition: color 0.5s ease;
+   -ms-transition: color 0.5s ease;
+   -o-transition:  color 0.5s ease;
+   transition:  color 0.5s ease;
+   text-transform: uppercase;
+   position: relative;
+   z-index:1000;
+ }
+
+
+
+
+ /**** LANDING ****/
+
+ #main-text {
+   margin: 5px;
+ }
+
+ #avatars {
+   width: 100%;
+   margin-top: -11%;
+   margin-bottom: 3%;
+ }
+
+ #avatar-face {
+   width: 8.3%;
+ }
+
+ .wpb-teaser {
+   min-height: 450px;
+   position: relative;
+   z-index:990;
+   width: 90%;
+   margin: 0px auto;
+   border-radius: 8px;
+   margin-top: 70px;
+   padding: 30px;
+ }
+
+ .wpb-teaser .background-opacity {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   min-height: 100%;
+   z-index:999;
+   background: #252525;
+   border-radius: 8px;
+   padding: 20px;
+ }
+
+ .wpb-teaser .container {
+   position: relative;
+   z-index:1000;
+   padding-top: 120px;
+ }
+
+ .wpb-teaser .modified-container {
+   position: relative;
+   z-index: 1000;
+ }
+
+ .wpb-teaser .wpb-slogan h2 {
+   color: #fff;
+   font-weight: bold;
+   font-size: 52px;
+   text-transform: uppercase;
+   line-height: 60px;
+   text-align: center;
+ }
+
+ #slogan {
+   text-align: center;
+   color: white;
+ }
+
+ .wpb-teaser .wpb-text p {
+   color: #fff;
+   padding-top: 15px;
+   text-align: center;
+   font-size: 1.15em;
+   margin: 0 auto;
+   width: 84%;
+   max-width: 585px;
+   padding-bottom: 20px;
+ }
+
+#navver {
+   height: 60px;
+}
+
+
+ /**** Section Title ****/
+ .wpb-section-title {
+   background-color: #24272a;
+   height: 100px;
+ }
+
+ .wpb-section-title .wpb-title {
+   color: #fff;
+   font-size: 32px;
+   text-transform: uppercase;
+   font-weight: bold;
+   line-height: 100px;
+ }
+
+ .wpb-section-title .wpb-title-description {
+   color: #515e65;
+   font-size: 14px;
+   text-transform: none;
+   padding-left: 5px;
+   line-height: 100px;
+   display: inline-block;
+   vertical-align: top;
+ }
+
+ #create {
+    text-align: center;
+    color: white;
+    font-family: arial;
+    margin-bottom: -13px;
+ }
+
+ #sign-up-btn-landing {
+   display: inline-block;
+   border-radius: 8px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   font-size: 20px;
+   font-size: 2em;
+   font-weight: 400;
+   text-align: center;
+   color: white;
+   background: #C54141;
+   margin-top: 3px;
+   margin-bottom: 3px;
+   margin-right: 10px;
+   padding: 0.65em 35px;
+   cursor: pointer;
+ }
+
+  #sign-up-btn-other {
+   display: inline-block;
+   border-radius: 8px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   font-size: 20px;
+   font-size: 1.35em;
+   font-weight: 400;
+   text-align: center;
+   color: white;
+   background: #C54141;
+   margin-top: 3px;
+   margin-bottom: 3px;
+   margin-right: 10px;
+   padding: 0.1em 35px;
+   cursor: pointer;
+ }
+
+ /**** About Us ****/
+#main-bod {
+   max-width: 1400px;
+   margin: 0px auto;
+}
+
+ .wpb-about-us {
+   background-color: #fff;
+   margin-top: 9%;
+ }
+
+ #team-photo {
+   max-width: 84% !important;
+   width: 84%;
+   margin: 0 8%;
+ }
+
+ #gitcat {
+   max-width: 50px !important;
+   padding-right: 10px;
+ }
+
+ #login-buttons {
+   text-align: center;
+ }
+
+ .login-item {
+   max-width: 48%;
+ }
+
+ .input-info {
+   max-width: 100%;
+ }
+
+ #how-to {
+   max-width: 1400px;
+   margin-top: -15px;
+ }
+
+ #how-to-play {
+   margin-top: 190px;
+ }
+
+ #how-to-cards {
+   text-align: center;
+ }
+
+ #how-to-container {
+   padding-top: 0;
+ }
+
+ #card-list {
+   margin-bottom: 15px;
+ }
+
+ #directions {
+   font-family: 'Lobster', cursive;
+   color: #FC575E;
+ }
+
+ .sign-body {
+   text-align: center;
+ }
+
+ #sign-up {
+   text-align: center;
+ }
+
+#sign-up-text {
+   margin: 0px auto;
+   font-size: 18px;
+   font-family: 'Lobster', cursive;
+   border-radius: 8px;
+   background: #252525;
+   margin-left: 40px;
+   overflow: hidden;
+}
+
+.sign-in-header {
+   color: #fff;
+   font-weight: bold;
+   font-size: 52px;
+   text-transform: uppercase;
+   line-height: 60px;
+   text-align: center;
+   margin-bottom: -15px;
+}
+
+.top-margin {
+   margin-top: 15px;
+}
+
+ #team {
+   max-width: 1400px;
+ }
+
+ .floater {
+   margin-top: 0px !important;
+   float: right;
+}
+
+ li {
+   list-style-type: none;
+ }
+
+ #contain-avatars {
+   margin-top: 25px;
+ }
+
+ .avatar-list {
+   overflow: hidden;
+   padding-left: 0px;
+   margin-left: 3%;
+ }
+
+ .avatar-list img {
+   max-width: 60%;
+ }
+
+ .avatars {
+   position: relative;
+   float: left;
+   margin: 2px 5px;
+   border-radius: 8px;
+ }
+
+ /**** Portfolio ****/
+ .wpb-portfolio-list .wpb-portfolio-item {
+   margin-left: 10px;
+   list-style-type: none;
+   width: 30%;
+   float: left;
+ }
+
+ .wpb-portfolio-list .wpb-portfolio-item:nth-child(3n) {
+   margin-right: 0px;
+ }
+
+ .wpb-portfolio-item {
+   background-color: #fff;
+   margin-bottom: 20px;
+   width: 21%;
+   float: left;
+ }
+
+ .wpb-portfolio-item .wpb-portfolio-thumbnail {
+   height: 170px;
+   overflow: hidden;
+   position:relative;
+ }
+
+
+ .wpb-portfolio-item .wpb-portfolio-thumbnail>img {
+   position: absolute;
+   width: 100%;
+ }
+
+ .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay {
+   position: absolute;
+   top:0;
+   left:0;
+   width: 100%;
+   height: 100%;
+   z-index:1001;
+   background: url('img/mongo-logo.png');
+ }
+
+ .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
+   min-width: none !important;
+ }
+
+ .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay div {
+   line-height: 170px;
+   width: 100%;
+   text-align: center;
+   font-size: 3em;
+ }
+
+ .wpb-portfolio-details {
+   padding: 0px 25px 10px 25px;
+ }
+
+ .wpb-portfolio-details h3 {
+   font-size: 18px;
+   color: #24272a !important;
+ }
+
+ .wpb-portfolio-details p {
+   color:#515e65 !important;
+ }
+
+ /**** Portfolio ****/
+ .wpb-portfolio-body {
+
+ }
+
+ .wpb-portfolio-body .wpb-teaser {
+   min-height: 350px;
+ }
+
+ .wpb-portfolio-body .wpb-teaser .container {
+   padding-top: 60px;
+ }
+
+ .wpb-portfolio-page .container {
+   top:0px;
+ }
+
+ .wpb-portfolio-body .wpb-portfolio-filter-container {
+   padding-top: 50px;
+ }
+
+ .wpb-portfolio-body .wpb-portfolio-filter-container span {
+   display: inline-block;
+   padding-right: 30px;
+   text-transform: uppercase;
+   color: #ffffff !important;
+ }
+
+ .wpb-portfolio-body .wpb-portfolio-filter {
+   margin: 0;
+   display: inline-block;
+ }
+
+ .wpb-portfolio-body .wpb-portfolio-filter li {
+   display: inline-block;
+   text-transform: uppercase;
+   color: #ffffff !important;
+   padding-right: 15px;
+ }
+
+ .wpb-portfolio-body .wpb-portfolio-filter li a {
+   color: #ffffff;
+   padding: 5px 14px;
+   border-radius:5px;
+   border:1px solid transparent;
+   overflow: hidden;
+   -webkit-transition: background-color 0.5s ease;
+   -moz-transition: background-color 0.5s ease;
+   -ms-transition: background-color 0.5s ease;
+   -o-transition:  background-color 0.5s ease;
+   transition:  background-color 0.5s ease;
+ }
+
+
+
+ /**** Team List ****/
+ .wpb-team-list .wpb-team-item {
+   margin-left: 0px;
+   margin-right: 10px;
+ }
+
+ .wpb-team-list .wpb-team-item:nth-child(3n) {
+   margin-right: 0px;
+ }
+
+ .wpb-team-item {
+   background-color: #fff;
+   margin-bottom: 20px;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail {
+   height: 300px;
+   overflow: hidden;
+   position:relative;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail:hover .wpb-team-overlay {
+   opacity:1;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail>img {
+   position: absolute;
+   width: 100%;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay {
+   -webkit-transition: opacity 0.5s ease;
+   -moz-transition: opacity 0.5s ease;
+   -ms-transition: opacity 0.5s ease;
+   -o-transition:  opacity 0.5s ease;
+   transition:  opacity 0.5s ease;
+   position: absolute;
+   top:0;
+   left:0;
+   width: 100%;
+   height: 100%;
+   z-index:1001;
+   background: rgba(55, 50, 53, 0.9);
+   opacity:0;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay img {
+   min-width: none !important;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div {
+   line-height: 500px;
+   width: 100%;
+   text-align: center;
+   font-size: 3em;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content h3 {
+      color: #ffffff !important;
+      font-size: 18px;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content a {
+   color: #ffffff !important;
+
+ }
+
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content i {
+   font-size: 1.5em;
+   padding-right: 5px;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content {
+   text-transform: uppercase;
+   color: #ffffff !important;
+   font-size: 14px;
+   line-height: normal;
+   margin-top: 125px;
+ }
+
+ .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content p {
+   line-height: normal;
+   display: inline-block;
+   width: 100%;
+ }
+
+ .wpb-team-details {
+   padding: 0px 25px 10px 25px;
+   text-align: center;
+ }
+
+ .wpb-team-details h3 {
+   font-size: 18px;
+   color: white !important;
+ }
+
+ .wpb-team-details p {
+   color:#515e65 !important;
+ }
+
+
+ /**** Single Portfolio Item ****/
+ .wpb-single-portfolio {
+ }
+
+ .wpb-single-portfolio .wpb-content-inner {
+   padding: 0px;
+ }
+
+ .wpb-single-portfolio .wpb-content-inner p {
+   padding: 12px 0px;
+ }
+
+ .wpb-single-portfolio .wpb-content-inner .inner {
+   padding: 0px 25px 25px 25px;
+ }
+
+ .wpb-single-portfolio .container {
+   top:-100px;
+   position: relative;
+   z-index:1010;
+   background-color: #24272A;
+ }
+
+ .wpb-single-portfolio .wpb-content {
+   padding: 25px 0px 25px 0px;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-thumbnail {
+   height: 270px;
+   overflow: hidden;
+   position: relative;
+   margin-left: 25px;
+   width: 45%;
+   display: inline-block;
+   margin-bottom: 25px;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-thumbnail:hover .wpb-portfolio-overlay {
+   opacity:1;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-thumbnail>img {
+   position: absolute;
+   min-height: 100%;
+   height: 100%;
+   max-width: none !important;
+   min-width: 100%;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay {
+   -webkit-transition: opacity 0.5s ease;
+   -moz-transition: opacity 0.5s ease;
+   -ms-transition: opacity 0.5s ease;
+   -o-transition:  opacity 0.5s ease;
+   transition:  opacity 0.5s ease;
+   position: absolute;
+   top:0;
+   left:0;
+   width: 100%;
+   height: 100%;
+   z-index:1001;
+   background: rgba(26, 204, 113, 0.6);
+   opacity:0;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
+   min-width: none !important;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay div {
+   line-height: 200px;
+   width: 100%;
+   text-align: center;
+   font-size: 3em;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-description .wpb-portfolio-main-thumbnail {
+   margin-bottom: 25px;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-main-thumbnail img {
+   max-width:100% !important;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-description {
+   margin-right: 25px;
+   margin-left: 0px;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-description ul {
+   margin: 0;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-description ul li {
+   padding-bottom: 15px;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-description ul li p.wpb-list-title {
+   text-transform: uppercase;
+ }
+
+
+
+ .wpb-single-portfolio .wpb-portfolio-description ul li p {
+   padding: 0;
+   margin: 0;
+ }
+
+ .wpb-single-portfolio .wpb-portfolio-description h3 {
+   margin: 0;
+ }
+
+ /**** Contact Us ****/
+ .wpb-contact-us {
+   min-height: 540px;
+   position: relative;
+   z-index:890;
+ }
+
+ .wpb-contact-us .google-map-container {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top:0;
+   bottom: 0;
+   left:0;
+ }
+
+ .wpb-contact-us .wpb-section-title, .wpb-contact-us .container {
+   position: relative;
+   z-index: 1000;
+ }
+
+ .wpb-contact-us .background-opacity {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   min-height: 100%;
+   z-index:900;
+   background: #252525;
+ }
+
+
+ /**** Contact Us Information ****/
+ .wpb-contact-us-info {
+   margin-top: 25px;
+   color: #fff;
+ }
+
+ .wpb-contact-us-info ul {
+   margin: 0;
+   padding: 0;
+ }
+
+ .wpb-contact-us-info ul li {
+   padding-bottom:10px;
+ }
+
+
+ /**** Footer ****/
+
+ .foot {
+   bottom: 0;
+   max-width: 1400px;
+   border-radius: 8px;
+   background: #252525;
+   padding: 5px 5px 5px 13px;
+   width: 90%;
+   margin: 30px auto;
+ }
+
+ .legal {
+   color: white;
+ }
+
+ /**** Margins ****/
+
+.mod-contain {
+   /*padding-right: 15px;
+   padding-left: 15px;*/
+   margin-right: auto;
+   margin-left: auto;
+   width: 90%;
+}
+
+ .container-margin {
+   padding-top:60px;
+   padding-bottom: 60px;
+ }
+
+.arrow {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left:-20px;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 3;
+  -moz-animation-iteration-count: 3;
+  -o-animation-iteration-count: 3;
+  animation-delay: 5s;
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  -o-animation-delay: 5s;
+}
+
+
+.landing-card {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 17.5%;
+  height: 215px;
+  padding: 1%;
+  margin: 1%;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #252525;
+  font-family: Arial;
+  font-size: 1.1em;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+
+/*Override Bootstrap Row Class*/
+.row {
+   margin-left: 0;
+   margin-right: 9px;
+}
+
+#donations {
+   margin-top: 160px;
+}
+
+/*MORE MEDIA QUERIESS WHOOOOOAAAA*/
+
+@media (min-width: 1430px) {
+   .row {
+      margin: 0 0 -9px 0;
+   }
+
+   .wpb-logo-container {
+      margin-right: 0;
+   }
+}
+
+@media(max-width: 680px) {
+   .wpb-menu-container {
+      display: none;
+   }
+
+   .mod-contain {
+      text-align: center;
+   }
+}
+
+@media (min-width : 480px) and (max-width : 865px)  {
+   .wpb-menu-container .wpb-main-menu {
+      text-align: right;
+      height: 100px;
+      margin-top: -77px;
+      font-size: .85em;
+   }
+
+   .wpb-menu-container .wpb-main-menu li a {
+      display: block;
+      height: 100%;
+      line-height: 100px;
+      font-weight: bold;
+      color: white;
+      padding: 0px 3px;
+      -webkit-transition: color 0.5s ease;
+      -moz-transition: color 0.5s ease;
+      -ms-transition: color 0.5s ease;
+      -o-transition: color 0.5s ease;
+      transition: color 0.5s ease;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1000;
+   }
+   .wpb-logo-container {
+      color: #fff;
+      font-weight: bold;
+      margin-right: 0;
+      font-size: 11px;
+      max-width: 99%;
+   }
+
+   .wpb-teaser .container {
+      position: relative;
+      z-index: 1000;
+      padding-top: 70px;
+   }
+
+   .landing-card {
+      font-size: 0.8em;
+   }
+}
+
+@media (min-width : 865px) and (max-width : 1024px)  {
+   .wpb-menu-container .wpb-main-menu {
+      text-align: right;
+      height: 100px;
+      margin-top: -77px;
+      font-size: .9em;
+      margin-right: 35px;
+   }
+
+   .wpb-menu-container .wpb-main-menu li a {
+      display: block;
+      height: 100%;
+      line-height: 100px;
+      font-weight: bold;
+      color: white;
+      padding: 0px 6px;
+      -webkit-transition: color 0.5s ease;
+      -moz-transition: color 0.5s ease;
+      -ms-transition: color 0.5s ease;
+      -o-transition: color 0.5s ease;
+      transition: color 0.5s ease;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1000;
+   }
+   .wpb-logo-container {
+      color: #fff;
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 11px;
+   }
+
+   .wpb-teaser .container {
+      position: relative;
+      z-index: 1000;
+      padding-top: 70px;
+   }
+
+   #ang-logo {
+      width: 37% !important;
+   }
+}
+ @media (max-width: 480px) {
+
+   #sign-up-btn{
+      font-size: 1.5rem;
+   }
+   .wpb-teaser .container {
+      position: relative;
+      z-index: 1000;
+      padding: 0;
+   }
+
+    .wpb-teaser {
+      min-height: 360px;
+      position: relative;
+      z-index: 990;
+      width: 98%;
+      margin: 0px auto;
+      border-radius: 8px;
+      padding: 30px;
+   }
+
+    .wpb-teaser .wpb-slogan h2 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.6em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 24px;
+   }
+
+   .wpb-top-bar {
+      height: 60px;
+      background: transparent;
+      position: relative;
+      top: 0;
+      width: 100%;
+      z-index: 10000;
+      max-width: 1400px;
+   }
+
+   .mod-contain {
+      width: 100%;
+      text-align: center;
+   }
+
+   #homer {
+      padding-top: 0;
+   }
+
+   #main-text {
+      margin: 0;
+   }
+
+   .wpb-menu-container {
+      display: none;
+   }
+
+   .wpb-teaser .parallax-background {
+      padding: 10% 0 0 0;
+   }
+
+   #avatars {
+      display: none;
+   }
+
+   #slogan {
+      text-align: center;
+      color: white;
+      font-size: 1.3em;
+   }
+
+   #how-to-play {
+      margin-top: 0;
+   }
+
+   #how-to-play {
+      margin-top: 80px;
+   }
+
+   .landing-card {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      padding: 4%;
+      margin: 5% 0;
+      background-color: #fff;
+      border-radius: 8px;
+      color: #252525;
+      font-family: Arial;
+      font-size: 20px;
+      font-weight: bold;
+      vertical-align: top;
+      width: 100%;
+   }
+
+   .wpb-portfolio-list .wpb-portfolio-item {
+      margin-left: -20px;
+      border-radius: 8px;
+      list-style-type: none;
+      width: 100%;
+   }
+
+   .wpb-contact-us {
+      min-height: 0;
+      position: relative;
+      z-index: 890;
+      margin-top: 50px;
+   }
+
+   .wpb-team-details h3 {
+      font-size: 0.94em;
+      margin-top: -5px;
+   }
+
+   #how-to-container {
+      padding-top: 0;
+   }
+
+   .avatar-list {
+      overflow: hidden;
+      padding-left: 0px;
+      margin-left: 0;
+   }
+
+   .avatars {
+      position: relative;
+      float: left;
+      margin: 2px 17px;
+   }
+
+   .foot {
+      bottom: 0;
+      max-width: 1400px;
+      height: 60px;
+      border-radius: 8px;
+      background: #252525;
+      padding: 5px 5px 5px 13px;
+      width: 100%;
+      margin: 30px auto;
+   }
+
+   .row {
+      margin: 0 0 0 4px;
+   }
+ }

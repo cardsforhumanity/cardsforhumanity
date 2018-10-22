@@ -1,0 +1,16 @@
+Change Log
+===========
+
+1.0.2
+--------
+* Added test for: 'should be able to show an error when try to save with already-existing username'
+* Added test for: 'should be able to show an error when try to save without username'
+* Added test for: 'should be able to show an error when try to save with email not properly formed'
+
+1.0.1
+--------
+* Added change log
+* Added support for reading environment variables from .env
+* Updated Node and npm versions
+* Added TravisCI badge to readme
+* Added schema for 'Article', making the 'title' field to be required, so that the unit test "should be able to show an error when try to save without title" passes

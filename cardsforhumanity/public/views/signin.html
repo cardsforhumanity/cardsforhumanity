@@ -1,0 +1,71 @@
+<div id="main-bod" ng-controller="IndexController">
+  <!-- Fixed Logo & Menu Bar Start -->
+  <div id="top-part">
+    <div class="wpb-top-bar">
+      <div class="mod-contain" id="navver">
+        <div class="row">
+          <!-- Logo -->
+          <div class="wpb-logo-container">
+            <div id="landing-logo"> 
+              <span id="first-word">Cards</span>
+              <span id="second-word"> for</span> 
+              <span id="third-word">Humanity</span> 
+            </div> 
+            <div class="col-md-9 wpb-menu-container">
+              <ul class="wpb-main-menu">
+                <li><a href="/">Home</a></li>
+              </ul>
+            </div>
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Fixed Logo & Menu Bar End -->
+
+<!-- Landing Start -->
+<div class="wpb-teaser parallax-background" id="homer">
+  <div class="background-opacity"></div> 
+  <div class="modified-container">
+    <div class="row" id="main-text"> 
+    <!-- Teaser Text Start -->
+    <div id="landing-logo">
+      <h2 id="slogan">Sign in with:</h2>
+      <div id="login-buttons">
+        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
+        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
+        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
+        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
+      </div>
+      <p id="create">Or log in below:</p>
+
+      <div class="sign-body">
+        <div class="more-sign">
+          <div class="sign-error" ng-show="showError() === 'invalid'">
+            Please check your username/password and try again.
+          </div>
+          <form class="signup form-horizontal" action="/users/session" method="post">
+            <div class="control-group">
+              <label for="email" class="control-label"></label>
+              <div class="controls">
+                <input class="input-info" id="email" type="text" name="email" placeholder="Email" required novalidate />
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="password" class="control-label"></label>
+              <div class="controls">
+                <input class="input-info" id="password" type="password" name="password" placeholder="Password" required novalidate />
+              </div>
+            </div>
+            <div class="form-actions top-margin">
+              <button id="sign-up-btn-other" type='submit'>Sign In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+

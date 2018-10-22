@@ -1,0 +1,5 @@
+extends layouts/default
+block content
+  section(data-ng-view, id = "main-container")
+  script(type="text/javascript").
+    window.user = !{user};

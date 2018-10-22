@@ -1,0 +1,21 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "~3.0.0",
+    "angular-bootstrap": "~0.4.0",
+    "angular-ui-utils": "0.0.4",
+    "jquery": "~1.9.1",
+    "underscore": "~1.5.2"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "css": "dist/css/*",
+      "js": "dist/js/*",
+      "fonts": "dist/fonts/*"
+    },
+    "angular-ui-utils": {
+      "modules": "modules/route/route.js"
+    }
+  }
+}
