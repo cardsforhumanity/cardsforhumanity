@@ -4,6 +4,8 @@
 var should = require('should'),
     app = require('../../server'),
     mongoose = require('mongoose'),
+    expect = require('chai').expect,
+     assert = require('assert'),
     User = mongoose.model('User');
 
 //Globals
@@ -27,10 +29,10 @@ function getRandomString(length) {
 }
 
 //The tests
-describe('<Unit Test>', function () {
-    describe('Model User:', function () {
+///describe('<Unit Test>', function () {
+    suite('Model User:', function () {
 
-        before(function (done) {
+        test('should be able to save without problems', function (done) {
             user = new User({
                 name: 'Full name',
                 email: 'test@test.com',
@@ -40,19 +42,18 @@ describe('<Unit Test>', function () {
 
             done();
         });
+    });
 
-        describe('Method Save', function () {
-
-            it('should be able to save without problems', function (done) {
-                this.timeout(15000);
+    suite('Method Save', function () {
+            test('should be able to save without problems', function (done) {
+                this.timeout(10000);
                 return user.save(function (err) {
                     should.not.exist(err);
-                    setTimeout(done, 15000);
                     done();
                 });
             });
 
-            it('should be able to show an error when try to save without name', function (done) {
+            test('should be able to show an error when try to save without name', function (done) {
                 user.name = '';
                 return user.save(function (err) {
                     should.exist(err);
@@ -60,7 +61,7 @@ describe('<Unit Test>', function () {
                 });
             });
 
-            it('should be able to show an error when try to save with already-existing username', function (done) {
+            test('should be able to show an error when try to save with already-existing username', function (done) {
                 var copy = new User({
                     name: 'Copy user',
                     email: 'copy@copy.com',
@@ -73,7 +74,7 @@ describe('<Unit Test>', function () {
                 });
             });
 
-            it('should be able to show an error when try to save without username', function (done) {
+            test('should be able to show an error when try to save without username', function (done) {
                 user.name = 'Full name';
                 user.username = '';
                 return user.save(function (err) {
@@ -82,7 +83,7 @@ describe('<Unit Test>', function () {
                 });
             });
 
-            it('should be able to show an error when try to save with email not properly formed', function (done) {
+            test('should be able to show an error when try to save with email not properly formed', function (done) {
                 user.email = 'wrong-format';
                 return user.save(function (err) {
                     should.exist(err);
@@ -90,9 +91,3 @@ describe('<Unit Test>', function () {
                 });
             });
         });
-
-        after(function (done) {
-            done();
-        });
-    });
-});

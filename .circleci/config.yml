@@ -1,4 +1,4 @@
-# setup node environment
+ # setup node environment
 machine:
   environment:
     CC_TEST_REPORTER_ID: 816a5dc65691ff7efa8b3bf25ea86868288b6b704dd172ce2c39fd3e180bdd16
@@ -27,6 +27,7 @@ test:
 
 # install dependencies
 dependencies:
+
   pre:
     - npm install
   override:
@@ -38,7 +39,7 @@ dependencies:
     - chmod +x ./cc-test-reporter 
 
 deployment:
-  staging: # just a label; label names are completely up to you
+  production: # just a label; label names are completely up to you
     branch: master
     heroku:
       appname: cfhapp
@@ -46,3 +47,4 @@ deployment:
 
     
  
+

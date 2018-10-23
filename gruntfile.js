@@ -1,120 +1,73 @@
-module.exports = function(grunt) {
-    // Project Configuration
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        watch: {
-            jade: {
-                files: ['app/views/**'],
-                options: {
-                    livereload: true,
-                },
-            },
-            js: {
-                files: ['public/js/**', 'app/**/*.js'],
-                tasks: ['jshint'],
-                options: {
-                    livereload: true,
-                },
-            },
-            html: {
-                files: ['public/views/**'],
-                options: {
-                    livereload: true,
-                },
-            },
-            sass: {
-                files: ['public/css/common.scss, public/css/views/articles.scss'],
-                tasks: ['sass:dist']
-            },
-            css: {
-                files: ['public/css/**'],
-                tasks: ['sass'],
-                options: {
-                    livereload: true
-                }
-            }
-        },
-        jshint: {
-            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
-        },
-        nodemon: {
-            dev: {
-                options: {
-                    file: 'server.js',
-                    args: [],
-                    ignoredFiles: ['README.md', 'node_modules/**', '.DS_Store'],
-                    watchedExtensions: ['js'],
-                    watchedFolders: ['app', 'config'],
-                    debug: true,
-                    delayTime: 1,
-                    env: {
-                        PORT: 8080
-                    },
-                    cwd: __dirname
-                }
-            }
-        },
-        concurrent: {
-            tasks: ['nodemon', 'watch'],
-            options: {
-                logConcurrentOutput: true
-            }
-        },
-        mochaTest: {
-            options: {
-                reporter: 'spec'
-            },
-            src: ['test/**/*.js']
-        },
-        mocha_istanbul: {
-            coverage: {
-                src: 'test', // a folder works nicely
-                options: {
-                    mochaOptions: ['--ui', 'tdd'] // any extra options for mocha
-                }
-            }
-        },
-        sass: {
-            dist: {
-                options: {
-                    style: 'expanded'
-                },
-                files: {
-                    'public/css/common.css': 'public/css/common.scss'
-                },
-            }
-        },
-        bower: {
-            install: {
-                options: {
-                    targetDir: './public/lib',
-                    layout: 'byComponent',
-                    install: true,
-                    verbose: true,
-                    cleanBowerDir: true
-                }
-            }
-        },
-    });
+var coverageFolder = process.env.CIRCLE_TEST_REPORTS == undefined ? 'coverage' : process.env.CIRCLE_TEST_REPORTS + '/coverage';
 
-    //Load NPM tasks 
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-test');
-    grunt.loadNpmTasks('grunt-nodemon');
-    grunt.loadNpmTasks('grunt-concurrent');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-bower-task');
+module.exports = function (grunt) {
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    mochaTest: {
+      local: {
+        options: {
+          reporter: 'spec',
+          quiet: false, // Optionally suppress output to standard out (defaults to false)
+          clearRequireCache: false, // Optionally clear the require cache before running tests (defaults to false)
+          ui: 'tdd'
+        },
+        src: ['test/**/*.js']
+      },
+      circleci: {
+        options: {
+          ui: 'tdd',
+          reporter: 'mocha-junit-reporter',
+          quiet: false,
+          reporterOptions: {
+            mochaFile: process.env.CIRCLE_TEST_REPORTS + '/mocha/results.xml'
+          }
+        },
+        src: ['test/**/*.js']
+      },
+      shippable: {
+        options: {
+          ui: 'tdd',
+          reporter: 'mocha-junit-reporter',
+          quiet: false,
+          reporterOptions: {
+            mochaFile: 'shippable/testresults/mocha/results.xml'
+          }
+        },
+        src: ['test/**/*.js']
+      },
+    },
+    mocha_istanbul: {
+      coverage: {
+        src: 'test', // a folder works nicely
+        options: {
+          mochaOptions: ['--ui', 'tdd'], // any extra options for mocha
+          istanbulOptions: ['--dir', coverageFolder],
+          reporter: 'spec',
+          reportFormats: ['lcovonly']
+        }
+      }
+    },
+    instrument: {
+      api: {
+        files: 'app/*.js',
+        options: {
+          basePath: 'test/coverage/instrument/'
+        }
+      }
+    },
+  });
 
-    //Making grunt default to force in order not to break the project.
-    grunt.option('force', true);
-
-    //Default task(s).
-    grunt.registerTask('default', ['jshint', 'concurrent', 'sass']);
-
-    //Test task.
-    grunt.registerTask('test', ['mochaTest']);
-
-    //Bower task.
-    grunt.registerTask('install', ['bower']);
+  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
+  // Default task(s).
+  grunt.registerTask('default', []);
+  // Test
+  grunt.registerTask('test', ['mochaTest:local']);
+  // CircleCI
+  grunt.registerTask('circleci', ['mochaTest:circleci', 'mocha_istanbul']);
+  grunt.registerTask('shippable', ['mochaTest:shippable', 'mocha_istanbul']);
+  //Coverage
+  grunt.registerTask('coverage', ['mocha_istanbul']);
 };
