@@ -16,6 +16,7 @@
     "start": "node node_modules/grunt-cli/bin/grunt",
     "test": "mocha ./test/ --recursive",
     "postinstall": "node node_modules/grunt-cli/bin/grunt install"
+    
   },
   "dependencies": {
     "async": "~0.2.9",

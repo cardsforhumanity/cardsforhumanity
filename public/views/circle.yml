@@ -1,0 +1,49 @@
+# setup node environment
+machine:
+  environment:
+    CC_TEST_REPORTER_ID: 816a5dc65691ff7efa8b3bf25ea86868288b6b704dd172ce2c39fd3e180bdd16
+  node:
+    version: 8.9.4
+
+# merge master before testing to make sure all tests pass
+# with the updated version of master
+checkout:
+   post:
+   # Sometimes git might ask for your identity and block the build. Add one valid account here:
+    - git config user.email "mnayebar@andrew.cmu.edu" 
+    - git config user.name "nayebare"
+
+    # run tests
+test:
+   pre: 
+     - ./cc-test-reporter before-build 
+      
+   override: 
+     - mkdir -p coverage
+     - grunt circleci
+     # - ./cc-test-reporter format-coverage --output "ciCoverage/codeclimate.json"  | ./cc-test-reporter upload-coverage --input -
+     #- ./cc-test-reporter upload-coverage --input "$CIRCLE_TEST_REPORTS/mocha/codeclimate.testr.json"
+     #- ./cc-test-reporter after-build -t lcov --exit-code $?
+
+# install dependencies
+dependencies:
+
+  pre:
+    - npm install
+  override:
+    - npm install -g grunt-cli mocha istanbul #codeclimate-test-reporter
+   
+
+  post: 
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter 
+    - chmod +x ./cc-test-reporter 
+
+deployment:
+  staging: # just a label; label names are completely up to you
+    branch: master
+    heroku:
+      appname: cfhapp
+  
+
+    
+ 
