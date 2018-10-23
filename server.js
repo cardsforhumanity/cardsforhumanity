@@ -27,8 +27,8 @@ var db = mongoose.connect(config.db);
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
-var walk = function(path) {
-    fs.readdirSync(path).forEach(function(file) {
+var walk = function (path) {
+    fs.readdirSync(path).forEach(function (file) {
         var newPath = path + '/' + file;
         var stat = fs.statSync(newPath);
         if (stat.isFile()) {
@@ -47,7 +47,7 @@ require('./config/passport')(passport);
 
 var app = express();
 
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     next();
 });
 
@@ -59,7 +59,6 @@ require('./config/routes')(app, passport, auth);
 
 //Start the app by listening on <port>
 var port = config.port;
-console.log(port)
 var server = app.listen(port);
 var ioObj = io.listen(server, { log: false });
 //game logic handled here

@@ -4,6 +4,6 @@ var keys = rootPath + '/keys.txt';
 
 module.exports = {
 	root: rootPath,
-	port: 8080,
+	port: process.env.PORT || 8080,
     db: process.env.MONGOHQ_URL
 };
