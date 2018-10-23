@@ -27,7 +27,6 @@ test:
 
 # install dependencies
 dependencies:
-
   pre:
     - npm install
   override:
