@@ -16,3 +16,9 @@ script: npm test
 after_success:
   - npm run coverage
   #- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+deploy:
+  provider: heroku
+  api_key: 2800bc54-ba01-4a65-8f93-9264a1a84741
+  app:
+    master: cfhapp
+    #production: my-app-production
