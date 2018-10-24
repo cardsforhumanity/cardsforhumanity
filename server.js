@@ -57,11 +57,6 @@ require('./config/express')(app, passport, mongoose);
 //Bootstrap routes
 require('./config/routes')(app, passport, auth);
 
-//defining another static directory
-app.use(express.static(__dirname + '/app'));
-//add this so the browser can GET the bower files
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
-
 //Start the app by listening on <port>
 var port = config.port;
 var server = app.listen(port);
