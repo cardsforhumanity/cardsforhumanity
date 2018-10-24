@@ -1,53 +1,43 @@
-version: 2.0
-
-jobs:
- # setup node environment
-machine:
-  environment:
-    CC_TEST_REPORTER_ID: 816a5dc65691ff7efa8b3bf25ea86868288b6b704dd172ce2c39fd3e180bdd16
-  node:
-    version: 8.9.4
-
-# merge master before testing to make sure all tests pass
-# with the updated version of master
-checkout:
-   post:
-   # Sometimes git might ask for your identity and block the build. Add one valid account here:
-    - git config user.email "mnayebar@andrew.cmu.edu" 
-    - git config user.name "nayebare"
-
-    # run tests
-test:
-   pre: 
-     - ./cc-test-reporter before-build 
-      
-   override: 
-     - mkdir -p coverage
-     - grunt circleci
-     # - ./cc-test-reporter format-coverage --output "ciCoverage/codeclimate.json"  | ./cc-test-reporter upload-coverage --input -
-     #- ./cc-test-reporter upload-coverage --input "$CIRCLE_TEST_REPORTS/mocha/codeclimate.testr.json"
-     #- ./cc-test-reporter after-build -t lcov --exit-code $?
-
-# install dependencies
-dependencies:
-
-  pre:
-    - npm install
-  override:
-    - npm install -g grunt-cli mocha istanbul #codeclimate-test-reporter
-   
-
-  post: 
-    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter 
-    - chmod +x ./cc-test-reporter 
-
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    working_directory: ~/mern-starter # directory where steps will run
+    docker: # run the steps with Docker
+      - image: circleci/node:4.8.2 # ...with this image as the primary container; this is where all `steps` will run
+      - image: mongo:3.4.4 # and this image as the secondary service container
+    steps: # a collection of executable commands 
+      - checkout # special step to check out source code to working directory
+      - run:
+          name: update-npm 
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: # special step to restore the dependency cache 
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: # run tests
+          name: test
+          command: npm test
+      - run: # run coverage report
+          name: code-coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - store_artifacts: # special step to save test results as as artifact
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results: # special step to upload test results for display in Test Summary
+          path: test-results.xml
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
 deployment:
   production: # just a label; label names are completely up to you
     branch: master
     heroku:
       appname: cfhapp
   
-
-    
- 
 
