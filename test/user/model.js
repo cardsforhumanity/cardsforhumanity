@@ -4,8 +4,6 @@
 var should = require('should'),
     app = require('../../server'),
     mongoose = require('mongoose'),
-    expect = require('chai').expect,
-     assert = require('assert'),
     User = mongoose.model('User');
 
 //Globals
@@ -29,10 +27,10 @@ function getRandomString(length) {
 }
 
 //The tests
-///describe('<Unit Test>', function () {
-    suite('Model User:', function () {
+describe('<Unit Test>', function () {
+    describe('Model User:', function () {
 
-        test('should be able to save without problems', function (done) {
+        before(function (done) {
             user = new User({
                 name: 'Full name',
                 email: 'test@test.com',
@@ -42,18 +40,19 @@ function getRandomString(length) {
 
             done();
         });
-    });
 
-    suite('Method Save', function () {
-            test('should be able to save without problems', function (done) {
-                this.timeout(10000);
+        describe('Method Save', function () {
+
+            it('should be able to save without problems', function (done) {
+                this.timeout(15000);
                 return user.save(function (err) {
                     should.not.exist(err);
+                    setTimeout(done, 15000);
                     done();
                 });
             });
 
-            test('should be able to show an error when try to save without name', function (done) {
+            it('should be able to show an error when try to save without name', function (done) {
                 user.name = '';
                 return user.save(function (err) {
                     should.exist(err);
@@ -61,7 +60,7 @@ function getRandomString(length) {
                 });
             });
 
-            test('should be able to show an error when try to save with already-existing username', function (done) {
+            it('should be able to show an error when try to save with already-existing username', function (done) {
                 var copy = new User({
                     name: 'Copy user',
                     email: 'copy@copy.com',
@@ -74,7 +73,7 @@ function getRandomString(length) {
                 });
             });
 
-            test('should be able to show an error when try to save without username', function (done) {
+            it('should be able to show an error when try to save without username', function (done) {
                 user.name = 'Full name';
                 user.username = '';
                 return user.save(function (err) {
@@ -83,7 +82,7 @@ function getRandomString(length) {
                 });
             });
 
-            test('should be able to show an error when try to save with email not properly formed', function (done) {
+            it('should be able to show an error when try to save with email not properly formed', function (done) {
                 user.email = 'wrong-format';
                 return user.save(function (err) {
                     should.exist(err);
@@ -91,3 +90,9 @@ function getRandomString(length) {
                 });
             });
         });
+
+        after(function (done) {
+            done();
+        });
+    });
+});
