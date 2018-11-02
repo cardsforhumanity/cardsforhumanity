@@ -1,7 +1,24 @@
-[![Build Status](https://travis-ci.org/Chieze-Franklin/cards-for-humanity.svg?branch=master)](https://travis-ci.org/Chieze-Franklin/cards-for-humanity)
+**BETTER CODE HUB COMPLIANCE BADGE**
 
-Cards for Humanity - [http://cfh.io](http://cfh.io)
-===========
+[![BCH compliance](https://bettercodehub.com/edge/badge/nayebare/cardsforhumanity?branch=master)](https://bettercodehub.com/)
+
+
+**CODE CLIMATE MAINTAINABILITY**
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/e0775b899dddcf1bec95/maintainability)](https://codeclimate.com/github/nayebare/cardsforhumanity/maintainability)
+
+
+**CODE CLIMATE TEST COVERAGE**
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e0775b899dddcf1bec95/test_coverage)](https://codeclimate.com/github/nayebare/cardsforhumanity/test_coverage)
+
+
+**HEROKU APP**
+
+Cards for Humanity - [https://cfhapp.herokuapp.com/](https://cfhapp.herokuapp.com/)
+
+
+
 Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 
 Our Team

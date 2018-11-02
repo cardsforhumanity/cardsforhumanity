@@ -1,9 +1,10 @@
 /**
  * Module dependencies.
- */
+ 
 var should = require('should'),
     app = require('../../server'),
     mongoose = require('mongoose'),
+    describe = require('describe'),
     User = mongoose.model('User'),
     Article = mongoose.model('Article');
 
@@ -16,8 +17,8 @@ describe('<Unit Test>', function() {
     describe('Model Article:', function() {
         beforeEach(function(done) {
             user = new User({
-                name: 'Full name',
-                email: 'test@test.com',
+                name: 'Fulls name',
+                email: 'test@tsest.com',
                 username: 'user',
                 password: 'password'
             });
@@ -49,6 +50,16 @@ describe('<Unit Test>', function() {
                     done();
                 });
             });
+
+            it('should be able to show an error when try to save without content', function(done) {
+                article.content = '';
+
+                return article.save(function(err) {
+                    should.exist(err);
+                    done();
+                });
+            });
+
         });
 
         afterEach(function(done) {
@@ -56,3 +67,4 @@ describe('<Unit Test>', function() {
         });
     });
 });
+*/

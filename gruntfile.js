@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                     debug: true,
                     delayTime: 1,
                     env: {
-                        PORT: 3000
+                        PORT: 8080
                     },
                     cwd: __dirname
                 }
@@ -65,6 +65,14 @@ module.exports = function(grunt) {
                 reporter: 'spec'
             },
             src: ['test/**/*.js']
+        },
+        mocha_istanbul: {
+            coverage: {
+                src: 'test', // a folder works nicely
+                options: {
+                    mochaOptions: ['--ui', 'tdd'] // any extra options for mocha
+                }
+            }
         },
         sass: {
             dist: {
